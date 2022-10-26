@@ -18,9 +18,8 @@ class CreateCourseVideosTable extends Migration
             $table->string('slug');
             $table->string('name');
             $table->string('url');
-            $table->bigInteger('course_id')->unsigned();
+            $table->foreignId('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->timestamps();
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
         });
     }
 

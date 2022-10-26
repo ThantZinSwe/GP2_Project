@@ -15,13 +15,11 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('course_id')->unsigned();
-            $table->bigInteger('user_id')->unsigned();
+            $table->foreignId('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('amount');
             $table->enum('payment_method', ['cash', 'card', 'kpay']);
             $table->timestamps();
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

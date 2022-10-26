@@ -21,10 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->text('image')->nullable();
             $table->string('phone')->unique();
-            $table->bigInteger('role_id')->unsigned();
+            $table->foreignId('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
     }
 
