@@ -19,6 +19,7 @@ class CreatePaymentsTable extends Migration
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('amount');
             $table->enum('payment_method', ['cash', 'card', 'kpay']);
+            $table->enum('status', ['pending', 'accepted']);
             $table->timestamps();
         });
     }
