@@ -22,6 +22,14 @@
 
     <!-- Main content -->
     <section class="content">
+        @if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{Session::get('success')}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endif
         <div class="card">
           <div class="card-header ">
             <h3 class="card-title">Courses
@@ -47,43 +55,31 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>183</td>
-                    <td>Laravel Basic</td>
-                    <td>
-                        <span class="badge badge-info">Laravel</span>
-                        <span class="badge badge-info">PHP</span>
-                    </td>
-                    <td>image</td>
-                    <td>Free</td>
-                    <td>0Ks</td>
-                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non sint officiis quidem, soluta minima totam sequi sit quasi quia at aliquam dolore vero molestiae consectetur debitis quas, earum suscipit modi?</td>
-                    <td class="d-flex border-bottom-0">
-                        <a href="#" class="btn btn-warning btn-sm mr-3">Edit</a>
-                        <form action="#" >
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>183</td>
-                    <td>Laravel Basic</td>
-                    <td>
-                        <span class="badge badge-info">Laravel</span>
-                        <span class="badge badge-info">PHP</span>
-                    </td>
-                    <td>image</td>
-                    <td>Free</td>
-                    <td>0Ks</td>
-                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non sint officiis quidem, soluta minima totam sequi sit quasi quia at aliquam dolore vero molestiae consectetur debitis quas, earum suscipit modi?</td>
-                    <td class="d-flex border-bottom-0">
-                        <a href="#" class="btn btn-warning btn-sm mr-3">Edit</a>
-                        <form action="#" >
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
-                    </td>
-                  </tr>
+                    @foreach ($courses as $key=>$course)
+                    <tr>
+                        <td>{{++$key}}</td>
+                        <td>{{$course->name}}</td>
+                        <td>
+                            @foreach ($course->languages as $language)
+                                <span class="badge badge-info">{{$language->name}}</span>
+                            @endforeach
+                        </td>
+                        <td>
+                            <img src="{{asset('images/course/'.$course->image)}}" alt="{{$course->name}}" width="50">
+                        </td>
+                        <td>{{$course->type}}</td>
+                        <td>{{$course->price}} Ks</td>
+                        <td>{{$course->description}}</td>
+                        <td class="d-flex border-bottom-0">
+                            <a href="{{route('admin.course.edit',$course->slug)}}" class="btn btn-warning btn-sm mr-3">Edit</a>
+                            <form action="{{route('admin.course.delete',$course->slug)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to want to delete this course?')">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
                 </tbody>
               </table>
           </div>

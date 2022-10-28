@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  src: url(../library/font/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 700;
+  src: url(../library/font/Roboto-Bold.ttf);
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+/*dashboard*/
+.dash-title {
+  margin: 30px 0 30px 20px;
+  color: #232323;
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.dash-list {
+  margin-bottom: 30px;
+  list-style-type: none;
+}
+
+.dash-list li {
+  float: left;
+  width: 15%;
+  margin-left: 20px;
+  padding: 20px 0px 20px 20px;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  border-radius: 5px;
+}
+
+.dash-box i {
+  float: left;
+  margin-right: 20px;
+  padding: 15px;
+  border: 1px solid;
+  background-color: #2f89fc;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.dash-box div p:first-child {
+  padding-bottom: 9px;
+  color: #99a19f;
+}
+.error {
+  color: rgb(236, 14, 14);
+  margin-bottom: 5px;
+}
+
+/*chart*/
+.dash-chart {
+  width: 60%;
+  margin-left: 20px;
+  padding: 20px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  border-radius: 5px;
+}
+/*Profile*/
+.sign-box{
+  width: 500px;
+  background-color: #ffffff;
+  padding: 10px 0 30px 30px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-top: 10%;
+}
+.sign-title{  
+  margin: 20px 0 40px 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #479ef3;
+  padding-left: 20px;
+}
+.sign-form{
+  padding-left: 20px;
+}
+.conmon-req{
+  border-bottom: 2px solid #cfcfcf;
+  width: 350px;
+  margin-bottom: 25px;
+}
+.conmon-req input{
+  width:300px;
+  border: 0;
+  padding: 10px;
+  margin-right: 10px;
+  outline: none;
+  font-size: 20px;
+}
+.conmon-req textarea{
+  width: 210px;
+  border: 0;
+  padding: 10px;
+  margin-right: 10px;
+  outline: none;
+}
+.sign-box a{
+  display: inline-block;
+  color: #000;
+  margin-bottom: 30px;
+}
+.sign-box a:hover{
+  text-decoration: underline;
+}
+.pro-submit{
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #88bef5;
+  color: #88bef5;
+  background-color: #ffffff;
+}
+.pro-submit:hover{
+  background-color: #479ef3;
+  color: #ffffff;
+}
+/*error*/
+.alert ul li{
+  background-color: #f4cedc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  width: 300px;
+}
+.alert strong{
+  color: #f4cedc;
+}
