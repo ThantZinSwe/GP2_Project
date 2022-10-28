@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\CodeLanguageController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -29,12 +30,22 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/role/edit/{id}', [RoleController::class, 'editRole'])->name('admin.role.edit');
     Route::post('/role/edit/{id}', [RoleController::class, 'updateRole'])->name('admin.role.update');
     Route::delete('/role/{id}', [RoleController::class, 'deleteRole'])->name('admin.role.delete');
-
+    
+    //languages
+    Route::get('/languages',[CodeLanguageController::class,'index'])->name('admin.language.list');
+    Route::get('/languages/create',[CodeLanguageController::class,'showCreateForm'])->name('admin.language.create');
+    Route::post('/languages/create',[CodeLanguageController::class,'create'])->name('admin.language.create');
+    Route::get('/languages/update/{slug}',[CodeLanguageController::class,'showUpdateForm'])->name('admin.language.edit');
+    Route::post('/languages/update/{slug}',[CodeLanguageController::class,'update'])->name('admin.language.edit');
+    Route::delete('/languages/delete/{slug}',[CodeLanguageController::class,'delete'])->name('admin.language.delete');
+    
     //Course
     Route::get('/course', [CourseController::class, 'index'])->name('admin.course.index');
     Route::get('/course/create', [CourseController::class, 'create'])->name('admin.course.create');
+    
     Route::post('/course/create', [CourseController::class, 'store'])->name('admin.course.store');
     Route::get('/course/edit/{slug}', [CourseController::class, 'edit'])->name('admin.course.edit');
     Route::put('/course/edit/{slug}', [CourseController::class, 'update'])->name('admin.course.update');
     Route::delete('/course/{slug}', [CourseController::class, 'delete'])->name('admin.course.delete');
 });
+
