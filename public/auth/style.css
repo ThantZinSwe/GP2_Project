@@ -58,6 +58,10 @@ body {
   padding-bottom: 9px;
   color: #99a19f;
 }
+.error {
+  color: rgb(236, 14, 14);
+  margin-bottom: 5px;
+}
 
 /*chart*/
 .dash-chart {

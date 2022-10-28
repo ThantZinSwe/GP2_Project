@@ -3,11 +3,11 @@
 namespace App\Dao\Auth;
 
 use App\Contracts\Dao\Auth\AuthDaoInterface;
-use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegisterMail;
+use Illuminate\Http\Request;
 
 /**
  * Interface of Data Access Object for rolw
