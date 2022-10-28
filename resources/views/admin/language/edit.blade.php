@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Courses</h1>
+            <h1 class="m-0">Languages</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-              <li class="breadcrumb-item active">Role Create</li>
+              <li class="breadcrumb-item active">Language Create</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -30,20 +30,18 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="post" action="{{route('admin.role.save')}}">
-                    {{ csrf_field() }}
+                    <form action="{{ route('admin.language.edit',"$language->slug") }}" method="post">
+                      @csrf
                       <div class="card-body">
                         <div class="form-group">
-                          <label for="roleName">Role Name</label>
-                          <input type="text" name="roleName" class="form-control" id="roleName" placeholder="Enter role name" >
-                          @error('roleName')
-                          <span class="text-danger">{{$message}}</span>
-                          @enderror
+                          <label for="languageName">Language Name</label>
+                          <input type="text" class="form-control" id="LanguageName" name="name" value="{{ $language->name }}">
                         </div>
+                      </div>
                       <!-- /.card-body -->
 
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                       </div>
                     </form>
                 </div>

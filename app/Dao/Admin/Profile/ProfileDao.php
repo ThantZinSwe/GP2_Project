@@ -17,6 +17,7 @@ class ProfileDao implements ProfileDaoInterface
     public function changeProfile($id, $request)
     {
         $user = User::find($id);
+
         if ($user) {
             $user->name = $request['name'];
             $user->email = $request['email'];
@@ -26,8 +27,10 @@ class ProfileDao implements ProfileDaoInterface
             $user->update();
             return $user;
         }
+
         return false;
     }
+
     /**
      * Change Password
      * @param string $id user id
@@ -47,4 +50,5 @@ class ProfileDao implements ProfileDaoInterface
             return true;
         }
     }
+
 }

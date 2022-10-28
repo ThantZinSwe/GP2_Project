@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CodeLanguageController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\CourseVideoController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Auth\AuthController;
@@ -34,6 +37,14 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
     Route::post('/role/edit/{id}', [RoleController::class, 'updateRole'])->name('admin.role.update');
     Route::delete('/role/{id}', [RoleController::class, 'deleteRole'])->name('admin.role.delete');
 
+    //languages
+    Route::get('/languages', [CodeLanguageController::class, 'index'])->name('admin.language.list');
+    Route::get('/languages/create', [CodeLanguageController::class, 'showCreateForm'])->name('admin.language.create');
+    Route::post('/languages/create', [CodeLanguageController::class, 'create'])->name('admin.language.create');
+    Route::get('/languages/update/{slug}', [CodeLanguageController::class, 'showUpdateForm'])->name('admin.language.edit');
+    Route::post('/languages/update/{slug}', [CodeLanguageController::class, 'update'])->name('admin.language.edit');
+    Route::delete('/languages/delete/{slug}', [CodeLanguageController::class, 'delete'])->name('admin.language.delete');
+
     //Course
     Route::get('/course', [CourseController::class, 'index'])->name('admin.course.index');
     Route::get('/course/create', [CourseController::class, 'create'])->name('admin.course.create');
@@ -41,4 +52,20 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
     Route::get('/course/edit/{slug}', [CourseController::class, 'edit'])->name('admin.course.edit');
     Route::put('/course/edit/{slug}', [CourseController::class, 'update'])->name('admin.course.update');
     Route::delete('/course/{slug}', [CourseController::class, 'delete'])->name('admin.course.delete');
+
+    //CourseVideo
+    Route::get('/course/{slug}/course-video', [CourseVideoController::class, 'index'])->name('admin.courseVideo.index');
+    Route::get('/course/{slug}/course-video/create', [CourseVideoController::class, 'create'])->name('admin.courseVideo.create');
+    Route::post('/course/{slug}/course-video/create', [CourseVideoController::class, 'store'])->name('admin.courseVideo.store');
+    Route::get('/course/{slug}/course-video/edit/{course_video}', [CourseVideoController::class, 'edit'])->name('admin.courseVideo.edit');
+    Route::put('/course/{slug}/course-video/edit/{course_video}', [CourseVideoController::class, 'update'])->name('admin.courseVideo.update');
+    Route::delete('/course/{slug}/course-video/{course_video}', [CourseVideoController::class, 'delete'])->name('admin.courseVideo.delete');
+
+    //Blog
+    Route::get('/blog', [BlogController::class, 'index'])->name('admin.blog.index');
+    Route::get('/blog/create', [BlogController::class, 'create'])->name('admin.blog.create');
+    Route::post('/blog/create', [BlogController::class, 'blogSave'])->name('admin.blog.save');
+    Route::get('/blog/{slug}', [BlogController::class, 'blogEdit'])->name('admin.blog.edit');
+    Route::post('/blog/edit/{slug}', [BlogController::class, 'blogUpdate'])->name('admin.blog.update');
+    Route::delete('/blog/{slug}', [BlogController::class, 'blogDelete'])->name('admin.blog.delete');
 });

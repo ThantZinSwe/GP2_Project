@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Role;
 
 /**
- * Interface of Data Access Object for rolw
+ * Interface of Data Access Object for role
  */
 class RoleDao implements RoleDaoInterface
 {
@@ -24,14 +24,13 @@ class RoleDao implements RoleDaoInterface
         ]);
 
         if ($validator->fails()) {
-            return redirect('/admin/role')
+            return back()
                 ->withInput()
                 ->withErrors($validator);
         }
         $role = new Role;
         $role->name = $request->roleName;
         $role->save();
-        return redirect('/admin/role');
     }
 
     /**
@@ -67,8 +66,6 @@ class RoleDao implements RoleDaoInterface
         $role = Role::find($id);
         $role->name = $request->roleName;
         $role->save();
-        
-        return redirect('/admin/role');
     }
 
     /**
@@ -80,6 +77,5 @@ class RoleDao implements RoleDaoInterface
     {
         $delete_role = Role::find($id);
         $delete_role->delete();
-        return redirect('/admin/role'); 
     }
 }
