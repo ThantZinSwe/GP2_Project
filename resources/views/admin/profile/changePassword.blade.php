@@ -12,6 +12,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('admin.profile.get')}}">Profile</a></li>
               <li class="breadcrumb-item active">Password</li>
             </ol>
           </div><!-- /.col -->
@@ -30,34 +31,41 @@
           <div class="card">
             <div class="card-body">
               @if(Session::has('message'))
-              <div class="alert d-flex justify-content-between">
-                <span>
+                <span class="alert alert-success">
                   {{ Session::get('message') }}
                 </span>
-                <i class="fas fa-times close-btn"></i>
               </div>
               @endif
-              <form action="" method="post">
+              @if(Session::has('error'))
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{Session::get('error')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+            @endif
+              <form action="{{ route('admin.password.change', Auth::id()) }}" method="post">
                 @csrf
                 <div class="mb-3">
                   <label>Old Password</label>
                   <input type="password" name="old_password" placeholder="Enter your old password" class="form-control">
                     @error('old_password')
-                        <br><small>{{ $message }}</small>
+                        <br><small class="alert alert-danger">{{ $message }}</small>
                     @enderror
                 </div>
                 <div class="mb-3">
                   <label>New Password</label><br>
                   <input type="password" name="new_password" placeholder="Enter new password" class="form-control">
                     @error('new_password')
-                        <br><small>{{ $message }}</small>
+                        <br><small class="alert alert-danger">{{ $message }}</small>
                     @enderror
                 </div>
                 <div class="mb-4">
                   <label>Confirm Password</label>
-                  <input type="password" name="confirm_password" placeholder="Enter confirm password" class="form-control">
+                  <input type="password" name="comfirm_password" placeholder="Enter confirm password" class="form-control">
                     @error('comfirm_password')
-                        <br><small>{{ $message }}</small>
+                        <br><small class="alert alert-danger">{{ $message }}</small>
                     @enderror
                 </div>
                 <div class="mb-3 ml-1">

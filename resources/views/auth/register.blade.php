@@ -49,7 +49,7 @@
         <input type="text" placeholder="Phone" required name="phone">
         
       </div>
-      <a href="#">Have An Account?</a><br>
+      <a href="{{ route('login.get') }}">Have An Account?</a><br>
       <input type="submit" value="Sign Up" class="pro-submit">
     </form>
   </div>

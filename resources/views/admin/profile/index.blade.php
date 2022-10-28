@@ -30,39 +30,41 @@
           <div class="card">
             <div class="card-body">
               @if(Session::has('message'))
-              <div class="alert d-flex justify-content-between">
-                <span>
+                <span class="alert alert-success">
                   {{ Session::get('message') }}
                 </span>
-                <i class="fas fa-times close-btn"></i>
-              </div>
               @endif
-              <form action="" method="post" enctype="multipart/form-data">
+              @if(Session::has('error'))
+                <span class="alert alert-danger">
+                  {{ Session::get('error') }}
+                </span>
+              @endif
+              <form action="{{ route('admin.profile.change', Auth::id()) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                   <label>Name</label>
-                  <input type="text" name="name" value="admin" class="form-control">
+                  <input type="text" name="name" value="{{ Auth::user()->name }}" class="form-control">
                   @error('name')
                     <br><small class="alert alert-danger">{{ $message }}</small>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label>Email Address</label>
-                  <input type="email" name="email" value="admin@gmail.com" class="form-control">
+                  <input type="email" name="email" value="{{ Auth::user()->email }}" class="form-control">
                   @error('email')
                     <br><small class="alert alert-danger">{{ $message }}</small>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label>Phone Number</label>
-                  <input type="text" name="phone" value="09778202283" class="form-control">
+                  <input type="text" name="phone" value="{{ Auth::user()->phone }}" class="form-control">
                   @error('phone')
                     <br><small class="alert alert-danger">{{ $message }}</small>
                   @enderror
                 </div>
                 <div class="mb-3">
                   <label>Address</label>
-                  <input type="text" name="address" value="insein" class="form-control">
+                  <input type="text" name="address" value="{{ Auth::user()->address }}" class="form-control">
                   @error('address')
                     <br><small class="alert alert-danger">{{ $message }}</small>
                   @enderror

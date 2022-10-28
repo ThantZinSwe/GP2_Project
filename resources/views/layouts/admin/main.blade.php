@@ -146,6 +146,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{route('user.get')}}" class="nav-link">
+                    <i class="nav-icon far fa-user"></i>
+                <p>
+                    Users
+                </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-wallet"></i>
                 <p>
@@ -161,7 +169,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('logout') }}" class="nav-link">
                     <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>Logout</p>
                 </a>
