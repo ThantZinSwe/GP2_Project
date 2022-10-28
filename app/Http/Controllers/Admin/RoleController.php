@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Contracts\Services\Admin\Role\RoleServiceInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Role;
 class RoleController extends Controller
 {
     /**
@@ -20,7 +20,10 @@ class RoleController extends Controller
 
     public function index()
     {
-        return view('admin.role.index');
+        $roles = Role::get();
+        return view('admin.role.index')->with([
+            "roles" => $roles
+        ]);
     }
 
     public function create()
@@ -31,7 +34,9 @@ class RoleController extends Controller
     public function saveRole(Request $request)
     {    
         $role_store = $this->roleInterface->saveRole($request);
-        return $role_store;
+        return redirect('/admin/role')->with([
+            'success' => 'Role create successfully'
+        ]);
     }
 
     public function editRole($id)
@@ -43,12 +48,12 @@ class RoleController extends Controller
     public function updateRole(Request $request, $id)
     {
         $role_update = $this->roleInterface->updateRole($request, $id);
-        return $role_update;
+        return redirect('/admin/role')->with(['success' => 'Role update successfully']);
     }
 
     public function deleteRole($id)
     {
         $role_delete = $this->roleInterface->deleteRole($id);
-        return $role_delete;
+        return redirect('/admin/role')->with(['success' => 'Role delete successfully']);
     }
 }

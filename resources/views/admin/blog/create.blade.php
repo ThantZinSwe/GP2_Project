@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Courses</h1>
+            <h1 class="m-0">Blog</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-              <li class="breadcrumb-item active">Role Create</li>
+              <li class="breadcrumb-item active">Blog Create</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -30,13 +30,21 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="post" action="{{route('admin.role.save')}}">
+                    <form method="post" action="{{route('admin.blog.save')}}">
                     {{ csrf_field() }}
                       <div class="card-body">
                         <div class="form-group">
-                          <label for="roleName">Role Name</label>
-                          <input type="text" name="roleName" class="form-control" id="roleName" placeholder="Enter role name" >
-                          @error('roleName')
+                          <label for="blogName">Blog Name</label>
+                          <input type="text" name="blogName" class="form-control" id="blogName" placeholder="Enter blog name" >
+                          @error('blogName')
+                          <span class="text-danger">{{$message}}</span>
+                          @enderror
+                        </div>
+
+                        <div class="form-group">
+                          <label for="blogContent">Blog Content</label>
+                          <textarea type="text" name="blogContent" class="form-control" id="blogContent" placeholder="Enter blog content" ></textarea>
+                          @error('blogContent')
                           <span class="text-danger">{{$message}}</span>
                           @enderror
                         </div>

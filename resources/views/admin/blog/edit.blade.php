@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Courses</h1>
+            <h1 class="m-0">Blog</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-              <li class="breadcrumb-item active">Role Create</li>
+              <li class="breadcrumb-item active">Blog Edit</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -26,24 +26,31 @@
             <div class="col-8 col-md-8 offset-2">
                 <div class="card card-primary">
                     <div class="card-header">
-                      <h3 class="card-title">Create</h3>
+                      <h3 class="card-title">Edit</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="post" action="{{route('admin.role.save')}}">
-                    {{ csrf_field() }}
+                    <form method="post" action="{{route('admin.blog.update',$edit_slug)}}">
+                      {{ csrf_field() }}
                       <div class="card-body">
                         <div class="form-group">
-                          <label for="roleName">Role Name</label>
-                          <input type="text" name="roleName" class="form-control" id="roleName" placeholder="Enter role name" >
-                          @error('roleName')
-                          <span class="text-danger">{{$message}}</span>
-                          @enderror
+                          <label for="editName">Blog Title</label>
+                          <input type="text" name="editName" class="form-control" id="editName" placeholder="Enter blog name"  value="{{$edit_title}}" required>
                         </div>
-                      <!-- /.card-body -->
+                        @error('editName')
+                          <span class="text-danger">{{$message}}</span>
+                        @enderror
+                        <div class="form-group">
+                          <label for="editContent">Blog Content</label>
+                          <textarea type="text" name="editContent" class="form-control" id="editContent" placeholder="Enter blog content" required>{{$edit_content}}</textarea>
+                        </div>
+                        @error('editContent')
+                          <span class="text-danger">{{$message}}</span>
+                        @enderror
+                        <!-- /.card-body -->
 
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                       </div>
                     </form>
                 </div>
