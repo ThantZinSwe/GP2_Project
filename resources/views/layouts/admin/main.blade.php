@@ -122,7 +122,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('admin.blog.index')}}" class="nav-link">
                     <i class="nav-icon far fa-newspaper"></i>
                 <p>
                     Blogs
@@ -130,7 +130,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('admin.language.list') }}" class="nav-link">
                 <i class="nav-icon fas fa-code"></i>
                 <p>
                     Languages

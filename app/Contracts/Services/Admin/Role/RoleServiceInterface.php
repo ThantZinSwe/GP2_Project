@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Role;
 
 /**
- * Interface of Data Access Object for user
+ * Interface of Data Access Object for role
  */
 interface RoleServiceInterface
 {

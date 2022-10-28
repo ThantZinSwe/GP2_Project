@@ -3,7 +3,7 @@ namespace App\Contracts\Dao\Admin\Profile;
 /**
  * Profile Dao Interface
  */
-interface ProfileDaoInterface
+interface ProfileDaoInterface 
 {
     /**
      * Change Admin Profile
