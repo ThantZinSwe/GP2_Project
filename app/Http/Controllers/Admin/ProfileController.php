@@ -30,14 +30,14 @@ class ProfileController extends Controller
     {
         return view('admin.profile.index');
     }
+
     /**
      * Change Admin Profile
      * @param string $id user id
      * @param AdminProfileRequest $request request including inputs
      * @return Redirect View & Status
      */
-    public function submitProfileForm($id, AdminProfileRequest $request)
-    {
+    public function changeProfile($id, AdminProfileRequest $request){
         $user = $this->profileInterface->changeProfile($id, $request);
         if($user){
             return back()->with('message', 'Profile Successfully Updated');
@@ -58,11 +58,13 @@ class ProfileController extends Controller
      * @param UserPasswordRequest $request request including inputs
      * @return Redirect View & Status
      */
-    public function submitPasswordForm($id, UserPassWordRequest $request){
+    public function changeAdminPassword($id, UserPassWordRequest $request){
+
         $user = $this->profileInterface->changePassword($id, $request);
+        //dd($user);
         if($user){
-            return redirect()->route('admin.profile.get')->with('message', 'Password successfully Changed');
+            return redirect()->route('login.get')->with('message', 'Password successfully Changed');
         }
-        return back()->with('error', 'Cannot Change Password');
+        return back()->with('error', 'The specified password does not match the database password');
     }
 }

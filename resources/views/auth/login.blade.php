@@ -12,6 +12,9 @@
 <body>
 <div class="sign-box">
     <h1 class="sign-title">Login</h1>
+    @if(Session::has('message'))
+      <small class="error text-center">{{ Session::get('message') }}</small>
+    @endif
     <form action="{{ route('login.post') }}" class="sign-form" method="post">
       @csrf
       <div class="conmon-req pro-email">
@@ -20,7 +23,7 @@
       </div>
       @error('email')
       <small class="error">{{ $message }}</small><br>
-     @enderror
+      @enderror
       <div class="conmon-req pro-pass">
       <i class="fa-solid fa-lock"></i>
         <input type="password" placeholder="Password" required name="password">
@@ -30,6 +33,7 @@
       @enderror
       <a href="#">Forgot Password?</a><br>
       <input type="submit" value="Login" class="pro-submit">
+      <a href="{{ route('auth.register') }}" class="pro-submit signup">Sign Up</a>
     </form>
   </div>
 </body>

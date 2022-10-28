@@ -61,6 +61,8 @@ body {
 .error {
   color: rgb(236, 14, 14);
   margin-bottom: 5px;
+  margin-left: 19px;
+  font-size: 18px;
 }
 
 /*chart*/
@@ -130,6 +132,19 @@ body {
   border: 1px solid #88bef5;
   color: #88bef5;
   background-color: #ffffff;
+}
+.pro-submit.signup {
+  margin-left: 15px;
+  background-color: #ffffff;
+  color: #232323;
+  border: 1px solid #232323;
+  padding-bottom: 13px;
+  font-family: 'Roboto', sans-serif;
+}
+.pro-submit.signup:hover{
+  background-color: #232323;
+  color: #ffffff;
+  text-decoration: none;
 }
 .pro-submit:hover{
   background-color: #479ef3;

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegisterMail;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -52,8 +53,8 @@ class AuthController extends Controller
                 return "HOME PAGE";
             }
         }
+        return back()->with('message', 'Email & Password does not match');
     }
-
     public function register()
     {
         return view('auth.register');
@@ -63,6 +64,19 @@ class AuthController extends Controller
     {
         $register = $this->authInterface->registerSave($request);
         return $register;
+    }
+    /**
+     * Logout
+     *
+     * @return void
+     */
+    public function logout(Request $request){
+        Auth::logout();
+ 
+        $request->session()->invalidate();
+     
+        $request->session()->regenerateToken();
+        return redirect()->route('login.get');
     }
 }
 

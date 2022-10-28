@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Middleware\AdminAuthMiddleWare;
 use Illuminate\Support\Facades\Route;
 
 //Auth
@@ -11,16 +12,19 @@ Route::get('/register', [AuthController::class, 'register'])->name('auth.registe
 Route::post('/register/save', [AuthController::class, 'registerSave'])->name('auth.register.save');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.get');
 Route::post('/login', [AuthController::class, 'submitLoginForm'])->name('login.post');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]], function () {
     Route::get('/dashboard', [ProfileController::class, 'index'])->name('admin.dashboard');
 
+    //User
+    Route::get('/users', [ProfileController::class, 'getStudent'])->name('user.get');
     //Profile
     Route::get('/profile', [ProfileController::class, 'showProfileForm'])->name('admin.profile.get');
-    Route::post('/profile/{id}', [ProfileController::class, 'submitProfileForm'])->name('admin.profile.post');
+    Route::post('/profile-change/{id}', [ProfileController::class, 'changeProfile'])->name('admin.profile.change');
     Route::get('/password-change', [ProfileController::class, 'showPasswordForm'])->name('admin.password.get');
-    Route::post('/password-change/{id}', [ProfileController::class, 'changeAdminPassword'])->name('admin.password.post');
+    Route::post('/password-change/{id}', [ProfileController::class, 'changeAdminPassword'])->name('admin.password.change');
 
     //Role
     Route::get('/role', [RoleController::class, 'index'])->name('admin.role.index');
