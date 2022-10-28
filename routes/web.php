@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,4 +38,13 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/course/edit/{slug}', [CourseController::class, 'edit'])->name('admin.course.edit');
     Route::put('/course/edit/{slug}', [CourseController::class, 'update'])->name('admin.course.update');
     Route::delete('/course/{slug}', [CourseController::class, 'delete'])->name('admin.course.delete');
+
+    //Blog
+    Route::get('/blog',[BlogController::class,'index'])->name('admin.blog.index');
+    Route::get('/blog/create',[BlogController::class,'create'])->name('admin.blog.create');
+    Route::post('/blog/create',[BlogController::class,'blogSave'])->name('admin.blog.save');
+    
+    Route::get('/blog/{slug}', [BlogController::class,'blogEdit'])->name('admin.blog.edit');
+    Route::post('/blog/edit/{slug}', [BlogController::class,'blogUpdate'])->name('admin.blog.update');
+    Route::delete('/blog/{slug}', [BlogController::class,'blogDelete'])->name('admin.blog.delete');
 });

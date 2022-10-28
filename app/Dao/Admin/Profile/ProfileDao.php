@@ -2,9 +2,10 @@
 
 namespace App\Dao\Admin\Profile;
 
+use App\Contracts\Dao\Admin\Profile\ProfileDaoInterface;
 use App\Models\User;
 
-class ProfileDao
+class ProfileDao implements ProfileDaoInterface 
 {
     /**
      * Change Admin Profile

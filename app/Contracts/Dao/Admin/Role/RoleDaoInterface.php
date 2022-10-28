@@ -5,7 +5,7 @@ namespace App\Contracts\Dao\Admin\Role;
 use Illuminate\Http\Request;
 
 /**
- * Interface of Data Access Object for user
+ * Interface of Data Access Object for role
  */
 interface RoleDaoInterface
 {
