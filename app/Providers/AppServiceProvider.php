@@ -21,6 +21,11 @@ class AppServiceProvider extends ServiceProvider
         'App\Dao\Auth\AuthDao');
         $this->app->bind('App\Contracts\Services\Auth\AuthServiceInterface', 
         'App\Services\Auth\AuthService');
+        //Dao Registration
+        $this->app->bind('App\Contracts\Dao\Admin\Course\CourseDaoInterface', 'App\Dao\Admin\Course\CourseDao');
+
+        //Services Registration
+        $this->app->bind('App\Contracts\Services\Admin\Course\CourseServiceInterface', 'App\Services\Admin\Course\CourseService');
     }
 
     /**
