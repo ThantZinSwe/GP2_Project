@@ -30,18 +30,23 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
+                    <form action="{{route('admin.course.update',$course->slug)}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
                       <div class="card-body">
                         <div class="form-group">
                           <label for="courseName">Course Name</label>
-                          <input type="text" class="form-control" id="courseName" placeholder="Enter course name">
+                          <input type="text" name="name" class="form-control" value="{{old('name',$course->name)}}" id="courseName" placeholder="Enter course name">
+                            @error('name')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputFile">File input</label>
                             <div class="input-group">
                               <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile">
+                                <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                               </div>
                               <div class="input-group-append">
@@ -51,40 +56,54 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="courseName">Price</label>
-                            <input type="number" class="form-control" id="price" placeholder="Enter price">
+                            <label for="price">Price</label>
+                            <input type="number" name="price" class="form-control" value="{{old('price',$course->price)}}" id="price" placeholder="Enter price">
+                            @error('price')
+                              <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group">
-                        <label for="courseName">Type</label>
-                        <div class="form-group d-flex">
-                            <div class="form-check mr-3">
-                              <input class="form-check-input" type="radio" name="type">
-                              <label class="form-check-label">Free</label>
+                        <label for="type">Type</label>
+                            <div class="form-group d-flex">
+                                <div class="form-check mr-3">
+                                    <input class="form-check-input" type="radio" name="type" value="free" {{old('type',$course->type) == 'free' ? 'checked' : ''}}>
+                                    <label class="form-check-label">Free</label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="type" value="paid" {{old('type',$course->type) == 'paid' ? 'checked' : ''}}>
+                                    <label class="form-check-label">Paid</label>
+                                  </div>
                             </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="type" checked>
-                              <label class="form-check-label">Paid</label>
-                            </div>
-                          </div>
+                            @error('type')
+                              <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group">
-                            <label>Minimal</label>
-                            <select class="form-control select2bs4" style="width: 100%;">
-                              <option value="">Choose Language</option>
-                              <option>Alaska</option>
-                              <option>California</option>
-                              <option>Delaware</option>
-                              <option>Tennessee</option>
-                              <option>Texas</option>
-                              <option>Washington</option>
+                            <label>Languages</label>
+                            <select class="select2" name="language[]" multiple="multiple" style="width: 100%;">
+                              <option value="">Choose Languages...</option>
+                              @foreach ($languages as $language)
+                                <option value="{{$language->id}}"
+                                    @foreach ($course->languages as $course_language)
+                                        {{collect(old('language', $course_language->id))->contains($language->id) ? 'selected' : ''}}
+                                    @endforeach>
+                                    {{$language->name}}
+                                </option>
+                              @endforeach
                             </select>
+                            @error('language')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                           </div>
 
-                        <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                             <textarea name="description" class="form-control">{{old('description',$course->description)}}</textarea>
+                            @error('description')
+                              <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                       </div>
                       <!-- /.card-body -->

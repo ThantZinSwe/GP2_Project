@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginFormRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RegisterMail;
 
 class AuthController extends Controller
 {
@@ -50,4 +52,16 @@ class AuthController extends Controller
             }
         }
     }
+
+    public function register()
+    {
+        return view('auth.register');
+    }
+
+    public function registerSave(Request $request)
+    {
+        $register = $this->authInterface->registerSave($request);
+        return $register;
+    }
 }
+
