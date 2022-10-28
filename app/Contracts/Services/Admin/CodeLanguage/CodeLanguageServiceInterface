@@ -1,0 +1,43 @@
+<?php
+namespace App\Contracts\Services\Admin\CodeLanguage;
+
+use Illuminate\Http\Request;
+
+interface CodeLanguageServiceInterface{
+    /**
+     * To save language
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function saveLanguage(Request $request);
+    /**
+     * To get all language
+     *
+     * @return language list
+     */
+    public function getLanguageList();
+    /**
+     * To update language by slug
+     *
+     * @param [type] $slug
+     * @param Request $request
+     * @return void
+     */
+    public function updateLanguageBySlug($slug, Request $request);
+    /**
+     * To delete language by slug
+     *
+     * @param [type] $slug
+     * @return void
+     */
+    public function deleteLanguageBySlug($slug);
+    /**
+     * To select language by slug
+     *
+     * @param [type] $slug
+     * @return void
+     */
+    public function getLanguageBySlug($slug);
+
+}

@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Contracts\Dao\Admin\CodeLanguage;
+
+use Illuminate\Http\Request;
+
+/**
+ * Interface for Data Accessing Object of Post
+ */
+interface CodeLanguageDaoInterface
+{
+    /**
+     * To save language
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function saveLanguage(Request $request);
+    /**
+     * To get all language
+     *
+     * @return language list
+     */
+    public function getLanguageList();
+    /**
+     * To update language by slug
+     *
+     * @param [type] $slug
+     * @param Request $request
+     * @return void
+     */
+    public function updateLanguageBySlug($slug, Request $request);
+    /**
+     * To delete language by slug
+     *
+     * @param [type] $slug
+     * @return void
+     */
+    public function deleteLanguageBySlug($slug);
+    /**
+     * To select language by slug
+     *
+     * @param [type] $slug
+     * @return void
+     */
+    public function getLanguageBySlug($slug);
+}
