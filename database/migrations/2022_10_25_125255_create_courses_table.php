@@ -17,7 +17,6 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('slug');
             $table->string('name');
-            $table->foreignId('language_id')->references('id')->on('languages')->onDelete('cascade');
             $table->text('image')->nullable();
             $table->integer('price')->default(0);
             $table->enum('type', ['free', 'paid'])->default('free');
