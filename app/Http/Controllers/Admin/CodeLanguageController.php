@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Contracts\Services\Admin\CodeLanguage\CodeLanguageServiceInterface;
+
+use App\Contracts\Services\Admin\Lan\LanServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LanguageStoreRequest;
 
 
 
-class LanguageController extends Controller
+class CodeLanguageController extends Controller
 {
      
 
@@ -22,9 +23,9 @@ class LanguageController extends Controller
    *
    * @return void
    */
-  public function __construct(CodeLanguageServiceInterface $languageServiceInterface)
+  public function __construct(LanServiceInterface $lanServiceInterface)
   {
-    $this->languageInterface = $languageServiceInterface;
+    $this->languageInterface = $lanServiceInterface;
   }
   /**
    * To get all languages
@@ -50,8 +51,9 @@ public function showCreateForm(){
  * @return language list 
  */
 public function create(LanguageStoreRequest $request){
-        $languages = $this->languageInterface->saveLanguage($request);
-    return view('admin.language.index',['languages'=>$languages]);
+        $this->languageInterface->saveLanguage($request);
+        $languages = $this->languageInterface->getLanguageList();
+     return view('admin.language.index',['languages'=>$languages]);
 
 }
 /**

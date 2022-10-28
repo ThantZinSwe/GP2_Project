@@ -1,23 +1,24 @@
 <?php
 
-namespace App\Dao\Admin\Language;
+namespace App\Dao\Admin\Lan;
 
-use App\Contracts\Dao\Admin\CodeLanguage\CodeLanguageDaoInterface;
+use App\Contracts\Dao\Admin\Lan\LanDaoInterface;
+use App\Http\Requests\LanguageStoreRequest;
 use App\Models\Language;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 /**
- * Data accessing object for post
+ * Interface of Data Access Object for rolw
  */
-class CodeLanguageDao implements CodeLanguageDaoInterface{
-  /**
+class LanDao implements LanDaoInterface
+{
+    /**
    * To save language
    *
    * @param Request $request
    * @return void
    */
-  public function saveLanguage(Request $request){
+  public function saveLanguage(LanguageStoreRequest $request){
     $language = new Language();
     $slug = Str::slug($request->name);
     $language->slug = $slug;
@@ -41,7 +42,7 @@ class CodeLanguageDao implements CodeLanguageDaoInterface{
    * @param Request $request
    * @return void
    */
-  public function updateLanguageBySlug($slug,Request $request){
+  public function updateLanguageBySlug($slug,LanguageStoreRequest $request){
     $language = Language::where('slug',$slug)->first();
     
     $slug = Str::slug($request->name);
