@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegisterMail;
 use Illuminate\Http\Request;
+use App\Http\Requests\RegisterRequest;
 
 /**
  * Interface of Data Access Object for rolw
@@ -19,14 +20,8 @@ class AuthDao implements AuthDaoInterface
      * @param int $request
      * @return Object Role
      */
-    public function registerSave(Request $request)
+    public function registerSave(RegisterRequest $request)
     {
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|unique:users|max:255',
-            'password' => 'required|min:8',
-            'phone' => 'required|unique:users|max:11'
-        ]);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -35,6 +30,6 @@ class AuthDao implements AuthDaoInterface
             'role_id' => 2
         ]);
         Mail::to($user->email)->send(new RegisterMail($user));
-        return redirect('/admin/register');
+        return redirect('/register');
     }
 }

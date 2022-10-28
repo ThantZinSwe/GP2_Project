@@ -6,6 +6,7 @@ use App\Contracts\Dao\Auth\AuthDaoInterface;
 use App\Contracts\Services\Auth\AuthServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\RegisterRequest;
 
 /**
  * Interface of Data Access Object for role
@@ -42,7 +43,7 @@ class AuthService implements AuthServiceInterface
      * @param int $request
      * @return Object Role
      */
-    public function registerSave(Request $request)
+    public function registerSave(RegisterRequest $request)
     {
         return $this->authDao->registerSave($request);
     }

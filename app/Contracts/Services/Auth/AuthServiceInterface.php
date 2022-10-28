@@ -3,6 +3,7 @@
 namespace App\Contracts\Services\Auth;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 
 /**
@@ -15,7 +16,7 @@ interface AuthServiceInterface
      * @param int $request
      * @return Object User
      */
-    public function registerSave(Request $request);
+    public function registerSave(RegisterRequest $request);
 
     /**
      * Login

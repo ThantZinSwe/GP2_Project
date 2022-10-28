@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegisterMail;
+use App\Http\Requests\RegisterRequest;
 
 class AuthController extends Controller
 {
@@ -58,7 +59,7 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function registerSave(Request $request)
+    public function registerSave(RegisterRequest $request)
     {
         $register = $this->authInterface->registerSave($request);
         return $register;

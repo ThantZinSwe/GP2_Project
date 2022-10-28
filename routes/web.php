@@ -21,7 +21,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/profile/{id}', [ProfileController::class, 'submitProfileForm'])->name('admin.profile.post');
     Route::get('/password-change', [ProfileController::class, 'showPasswordForm'])->name('admin.password.get');
     Route::post('/password-change/{id}', [ProfileController::class, 'changeAdminPassword'])->name('admin.password.post');
-    
+
     //Role
     Route::get('/role', [RoleController::class, 'index'])->name('admin.role.index');
     Route::get('/role/create', [RoleController::class, 'create'])->name('admin.role.create');
