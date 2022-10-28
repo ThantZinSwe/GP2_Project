@@ -5,7 +5,7 @@ namespace App\Dao\Admin\Profile;
 use App\Contracts\Dao\Admin\Profile\ProfileDaoInterface;
 use App\Models\User;
 
-class ProfileDao implements ProfileDaoInterface 
+class ProfileDao implements ProfileDaoInterface
 {
     /**
      * Change Admin Profile
@@ -16,6 +16,7 @@ class ProfileDao implements ProfileDaoInterface
     public function changeProfile($id, $request)
     {
         $user = User::find($id);
+
         if ($user) {
             $user->name = $request['name'];
             $user->email = $request['email'];
@@ -25,8 +26,10 @@ class ProfileDao implements ProfileDaoInterface
             $user->save();
             return $user;
         }
+
         return false;
     }
+
     /**
      * Change Password
      * @param string $id user id
@@ -36,11 +39,14 @@ class ProfileDao implements ProfileDaoInterface
     public function changePassword($id, $request)
     {
         $user = User::find($id);
-        if($user){
+
+        if ($user) {
             $user->password = $request['password'];
             $user->save();
             return $user;
         }
+
         return false;
     }
+
 }
