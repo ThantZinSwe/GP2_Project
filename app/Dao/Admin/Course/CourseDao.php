@@ -17,7 +17,7 @@ class CourseDao implements CourseDaoInterface
      */
     public function index()
     {
-        $courses = Course::with('languages')
+        $courses = Course::with('languages', 'courseVideos')
             ->orderBy('id', 'desc')
             ->get();
         return $courses;

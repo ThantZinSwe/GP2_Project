@@ -36,6 +36,14 @@
 
             </h3>
             <div class="d-flex justify-content-end">
+                <form action="#" class="mr-3 mt-1">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Search Course...">
+                        <span class="input-group-append">
+                          <button type="button" class="btn btn-info">Search</button>
+                        </span>
+                    </div>
+                </form>
                 <a href="{{route('admin.course.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i> Course Create</a>
             </div>
           </div>
@@ -48,6 +56,7 @@
                     <th>Course Name</th>
                     <th>Language</th>
                     <th>Image</th>
+                    <th>Course Video Count</th>
                     <th>Type</th>
                     <th>Price</th>
                     <th>Description</th>
@@ -67,16 +76,22 @@
                         <td>
                             <img src="{{asset('images/course/'.$course->image)}}" alt="{{$course->name}}" width="50">
                         </td>
+                        <td class="text-center">
+                            <span class="badge badge-pill badge-danger">{{$course->courseVideos->count()}}</span>
+                        </td>
                         <td>{{$course->type}}</td>
                         <td>{{$course->price}} Ks</td>
-                        <td>{{$course->description}}</td>
+                        <td>
+                            <span class="d-inline-block text-truncate" style="max-width: 150px;">{{$course->description}}</span>
+                        </td>
                         <td class="d-flex border-bottom-0">
                             <a href="{{route('admin.course.edit',$course->slug)}}" class="btn btn-warning btn-sm mr-3">Edit</a>
-                            <form action="{{route('admin.course.delete',$course->slug)}}" method="POST">
+                            <form action="{{route('admin.course.delete',$course->slug)}}" method="POST" class="mr-3">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to want to delete this course?')">Delete</button>
                             </form>
+                            <a href="{{route('admin.courseVideo.index',$course->slug)}}" class="btn btn-primary btn-sm mr-3">Course Video</a>
                         </td>
                     </tr>
                     @endforeach

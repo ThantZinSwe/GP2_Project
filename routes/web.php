@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\CourseVideoController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Auth\AuthController;
@@ -37,4 +38,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/course/edit/{slug}', [CourseController::class, 'edit'])->name('admin.course.edit');
     Route::put('/course/edit/{slug}', [CourseController::class, 'update'])->name('admin.course.update');
     Route::delete('/course/{slug}', [CourseController::class, 'delete'])->name('admin.course.delete');
+
+    //CourseVideo
+    Route::get('/course/{slug}/course-video', [CourseVideoController::class, 'index'])->name('admin.courseVideo.index');
+    Route::get('/course/{slug}/course-video/create', [CourseVideoController::class, 'create'])->name('admin.courseVideo.create');
+    Route::post('/course/{slug}/course-video/create', [CourseVideoController::class, 'store'])->name('admin.courseVideo.store');
+    Route::get('/course/{slug}/course-video/edit/{course_video}', [CourseVideoController::class, 'edit'])->name('admin.courseVideo.edit');
+    Route::put('/course/{slug}/course-video/edit/{course_video}', [CourseVideoController::class, 'update'])->name('admin.courseVideo.update');
+    Route::delete('/course/{slug}/course-video/{course_video}', [CourseVideoController::class, 'delete'])->name('admin.courseVideo.delete');
 });
