@@ -22,6 +22,14 @@
 
     <!-- Main content -->
     <section class="content">
+      @if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{Session::get('success')}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endif
         <div class="card">
           <div class="card-header ">
             <h3 class="card-title">Languages
@@ -53,7 +61,7 @@
                         <form action="{{ route('admin.language.delete',"$language->slug") }}" method="POST" >
                           @method("delete")
                           @csrf
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            <button type="submit" class="btn btn-danger btn-sm"  onclick="return confirm('Are you sure to want to delete this blog?')" name="delete">Delete</button>
                         </form>
                     </td>
                   </tr>

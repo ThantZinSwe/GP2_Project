@@ -12,7 +12,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-              <li class="breadcrumb-item active">Language Create</li>
+              <li class="breadcrumb-item active">Language Edit</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -26,7 +26,7 @@
             <div class="col-8 col-md-8 offset-2">
                 <div class="card card-primary">
                     <div class="card-header">
-                      <h3 class="card-title">Create</h3>
+                      <h3 class="card-title">Edit</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -36,6 +36,9 @@
                         <div class="form-group">
                           <label for="languageName">Language Name</label>
                           <input type="text" class="form-control" id="LanguageName" name="name" value="{{ $language->name }}">
+                          @error('name')
+                              <span class="text-danger">{{$message}}</span>
+                          @enderror
                         </div>
                       </div>
                       <!-- /.card-body -->

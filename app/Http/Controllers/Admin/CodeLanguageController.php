@@ -53,7 +53,7 @@ public function showCreateForm(){
 public function create(LanguageStoreRequest $request){
         $this->languageInterface->saveLanguage($request);
         $languages = $this->languageInterface->getLanguageList();
-     return view('admin.language.index',['languages'=>$languages]);
+        return redirect()->route('admin.language.list')->with(['success' => 'Language created successfully']);
 
 }
 /**
@@ -76,8 +76,8 @@ public function showUpdateForm($slug){
 public function update($slug,LanguageStoreRequest $languageStoreRequest){
     $language = $this->languageInterface->updateLanguageBySlug($slug,$languageStoreRequest);
     $languages = $this->languageInterface->getLanguageList();
-    return view('admin.language.index',['languages'=>$languages]);
-}
+    return redirect()->route('admin.language.list')->with(['success' => 'Language updated successfully']);
+  }
 /**
  * To delete language
  *
@@ -87,6 +87,6 @@ public function update($slug,LanguageStoreRequest $languageStoreRequest){
 public function delete($slug){
     $this->languageInterface->deleteLanguageBySlug($slug);
     $languages = $this->languageInterface->getLanguageList();
-    return view('admin.language.index',['languages'=>$languages]);
-}
+    return redirect()->route('admin.language.list')->with(['success' => 'Course deleted successfully']);
+  }
 }
