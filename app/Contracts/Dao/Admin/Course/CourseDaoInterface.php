@@ -42,4 +42,11 @@ interface CourseDaoInterface
      * @param $slug
      */
     public function delete($slug);
+
+    /**
+     * To search course
+     * @param $request
+     * @return Object $courses
+     */
+    public function search($request);
 }
