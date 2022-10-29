@@ -2,24 +2,32 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contracts\Services\Admin\Course\CourseServiceInterface;
 use App\Contracts\Services\Admin\Profile\ProfileServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminProfileRequest;
 use App\Http\Requests\UserPassWordRequest;
+use App\Models\Blog;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
     private $profileInterface;
-    public function __construct(ProfileServiceInterface $profileInterface)
+    private $courseInterface;
+    public function __construct(ProfileServiceInterface $profileInterface, CourseServiceInterface $courseInterface)
     {
         $this->profileInterface = $profileInterface;
+        $this->courseInterface = $courseInterface;
     }
     /**
      * @return View Admin/dashboard
      */
     public function index()
     {
-        return view('admin.index');
+        $courses = $this->courseInterface->index();
+        $blog = Blog::get();
+        $user = User::where('role_id', 2)->get();
+        return view('admin.index', ['course' => count($courses), 'blog' => count($blog), 'user' => count($user)]);
     }
     /**
      * Show Profile Form
@@ -58,7 +66,7 @@ class ProfileController extends Controller
      * @param UserPasswordRequest $request request including inputs
      * @return Redirect View & Status
      */
-    public function changeAdminPassword($id, UserPassWordRequest $request){
+    public function changeAdminPassword($id, UserPasswordRequest $request){
 
         $user = $this->profileInterface->changePassword($id, $request);
         //dd($user);

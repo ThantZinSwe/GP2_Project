@@ -27,8 +27,8 @@ class AdminProfileRequest extends FormRequest
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required|max:11',
-            //'address' => 'required|max:700',
-            'profile_img' => 'mimes:jpeg,png,jpg,gif'
+            'address' => 'required|max:700',
+            'profile_img' => 'mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 }

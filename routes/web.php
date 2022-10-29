@@ -16,6 +16,10 @@ Route::get('/register', [AuthController::class, 'register'])->name('auth.registe
 Route::post('/register/save', [AuthController::class, 'registerSave'])->name('auth.register.save');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.get');
 Route::post('/login', [AuthController::class, 'submitLoginForm'])->name('login.post');
+Route::get('/reset-password', [AuthController::class, 'showResetForm'])->name('reset.get');
+Route::post('/reset-password', [AuthController::class, 'sendResetMail'])->name('reset.send');
+Route::get('/change-password/{token}', [AuthController::class, 'showChangePasswordForm'])->name('change.password.get');
+Route::post('/change-password', [AuthController::class, 'submitChangePasswordForm'])->name('change.password.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin

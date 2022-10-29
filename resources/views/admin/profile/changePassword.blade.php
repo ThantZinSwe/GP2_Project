@@ -31,19 +31,20 @@
           <div class="card">
             <div class="card-body">
               @if(Session::has('message'))
-                <span class="alert alert-success">
-                  {{ Session::get('message') }}
-                </span>
-              </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{Session::get('message')}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
               @endif
               @if(Session::has('error'))
-              <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{Session::get('error')}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{Session::get('error')}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
             @endif
               <form action="{{ route('admin.password.change', Auth::id()) }}" method="post">
                 @csrf

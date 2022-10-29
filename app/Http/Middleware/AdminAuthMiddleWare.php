@@ -20,6 +20,6 @@ class AdminAuthMiddleWare
         if(Auth::check() && Auth::user()->role_id == 1){
             return $next($request);
         }
-        return redirect()->route('login.get')->with('message', 'You are not Admin!');
+        return redirect()->route('login.get')->with('error', 'You are not Admin!');
     }
 }

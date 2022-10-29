@@ -65,6 +65,14 @@ body {
   margin-left: 19px;
   color: rgb(236, 14, 14);
   font-size: 18px;
+  display: block;
+}
+.success {
+  color: rgb(14, 236, 40);
+  margin-bottom: 5px;
+  margin-left: 19px;
+  font-size: 18px;
+  display: block;
 }
 
 /*chart*/

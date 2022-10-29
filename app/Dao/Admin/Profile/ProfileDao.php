@@ -4,6 +4,7 @@ namespace App\Dao\Admin\Profile;
 
 use App\Contracts\Dao\Admin\Profile\ProfileDaoInterface;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileDao implements ProfileDaoInterface
@@ -17,13 +18,21 @@ class ProfileDao implements ProfileDaoInterface
     public function changeProfile($id, $request)
     {
         $user = User::find($id);
-
+        isset($user->image) ? : '';
+        if($request->profile_img){
+            if($user->image){
+                unlink($user->image);
+            }
+            $img_name = time().'.'.$request->profile_img->extension();
+            $path = 'images/admin/'.$img_name;
+            $request->profile_img->move(public_path('images/admin'), $img_name);
+        }        
         if ($user) {
             $user->name = $request['name'];
             $user->email = $request['email'];
             $user->phone = $request['phone'];
-            //$user->address = $request['address'];
-            $user->image = $request['profile_img'];
+            $user->address = $request['address'];
+            $user->image = $path ?? $user->image;
             $user->update();
             return $user;
         }
@@ -47,6 +56,7 @@ class ProfileDao implements ProfileDaoInterface
             $user->update([
                 'password' => Hash::make($request->new_password),
             ]);
+           Auth::logout();
             return true;
         }
     }
