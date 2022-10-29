@@ -35,16 +35,16 @@
                       <div class="card-body">
                         <div class="form-group">
                           <label for="editName">Blog Title</label>
-                          <input type="text" name="editName" class="form-control" id="editName" placeholder="Enter blog name"  value="{{$edit_title}}" required>
+                          <input type="text" name="blogName" class="form-control" id="editName" placeholder="Enter blog name"  value="{{$edit_title}}">
                         </div>
-                        @error('editName')
+                        @error('blogName')
                           <span class="text-danger">{{$message}}</span>
                         @enderror
                         <div class="form-group">
                           <label for="editContent">Blog Content</label>
-                          <textarea type="text" name="editContent" class="form-control" id="editContent" placeholder="Enter blog content" required>{{$edit_content}}</textarea>
+                          <textarea type="text" name="blogContent" class="form-control" id="editContent" placeholder="Enter blog content">{{$edit_content}}</textarea>
                         </div>
-                        @error('editContent')
+                        @error('blogContent')
                           <span class="text-danger">{{$message}}</span>
                         @enderror
                         <!-- /.card-body -->

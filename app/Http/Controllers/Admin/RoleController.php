@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Services\Admin\Role\RoleServiceInterface;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\RoleRequest;
 use App\Models\Role;
+
 class RoleController extends Controller
 {
     /**
-   * role interface
-   */
+     * role interface
+     */
     private $roleInterface;
 
     public function __construct(RoleServiceInterface $roleServiceInterface)
@@ -18,39 +19,69 @@ class RoleController extends Controller
         $this->roleInterface = $roleServiceInterface;
     }
 
+    /**
+     * To show role view
+     *
+     * @return View Role
+     */
     public function index()
     {
         $roles = Role::get();
         return view('admin.role.index')->with([
-            "roles" => $roles
+            "roles" => $roles,
         ]);
     }
 
+    /**
+     * To show role create view
+     *
+     * @return View role create
+     */
     public function create()
     {
         return view('admin.role.create');
     }
 
-    public function saveRole(Request $request)
-    {    
+    /**
+     * To save role request
+     *@param RoleRequest $request
+     * @return View Role
+     */
+    public function saveRole(RoleRequest $request)
+    {
         $role_store = $this->roleInterface->saveRole($request);
         return redirect('/admin/role')->with([
-            'success' => 'Role create successfully'
+            'success' => 'Role create successfully',
         ]);
     }
 
+    /**
+     * To edit role data
+     *@param $id
+     * @return View role edit
+     */
     public function editRole($id)
     {
         $role_edit = $this->roleInterface->editRole($id);
         return $role_edit;
     }
 
-    public function updateRole(Request $request, $id)
+    /**
+     * To update role data
+     *@param $id and RoleRequest $request
+     * @return View blog
+     */
+    public function updateRole(RoleRequest $request, $id)
     {
         $role_update = $this->roleInterface->updateRole($request, $id);
         return redirect('/admin/role')->with(['success' => 'Role update successfully']);
     }
 
+    /**
+     * To delete role
+     *@param $id
+     * @return View role
+     */
     public function deleteRole($id)
     {
         $role_delete = $this->roleInterface->deleteRole($id);

@@ -2,7 +2,7 @@
 
 namespace App\Contracts\Services\Admin\Role;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\RoleRequest;
 use App\Models\Role;
 
 /**
@@ -15,7 +15,7 @@ interface RoleServiceInterface
      * @param int $request
      * @return Object Role
      */
-    public function saveRole(Request $request);
+    public function saveRole(RoleRequest $request);
 
     /**
      * To edit Role
@@ -29,7 +29,7 @@ interface RoleServiceInterface
      * @param Request $request request including inputs and $id
      * @return Object updated role object
      */
-    public function updateRole(Request $request, $id);
+    public function updateRole(RoleRequest $request, $id);
 
     /**
      * To delete role

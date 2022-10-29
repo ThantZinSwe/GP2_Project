@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CodeLanguageController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CourseVideoController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Middleware\AdminAuthMiddleWare;
@@ -22,7 +23,9 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
     Route::get('/dashboard', [ProfileController::class, 'index'])->name('admin.dashboard');
 
     //User
-    Route::get('/users', [ProfileController::class, 'getStudent'])->name('user.get');
+    Route::get('/users', [UserController::class, 'index'])->name('user.get');
+    Route::delete('/users/{id}',[UserController::class, 'blockUser'])->name('user.block');
+
     //Profile
     Route::get('/profile', [ProfileController::class, 'showProfileForm'])->name('admin.profile.get');
     Route::post('/profile-change/{id}', [ProfileController::class, 'changeProfile'])->name('admin.profile.change');

@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Blog</h1>
+            <h1 class="m-0">User</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-              <li class="breadcrumb-item active">Blog Lists</li>
+              <li class="breadcrumb-item active">User Lists</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -32,13 +32,10 @@
         @endif
         <div class="card">
           <div class="card-header ">
-            <h3 class="card-title">Blog
+            <h3 class="card-title">User
 
             </h3>
             
-            <div class="d-flex justify-content-end">
-                <a href="{{route('admin.blog.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Blog Create</a>
-            </div>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
@@ -46,30 +43,29 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                   <th>Blog Name</th>
-                   <th>Blog Content</th>
+                   <th>User Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                @foreach ($blogs as $blog_list)
+                @foreach ($users as $user)
+                  @if ($user->role_id == 2)
                   <tr>
-                    <td>{{$blog_list->id}}</td>
-                    <td>{{$blog_list->title}}</td>
-                    <td>{{$blog_list->content}}</td>
-                    <td class="d-flex border-bottom-0">
-                        <a href="{{route('admin.blog.edit',$blog_list->slug)}}" class="btn 
-                        btn-warning btn-sm mr-3">Edit</a>
-                       
-                        <form method="post" action="{{route('admin.blog.delete',
-                          $blog_list->slug)}}" >
+                    <td>{{$user->id}}</td>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->phone}}</td>
+                    <td class="d-flex border-bottom-0">                  
+                        <form method="post" action="{{route('user.block',$user->id)}}" >
                         {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                            <button type="submit" class="btn btn-danger btn-sm" 
-                            onclick="return confirm('Are you sure to want to delete this blog?')" name="delete">Delete</button>
+                                {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to want to block {{$user->name}}?')" name="delete">Block</button>
                         </form>
                     </td>
                   </tr>
+                  @endif
                   @endforeach
                 </tbody>
               </table>

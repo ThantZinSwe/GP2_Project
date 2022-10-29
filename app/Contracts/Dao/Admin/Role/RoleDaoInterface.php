@@ -2,7 +2,7 @@
 
 namespace App\Contracts\Dao\Admin\Role;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\RoleRequest;
 
 /**
  * Interface of Data Access Object for role
@@ -14,7 +14,7 @@ interface RoleDaoInterface
      * @param int $request
      * @return Object Role
      */
-    public function saveRole(Request $request);
+    public function saveRole(RoleRequest $request);
 
     /**
      * To edit Role
@@ -28,7 +28,7 @@ interface RoleDaoInterface
      * @param Request $request request including inputs and $id
      * @return Object updated role object
      */
-    public function updateRole(Request $request, $id);
+    public function updateRole(RoleRequest $request, $id);
 
     /**
      * To delete role

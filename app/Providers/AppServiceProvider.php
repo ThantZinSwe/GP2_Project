@@ -22,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Dao\Admin\CourseVideo\CourseVideoDaoInterface', 'App\Dao\Admin\CourseVideo\CourseVideoDao');
         $this->app->bind('App\Contracts\Dao\Admin\Blog\BlogDaoInterface', 'App\Dao\Admin\Blog\BlogDao');
         $this->app->bind('App\Contracts\Dao\Admin\Lan\LanDaoInterface', 'App\Dao\Admin\Lan\LanDao');
+        $this->app->bind('App\Contracts\Dao\Admin\User\UserDaoInterface', 'App\Dao\Admin\User\UserDao');
 
         // Business logic registration
         $this->app->bind('App\Contracts\Services\Admin\Profile\ProfileServiceInterface', 'App\Services\Admin\Profile\ProfileService');
@@ -31,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Services\Admin\CourseVideo\CourseVideoServiceInterface', 'App\Services\Admin\CourseVideo\CourseVideoService');
         $this->app->bind('App\Contracts\Services\Admin\Blog\BlogServiceInterface', 'App\Services\Admin\Blog\BlogService');
         $this->app->bind('App\Contracts\Services\Admin\Lan\LanServiceInterface', 'App\Services\Admin\Lan\LanService');
+        $this->app->bind('App\Contracts\Services\Admin\User\UserServiceInterface', 'App\Services\Admin\User\UserService');
 
     }
 
