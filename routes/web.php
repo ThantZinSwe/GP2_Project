@@ -59,6 +59,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
     Route::get('/course/edit/{slug}', [CourseController::class, 'edit'])->name('admin.course.edit');
     Route::put('/course/edit/{slug}', [CourseController::class, 'update'])->name('admin.course.update');
     Route::delete('/course/{slug}', [CourseController::class, 'delete'])->name('admin.course.delete');
+    Route::get('/course/search', [CourseController::class, 'search'])->name('admin.course.search');
 
     //CourseVideo
     Route::get('/course/{slug}/course-video', [CourseVideoController::class, 'index'])->name('admin.courseVideo.index');

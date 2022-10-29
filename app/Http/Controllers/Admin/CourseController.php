@@ -6,6 +6,7 @@ use App\Contracts\Services\Admin\Course\CourseServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CourseRequest;
 use App\Http\Requests\CourseUpdateRequest;
+use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
@@ -28,8 +29,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = $this->courseInterface->index();
-        return view('admin.course.index', compact('courses'));
+        $data = $this->courseInterface->index();
+        return view('admin.course.index', $data);
     }
 
     /**
@@ -82,5 +83,16 @@ class CourseController extends Controller
     {
         $this->courseInterface->delete($slug);
         return redirect()->back()->with(['success' => 'Course deleted successfully']);
+    }
+
+    /**
+     * To search course
+     * @param Request $request from inputs
+     * @return View admin/course/index
+     */
+    public function search(Request $request)
+    {
+        $data = $this->courseInterface->search($request);
+        return view('admin.course.index', $data);
     }
 }

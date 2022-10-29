@@ -36,11 +36,17 @@
 
             </h3>
             <div class="d-flex justify-content-end">
-                <form action="#" class="mr-3 mt-1">
+                <form action="{{route('admin.course.search')}}" class="mr-3 mt-1">
                     <div class="input-group input-group-sm">
-                        <input type="text" class="form-control" placeholder="Search Course...">
+                        <input type="text" class="form-control" name="course"  placeholder="Search Course..." value="{{request('course')}}">
+                        <select name="language" id="" class="form-control">
+                            <option value="">Choose Language</option>
+                            @foreach ($languages as $language)
+                                <option value="{{$language->id}}" {{request('language')==$language->id ? 'selected' : ''}}>{{$language->name}}</option>
+                            @endforeach
+                        </select>
                         <span class="input-group-append">
-                          <button type="button" class="btn btn-info">Search</button>
+                          <button type="submit" class="btn btn-info">Search</button>
                         </span>
                     </div>
                 </form>

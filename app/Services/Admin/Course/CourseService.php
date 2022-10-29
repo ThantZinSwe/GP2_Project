@@ -73,4 +73,14 @@ class CourseService implements CourseServiceInterface
     {
         return $this->courseDao->delete($slug);
     }
+
+    /**
+     * To search course
+     * @param $request
+     * @return Object $courses
+     */
+    public function search($request)
+    {
+        return $this->courseDao->search($request);
+    }
 }

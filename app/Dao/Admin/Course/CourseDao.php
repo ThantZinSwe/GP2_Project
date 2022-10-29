@@ -4,6 +4,7 @@ namespace App\Dao\Admin\Course;
 
 use App\Contracts\Dao\Admin\Course\CourseDaoInterface;
 use App\Models\Course;
+use App\Models\CourseVideo;
 use App\Models\Language;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -20,7 +21,8 @@ class CourseDao implements CourseDaoInterface
         $courses = Course::with('languages', 'courseVideos')
             ->orderBy('id', 'desc')
             ->get();
-        return $courses;
+        $languages = Language::get();
+        return compact('courses', 'languages');
     }
 
     /**
@@ -119,6 +121,7 @@ class CourseDao implements CourseDaoInterface
     public function delete($slug)
     {
         $course = Course::where('slug', $slug)->first();
+        CourseVideo::where('course_id', $course->id)->delete();
 
         $course->languages()->detach();
 
@@ -132,6 +135,39 @@ class CourseDao implements CourseDaoInterface
 
         $course->delete();
         return 'success';
+    }
+
+    /**
+     * To search course
+     * @param $request
+     * @return Object $courses
+     */
+    public function search($request)
+    {
+        $course = $request->course;
+        $language = $request->language;
+        $languages = Language::get();
+        $courses = Course::with('languages', 'courseVideos');
+
+        if (isset($course)) {
+            $courses->where(function ($q) use ($course) {
+                $q->orWhere('name', 'like', '%' . $course . '%')
+                    ->orWhere('price', 'like', '%' . $course . '%')
+                    ->orWhere('type', 'like', '%' . $course . '%');
+            });
+        }
+
+        if (isset($language)) {
+
+            $courses->whereHas('languages', function ($q) use ($language) {
+                $q->where('course_languages.language_id', $language);
+            });
+
+        }
+
+        $courses = $courses->orderBy('id', 'desc')->get();
+        return compact('courses', 'languages');
+
     }
 
 }
