@@ -30,14 +30,20 @@
           <div class="card">
             <div class="card-body">
               @if(Session::has('message'))
-                <span class="alert alert-success">
-                  {{ Session::get('message') }}
-                </span>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{Session::get('message')}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
               @endif
               @if(Session::has('error'))
-                <span class="alert alert-danger">
-                  {{ Session::get('error') }}
-                </span>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{Session::get('error')}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
               @endif
               <form action="{{ route('admin.profile.change', Auth::id()) }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -71,7 +77,7 @@
                 </div>
                 <div class="mb-3">
                   <label>Profile Photo</label>
-                  <input type="file" name="profile_img" class="form-control">
+                  <input type="file" name="profile_img" class="form-control" accept="image/*">
                   @error('profile_img')
                     <br><small class="alert alert-danger">{{ $message }}</small>
                   @enderror
