@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Courses</h1>
+            <h1 class="m-0">Roles</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -37,6 +37,9 @@
                           <label for="roleName">Role Name</label>
                           <input type="text" name="roleName" class="form-control" id="roleName" placeholder="Enter course name"  value="{{$edit_name}}">
                         </div>
+                        @error('roleName')
+                          <span class="text-danger">{{$message}}</span>
+                        @enderror
                         <!-- /.card-body -->
 
                       <div class="card-footer">

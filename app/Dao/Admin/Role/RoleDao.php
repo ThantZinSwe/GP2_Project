@@ -3,8 +3,7 @@
 namespace App\Dao\Admin\Role;
 
 use App\Contracts\Dao\Admin\Role\RoleDaoInterface;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\RoleRequest;
 use App\Models\Role;
 
 /**
@@ -17,17 +16,8 @@ class RoleDao implements RoleDaoInterface
      * @param int $request
      * @return Object Role
      */
-    public function saveRole(Request $request)
+    public function saveRole(RoleRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'roleName' => 'required|max:255',
-        ]);
-
-        if ($validator->fails()) {
-            return back()
-                ->withInput()
-                ->withErrors($validator);
-        }
         $role = new Role;
         $role->name = $request->roleName;
         $role->save();
@@ -41,9 +31,9 @@ class RoleDao implements RoleDaoInterface
     public function editRole($id)
     {
         $edit_role = Role::find($id);
-        return view('admin.role.edit',[
-            'edit_name'=>$edit_role->name,
-            'edit_id' => $edit_role->id
+        return view('admin.role.edit', [
+            'edit_name' => $edit_role->name,
+            'edit_id' => $edit_role->id,
         ]);
     }
 
@@ -52,17 +42,8 @@ class RoleDao implements RoleDaoInterface
      * @param Request $request request including inputs and $id
      * @return Object updated role object
      */
-    public function updateRole(Request $request, $id)
+    public function updateRole(RoleRequest $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'roleName' => 'required|max:255',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('/admin/role')
-                ->withInput()
-                ->withErrors($validator);
-        }
         $role = Role::find($id);
         $role->name = $request->roleName;
         $role->save();

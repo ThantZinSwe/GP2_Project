@@ -54,14 +54,16 @@ body {
   color: #ffffff;
   border-radius: 5px;
 }
+
 .dash-box div p:first-child {
   padding-bottom: 9px;
   color: #99a19f;
 }
+
 .error {
-  color: rgb(236, 14, 14);
   margin-bottom: 5px;
   margin-left: 19px;
+  color: rgb(236, 14, 14);
   font-size: 18px;
 }
 
@@ -76,88 +78,93 @@ body {
   font-weight: 700;
   border-radius: 5px;
 }
+
 /*Profile*/
-.sign-box{
+.sign-box {
   width: 500px;
-  background-color: #ffffff;
+  margin: 0 auto;
+  margin-top: 10%;
   padding: 10px 0 30px 30px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin: 0 auto;
+  background-color: #ffffff;
   border-radius: 5px;
-  margin-top: 10%;
 }
-.sign-title{  
+
+.sign-title {
   margin: 20px 0 40px 0;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 30px;
+  padding-left: 20px;
   color: #479ef3;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.sign-form {
   padding-left: 20px;
 }
-.sign-form{
-  padding-left: 20px;
-}
-.conmon-req{
-  border-bottom: 2px solid #cfcfcf;
+
+.conmon-req {
   width: 350px;
   margin-bottom: 25px;
+  border-bottom: 2px solid #cfcfcf;
 }
-.conmon-req input{
-  width:300px;
-  border: 0;
-  padding: 10px;
+
+.conmon-req input {
+  width: 300px;
   margin-right: 10px;
-  outline: none;
+  padding: 10px;
+  border: 0;
   font-size: 20px;
-}
-.conmon-req textarea{
-  width: 210px;
-  border: 0;
-  padding: 10px;
-  margin-right: 10px;
   outline: none;
 }
-.sign-box a{
-  display: inline-block;
-  color: #000;
-  margin-bottom: 30px;
+
+.conmon-req textarea {
+  width: 210px;
+  margin-right: 10px;
+  padding: 10px;
+  border: 0;
+  outline: none;
 }
-.sign-box a:hover{
+
+.conmon-req span {
+  color: #fd6f6f;
+}
+
+.sign-box a {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+.sign-box a:hover {
   text-decoration: underline;
 }
-.pro-submit{
-  font-size: 20px;
+
+.pro-submit {
   padding: 10px 20px;
-  border-radius: 5px;
   border: 1px solid #88bef5;
-  color: #88bef5;
   background-color: #ffffff;
+  color: #88bef5;
+  font-size: 20px;
+  border-radius: 5px;
 }
+
 .pro-submit.signup {
   margin-left: 15px;
+  padding-bottom: 13px;
+  border: 1px solid #232323;
   background-color: #ffffff;
   color: #232323;
-  border: 1px solid #232323;
-  padding-bottom: 13px;
   font-family: 'Roboto', sans-serif;
 }
-.pro-submit.signup:hover{
+
+.pro-submit.signup:hover {
   background-color: #232323;
   color: #ffffff;
   text-decoration: none;
 }
-.pro-submit:hover{
+
+.pro-submit:hover {
   background-color: #479ef3;
   color: #ffffff;
-}
-/*error*/
-.alert ul li{
-  background-color: #f4cedc;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  padding: 10px;
-  width: 300px;
-}
-.alert strong{
-  color: #f4cedc;
 }

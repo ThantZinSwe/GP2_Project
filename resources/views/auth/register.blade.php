@@ -12,43 +12,43 @@
 <body>
 <div class="sign-box">
     <h1 class="sign-title">SIGN UP</h1>
-    @if (count($errors) > 0)
-    <!-- Form Error List -->
-    <div class="alert alert-danger">
-        <strong>Whoops! Something went wrong!</strong>
- 
-        <br><br>
- 
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-  @endif
+    
     <form method="post" action="{{route('auth.register.save')}}" class="sign-form">
     {{ csrf_field() }}
     <input type="hidden" placeholder="UserName" required name="name">
       <div class="conmon-req pro-name">
       <i class="fa-solid fa-user"></i>
-        <input type="text" placeholder="UserName" required name="name">
-        
+        <input type="text" placeholder="UserName" name="name">
+        @error('name')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
       </div>
+      
       <div class="conmon-req pro-email">
       <i class="fa-solid fa-envelope"></i>
-        <input type="email" placeholder="Email" required name="email">
-        
+        <input type="email" placeholder="Email" name="email">
+        @error('email')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
       </div>
+      
+
       <div class="conmon-req pro-pass">
       <i class="fa-solid fa-lock"></i>
-        <input type="password" placeholder="Password" required name="password">
-        
+        <input type="password" placeholder="Password" name="password">
+        @error('password')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
       </div>
+     
       <div class="conmon-req pro-phone">
       <i class="fa-solid fa-phone"></i>
-        <input type="text" placeholder="Phone" required name="phone">
-        
+        <input type="text" placeholder="Phone" name="phone">
+        @error('phone')
+        <span class="text-danger">{{$message}}</span>
+        @enderror
       </div>
+      
       <a href="{{ route('login.get') }}">Have An Account?</a><br>
       <input type="submit" value="Sign Up" class="pro-submit">
     </form>

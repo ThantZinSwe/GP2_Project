@@ -45,13 +45,15 @@
             <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
+                    <th>#</th>
                    <th>Role Name</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                @foreach ($roles as $k=>$r)
+                @foreach ($roles as $r)
                   <tr>
+                    <td>{{$r->id}}</td>
                     <td>{{$r->name}}</td>
                     <td class="d-flex border-bottom-0">
                         <a href="{{route('admin.role.edit',$r->id)}}" class="btn btn-warning btn-sm mr-3">Edit</a>
