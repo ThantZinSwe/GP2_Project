@@ -36,6 +36,9 @@
                         <div class="form-group">
                           <label for="languageName">Language Name</label>
                           <input type="text" class="form-control" id="LanguageName" name="name" placeholder="Enter Language name">
+                          @error('name')
+                              <span class="text-danger">{{$message}}</span>
+                          @enderror
                         </div>
                       </div>
                       <!-- /.card-body -->
