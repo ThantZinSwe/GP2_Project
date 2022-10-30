@@ -5,9 +5,10 @@ use App\Http\Controllers\Admin\CodeLanguageController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CourseVideoController;
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\User\HomeController;
 use App\Http\Middleware\AdminAuthMiddleWare;
 use Illuminate\Support\Facades\Route;
 
@@ -22,13 +23,13 @@ Route::get('/change-password/{token}', [AuthController::class, 'showChangePasswo
 Route::post('/change-password', [AuthController::class, 'submitChangePasswordForm'])->name('change.password.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Admin
+// Admin Dashboard
 Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]], function () {
     Route::get('/dashboard', [ProfileController::class, 'index'])->name('admin.dashboard');
 
     //User
     Route::get('/users', [UserController::class, 'index'])->name('user.get');
-    Route::delete('/users/{id}',[UserController::class, 'blockUser'])->name('user.block');
+    Route::delete('/users/{id}', [UserController::class, 'blockUser'])->name('user.block');
 
     //Profile
     Route::get('/profile', [ProfileController::class, 'showProfileForm'])->name('admin.profile.get');
@@ -77,3 +78,6 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
     Route::post('/blog/edit/{slug}', [BlogController::class, 'blogUpdate'])->name('admin.blog.update');
     Route::delete('/blog/{slug}', [BlogController::class, 'blogDelete'])->name('admin.blog.delete');
 });
+
+// User
+Route::get('/', [HomeController::class, 'index'])->name('user.home');
