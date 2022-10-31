@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\CourseController as UserCourseController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\UserBlogController;
 use App\Http\Middleware\AdminAuthMiddleWare;
 use Illuminate\Support\Facades\Route;
 
@@ -82,4 +83,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
 
 // User
 Route::get('/', [HomeController::class, 'index'])->name('user.home');
+
+//Blog
+Route::get('/blog',[UserBlogController::class, 'index'])->name('user.blog');
 Route::get('/courses', [UserCourseController::class, 'index'])->name('user.course');
