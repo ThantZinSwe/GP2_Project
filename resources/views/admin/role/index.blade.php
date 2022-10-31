@@ -51,9 +51,9 @@
                   </tr>
                 </thead>
                 <tbody>
-                @foreach ($roles as $r)
+                @foreach ($roles as $no => $r)
                   <tr>
-                    <td>{{$r->id}}</td>
+                    <td>{{++$no}}</td>
                     <td>{{$r->name}}</td>
                     <td class="d-flex border-bottom-0">
                         <a href="{{route('admin.role.edit',$r->id)}}" class="btn btn-warning btn-sm mr-3">Edit</a>
