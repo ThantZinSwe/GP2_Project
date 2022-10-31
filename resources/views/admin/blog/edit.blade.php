@@ -51,9 +51,6 @@
                                 <span class="input-group-text">Upload</span>
                               </div>
                             </div>
-                            @error('image')
-                              <span class="text-danger">{{$message}}</span>
-                            @enderror
                         </div>
 
                         <div class="form-group">

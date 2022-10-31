@@ -36,6 +36,7 @@ img{
     padding: 8px 11px 8px 11px;
     border: 1px solid transparent;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -266,6 +267,10 @@ img{
 }
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1180px) {
+    body {
+        font-size: 2.083vw;
+    }
+
     .l-inner {
         width: 100%;
         max-width: 100%;
@@ -433,6 +438,10 @@ img{
 
 /* Mobile */
 @media screen and (max-width: 767.9px) {
+    body {
+        font-size: 2.5vw;
+    }
+
     .l-inner {
         width: 100%;
         max-width: 100%;

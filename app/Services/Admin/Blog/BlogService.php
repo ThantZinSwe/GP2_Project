@@ -5,6 +5,7 @@ namespace App\Services\Admin\Blog;
 use App\Contracts\Dao\Admin\Blog\BlogDaoInterface;
 use App\Contracts\Services\Admin\Blog\BlogServiceInterface;
 use App\Http\Requests\BlogRequest;
+use App\Http\Requests\BlogUpdateRequest;
 
 /**
  * Interface of Data Access Object for blog
@@ -47,7 +48,7 @@ class BlogService implements BlogServiceInterface
      * @param string $slug and $request
      * @return Object Blog
      */
-    public function blogUpdate(BlogRequest $request, $slug)
+    public function blogUpdate(BlogUpdateRequest $request, $slug)
     {
         return $this->blogDao->blogUpdate($request, $slug);
     }
