@@ -47,15 +47,19 @@
                   <tr>
                     <th>#</th>
                    <th>Blog Name</th>
+                   <th>Image</th>
                    <th>Blog Content</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                @foreach ($blogs as $blog_list)
+                @foreach ($blogs as $no => $blog_list)
                   <tr>
-                    <td>{{$blog_list->id}}</td>
+                    <td>{{++$no}}</td>
                     <td>{{$blog_list->title}}</td>
+                    <td>
+                            <img src="{{asset('images/blog/'.$blog_list->image)}}" alt="{{$blog_list->image}}" width="50">
+                        </td>
                     <td>{{$blog_list->content}}</td>
                     <td class="d-flex border-bottom-0">
                         <a href="{{route('admin.blog.edit',$blog_list->slug)}}" class="btn 

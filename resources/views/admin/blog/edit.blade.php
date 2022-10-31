@@ -30,7 +30,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="post" action="{{route('admin.blog.update',$edit_slug)}}">
+                    <form method="post" action="{{route('admin.blog.update',$edit_slug)}}" enctype="multipart/form-data">
                       {{ csrf_field() }}
                       <div class="card-body">
                         <div class="form-group">
@@ -40,6 +40,22 @@
                         @error('blogName')
                           <span class="text-danger">{{$message}}</span>
                         @enderror
+                        <div class="form-group">
+                            <label for="exampleInputFile">Blog Image</label>
+                            <div class="input-group">
+                              <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="image" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Choose Image</label>
+                              </div>
+                              <div class="input-group-append">
+                                <span class="input-group-text">Upload</span>
+                              </div>
+                            </div>
+                            @error('image')
+                              <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
+
                         <div class="form-group">
                           <label for="editContent">Blog Content</label>
                           <textarea type="text" name="blogContent" class="form-control" id="editContent" placeholder="Enter blog content">{{$edit_content}}</textarea>
