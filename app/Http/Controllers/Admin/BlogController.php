@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Contracts\Services\Admin\Blog\BlogServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogRequest;
+use App\Http\Requests\BlogUpdateRequest;
 use App\Models\Blog;
 
 class BlogController extends Controller
@@ -69,7 +70,7 @@ class BlogController extends Controller
      *@param $slug and BlogRequest $request
      * @return View blog
      */
-    public function blogUpdate(BlogRequest $request, $slug)
+    public function blogUpdate(BlogUpdateRequest $request, $slug)
     {
         $blog_update = $this->blogInterface->blogUpdate($request, $slug);
         return redirect('/admin/blog')->with('success', "Blog update Successfully");

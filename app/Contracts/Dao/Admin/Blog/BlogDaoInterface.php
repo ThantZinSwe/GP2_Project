@@ -3,6 +3,7 @@
 namespace App\Contracts\Dao\Admin\Blog;
 
 use App\Http\Requests\BlogRequest;
+use App\Http\Requests\BlogUpdateRequest;
 
 /**
  * Interface of Data Access Object for blog
@@ -28,7 +29,7 @@ interface BlogDaoInterface
      * @param string $slug and $request
      * @return Object Blog
      */
-    public function blogUpdate(BlogRequest $request, $slug);
+    public function blogUpdate(BlogUpdateRequest $request, $slug);
 
     /**
      * To delete blog

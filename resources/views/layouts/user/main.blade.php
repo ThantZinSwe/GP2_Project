@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/user/reset.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/common.css')}}">
-    <link rel="stylesheet" href="{{asset('css/user/course.css')}}">
+    <link rel="stylesheet" href="{{asset('css/user/course-details.css')}}">
 </head>
 <body>
     {{-- Header --}}

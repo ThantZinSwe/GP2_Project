@@ -4,6 +4,7 @@ namespace App\Dao\Admin\Blog;
 
 use App\Contracts\Dao\Admin\Blog\BlogDaoInterface;
 use App\Http\Requests\BlogRequest;
+use App\Http\Requests\BlogUpdateRequest;
 use App\Models\Blog;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -24,9 +25,9 @@ class BlogDao implements BlogDaoInterface
         $imageName = uniqid() . '-' . $image->getClientOriginalName();
         $image->move(public_path() . '/images/blog/', $imageName);
         Blog::Create([
-            'title' => $request->blogName,
-            'slug' => Str::slug($request->blogName . Str::random(40)),
-            'image' => $imageName,
+            'title'   => $request->blogName,
+            'slug'    => Str::slug($request->blogName . Str::random(40)),
+            'image'   => $imageName,
             'content' => $request->blogContent,
         ]);
     }
@@ -40,9 +41,9 @@ class BlogDao implements BlogDaoInterface
     {
         $editBlog = Blog::where('slug', $slug)->first();
         return view('admin.blog.edit')->with([
-            'edit_slug' => $editBlog->slug,
-            'edit_title' => $editBlog->title,
-            'edit_image' => $editBlog->image,
+            'edit_slug'    => $editBlog->slug,
+            'edit_title'   => $editBlog->title,
+            'edit_image'   => $editBlog->image,
             'edit_content' => $editBlog->content,
         ]);
     }
@@ -52,7 +53,7 @@ class BlogDao implements BlogDaoInterface
      * @param string $slug and $request
      * @return Object Blog
      */
-    public function blogUpdate(BlogRequest $request, $slug)
+    public function blogUpdate(BlogUpdateRequest $request, $slug)
     {
         $updateBlog = Blog::where('slug', $slug)->first();
         $image = $request->file('image');
@@ -71,6 +72,7 @@ class BlogDao implements BlogDaoInterface
             $image->move(public_path() . '/images/blog/', $imageName);
             $updateBlog->image = $imageName;
         }
+
         $updateBlog->title = $request->blogName;
         $updateBlog->slug = Str::slug($request->blogName . Str::random(40));
         $updateBlog->content = $request->blogContent;
@@ -86,11 +88,14 @@ class BlogDao implements BlogDaoInterface
     {
         $deleteBlog = Blog::where('slug', $slug)->first();
         $delete_image = $deleteBlog->image;
+
         if (File::exists(public_path() . '/images/blog/' . $delete_image)) {
 
             File::delete(public_path() . '/images/blog/' . $delete_image);
 
         }
+
         $deleteBlog->delete();
     }
+
 }

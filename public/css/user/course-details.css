@@ -1,0 +1,634 @@
+.course-details-sec {
+    padding: 80px 0 50px;
+}
+
+.course-details-ttl {
+    font-size: 35px;
+    font-weight: 600;
+    color: #232323;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.course-details-blk .outline-blk {
+    float: right;
+    width: 30%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.course-details-blk .outline-blk .outline-ttl {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: #232323;
+}
+
+.course-details-blk .outline-blk .outline-lists {
+    padding: 0 20px;
+    text-align: center;
+}
+
+.course-details-blk .outline-blk .outline-lists li {
+    background-color: #60a5fa;
+    margin: 15px 0;
+    padding: 13px 0;
+}
+
+.course-details-blk .outline-blk .outline-lists li a {
+    color: #ffffff;
+}
+
+.course-details-blk .outline-blk .outline-lists li .fa-lock {
+    color: #232323;
+}
+
+.course-details-blk .outline-blk .outline-lists li i {
+    margin-right: 10px;
+}
+
+.course-details-blk .vd-img-blk {
+    float: left;
+    width: 65%;
+}
+
+.course-details-blk .vd-img-blk iframe {
+    width: 100%;
+    height: 416px;
+}
+
+.course-details-sec img {
+    width: 100%;
+}
+
+.course-details-blk .vd-img-blk .description {
+    margin-top: 25px;
+}
+
+.course-details-blk .vd-img-blk .description .description-ttl {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.course-details-blk .vd-img-blk .description p {
+    font-size: 16px;
+    color: #232323;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.course-details-blk .vd-img-blk .description .type,
+.course-details-blk .vd-img-blk .description .price {
+    font-weight: 600;
+    color: #232323;
+    margin-right: 10px;
+}
+
+.course-details-sec .badge,
+.course-details-sec .badge {
+    padding: 8px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: #60a5fa;
+    font-size: 12px;
+    color: #fff;
+}
+
+.course-details-blk .vd-img-blk .description .enroll-btn.btn-primary {
+    background-color: #60a5fa;
+}
+
+.course-details-blk .vd-img-blk .description .enroll-btn.btn-primary:hover {
+    background-color: transparent;
+    color: #60a5fa;
+    border: 1px solid #60a5fa;
+}
+
+.course-details-blk .vd-img-blk .review {
+    margin-top: 30px;
+}
+
+.course-details-blk .vd-img-blk .review textarea {
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    outline: none;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 1px;
+}
+
+.course-details-blk .vd-img-blk .review .review-btn {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+}
+
+.course-details-blk .vd-img-blk .review .review-btn .btn {
+    font-size: 16px;
+    padding: 10px 16px 10px 16px;
+}
+
+.course-details-blk .vd-img-blk .review-box {
+    margin-top: 20px;
+}
+
+.course-details-blk .vd-img-blk .review-box .review-lists {
+    margin-top: 20px;
+}
+
+.course-details-blk .vd-img-blk .review-box h3 {
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+.course-details-blk .vd-img-blk .review-box .review-lists .review-profile {
+    float: left;
+    width: 10%;
+    padding-left: 25px;
+}
+
+.course-details-blk .vd-img-blk .review-box .review-lists .review-profile img {
+    width: 100%;
+}
+
+.course-details-blk .vd-img-blk .review-box .review-lists .review-info {
+    float: right;
+    width: 88%;
+    margin-top: 10px;
+}
+
+.course-details-blk .vd-img-blk .review-box .review-lists .review-info .name {
+    font-size: 17px;
+    font-weight: 600;
+    color: #232323;
+}
+
+.course-details-blk
+    .vd-img-blk
+    .review-box
+    .review-lists
+    .review-info
+    .review-content {
+    font-size: 14px;
+    font-weight: 500;
+    color: #232323;
+    line-height: 1.5;
+}
+
+.course-details-sec .latest-course-blk {
+    padding: 50px 0 0;
+}
+
+.course-details-sec .latest-course-ttl {
+    font-size: 25px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.latest-course-blk .course-details-card-blk .course-details-card {
+    float: left;
+    width: 31%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-right: 40px;
+}
+
+.latest-course-blk .course-details-card-blk .course-details-card:nth-child(4) {
+    margin-right: 0;
+}
+
+.course-details-sec .latest-course-blk .course-details-card .course-info {
+    padding: 30px;
+    font-weight: 500;
+}
+
+.course-details-sec .latest-course-blk .course-details-card .course-info .price,
+.course-details-sec
+    .latest-course-blk
+    .course-details-card
+    .course-info
+    .language {
+    margin-top: 20px;
+}
+
+.course-details-sec
+    .latest-course-blk
+    .course-details-card
+    .course-info
+    .badge {
+    padding: 2px 5px;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+    .course-details-sec {
+        padding: 10.417vw 6.51vw 6.51vw;
+    }
+
+    .course-details-ttl {
+        font-size: 4.557vw;
+        margin-bottom: 6.51vw;
+    }
+
+    .course-details-blk .outline-blk {
+        float: none;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0vw 0.13vw 0.521vw;
+        padding: 2.604vw;
+        border-radius: 1.302vw;
+        margin-bottom: 2.604vw;
+    }
+
+    .course-details-blk .outline-blk .outline-ttl {
+        font-size: 3.125vw;
+    }
+
+    .course-details-blk .outline-blk .outline-lists {
+        padding: 0 2.604vw;
+    }
+
+    .course-details-blk .outline-blk .outline-lists li {
+        margin: 1.953vw 0;
+        padding: 1.693vw 0;
+    }
+
+    .course-details-blk .outline-blk .outline-lists li a {
+        font-size: 2.344vw;
+    }
+
+    .course-details-blk .outline-blk .outline-lists li i {
+        margin-right: 1.302vw;
+    }
+
+    .course-details-blk .vd-img-blk {
+        float: none;
+        width: 100%;
+    }
+
+    .course-details-blk .vd-img-blk iframe {
+        width: 100%;
+        height: 54.167vw;
+    }
+
+    .course-details-sec img {
+        width: 100%;
+    }
+
+    .course-details-blk .vd-img-blk .description {
+        margin-top: 3.255vw;
+    }
+
+    .course-details-blk .vd-img-blk .description .description-ttl {
+        font-size: 3.255vw;
+    }
+
+    .course-details-blk .vd-img-blk .description p {
+        font-size: 2.083vw;
+        line-height: 1.4;
+        margin-bottom: 1.302vw;
+    }
+
+    .course-details-blk .vd-img-blk .description .type,
+    .course-details-blk .vd-img-blk .description .price {
+        margin-right: 1.302vw;
+        font-size: 2.474vw;
+    }
+
+    .course-details-sec .badge,
+    .course-details-sec .badge {
+        padding: 1.042vw;
+        border-radius: 1.302vw;
+        font-size: 1.563vw;
+    }
+
+    .course-details-blk .vd-img-blk .description .enroll-btn {
+        font-size: 2.083vw;
+    }
+
+    .course-details-blk .vd-img-blk .review {
+        margin-top: 3.906vw;
+    }
+
+    .course-details-blk .vd-img-blk .review textarea {
+        width: 100%;
+        border-radius: 1.302vw;
+        padding: 2.604vw;
+        letter-spacing: 0.13vw;
+    }
+
+    .course-details-blk .vd-img-blk .review .review-btn {
+        margin-top: 2.604vw;
+    }
+
+    .course-details-blk .vd-img-blk .review .review-btn .btn {
+        font-size: 2.083vw;
+        padding: 1.302vw 2.083vw 1.302vw 2.083vw;
+    }
+
+    .course-details-blk .vd-img-blk .review-box {
+        margin-top: 2.604vw;
+    }
+
+    .course-details-blk .vd-img-blk .review-box .review-lists {
+        margin-top: 2.604vw;
+    }
+
+    .course-details-blk .vd-img-blk .review-box h3 {
+        font-size: 3.255vw;
+        letter-spacing: 0.13vw;
+    }
+
+    .course-details-blk .vd-img-blk .review-box .review-lists .review-profile {
+        float: left;
+        width: 10%;
+        padding-left: 3.255vw;
+    }
+
+    .course-details-blk
+        .vd-img-blk
+        .review-box
+        .review-lists
+        .review-profile
+        img {
+        width: 100%;
+    }
+
+    .course-details-blk .vd-img-blk .review-box .review-lists .review-info {
+        float: right;
+        width: 88%;
+        margin-top: 1.302vw;
+    }
+
+    .course-details-blk
+        .vd-img-blk
+        .review-box
+        .review-lists
+        .review-info
+        .name {
+        font-size: 2.214vw;
+    }
+
+    .course-details-blk
+        .vd-img-blk
+        .review-box
+        .review-lists
+        .review-info
+        .review-content {
+        font-size: 1.823vw;
+    }
+
+    .course-details-sec .latest-course-blk {
+        padding: 6.51vw 0 0;
+    }
+
+    .course-details-sec .latest-course-ttl {
+        font-size: 3.255vw;
+        margin-bottom: 2.604vw;
+        letter-spacing: 0.13vw;
+    }
+
+    .course-details-sec .latest-course-blk .course-details-card {
+        float: left;
+        width: 45%;
+        margin-right: 3.906vw;
+        margin-bottom: 2.604vw;
+        box-shadow: rgba(100, 100, 111, 0.2) 0vw 0.911vw 3.776vw 0vw;
+    }
+
+    .course-details-sec .latest-course-blk .course-details-card:nth-child(3) {
+        margin-right: 0;
+    }
+
+    .course-details-sec .latest-course-blk .course-details-card .course-info {
+        padding: 3.906vw;
+        font-size: 2.083vw;
+    }
+
+    .course-details-sec
+        .latest-course-blk
+        .course-details-card
+        .course-info
+        .price,
+    .course-details-sec
+        .latest-course-blk
+        .course-details-card
+        .course-info
+        .language {
+        margin-top: 2.604vw;
+    }
+
+    .course-details-sec
+        .latest-course-blk
+        .course-details-card
+        .course-info
+        .badge {
+        padding: 0.26vw 0.651vw;
+    }
+}
+
+@media screen and (max-width: 767.9px) {
+    .course-details-sec {
+        padding: 12.5vw 7.813vw 7.813vw;
+    }
+
+    .course-details-ttl {
+        font-size: 4.688vw;
+        margin-bottom: 7.813vw;
+    }
+
+    .course-details-blk .outline-blk {
+        float: none;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0vw 0.156vw 0.625vw;
+        padding: 3.125vw;
+        border-radius: 1.563vw;
+        margin-bottom: 3.125vw;
+    }
+
+    .course-details-blk .outline-blk .outline-ttl {
+        font-size: 3.75vw;
+    }
+
+    .course-details-blk .outline-blk .outline-lists {
+        padding: 0 3.125vw;
+    }
+
+    .course-details-blk .outline-blk .outline-lists li {
+        margin: 2.344vw 0;
+        padding: 2.031vw 0;
+    }
+
+    .course-details-blk .outline-blk .outline-lists li a {
+        font-size: 2.813vw;
+    }
+
+    .course-details-blk .outline-blk .outline-lists li i {
+        margin-right: 1.563vw;
+    }
+
+    .course-details-blk .vd-img-blk {
+        float: none;
+        width: 100%;
+    }
+
+    .course-details-blk .vd-img-blk iframe {
+        width: 100%;
+        height: 65vw;
+    }
+
+    .course-details-sec img {
+        width: 100%;
+    }
+
+    .course-details-blk .vd-img-blk .description {
+        margin-top: 3.906vw;
+    }
+
+    .course-details-blk .vd-img-blk .description .description-ttl {
+        font-size: 3.438vw;
+    }
+
+    .course-details-blk .vd-img-blk .description p {
+        font-size: 2.344vw;
+        line-height: 1.4;
+        margin-bottom: 1.563vw;
+    }
+
+    .course-details-blk .vd-img-blk .description .type,
+    .course-details-blk .vd-img-blk .description .price {
+        margin-right: 1.563vw;
+        font-size: 2.5vw;
+    }
+
+    .course-details-sec .badge,
+    .course-details-sec .badge {
+        padding: 1.25vw;
+        border-radius: 1.563vw;
+        font-size: 1.719vw;
+    }
+
+    .course-details-blk .vd-img-blk .description .enroll-btn {
+        font-size: 2.188vw;
+    }
+
+    .course-details-blk .vd-img-blk .review {
+        margin-top: 4.688vw;
+    }
+
+    .course-details-blk .vd-img-blk .review textarea {
+        width: 100%;
+        border-radius: 1.563vw;
+        padding: 3.125vw;
+        letter-spacing: 0.156vw;
+    }
+
+    .course-details-blk .vd-img-blk .review .review-btn {
+        margin-top: 3.125vw;
+    }
+
+    .course-details-blk .vd-img-blk .review .review-btn .btn {
+        font-size: 2.188vw;
+        padding: 1.563vw 2.5vw 1.563vw 2.5vw;
+    }
+
+    .course-details-blk .vd-img-blk .review-box {
+        margin-top: 3.125vw;
+    }
+
+    .course-details-blk .vd-img-blk .review-box .review-lists {
+        margin-top: 3.125vw;
+    }
+
+    .course-details-blk .vd-img-blk .review-box h3 {
+        font-size: 3.438vw;
+        letter-spacing: 0.156vw;
+    }
+
+    .course-details-blk .vd-img-blk .review-box .review-lists .review-profile {
+        float: left;
+        width: 10%;
+        padding-left: 3.906vw;
+    }
+
+    .course-details-blk
+        .vd-img-blk
+        .review-box
+        .review-lists
+        .review-profile
+        img {
+        width: 100%;
+    }
+
+    .course-details-blk .vd-img-blk .review-box .review-lists .review-info {
+        float: right;
+        width: 88%;
+        margin-top: 1.563vw;
+    }
+
+    .course-details-blk
+        .vd-img-blk
+        .review-box
+        .review-lists
+        .review-info
+        .name {
+        font-size: 2.5vw;
+    }
+
+    .course-details-blk
+        .vd-img-blk
+        .review-box
+        .review-lists
+        .review-info
+        .review-content {
+        font-size: 1.875vw;
+    }
+
+    .course-details-sec .latest-course-blk {
+        padding: 7.813vw 0 0;
+    }
+
+    .course-details-sec .latest-course-ttl {
+        font-size: 3.438vw;
+        margin-bottom: 3.125vw;
+        letter-spacing: 0.156vw;
+    }
+
+    .course-details-sec .latest-course-blk .course-details-card {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3.125vw;
+        box-shadow: rgba(100, 100, 111, 0.2) 0vw 1.094vw 4.531vw 0vw;
+    }
+
+    .course-details-sec .latest-course-blk .course-details-card:nth-child(4) {
+        margin-right: 0;
+    }
+
+    .course-details-sec .latest-course-blk .course-details-card .course-info {
+        padding: 4.688vw;
+        font-size: 2.344vw;
+    }
+
+    .course-details-sec
+        .latest-course-blk
+        .course-details-card
+        .course-info
+        .price,
+    .course-details-sec
+        .latest-course-blk
+        .course-details-card
+        .course-info
+        .language {
+        margin-top: 3.125vw;
+    }
+
+    .course-details-sec
+        .latest-course-blk
+        .course-details-card
+        .course-info
+        .badge {
+        padding: 0.313vw 0.781vw;
+    }
+}

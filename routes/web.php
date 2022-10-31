@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\User\CourseDetailsController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Middleware\AdminAuthMiddleWare;
 use Illuminate\Support\Facades\Route;
@@ -81,3 +82,5 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
 
 // User
 Route::get('/', [HomeController::class, 'index'])->name('user.home');
+
+Route::get('/course/{slug}', [CourseDetailsController::class, 'index'])->name('user.courseDetails');
