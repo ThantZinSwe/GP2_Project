@@ -50,10 +50,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                @foreach ($users as $user)
+                @foreach ($users as $no => $user)
                   @if ($user->role_id == 2)
                   <tr>
-                    <td>{{$user->id}}</td>
+                    <td>{{++$no}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->phone}}</td>
