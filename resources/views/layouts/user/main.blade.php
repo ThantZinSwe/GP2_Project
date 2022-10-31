@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{{asset('css/user/reset.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/common.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/course-details.css')}}">
+    <link rel="stylesheet" href="{{asset('css/user/course.css')}}">
+    <link rel="stylesheet" href="{{asset('css/user/home.css')}}">
+    <link rel="stylesheet" href="{{asset('css/user/blog.css')}}">
 </head>
 <body>
     {{-- Header --}}
@@ -77,7 +80,7 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Courses</a></li>
+                    <li><a href="{{ route('user.course') }}">Courses</a></li>
                 </ul>
             </div>
 
@@ -93,6 +96,8 @@
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="{{asset('library/jquery.heightLine.js')}}"></script>
     <script src="{{asset('js/user/common.js')}}"></script>
+    <script src="{{asset('js/user/blog.js')}}"></script>
 </body>
 </html>
