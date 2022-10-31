@@ -310,7 +310,52 @@ a {
         right: 0;
         bottom: -1.302vw;
     }
-
+    
+    .user-pic {
+        position: absolute;
+        right: -5%;
+        top: -30%;
+        width: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+    
+    .dd-menu {
+        position: absolute;
+        top: 47px;
+        right: -25px;
+        background: #ffffff;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        display: none;
+    }
+    
+    .dd-menu .dd-left {
+        background: #dff9fb;
+        padding: 15px 20px;
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+    
+    .dd-menu .dd-left li {
+        display: block;
+        margin: 5px 0 10px;
+        color: #616161;
+    }
+    
+    .dd-menu .dd-right li {
+        display: block;
+        margin: 5px 0 10px;
+    }
+    
+    .dd-menu .dd-right {
+        padding: 15px 20px;
+    }
+    
+    .dropdown.dropdown-menu-active .dd-menu {
+        display: flex;
+    }
     /* Footer */
     .footer {
         padding: 9.021vw 3.255vw 6.51vw;
@@ -498,7 +543,54 @@ a {
         width: 3.281vw;
         transform: translate(2.656vw, -0.625vw) rotate(135deg);
     }
-
+    .user-pic {
+        position: absolute;
+        left: 0;
+        top: -30%;
+        width: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+    .sec-mv .header .g-nav  .dd-menu ul {
+        margin: 0;
+    }
+    .dd-menu {
+        position: absolute;
+        width: 328px;
+        top: 47px;
+        left: 0;
+        background: #ffffff;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        display: none;
+    }
+    
+    .dd-menu .dd-left {
+        background: #dff9fb;
+        padding: 15px 20px;
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+    
+    .dd-menu .dd-left li {
+        display: block;
+        margin: 5px 0 10px;
+        color: #616161;
+    }
+    
+    .dd-menu .dd-right li {
+        display: block;
+        margin: 5px 0 10px;
+    }
+    
+    .dd-menu .dd-right {
+        padding: 15px 20px;
+    }
+    
+    .dropdown.dropdown-menu-active .dd-menu {
+        display: flex;
+    }
     /* Footer */
     .footer {
         padding: 10.625vw 3.906vw 7.812vw;

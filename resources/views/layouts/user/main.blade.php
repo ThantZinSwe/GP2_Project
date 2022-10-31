@@ -78,7 +78,7 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Courses</a></li>
+                    <li><a href="{{ route('user.course') }}">Courses</a></li>
                 </ul>
             </div>
 
