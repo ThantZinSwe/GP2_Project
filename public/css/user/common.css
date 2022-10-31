@@ -22,6 +22,9 @@ a {
     color: #2e2e22;
     text-decoration: none;
 }
+img{
+    width: 100%;
+}
 
 .l-inner {
     width: 100%;
