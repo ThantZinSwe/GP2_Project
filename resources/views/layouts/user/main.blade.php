@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('css/user/reset.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/common.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/course.css')}}">
+    <link rel="stylesheet" href="{{asset('css/user/home.css')}}">
 </head>
 <body>
     {{-- Header --}}
