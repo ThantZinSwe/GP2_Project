@@ -6,8 +6,9 @@
         {{-- Course Details And Video --}}
         <div class="course-details-blk l-inner clearfix">
 
+
             @if (Session::has('error'))
-                <div class="alert-error">
+                <div class="alert">
                     <i class="fa-solid fa-circle-exclamation"></i>
                     <span class="msg">Warning : {{Session::get('error')}}</span>
                     <span class="close-btn">
@@ -21,9 +22,8 @@
                 <h3 class="outline-ttl">
                     <a href="{{route('user.courseDetails',$course->slug)}}">Course Outline</a>
                 </h3><br>
-
                 <ul class="outline-lists">
-                    @if ($course->type == 'free' || $enroll != '')
+                    @if ($course->type == 'free' || isset($enroll))
                         @foreach ($course->courseVideos as $video)
                         <li>
                             <a href="{{route('user.courseVideo',[$course->slug,$video->slug])}}">
@@ -45,7 +45,7 @@
             </div>
 
             <div class="vd-img-blk">
-                <img src="{{asset('images/course/'.$course->image)}}" alt="{{$course->name}}">
+                <iframe width="1" height="1" src="{{$courseVideo->url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                 {{-- Course Description --}}
                 <div class="description">
@@ -53,11 +53,6 @@
                     <p>{{$course->description}}</p><br>
                     <span class="type">Type : <span class="badge">{{$course->type}}</span></span>
                     <span class="price">Price : <span class="badge">{{$course->price}} Ks</span></span>
-
-                    @if ($course->type == "free" || isset($enroll))
-                    @else
-                    <a href="{{route('user.enroll',$course->slug)}}" class="btn enroll-btn btn-primary">Enroll Now !</a>
-                    @endif
                 </div>
 
                 {{-- Course Review --}}

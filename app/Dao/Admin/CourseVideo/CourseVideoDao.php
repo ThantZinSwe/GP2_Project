@@ -60,7 +60,7 @@ class CourseVideoDao implements CourseVideoDaoInterface
     public function edit($slug, $courseVideo)
     {
         $course = Course::where('slug', $slug)->first();
-        $courseVideo = CourseVideo::where('slug', $courseVideo)->first();
+        $courseVideo = CourseVideo::where('slug', $courseVideo)->where('course_id', $course->id)->first();
 
         return compact('course', 'courseVideo');
     }
@@ -74,7 +74,7 @@ class CourseVideoDao implements CourseVideoDaoInterface
     public function update($slug, $courseVideo, $request)
     {
         $course = Course::where('slug', $slug)->first();
-        $courseVideo = CourseVideo::where('slug', $courseVideo)->first();
+        $courseVideo = CourseVideo::where('slug', $courseVideo)->where('course_id', $course->id)->first();
 
         $courseVideo->name = $request->name;
         $courseVideo->slug = Str::slug($request->name);
@@ -94,7 +94,7 @@ class CourseVideoDao implements CourseVideoDaoInterface
     {
         $course = Course::where('slug', $slug)->first();
 
-        $courseVideo = CourseVideo::where('slug', $courseVideo)->first();
+        $courseVideo = CourseVideo::where('slug', $courseVideo)->where('course_id', $course->id)->first();
         $courseVideo->delete();
 
         return $course;

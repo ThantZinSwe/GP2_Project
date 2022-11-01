@@ -49,4 +49,33 @@ interface CourseDaoInterface
      * @return Object $courses
      */
     public function search($request);
+
+    //User
+
+    /**
+     * To show course
+     * @param $slug
+     * @return Object $data
+     */
+    public function courseDetailsIndex($slug);
+
+    /**
+     * To show course & courseVideo
+     * @param $slug
+     * @param $courseVideo
+     * @return Object $data
+     */
+    public function courseVideo($slug, $courseVideo);
+
+    /**
+     * @param $slug
+     * @return Object $course
+     */
+    public function enroll($slug);
+
+    /**
+     * To store enroll course & user
+     * @param $slug
+     */
+    public function enrollStore($request, $slug);
 }

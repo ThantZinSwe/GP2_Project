@@ -99,7 +99,7 @@
             @else
             <img src="{{asset('images/default_profile.jpg')}}" class="img-circle elevation-2" alt="User Image">
             @endif
-            
+
             </div>
             <div class="info">
             <a href="#" class="d-block">{{ Auth::user()->name }}</a>
@@ -159,7 +159,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('admin.enroll.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-wallet"></i>
                 <p>
                     Enroll

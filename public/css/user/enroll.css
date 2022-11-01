@@ -1,0 +1,121 @@
+.enroll-sec {
+    padding: 80px 0;
+}
+
+.enroll-ttl {
+    text-align: center;
+    color: #232323;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.enroll-sec .alert {
+    background: #0092ef;
+    padding: 20px 40px;
+    min-width: 420px;
+    position: absolute;
+    right: 0px;
+    top: 10%;
+    border-radius: 4px;
+    border-left: 8px solid #0092ef;
+    animation: show_slide 1s ease forwards;
+}
+
+.enroll-sec .alert .fa-circle-check {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 30px;
+}
+
+.enroll-sec .alert .msg {
+    padding: 0 20px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.enroll-sec .alert .close-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #0092ef;
+    padding: 8px 18px;
+    cursor: pointer;
+}
+
+.enroll-sec .alert .close-btn:hover {
+    background: #0092ef;
+}
+
+.enroll-sec .alert .close-btn .fa-xmark {
+    color: #86b6e4;
+    font-size: 22px;
+    line-height: 40px;
+}
+
+.enroll-sec .alert.hide {
+    animation: hide_slide 1s ease forwards;
+}
+
+.enroll-sec .form {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.enroll-sec .form form {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px;
+    width: 600px;
+}
+
+.enroll-sec .form form .text-field {
+    margin-top: 20px;
+}
+
+.enroll-sec .form form .text-field span {
+    display: block;
+    color: #232323;
+    padding-bottom: 5px;
+}
+
+.enroll-sec .form form input,
+.enroll-sec .form form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #444;
+}
+
+.enroll-sec .form form select option {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+}
+
+.enroll-sec .form form .enroll-btn {
+    width: 100%;
+    background-color: #60a5fa;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: 0.2s linear;
+    border-radius: 10px;
+}
+
+.enroll-sec .form form .enroll-btn:hover {
+    letter-spacing: 1px;
+    opacity: 0.8s;
+    background-color: transparent;
+    color: #60a5fa;
+    border: 1px solid #60a5fa;
+}

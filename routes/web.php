@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CodeLanguageController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CourseVideoController;
+use App\Http\Controllers\Admin\EnrollController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
@@ -80,12 +81,21 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
     Route::get('/blog/{slug}', [BlogController::class, 'blogEdit'])->name('admin.blog.edit');
     Route::post('/blog/edit/{slug}', [BlogController::class, 'blogUpdate'])->name('admin.blog.update');
     Route::delete('/blog/{slug}', [BlogController::class, 'blogDelete'])->name('admin.blog.delete');
+
+    // Enroll
+    Route::get('/enroll', [EnrollController::class, 'index'])->name('admin.enroll.index');
+    Route::get('/enroll/{id}', [EnrollController::class, 'accepted'])->name('admin.enroll.accepted');
 });
 
 // User
 Route::get('/', [HomeController::class, 'index'])->name('user.home');
 
-Route::get('/course/{slug}', [CourseDetailsController::class, 'index'])->name('user.courseDetails');
 Route::get('/blog', [UserBlogController::class, 'indexBlog'])->name('user.blog');
-Route::get('/blog/{slug}',[UserBlogController::class, 'blogDetail'])->name('user.blog.detail');
+Route::get('/blog/{slug}', [UserBlogController::class, 'blogDetail'])->name('user.blog.detail');
+
 Route::get('/courses', [UserCourseController::class, 'index'])->name('user.course');
+
+Route::get('/courses/{slug}', [CourseDetailsController::class, 'courseDetailsIndex'])->name('user.courseDetails');
+Route::get('/courses/{slug}/course-video/{course_video}', [CourseDetailsController::class, 'courseVideo'])->name('user.courseVideo');
+Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'enroll'])->name('user.enroll');
+Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
