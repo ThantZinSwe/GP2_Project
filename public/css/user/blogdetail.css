@@ -1,0 +1,147 @@
+.b-detail {
+  padding-bottom: 50px;
+}
+
+.img-bdetail {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.img-bdetail img {
+  width: 100%;
+  height: 520px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+}
+
+.text-bdetail {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.title-bdetail {
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.conte-bdetail {
+  display: inline-block;
+  line-height: 1.6;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.title-ldetail {
+  padding-bottom: 50px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.b-ldetail {
+  padding-bottom: 50px;
+}
+
+/*Tablet*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .l-inner {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .b-detail {
+    padding-bottom: 7.813vw;
+  }
+
+  .img-bdetail {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .img-bdetail img {
+    width: 100%;
+    height: 81.25vw;
+    border: 0.156vw solid #ffffff;
+    border-radius: 0.781vw;
+  }
+
+  .text-bdetail {
+    width: 80%;
+    margin: 3.125vw auto;
+  }
+
+  .title-bdetail {
+    margin-bottom: 3.125vw;
+    font-size: 4.688vw;
+    font-weight: 700;
+  }
+
+  .conte-bdetail {
+    line-height: 1.6;
+    margin-left: 3.125vw;
+    font-size: 2.5vw;
+    font-weight: 400;
+  }
+
+  .title-ldetail {
+    padding-bottom: 7.813vw;
+    font-size: 4.688vw;
+  }
+
+  .b-ldetail {
+    padding-bottom: 7.813vw;
+  }
+}
+
+/*Mobile*/
+@media screen and (max-width: 767.9px) {
+  .l-inner {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .b-detail {
+    padding-bottom: 7.813vw;
+  }
+
+  .img-bdetail {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .img-bdetail img {
+    width: 100%;
+    height: 81.25vw;
+    border: 0.156vw solid #ffffff;
+    border-radius: 0.781vw;
+  }
+
+  .text-bdetail {
+    width: 80%;
+    margin: 3.125vw auto;
+  }
+
+  .title-bdetail {
+    margin-bottom: 3.125vw;
+    font-size: 4.688vw;
+    font-weight: 700;
+  }
+
+  .conte-bdetail {
+    line-height: 1.6;
+    margin-left: 3.125vw;
+    font-size: 2.5vw;
+    font-weight: 400;
+  }
+
+  .title-ldetail {
+    padding-bottom: 7.813vw;
+    font-size: 4.688vw;
+  }
+
+  .b-ldetail {
+    padding-bottom: 7.813vw;
+  }
+}

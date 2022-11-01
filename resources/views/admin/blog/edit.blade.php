@@ -45,7 +45,7 @@
                             <div class="input-group">
                               <div class="custom-file">
                                 <input type="file" class="custom-file-input" name="image" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose Image</label>
+                                <label class="custom-file-label" for="exampleInputFile">{{$edit_image}}</label>
                               </div>
                               <div class="input-group-append">
                                 <span class="input-group-text">Upload</span>
