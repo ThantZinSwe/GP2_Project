@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/user/course.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/home.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/blog.css')}}">
+    <link rel="stylesheet" href="{{asset('css/user/blogdetail.css')}}">
 </head>
 <body>
     {{-- Header --}}
@@ -28,7 +29,8 @@
                 <ul class="clearfix">
                     <li><a href="{{route('user.home')}}" class="text {{'/' == request()->path() ? 'nav-active' : ''}}">Home</a></li>
                     <li><a href="#" class="text">Courses</a></li>
-                    <li><a href="#" class="text">Blogs</a></li>
+                    <li><a href="{{route('user.blog')}}" class="text  {{'/blog' == request()->path() ? 'nav-active' : ''}}">Blogs</a></li>
+
                     <li><a href="#" class="text">About us</a></li>
                     {{-- <li><a href="#" class="btn btn-outline-primary">Sign in</a></li>
                     <li><a href="#" class="btn btn-primary">Register</a></li> --}}

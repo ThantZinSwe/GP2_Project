@@ -86,5 +86,6 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
 Route::get('/', [HomeController::class, 'index'])->name('user.home');
 
 Route::get('/course/{slug}', [CourseDetailsController::class, 'index'])->name('user.courseDetails');
-Route::get('/blog', [UserBlogController::class, 'index'])->name('user.blog');
+Route::get('/blog', [UserBlogController::class, 'indexBlog'])->name('user.blog');
+Route::get('/blog/{slug}',[UserBlogController::class, 'blogDetail'])->name('user.blog.detail');
 Route::get('/courses', [UserCourseController::class, 'index'])->name('user.course');
