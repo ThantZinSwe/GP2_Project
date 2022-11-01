@@ -14,7 +14,7 @@
                     <option value="free">Free</option>
                     <input type="text" class="search-input" placeholder="Search For Courses" id='search-course'>
                 </select>
-                
+
             </div>
             @if(count($languages) > 0)
                 <ul class="language-list" >

@@ -6,6 +6,8 @@ use App\Contracts\Dao\Admin\Course\CourseDaoInterface;
 use App\Models\Course;
 use App\Models\CourseVideo;
 use App\Models\Language;
+use App\Models\Payment;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
@@ -223,7 +225,7 @@ class CourseDao implements CourseDaoInterface
         $courses = $courses->get();
         return  $courses;
     }
-
+    //User
     /**
      * To get all courses With languages
      * @return Object $courses to get course
@@ -232,4 +234,97 @@ class CourseDao implements CourseDaoInterface
     {
         return Course::with('languages')->get();
     }
+
+
+    /**
+     * To show course & courseVideo
+     * @param $slug
+     * @return Object $data
+     */
+    public function courseDetailsIndex($slug)
+    {
+        $course = Course::with('courseVideos')->where('slug', $slug)->first();
+        $latestCourses = Course::with('languages')->orderBy('id', 'desc')->limit(3)->get();
+        $enroll = "";
+        if (Auth::check()) {
+            $enroll = Payment::where('user_id', auth()->user()->id)
+                ->where('course_id', $course->id)
+                ->where('status', 'accepted')
+                ->first();
+        }
+
+        if (!$course) {
+            abort('404');
+        }
+
+        return compact('course', 'latestCourses', 'enroll');
+    }
+
+    /**
+     * To show course & courseVideo
+     * @param $slug
+     * @param $courseVideo
+     * @return Object $data
+     */
+    public function courseVideo($slug, $courseVideo)
+    {
+        $course = Course::with('courseVideos')->where('slug', $slug)->first();
+        $courseVideo = CourseVideo::where('slug', $courseVideo)->where('course_id', $course->id)->first();
+        $latestCourses = Course::with('languages')->orderBy('id', 'desc')->limit(3)->get();
+
+        if ($course->type == "free") {
+            return compact('course', 'courseVideo', 'latestCourses');
+        }
+
+        if (Auth::check() && $course->type == "paid") {
+            $enroll = Payment::where('user_id', auth()->user()->id)
+                ->where('course_id', $course->id)
+                ->where('status', 'accepted')
+                ->first();
+
+            if (isset($enroll)) {
+                return compact('course', 'courseVideo', 'latestCourses', 'enroll');
+            } else {
+                return ['enrollError' => 'You need to enroll first this course'];
+            }
+
+        } else {
+            return ['authError' => 'Please Login first!'];
+        }
+
+    }
+
+    /**
+     * @param $slug
+     * @return Object $course
+     */
+    public function enroll($slug)
+    {
+        $course = Course::where('slug', $slug)->first();
+        return $course;
+    }
+
+    /**
+     * To store enroll course & user
+     * @param $slug
+     */
+    public function enrollStore($request, $slug)
+    {
+        $course = Course::where('slug', $slug)->first();
+
+        if (Auth::check()) {
+            $enroll = new Payment();
+            $enroll->course_id = $course->id;
+            $enroll->user_id = auth()->user()->id;
+            $enroll->amount = $request->amount;
+            $enroll->payment_method = $request->payment;
+            $enroll->status = "pending";
+
+            $enroll->save();
+        } else {
+            return ['authError' => 'Please Login first!'];
+        }
+
+    }
+
 }

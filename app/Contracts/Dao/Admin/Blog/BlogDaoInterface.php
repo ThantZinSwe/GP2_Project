@@ -37,4 +37,18 @@ interface BlogDaoInterface
      * @return Object Blog
      */
     public function blogDelete($slug);
+
+    //User
+    /**
+     * To show blog
+     * @return Object Blog
+     */
+    public function indexBlog();
+
+    /**
+     * To show blogdetail
+     * @param string $slug
+     * @return Object Blog
+     */
+    public function blogDetail($slug);
 }

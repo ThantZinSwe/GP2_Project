@@ -101,4 +101,44 @@ class CourseService implements CourseServiceInterface
     {
         return $this->courseDao->searchByApi($request);
     }
+
+
+    /**
+     * To show course & courseVideo
+     * @param $slug
+     * @return Object $data
+     */
+    public function courseDetailsIndex($slug)
+    {
+        return $this->courseDao->courseDetailsIndex($slug);
+    }
+
+    /**
+     * To show course & courseVideo
+     * @param $slug
+     * @param $courseVideo
+     * @return Object $data
+     */
+    public function courseVideo($slug, $courseVideo)
+    {
+        return $this->courseDao->courseVideo($slug, $courseVideo);
+    }
+
+    /**
+     * @param $slug
+     * @return Object $course
+     */
+    public function enroll($slug)
+    {
+        return $this->courseDao->enroll($slug);
+    }
+
+    /**
+     * To store enroll course & user
+     * @param $slug
+     */
+    public function enrollStore($request, $slug)
+    {
+        return $this->courseDao->enrollStore($request, $slug);
+    }
 }
