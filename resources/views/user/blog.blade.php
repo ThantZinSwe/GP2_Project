@@ -5,9 +5,10 @@
     <h2 class="blog-1">CoderCamp's</h2>
     <h2 class="blog-2">&nbspBlog</h2>
   </div>
-  <form action="" class="blog-form">
+  <form action="{{route('user.blog')}}" class="blog-form" method="get">
+  {{ csrf_field() }}
     <div class="search-box">
-        <input type="text" class="blog-search">
+        <input type="text" class="blog-search" name="blog-search" value="{{$search}}">
         <input type="submit" class="blog-submit" value="Search">
     </div>
   </form>
@@ -18,7 +19,7 @@
         <img src="{{asset('images/blog/'.$blog->image)}}" alt="">
       </div>
       <h3>{{$blog->title}}</h3>
-      <a href="#" class="blog-detail">Read</a>
+      <a href="{{route('user.blog.detail',$blog->slug)}}" class="blog-detail">Read</a>
     </li>
     @endforeach
   </ul>

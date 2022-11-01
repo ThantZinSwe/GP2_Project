@@ -63,4 +63,22 @@ class BlogService implements BlogServiceInterface
         return $this->blogDao->blogDelete($slug);
     }
 
+     //User
+    /**
+     * To show blog
+     * @return Object Blog
+     */
+    public function indexBlog(){
+        return $this->blogDao->indexBlog();
+    }
+
+    /**
+     * To show blogdetail
+     * @param string $slug
+     * @return Object Blog
+     */
+    public function blogDetail($slug){
+        return $this->blogDao->blogDetail($slug);
+    }
+
 }

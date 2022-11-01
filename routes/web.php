@@ -90,11 +90,12 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
 // User
 Route::get('/', [HomeController::class, 'index'])->name('user.home');
 
-Route::get('/blog', [UserBlogController::class, 'index'])->name('user.blog');
+Route::get('/blog', [UserBlogController::class, 'indexBlog'])->name('user.blog');
+Route::get('/blog/{slug}', [UserBlogController::class, 'blogDetail'])->name('user.blog.detail');
 
 Route::get('/courses', [UserCourseController::class, 'index'])->name('user.course');
 
 Route::get('/courses/{slug}', [CourseDetailsController::class, 'courseDetailsIndex'])->name('user.courseDetails');
 Route::get('/courses/{slug}/course-video/{course_video}', [CourseDetailsController::class, 'courseVideo'])->name('user.courseVideo');
 Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'enroll'])->name('user.enroll');
-Route::post('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
+Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
