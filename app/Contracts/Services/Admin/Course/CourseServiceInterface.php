@@ -51,7 +51,20 @@ interface CourseServiceInterface
      */
     public function search($request);
 
-    //User
+        /******   User ********/
+
+    /**
+     * To get all courses With languages
+     * @return Object $courses to get course
+     */
+    public function getCourseWithLanguage();
+
+    /**
+     * To search course by API
+     * @param $request
+     * @return Object $courses
+     */
+    public function searchByApi($request);
 
     /**
      * To show course & courseVideo

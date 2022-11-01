@@ -100,6 +100,7 @@
     <script src="{{asset('library/jquery.heightLine.js')}}"></script>
     <script src="{{asset('js/user/common.js')}}"></script>
     <script src="{{asset('js/user/blog.js')}}"></script>
+    <script src="{{ asset('js/user/course.js') }}"></script>
 </body>
 <script>
     $(document).ready(function(){

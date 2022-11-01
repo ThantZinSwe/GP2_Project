@@ -83,8 +83,25 @@ class CourseService implements CourseServiceInterface
     {
         return $this->courseDao->search($request);
     }
+    /******   User ********/
+    /**
+     * To get all courses With languages
+     * @return Object $courses to get course
+     */
+    public function getCourseWithLanguage()
+    {
+        return $this->courseDao->getCourseWithLanguage();
+    }
+    /**
+     * To search course by API
+     * @param $request
+     * @return Object $courses
+     */
+    public function searchByApi($request)
+    {
+        return $this->courseDao->searchByApi($request);
+    }
 
-    // User
 
     /**
      * To show course & courseVideo

@@ -49,6 +49,17 @@ interface CourseDaoInterface
      * @return Object $courses
      */
     public function search($request);
+    /**
+     * To search course via API
+     * @param $request
+     * @return Object $courses
+     */
+    public function searchByApi($key);
+    /**
+     * To get all courses With languages
+     * @return Object $courses to get course
+     */
+    public function getCourseWithLanguage();
 
     //User
 

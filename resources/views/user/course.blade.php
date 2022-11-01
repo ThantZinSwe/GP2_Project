@@ -9,113 +9,51 @@
             </p>
             <div class="search-group">
                 <select name="" id="" class="search-select">
-                    <option value="">All</option>
-                    <option value="">Paid</option>
-                    <option value="">Free</option>
-                    <input type="text" class="search-input" placeholder="Search For Courses">
+                    <option value="all">All</option>
+                    <option value="paid">Paid</option>
+                    <option value="free">Free</option>
+                    <input type="text" class="search-input" placeholder="Search For Courses" id='search-course'>
                 </select>
 
             </div>
-            <ul class="language-list">
-                <li class="active"><a href="#">All</a></li>
-                <li><a href="#">PHP</a></li>
-                <li><a href="#">Javascript</a></li>
-                <li><a href="#">Laravel</a></li>
-                <li><a href="#">Python</a></li>
-                <li><a href="#">Tools</a></li>
-                <li><a href="#">Vue Js</a></li>
-                <li><a href="#">Java</a></li>
-                <li><a href="#">Flutter</a></li>
-                <li><a href="#">Angular</a></li>
-                <li><a href="#">Dart</a></li>
-            </ul>
+            @if(count($languages) > 0)
+                <ul class="language-list" >
+                    <li class="active"><a href="#">All</a></li>
+                    @foreach ($languages as $item )
+                        <li><a href="#" data-tag="{{$item->id}}" class="tag-link">{{ $item->name }}</a></li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
         <ul class="course-card-container clear-fix">
-            <li class="course-card">
-                <a href="#">
-                    <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
-                    <div class="course-txt-blk">
-                        <h3 class="course-card-ttl">PHP Framwork thinking</h3>
-                        <p class="course-card-type">Type: <span>Free</span></p>
-                        <p class="course-card-fee">Fee: <span>0 Ks</span></p>
-                        <ul class="course-card-language">
-                            <li>Laravel</li>
-                            <li>PHP</li>
-                        </ul>
-                    </div>
-                </a>
-            </li>
-            <li class="course-card">
-                <a href="#">
-                    <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
-                    <div class="course-txt-blk">
-                        <h3 class="course-card-ttl">PHP Framwork thinking</h3>
-                        <p class="course-card-type">Type: <span>Free</span></p>
-                        <p class="course-card-fee">Fee: <span>0 Ks</span></p>
-                        <ul class="course-card-language">
-                            <li>Laravel</li>
-                            <li>PHP</li>
-                        </ul>
-                    </div>
-                </a>
-            </li>
-            <li class="course-card">
-                <a href="#">
-                    <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
-                    <div class="course-txt-blk">
-                        <h3 class="course-card-ttl">PHP Framwork thinking</h3>
-                        <p class="course-card-type">Type: <span>Free</span></p>
-                        <p class="course-card-fee">Fee: <span>0 Ks</span></p>
-                        <ul class="course-card-language">
-                            <li>Laravel</li>
-                            <li>PHP</li>
-                        </ul>
-                    </div>
-                </a>
-            </li>
-            <li class="course-card">
-                <a href="">
-                    <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
-                    <div class="course-txt-blk">
-                        <h3 class="course-card-ttl">PHP Framwork thinking</h3>
-                        <p class="course-card-type paid">Type: <span>Paid</span></p>
-                        <p class="course-card-fee paid">Fee: <span>20000 Ks</span></p>
-                        <ul class="course-card-language">
-                            <li>Laravel</li>
-                            <li>PHP</li>
-                        </ul>
-                    </div>
-                </a>
-            </li>
-            <li class="course-card">
-               <a href="">
-                <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
-                <div class="course-txt-blk">
-                    <h3 class="course-card-ttl">PHP Framwork thinking</h3>
-                    <p class="course-card-type">Type: <span>Free</span></p>
-                    <p class="course-card-fee">Fee: <span>0 Ks</span></p>
-                    <ul class="course-card-language">
-                        <li>Laravel</li>
-                        <li>PHP</li>
-                    </ul>
-                </div>
-               </a>
-            </li>
-            <li class="course-card">
-               <a href="">
-                <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
-                <div class="course-txt-blk">
-                    <h3 class="course-card-ttl">PHP Framwork thinking</h3>
-                    <p class="course-card-type paid">Type: <span>Paid</span></p>
-                    <p class="course-card-fee paid">Fee: <span>20000 Ks</span></p>
-                    <ul class="course-card-language">
-                        <li>Laravel</li>
-                        <li>PHP</li>
-                    </ul>
-                </div>
-               </a>
-            </li>
+            @if(count($courses) > 0)
+                @foreach ($courses as $item  )
+                <li class="course-card">
+                    <a href="#">
+                        <img src="{{ asset("images/course/$item->image") }}" alt="" class="course-card-img">
+                        <div class="course-txt-blk">
+                            <h3 class="course-card-ttl">{{ $item->name }}</h3>
+                            @if($item->type == 'free')
+                            <p class="course-card-type">Type: <span>{{ $item->type }}</span></p>
+                            @else
+                            <p class="course-card-type paid">Type: <span>{{ $item->type }}</span></p>
+                            @endif
+                            <p class="course-card-fee">Fee: <span>{{ $item->price }} Ks</span></p>
+                            <ul class="course-card-language">
+                                @foreach ($item->languages as $language )
+                                    <li> {{ $language->name }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </a>
+                </li>
+                @endforeach
+               
+            @else
+                <span>There is no Courses Availible!</span>
+            @endif
         </ul>
+        <ul class="search-card-container clear-fix"></ul>
     </div>
 </section>
 @endsection

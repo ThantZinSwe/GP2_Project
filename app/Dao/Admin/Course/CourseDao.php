@@ -95,7 +95,6 @@ class CourseDao implements CourseDaoInterface
             if (File::exists(public_path() . '/images/course/' . $oldFileName)) {
 
                 File::delete(public_path() . '/images/course/' . $oldFileName);
-
             }
 
             $fileName = uniqid() . '-' . $image->getClientOriginalName();
@@ -132,7 +131,6 @@ class CourseDao implements CourseDaoInterface
         if (File::exists(public_path() . '/images/course/' . $image)) {
 
             File::delete(public_path() . '/images/course/' . $image);
-
         }
 
         $course->delete();
@@ -164,15 +162,79 @@ class CourseDao implements CourseDaoInterface
             $courses->whereHas('languages', function ($q) use ($language) {
                 $q->where('course_languages.language_id', $language);
             });
-
         }
 
         $courses = $courses->orderBy('id', 'desc')->get();
         return compact('courses', 'languages');
+    }
+    //User
 
+    /**
+     * To search course
+     * @param $request
+     * @return Object $courses
+     */
+    public function searchByApi($request)
+    {
+        $course = $request->search;
+        $tag = $request->tag;
+        $type = $request->type;
+        $courses = Course::with('languages');
+        if($type == 'all' && $tag) {
+            $courses->whereHas('languages', function ($q) use ($tag) {
+                $q->where('course_languages.language_id', $tag);
+            });
+        }
+        //if (($type == 'paid' && $tag) || ($type == 'free' && $tag)) {
+        //    $courses->where(function ($q) use ($type) {
+        //        $q->where('type', 'like', '%' . $type . '%');
+        //    });
+        //    $courses->where(function($q) use($tag){
+        //        $q->whereHas('languages', function ($q) use ($tag) {
+        //            $q->where('course_languages.language_id', $tag);
+        //        });
+        //    });
+        //}
+        if ($type == 'all' && $course) {
+            $courses->where(function($q) use($course){
+                $q->orWhere('courses.name', 'like', '%' . $course . '%')
+                    ->orWhere('courses.price', 'like', '%' . $course . '%');
+            });
+       
+            //$courses->orWhere('courses.name', 'like', '%' . $course . '%')
+            //    ->orWhere('courses.price', 'like', '%' . $course . '%');
+                //->orWhere('languages.name', 'like', '%'. $course. '%');
+            
+        }
+        if (($type == 'paid' && $course) || ($type == 'free' && $course)) {
+            $courses->where(function ($q) use ($type) {
+                $q->where('type', 'like', '%' . $type . '%');
+            })->where(function ($q) use ($course) {
+                $q->orWhere('courses.name', 'like', '%' . $course . '%')
+                    ->orWhere('courses.price', 'like', '%' . $course . '%');
+                    //->orWhere('languages.name', 'like', '%'. $course .'%');
+            });
+        }
+        if ($type == 'all' && !$course) {
+            $courses;
+        }
+        if (($type == 'paid' && !$course) || ($type == 'free' && !$course)) {
+            $courses->orWhere('courses.type', 'like', '%' . $type . '%');
+        }
+
+        $courses = $courses->get();
+        return  $courses;
+    }
+    //User
+    /**
+     * To get all courses With languages
+     * @return Object $courses to get course
+     */
+    public function getCourseWithLanguage()
+    {
+        return Course::with('languages')->get();
     }
 
-// User
 
     /**
      * To show course & courseVideo
