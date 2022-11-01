@@ -18,7 +18,7 @@
             </div>
             @if(count($languages) > 0)
                 <ul class="language-list" >
-                    <li class="active"><a href="#">All</a></li>
+                    <li class="active"><a href="#" data-tag="all" class="tag-link">All</a></li>
                     @foreach ($languages as $item )
                         <li><a href="#" data-tag="{{$item->id}}" class="tag-link">{{ $item->name }}</a></li>
                     @endforeach

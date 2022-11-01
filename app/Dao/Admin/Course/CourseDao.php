@@ -180,30 +180,27 @@ class CourseDao implements CourseDaoInterface
         $tag = $request->tag;
         $type = $request->type;
         $courses = Course::with('languages');
-        if($type == 'all' && $tag) {
+        if($tag == 'all'){
+           return $courses->get();
+        }
+        if($type == 'all' && $tag ) {
             $courses->whereHas('languages', function ($q) use ($tag) {
                 $q->where('course_languages.language_id', $tag);
             });
         }
-        //if (($type == 'paid' && $tag) || ($type == 'free' && $tag)) {
-        //    $courses->where(function ($q) use ($type) {
-        //        $q->where('type', 'like', '%' . $type . '%');
-        //    });
-        //    $courses->where(function($q) use($tag){
-        //        $q->whereHas('languages', function ($q) use ($tag) {
-        //            $q->where('course_languages.language_id', $tag);
-        //        });
-        //    });
-        //}
+        if (($type == 'paid' && $tag) || ($type == 'free' && $tag )) {
+            $courses->where(function ($q) use ($type) {
+                $q->where('type', 'like', '%' . $type . '%');
+            })->whereHas('languages', function ($q) use ($tag) {
+                $q->where('course_languages.language_id', $tag);
+            });
+        }
+
         if ($type == 'all' && $course) {
             $courses->where(function($q) use($course){
                 $q->orWhere('courses.name', 'like', '%' . $course . '%')
                     ->orWhere('courses.price', 'like', '%' . $course . '%');
             });
-       
-            //$courses->orWhere('courses.name', 'like', '%' . $course . '%')
-            //    ->orWhere('courses.price', 'like', '%' . $course . '%');
-                //->orWhere('languages.name', 'like', '%'. $course. '%');
             
         }
         if (($type == 'paid' && $course) || ($type == 'free' && $course)) {
@@ -212,20 +209,18 @@ class CourseDao implements CourseDaoInterface
             })->where(function ($q) use ($course) {
                 $q->orWhere('courses.name', 'like', '%' . $course . '%')
                     ->orWhere('courses.price', 'like', '%' . $course . '%');
-                    //->orWhere('languages.name', 'like', '%'. $course .'%');
             });
         }
-        if ($type == 'all' && !$course) {
+        if ($type == 'all' && !$course && !$tag) {
             $courses;
         }
-        if (($type == 'paid' && !$course) || ($type == 'free' && !$course)) {
+        if (($type == 'paid' && !$course && !$tag) || ($type == 'free' && !$course && !$tag)) {
             $courses->orWhere('courses.type', 'like', '%' . $type . '%');
         }
 
         $courses = $courses->get();
         return  $courses;
     }
-    //User
     /**
      * To get all courses With languages
      * @return Object $courses to get course
