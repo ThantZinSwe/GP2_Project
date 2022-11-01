@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/user/course.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/home.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/blog.css')}}">
+    <link rel="stylesheet" href="{{asset('css/user/enroll.css')}}">
 </head>
 <body>
     {{-- Header --}}
@@ -29,7 +30,6 @@
                     <li><a href="{{route('user.home')}}" class="text {{'/' == request()->path() ? 'nav-active' : ''}}">Home</a></li>
                     <li><a href="#" class="text">Courses</a></li>
                     <li><a href="#" class="text">Blogs</a></li>
-                    <li><a href="#" class="text">About us</a></li>
                     {{-- <li><a href="#" class="btn btn-outline-primary">Sign in</a></li>
                     <li><a href="#" class="btn btn-primary">Register</a></li> --}}
                     <li class="dropdown">
@@ -100,4 +100,16 @@
     <script src="{{asset('js/user/common.js')}}"></script>
     <script src="{{asset('js/user/blog.js')}}"></script>
 </body>
+<script>
+    $(document).ready(function(){
+        $('.alert .close-btn').on('click',function(){
+            $('.alert').addClass('hide');
+        });
+
+        $('.alert-error .close-btn').on('click',function(){
+            $('.alert-error').addClass('hide');
+        })
+    });
+</script>
+@yield('script')
 </html>

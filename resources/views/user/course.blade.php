@@ -14,7 +14,7 @@
                     <option value="">Free</option>
                     <input type="text" class="search-input" placeholder="Search For Courses">
                 </select>
-                
+
             </div>
             <ul class="language-list">
                 <li class="active"><a href="#">All</a></li>
@@ -33,7 +33,7 @@
         <ul class="course-card-container clear-fix">
             <li class="course-card">
                 <a href="#">
-                    <img src="{{ asset('images/admin/1667036254.png') }}" alt="" class="course-card-img">
+                    <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
                     <div class="course-txt-blk">
                         <h3 class="course-card-ttl">PHP Framwork thinking</h3>
                         <p class="course-card-type">Type: <span>Free</span></p>
@@ -47,11 +47,11 @@
             </li>
             <li class="course-card">
                 <a href="#">
-                    <img src="{{ asset('images/admin/1667036254.png') }}" alt="" class="course-card-img">
+                    <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
                     <div class="course-txt-blk">
                         <h3 class="course-card-ttl">PHP Framwork thinking</h3>
-                        <p class="course-card-type paid">Type: <span>Paid</span></p>
-                        <p class="course-card-fee paid">Fee: <span>20000 Ks</span></p>
+                        <p class="course-card-type">Type: <span>Free</span></p>
+                        <p class="course-card-fee">Fee: <span>0 Ks</span></p>
                         <ul class="course-card-language">
                             <li>Laravel</li>
                             <li>PHP</li>
@@ -60,8 +60,8 @@
                 </a>
             </li>
             <li class="course-card">
-                <a href="">
-                    <img src="{{ asset('images/admin/1667036254.png') }}" alt="" class="course-card-img">
+                <a href="#">
+                    <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
                     <div class="course-txt-blk">
                         <h3 class="course-card-ttl">PHP Framwork thinking</h3>
                         <p class="course-card-type">Type: <span>Free</span></p>
@@ -75,7 +75,7 @@
             </li>
             <li class="course-card">
                 <a href="">
-                    <img src="{{ asset('images/admin/1667036254.png') }}" alt="" class="course-card-img">
+                    <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
                     <div class="course-txt-blk">
                         <h3 class="course-card-ttl">PHP Framwork thinking</h3>
                         <p class="course-card-type paid">Type: <span>Paid</span></p>
@@ -89,7 +89,7 @@
             </li>
             <li class="course-card">
                <a href="">
-                <img src="{{ asset('images/admin/1667036254.png') }}" alt="" class="course-card-img">
+                <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
                 <div class="course-txt-blk">
                     <h3 class="course-card-ttl">PHP Framwork thinking</h3>
                     <p class="course-card-type">Type: <span>Free</span></p>
@@ -103,7 +103,7 @@
             </li>
             <li class="course-card">
                <a href="">
-                <img src="{{ asset('images/admin/1667036254.png') }}" alt="" class="course-card-img">
+                <img src="{{ asset('images/admin/1667046834.png') }}" alt="" class="course-card-img">
                 <div class="course-txt-blk">
                     <h3 class="course-card-ttl">PHP Framwork thinking</h3>
                     <p class="course-card-type paid">Type: <span>Paid</span></p>
