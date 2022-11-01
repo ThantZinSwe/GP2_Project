@@ -98,4 +98,4 @@ Route::get('/courses', [UserCourseController::class, 'index'])->name('user.cours
 Route::get('/courses/{slug}', [CourseDetailsController::class, 'courseDetailsIndex'])->name('user.courseDetails');
 Route::get('/courses/{slug}/course-video/{course_video}', [CourseDetailsController::class, 'courseVideo'])->name('user.courseVideo');
 Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'enroll'])->name('user.enroll');
-Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
+Route::post('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
