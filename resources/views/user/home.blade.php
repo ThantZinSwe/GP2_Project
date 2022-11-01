@@ -10,27 +10,27 @@
           </p>
       </div>
       <div class="col-50">
-        <img src="{{asset('images/user/home/CSS_Flatline.png') }}" alt="">
+        <img src="{{asset('images/user/home/CSS_Flatline.png') }}" alt="mv-image">
       </div>
     </div>
     <section class="info">
       <ul class="info-list clearfix">
         <li class="info-card clearfix">
-          <img src="{{ asset('images/user/home/user.png') }}" alt="">
+          <img src="{{ asset('images/user/home/user.png') }}" alt="info-icon">
           <div class="info-text">
             <h6>+ 122</h6>
             <span class="info-title">Students</span>
           </div>
         </li>
         <li class="info-card clearfix">
-          <img src="{{asset('images/user/home/video.png') }}" alt="">
+          <img src="{{asset('images/user/home/video.png') }}" alt="info-icon">
           <div class="info-text">
             <h6>+ 122</h6>
             <span class="info-title">Video</span>
           </div>
         </li>
         <li class="info-card clearfix">
-          <img src="{{asset('images/user/home/blog.png') }}" alt="">
+          <img src="{{asset('images/user/home/blog.png') }}" alt="info-icon">
           <div class="info-text">
             <h6>+ 122</h6>
             <span class="info-title">Blog</span>
@@ -40,48 +40,43 @@
     </section>
     <section class="course">
       <ul class="course-list clearfix">
+        @foreach ($courses as $data)
         <li class="course-card">
-          <img src="{{asset('images/user/home/laravel.png') }}" alt="">
-          <div class="course-info">
-            <h6 class="course-title">Php + deep dive Laravel</h6>
-            <h6 class="type-blk"><span  class="course-type">Type</span><span class="course-type-text">Free</span></h6>
-            <p class="language"><span class="badge php-color">PHP</span><span class="badge laravel-color">Laravel</span></p>
-          </div>
-        </li>
-        <li class="course-card">
-          <img src="{{asset('images/user/home/') }}" alt="">
-          <div class="course-info">
-            <h6 class="course-title">Php + deep dive Laravel</h6>
-            <h6 class="type-blk"><span  class="course-type">Type</span><span class="course-type-text">Free</span></h6>
-            <p class="language"><span class="badge php-color">PHP</span><span class="badge laravel-color">Laravel</span></p>
-          </div>
-        </li>
-        <li class="course-card">
-          <img src="{{asset('images/user/home/') }}" alt="">
-          <div class="course-info">
-            <h6 class="course-title">Php + deep dive Laravel</h6>
-            <h6 class="type-blk"><span  class="course-type">Type</span><span class="course-type-text">Free</span></h6>
-            <p class="language"><span class="badge php-color">PHP</span><span class="badge laravel-color">Laravel</span></p>
-          </div>
-        </li>
+          <a href="#">
+              <img src="{{asset("images/course/$data->image")}}" alt="course-image" class="course-card-img">
+              <div class="course-txt-blk">
+                  <h3 class="course-card-ttl">{{ $data->name }}</h3>
+                  <p class="course-card-type">Type: <span>{{ $data->type }}</span></p>
+                  <p class="course-card-fee">Fee: <span>{{ $data->price }}Ks</span></p>
+                  <ul class="course-card-language">
+                    @foreach ($data->languages as $language)
+                    <li>{{ $language->name }}</li> 
+                    @endforeach
+                  </ul>
+              </div>
+          </a>
+      </li> 
+        @endforeach
       </ul>
+      
       <div class="course-btn">
         <a href="#" class="btn btn-primary">See All Courses</a>
       </div>
     </section>
+    
     <div class="blog clearfix">
       <div class="col-50">
-        <img src="{{  asset('images/user/home/blogs-and-article.png') }}" alt=""> 
+        <img src="{{  asset('images/user/home/blogs-and-article.png') }}" alt="blog-image"> 
       </div>
       <div class="col-50">
         <div class="blog">
-          <h3 class="title">Blog</h3>
-          <p class="cmn-paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, possimus reiciendis excepturi eius quae at praesentium. Quidem fugiat voluptas consequuntur possimus exercitationem sunt doloribus. Quis dolor itaque cumque at nostrum.</p>
+          <h3 class="blg-title">Blog</h3>
+          <p class="cmn-paragraph blog-paragraph">CoderCamp presents blogs and tricks weekly or monthly.We try our best to present valuable and useful tips and tricks in every blog.</p>
+          <div class="blog-btn">
+            <a href="#" class="btn btn-primary">See All Blogs</a>
+          </div>
         </div>
-        <div class="blog-btn">
-          <a href="#" class="btn btn-primary">See All Blogs</a>
         </div>
-      </div>
     </div>
   </section>
 </div>
