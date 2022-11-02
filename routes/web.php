@@ -13,7 +13,10 @@ use App\Http\Controllers\User\CourseController as UserCourseController;
 use App\Http\Controllers\User\CourseDetailsController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\UserBlogController;
+use App\Http\Controllers\User\UserDashboard;
+use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Middleware\AdminAuthMiddleWare;
+use App\Http\Middleware\UserCheckMiddleware;
 use Illuminate\Support\Facades\Route;
 
 //Auth
@@ -99,3 +102,9 @@ Route::get('/courses/{slug}', [CourseDetailsController::class, 'courseDetailsInd
 Route::get('/courses/{slug}/course-video/{course_video}', [CourseDetailsController::class, 'courseVideo'])->name('user.courseVideo');
 Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'enroll'])->name('user.enroll');
 Route::post('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
+Route::group(['prefix' => 'user-dashboard','middleware' => [UserCheckMiddleware::class]], function(){
+    Route::get('/', [UserDashboardController::class, 'index'])->name('user.dashboard');
+    Route::post('/edit/{id}', [UserDashboardController::class, 'submitUserProfile'])->name('user.profile.post');
+    Route::post('/password-change/{id}', [UserDashboardController::class, 'changeUserPassword'])->name('user.password.change');
+    Route::post('/my-courses', [UserDashboardController::class, 'getUserCourse'])->name('user.course.get');
+});

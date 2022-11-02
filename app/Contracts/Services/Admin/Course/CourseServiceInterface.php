@@ -92,4 +92,11 @@ interface CourseServiceInterface
      * @param $slug
      */
     public function enrollStore($request, $slug);
+    /**
+     * Get User Courses
+     *
+     * @param String User Id $id
+     * @return Object Course object $courses;
+     */
+    public function getUserCourse($id);
 }

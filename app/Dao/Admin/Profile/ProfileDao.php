@@ -28,13 +28,23 @@ class ProfileDao implements ProfileDaoInterface
             $request->profile_img->move(public_path('images/admin'), $img_name);
         }        
         if ($user) {
-            $user->name = $request['name'];
-            $user->email = $request['email'];
-            $user->phone = $request['phone'];
-            $user->address = $request['address'];
-            $user->image = $path ?? $user->image;
-            $user->update();
-            return $user;
+            if($request->profile_img){
+                $user->name = $request['name'];
+                $user->email = $request['email'];
+                $user->phone = $request['phone'];
+                $user->address = $request['address'];
+                $user->image = $path ?? $user->image;
+                $user->update();
+                return $user;
+            }else {
+                $user->name = $request['name'];
+                $user->email = $request['email'];
+                $user->phone = $request['phone'];
+                $user->address = $request['address'];
+                $user->update();
+                return $user;
+            }
+           
         }
 
         return false;
@@ -50,7 +60,7 @@ class ProfileDao implements ProfileDaoInterface
     {
         
         $user = User::find($id);
-        if (!Hash::check($request->old_password, $user->password) || $user->role_id == 2) {
+        if (!Hash::check($request->old_password, $user->password)) {
             return false;
         } else {
             $user->update([

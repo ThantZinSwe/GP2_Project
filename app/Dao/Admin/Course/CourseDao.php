@@ -227,10 +227,25 @@ class CourseDao implements CourseDaoInterface
      */
     public function getCourseWithLanguage()
     {
-        return Course::with('languages')->get();
+        return Course::with('languages')->paginate(5);
     }
 
+    /**
+     * Get User Courses
+     *
+     * @param String User Id $id
+     * @return Object Course object $courses;
+     */
+    public function getUserCourse($id){
+        $courses = Course::with('languages');
+        
+        $courses->whereHas('users', function ($q) use ($id) {
+            $q->where('payments.user_id', $id);
+        });
+        $courses = $courses->paginate(6);
+        return $courses;
 
+    }
     /**
      * To show course & courseVideo
      * @param $slug
