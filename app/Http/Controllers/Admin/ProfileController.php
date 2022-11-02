@@ -81,7 +81,7 @@ class ProfileController extends Controller
             return redirect()->route('login.get')->with('message', 'Password successfully Changed');
         }
 
-        return back()->with('error', 'The specified password does not match the database password');
+        return back()->with('error', 'Old Password did not match!');
     }
 
 }

@@ -52,7 +52,7 @@ class AuthController extends Controller
             if (Auth::user()->role_id == '1') {
                 return redirect()->route('admin.dashboard');
             } else {
-                return "HOME PAGE";
+                return redirect()->route('user.home');
             }
         }
         return back()->with('error', 'Email & Password does not match');

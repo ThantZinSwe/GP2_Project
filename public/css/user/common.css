@@ -43,7 +43,10 @@ img {
     background-color: #0092ef;
     color: #ffffff;
 }
-
+.btn-outline-primary.sign-in:active {
+    background-color: #0092ef;
+    color: #ffffff;
+}
 .btn-danger {
     background-color: #ff6b81;
     color: #ffffff;
@@ -60,6 +63,7 @@ img {
     color: #0092ef;
     background-color: transparent;
     border-color: #0092ef;
+    transition: 0.8s;
 }
 
 /* Header */
@@ -96,7 +100,9 @@ img {
     display: inline;
     margin-right: 30px;
 }
-
+.g-nav ul li:last-child {
+    margin-right: 0;
+}
 .g-nav ul li:nth-child(5) {
     margin-right: 0;
 }
@@ -148,7 +154,14 @@ img {
     cursor: pointer;
     vertical-align: middle;
 }
-
+.profile-name {
+    text-transform: capitalize;
+    padding: 10px 15px;
+    background-color: #0092ef;
+    color: #ffffff;
+    border-radius: 5px;
+    font-weight: 500;
+}
 .dd-menu {
     position: absolute;
     top: 47px;
@@ -174,9 +187,11 @@ img {
 
 .dd-menu .dd-right li {
     display: block;
-    margin: 5px 0 10px;
+    margin: 5px 0 12px;
 }
-
+.dd-menu .dd-right li:active {
+    opacity: 0.8;
+}
 .dd-menu .dd-right {
     padding: 15px 20px;
 }
@@ -328,7 +343,14 @@ img {
         cursor: pointer;
         vertical-align: middle;
     }
-
+    .profile-name {
+        text-transform: capitalize;
+        padding: 1.302vw 1.953vw;
+        background-color: #0092ef;
+        color: #ffffff;
+        border-radius: 0.651vw;
+        font-weight: 500;
+    }
     .dd-menu {
         position: absolute;
         top: 47px;
@@ -563,6 +585,15 @@ img {
         border-radius: 50%;
         cursor: pointer;
         vertical-align: middle;
+    }
+    .profile-name {
+        text-transform: capitalize;
+        padding: 1.563vw 2.344vw;
+        background-color: #0092ef;
+        color: #ffffff;
+        border-radius: 0.781vw;
+        font-weight: 500;
+        font-size: 2.344vw;
     }
     .sec-mv .header .g-nav .dd-menu ul {
         margin: 0;
