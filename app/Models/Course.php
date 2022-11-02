@@ -17,7 +17,10 @@ class Course extends Model
     {
         return $this->belongsToMany(Language::class, 'course_languages', 'course_id', 'language_id');
     }
-
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'payments', 'course_id', 'user_id' );
+    }
     public function courseVideos()
     {
         return $this->hasMany(CourseVideo::class);

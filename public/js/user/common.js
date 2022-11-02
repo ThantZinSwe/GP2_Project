@@ -6,7 +6,7 @@ $(document).ready(function () {
     });
 
     //dropdown menu
-    $(".user-pic").on("click", function () {
+    $(".profile-name").on("click", function () {
         $(".dropdown").toggleClass("dropdown-menu-active");
     });
 });
