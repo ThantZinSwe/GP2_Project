@@ -52,7 +52,7 @@ class AuthController extends Controller
             if (Auth::user()->role_id == '1') {
                 return redirect()->route('admin.dashboard');
             } else {
-                return "HOME PAGE";
+                return redirect()->route('user.home');
             }
         }
         return back()->with('error', 'Email & Password does not match');
@@ -71,7 +71,7 @@ class AuthController extends Controller
     {
         $register = $this->authInterface->registerSave($request);
         if($register){
-            return redirect()->route('login.get')->with('message', 'Register Successfully');
+            return view('auth.registersucess')->with('message', 'Register Successfully');
         }
         return back()->with('error', 'Cannot Register');
     }

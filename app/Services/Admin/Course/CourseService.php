@@ -150,4 +150,15 @@ class CourseService implements CourseServiceInterface
     {
         return $this->courseDao->reviewApi($request, $slug);
     }
+
+    /**
+     * Get User Courses
+     *
+     * @param String User Id $id
+     * @return Object Course object $courses;
+     */
+    public function getUserCourse($id)
+    {
+        return $this->courseDao->getUserCourse($id);
+    }
 }

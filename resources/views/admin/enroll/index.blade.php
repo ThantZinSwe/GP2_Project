@@ -35,6 +35,11 @@
             <h3 class="card-title">Enroll
 
             </h3>
+            <div class="d-flex justify-content-end">
+                <a href="{{route('admin.enroll.export')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Export</a>
+                &nbsp
+                <a href="{{route('admin.enroll.import')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Import</a>
+            </div>
           </div>
           <!-- /.card-header -->
           <div class="card-body">

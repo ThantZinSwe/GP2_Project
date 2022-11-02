@@ -13,7 +13,9 @@ use App\Http\Controllers\User\CourseController as UserCourseController;
 use App\Http\Controllers\User\CourseDetailsController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\UserBlogController;
+use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Middleware\AdminAuthMiddleWare;
+use App\Http\Middleware\UserCheckMiddleware;
 use Illuminate\Support\Facades\Route;
 
 //Auth
@@ -86,6 +88,9 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
     Route::get('/enroll', [EnrollController::class, 'index'])->name('admin.enroll.index');
     Route::get('/enroll/{id}', [EnrollController::class, 'accepted'])->name('admin.enroll.accepted');
     Route::delete('/enroll/{id}/delete', [EnrollController::class, 'delete'])->name('admin.enroll.delete');
+    Route::get('/excel', [EnrollController::class, 'exportPayment'])->name("admin.enroll.export");
+    Route::get('/import', [EnrollController::class, 'import'])->name('admin.enroll.import');
+    Route::post('/import', [EnrollController::class, 'importPayment'])->name("admin.enroll.get");
 });
 
 // User
@@ -100,3 +105,10 @@ Route::get('/courses/{slug}', [CourseDetailsController::class, 'courseDetailsInd
 Route::get('/courses/{slug}/course-video/{course_video}', [CourseDetailsController::class, 'courseVideo'])->name('user.courseVideo');
 Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'enroll'])->name('user.enroll');
 Route::post('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
+
+Route::group(['prefix' => 'user-dashboard', 'middleware' => [UserCheckMiddleware::class]], function () {
+    Route::get('/', [UserDashboardController::class, 'index'])->name('user.dashboard');
+    Route::post('/edit/{id}', [UserDashboardController::class, 'submitUserProfile'])->name('user.profile.post');
+    Route::post('/password-change/{id}', [UserDashboardController::class, 'changeUserPassword'])->name('user.password.change');
+    Route::post('/my-courses', [UserDashboardController::class, 'getUserCourse'])->name('user.course.get');
+});

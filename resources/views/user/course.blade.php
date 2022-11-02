@@ -48,11 +48,12 @@
                     </a>
                 </li>
                 @endforeach
-
             @else
-                <span>There is no Courses Availible!</span>
+                <span style="text-align: center; font-size: 20px;">There is no Courses Availible!</span>
             @endif
+            {{ $courses->links()}}
         </ul>
+
         <ul class="search-card-container clear-fix"></ul>
     </div>
 </section>

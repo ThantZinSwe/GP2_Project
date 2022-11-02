@@ -61,18 +61,19 @@ body {
 }
 
 .error {
+  display: block;
   margin-bottom: 5px;
   margin-left: 19px;
   color: rgb(236, 14, 14);
   font-size: 18px;
-  display: block;
 }
+
 .success {
-  color: rgb(14, 236, 40);
+  display: block;
   margin-bottom: 5px;
   margin-left: 19px;
+  color: rgb(14, 236, 40);
   font-size: 18px;
-  display: block;
 }
 
 /*chart*/
@@ -175,4 +176,29 @@ body {
 .pro-submit:hover {
   background-color: #479ef3;
   color: #ffffff;
+}
+
+/*Register Sucess*/
+.regist-sucess {
+  width: 500px;
+  margin: 30px auto;
+  border: 1px solid #99a19f;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 5px;
+}
+
+.regist-title {
+  padding: 10px;
+  background-color: #99a19f;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.regist-check {
+  padding: 40px 0;
+}
+
+.regist-check p {
+  padding-left: 20px;
+  font-size: 20px;
 }

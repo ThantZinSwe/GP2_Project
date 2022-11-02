@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('css/user/blog.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/enroll.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/blogdetail.css')}}">
+    <link rel="stylesheet" href="{{asset('css/user/user-dashboard.css')}}">
 </head>
 <body>
     {{-- Header --}}
@@ -30,12 +31,16 @@
               <nav class="g-nav">
                 <ul class="clearfix">
                     <li><a href="{{route('user.home')}}" class="text {{'/' == request()->path() ? 'nav-active' : ''}}">Home</a></li>
-                    <li><a href="#" class="text">Courses</a></li>
-                    <li><a href="{{route('user.blog')}}" class="text  {{'/blog' == request()->path() ? 'nav-active' : ''}}">Blogs</a></li>
-                    {{-- <li><a href="#" class="btn btn-outline-primary">Sign in</a></li>
-                    <li><a href="#" class="btn btn-primary">Register</a></li> --}}
+                    <li><a href="{{ route('user.course') }}" class="text {{'courses' == request()->path() ? 'nav-active' : ''}}" >Courses</a></li>
+                    <li><a href="{{route('user.blog')}}" class="text  {{'blog' == request()->path() ? 'nav-active' : ''}}">Blogs</a></li>
+                    @guest
+                        <li><a href="{{ route('login.get') }}" class="btn btn-outline-primary sign-in">Sign in</a></li>
+                        <li><a href="{{ route('auth.register') }}" class="btn btn-primary">Register</a></li>
+                    @endguest
+                    @auth
                     <li class="dropdown">
-                        <img src="{{asset('images/default_profile.jpg')}}" alt="User" class="user-pic">
+                        {{--<img src="{{asset('images/default_profile.jpg')}}" alt="User" class="user-pic">--}}
+                        <span class="profile-name">{{ Auth::user()->name }}</span>
                         <div class="dd-menu">
                             <div class="dd-left">
                                 <ul>
@@ -45,12 +50,13 @@
                             </div>
                             <div class="dd-right">
                                 <ul>
-                                    <li><a href="#">User Dashboard</a></li>
-                                    <li><a href="#">Sign Out</a></li>
+                                    <li><a href="{{ route('user.dashboard') }}">User Dashboard</a></li>
+                                    <li><a href="{{ route('logout') }}">Sign Out</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
+                    @endauth
                 </ul>
 
               </nav>
@@ -103,6 +109,7 @@
     <script src="{{asset('js/user/blog.js')}}"></script>
     <script src="{{ asset('js/user/course.js') }}"></script>
     <script src="{{ asset('js/user/review.js') }}"></script>
+    <script src="{{ asset('js/user/user-dashboard.js') }}"></script>
 </body>
 <script>
     $(document).ready(function(){

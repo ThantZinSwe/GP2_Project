@@ -98,4 +98,11 @@ interface CourseDaoInterface
      * @return Api json
      */
     public function reviewApi($request, $slug);
+
+    /* Get User Courses
+     *
+     * @param String User Id $id
+     * @return Object Course object $courses;
+     */
+    public function getUserCourse($id);
 }

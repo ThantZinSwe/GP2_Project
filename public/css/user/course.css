@@ -27,7 +27,9 @@ img {
 .black-light {
     color: #ddd;
 }
-
+.pagination {
+    width: 100%;
+}
 .sec-course {
     padding: 55px 0 0;
 }
@@ -280,6 +282,7 @@ img {
     }
     .course-card-img {
         transition: 0.7s;
+        height: 29.948vw;
     }
     .course-txt-blk {
         padding-left: 1.432vw;
