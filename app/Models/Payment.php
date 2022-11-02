@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'id','course_id','user_id','amount','payment_method'
+    ];
 
     public function user()
     {

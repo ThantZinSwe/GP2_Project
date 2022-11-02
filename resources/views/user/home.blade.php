@@ -18,21 +18,21 @@
         <li class="info-card clearfix">
           <img src="{{ asset('images/user/home/user.png') }}" alt="info-icon">
           <div class="info-text">
-            <h6>+ 122</h6>
+            <h6>{{$user}}</h6>
             <span class="info-title">Students</span>
           </div>
         </li>
         <li class="info-card clearfix">
           <img src="{{asset('images/user/home/video.png') }}" alt="info-icon">
           <div class="info-text">
-            <h6>+ 122</h6>
+            <h6>{{$video}}</h6>
             <span class="info-title">Video</span>
           </div>
         </li>
         <li class="info-card clearfix">
           <img src="{{asset('images/user/home/blog.png') }}" alt="info-icon">
           <div class="info-text">
-            <h6>+ 122</h6>
+            <h6>{{$blog}}</h6>
             <span class="info-title">Blog</span>
           </div>
         </li>
@@ -43,7 +43,7 @@
         @foreach ($courses as $data)
         <li class="course-card">
           <a href="#">
-              <img src="{{asset("images/course/$data->image")}}" alt="course-image" class="course-card-img">
+              <img src="{{asset('images/course/'.$data->image)}}" alt="course-image" class="course-card-img">
               <div class="course-txt-blk">
                   <h3 class="course-card-ttl">{{ $data->name }}</h3>
                   <p class="course-card-type">Type: <span>{{ $data->type }}</span></p>
@@ -60,7 +60,7 @@
       </ul>
       
       <div class="course-btn">
-        <a href="#" class="btn btn-primary">See All Courses</a>
+        <a href="{{route('user.course')}}" class="btn btn-primary">See All Courses</a>
       </div>
     </section>
     
@@ -73,7 +73,7 @@
           <h3 class="blg-title">Blog</h3>
           <p class="cmn-paragraph blog-paragraph">CoderCamp presents blogs and tricks weekly or monthly.We try our best to present valuable and useful tips and tricks in every blog.</p>
           <div class="blog-btn">
-            <a href="#" class="btn btn-primary">See All Blogs</a>
+            <a href="{{route('user.blog')}}" class="btn btn-primary">See All Blogs</a>
           </div>
         </div>
         </div>

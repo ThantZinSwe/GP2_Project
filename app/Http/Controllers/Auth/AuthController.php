@@ -71,7 +71,7 @@ class AuthController extends Controller
     {
         $register = $this->authInterface->registerSave($request);
         if($register){
-            return redirect()->route('login.get')->with('message', 'Register Successfully');
+            return view('auth.registersucess')->with('message', 'Register Successfully');
         }
         return back()->with('error', 'Cannot Register');
     }

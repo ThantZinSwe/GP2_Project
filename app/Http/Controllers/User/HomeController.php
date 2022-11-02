@@ -2,25 +2,28 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Contracts\Services\Admin\Course\CourseServiceInterface;
+use App\Contracts\Services\Admin\Home\HomeServiceInterface;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-      /**
+    private $homenterface;
+
+    /**
      * Create new controller instance
      * @return void
      */
-    public function __construct(CourseServiceInterface $courseServiceInterface)
+    public function __construct(HomeServiceInterface $homeServiceInterface)
     {
-        $this->courseInterface = $courseServiceInterface;
+        $this->homeInterface = $homeServiceInterface;
     }
+
     /**
      * @return View user/home
      */
     public function index()
     {
-        $courses = $this->courseInterface->index();
-        return view('user.home',$courses);
+        $home = $this->homeInterface->index();
+        return $home;
     }
 }

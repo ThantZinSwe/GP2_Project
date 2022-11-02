@@ -31,7 +31,7 @@
                 <ul class="clearfix">
                     <li><a href="{{route('user.home')}}" class="text {{'/' == request()->path() ? 'nav-active' : ''}}">Home</a></li>
                     <li><a href="{{ route('user.course') }}" class="text {{'courses' == request()->path() ? 'nav-active' : ''}}" >Courses</a></li>
-                    <li><a href="{{route('user.blog')}}" class="text  {{'/blog' == request()->path() ? 'nav-active' : ''}}">Blogs</a></li>
+                    <li><a href="{{route('user.blog')}}" class="text  {{'blog' == request()->path() ? 'nav-active' : ''}}">Blogs</a></li>
                     @guest
                         <li><a href="{{ route('login.get') }}" class="btn btn-outline-primary sign-in">Sign in</a></li>
                         <li><a href="{{ route('auth.register') }}" class="btn btn-primary">Register</a></li>
