@@ -65,7 +65,7 @@
                             @if ($enroll->status == "pending")
                                 <a href="{{route('admin.enroll.accepted',$enroll->id)}}" class="btn btn-warning btn-sm mr-3">Accepted</a>
                             @endif
-                            <form action="#" method="POST" class="mr-3">
+                            <form action="{{route('admin.enroll.delete',$enroll->id)}}" method="POST" class="mr-3">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to want to delete this enroll?')">Delete</button>

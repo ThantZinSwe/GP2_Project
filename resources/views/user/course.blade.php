@@ -29,7 +29,7 @@
             @if(count($courses) > 0)
                 @foreach ($courses as $item  )
                 <li class="course-card">
-                    <a href="#">
+                    <a href="{{route('user.courseDetails',$item->slug)}}">
                         <img src="{{ asset("images/course/$item->image") }}" alt="" class="course-card-img">
                         <div class="course-txt-blk">
                             <h3 class="course-card-ttl">{{ $item->name }}</h3>
@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 @endforeach
-               
+
             @else
                 <span>There is no Courses Availible!</span>
             @endif

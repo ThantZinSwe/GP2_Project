@@ -4,6 +4,8 @@ namespace App\Services\Admin\Enroll;
 
 use App\Contracts\Dao\Admin\Enroll\EnrollDaoInterface;
 use App\Contracts\Services\Admin\Enroll\EnrollServiceInterface;
+use App\Mail\EnrollMail;
+use Illuminate\Support\Facades\Mail;
 
 class EnrollService implements EnrollServiceInterface
 {
@@ -31,9 +33,22 @@ class EnrollService implements EnrollServiceInterface
 
     /**
      * to change status accpeted
+     * send mail to user
+     * @param $id
      */
     public function accepted($id)
     {
-        return $this->enrollDao->accepted($id);
+        $enroll = $this->enrollDao->accepted($id);
+        Mail::to($enroll->user->email)->send(new EnrollMail($enroll));
+        return $enroll;
+    }
+
+    /**
+     * To delete enroll
+     * @param $id
+     */
+    public function delete($id)
+    {
+        return $this->enrollDao->delete($id);
     }
 }

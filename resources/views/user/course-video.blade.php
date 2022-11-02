@@ -58,12 +58,11 @@
                 {{-- Course Review --}}
                 @if (Auth::check())
                     <div class="review">
-                        <form action="">
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Enter review"></textarea>
-                            <div class="review-btn">
-                                <button type="submit" class="btn btn-primary">Review</button>
-                            </div>
-                        </form>
+                        <textarea name="" id="" cols="30" class="comment" rows="10" placeholder="Enter review"></textarea>
+                        <span style="color: red" class="d-none commentError">Comment Field is required.</span>
+                        <div class="review-btn">
+                            <a href="#" data-slug="{{$course->slug}}" data-user_id="{{auth()->user()->id}}" class="btn btn-primary review-submit">Submit</a>
+                        </div>
                     </div>
                 @else
                     <div class="review">
@@ -76,46 +75,22 @@
                 <div class="review-box">
                     <h3>Customers Review</h3>
 
-                    <div class="review-lists clearfix">
-                        <div class="review-profile">
-                            <img src="{{asset('images/default_profile.jpg')}}" alt="">
+                    <div class="box">
+                        @foreach ($comments as $comment)
+                        <div class="review-lists clearfix">
+                            <div class="review-profile">
+                                <img src="{{asset('images/default_profile.jpg')}}" alt="">
+                            </div>
+                            <div class="review-info">
+                                <p class="name">
+                                    {{$comment->user->name}} <small class="minutes">{{$comment->created_at->diffForHumans()}}</small>
+                                </p><br>
+                                <p class="review-content">
+                                    {{$comment->review}}
+                                </p>
+                            </div>
                         </div>
-                        <div class="review-info">
-                            <p class="name">Thant Zin Swe</p><br>
-                            <p class="review-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Vero a, temporibus consequatur esse eligendi, repellat quas corrupti quis,
-                                consequuntur quia beatae dolore recusandae rerum officia ab quibusdam quo.
-                                Itaque, deleniti?
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="review-lists clearfix">
-                        <div class="review-profile">
-                            <img src="{{asset('images/default_profile.jpg')}}" alt="">
-                        </div>
-                        <div class="review-info">
-                            <p class="name">Thant Zin Swe</p><br>
-                            <p class="review-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Vero a, temporibus consequatur esse eligendi, repellat quas corrupti quis,
-                                consequuntur quia beatae dolore recusandae rerum officia ab quibusdam quo.
-                                Itaque, deleniti?
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="review-lists clearfix">
-                        <div class="review-profile">
-                            <img src="{{asset('images/default_profile.jpg')}}" alt="">
-                        </div>
-                        <div class="review-info">
-                            <p class="name">Thant Zin Swe</p><br>
-                            <p class="review-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Vero a, temporibus consequatur esse eligendi, repellat quas corrupti quis,
-                                consequuntur quia beatae dolore recusandae rerum officia ab quibusdam quo.
-                                Itaque, deleniti?
-                            </p>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

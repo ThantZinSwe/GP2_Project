@@ -85,6 +85,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
     // Enroll
     Route::get('/enroll', [EnrollController::class, 'index'])->name('admin.enroll.index');
     Route::get('/enroll/{id}', [EnrollController::class, 'accepted'])->name('admin.enroll.accepted');
+    Route::delete('/enroll/{id}/delete', [EnrollController::class, 'delete'])->name('admin.enroll.delete');
 });
 
 // User
