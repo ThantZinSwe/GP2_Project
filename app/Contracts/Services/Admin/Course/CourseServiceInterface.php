@@ -51,7 +51,7 @@ interface CourseServiceInterface
      */
     public function search($request);
 
-        /******   User ********/
+    /******   User ********/
 
     /**
      * To get all courses With languages
@@ -92,6 +92,13 @@ interface CourseServiceInterface
      * @param $slug
      */
     public function enrollStore($request, $slug);
+
+    /**
+     * to store user review
+     * @param $slug
+     * @return Api json
+     */
+    public function reviewApi($request, $slug);
     /**
      * Get User Courses
      *

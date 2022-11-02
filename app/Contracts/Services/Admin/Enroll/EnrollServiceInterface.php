@@ -13,4 +13,10 @@ interface EnrollServiceInterface
      * to change status accpeted
      */
     public function accepted($id);
+
+    /**
+     * To delete enroll
+     * @param $id
+     */
+    public function delete($id);
 }

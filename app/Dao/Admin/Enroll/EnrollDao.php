@@ -30,4 +30,16 @@ class EnrollDao implements EnrollDaoInterface
 
         return $enroll;
     }
+
+    /**
+     * To delete enroll
+     * @param $id
+     */
+    public function delete($id)
+    {
+        $enroll = Payment::findOrFail($id);
+        $enroll->delete();
+
+        return 'success';
+    }
 }

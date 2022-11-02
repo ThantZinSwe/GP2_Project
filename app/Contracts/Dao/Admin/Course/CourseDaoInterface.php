@@ -49,19 +49,21 @@ interface CourseDaoInterface
      * @return Object $courses
      */
     public function search($request);
+
+    //User
+
     /**
      * To search course via API
      * @param $request
      * @return Object $courses
      */
     public function searchByApi($key);
+
     /**
      * To get all courses With languages
      * @return Object $courses to get course
      */
     public function getCourseWithLanguage();
-
-    //User
 
     /**
      * To show course
@@ -91,7 +93,13 @@ interface CourseDaoInterface
     public function enrollStore($request, $slug);
 
     /**
-     * Get User Courses
+     * to store user review
+     * @param $slug
+     * @return Api json
+     */
+    public function reviewApi($request, $slug);
+
+    /* Get User Courses
      *
      * @param String User Id $id
      * @return Object Course object $courses;

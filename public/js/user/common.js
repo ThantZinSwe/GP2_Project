@@ -9,4 +9,16 @@ $(document).ready(function () {
     $(".profile-name").on("click", function () {
         $(".dropdown").toggleClass("dropdown-menu-active");
     });
+
+    // csrf token
+    let token = document.head.querySelector('meta[name="csrf-token"]');
+    if (token) {
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": token.content,
+            },
+        });
+    } else {
+        console.log("csrf token is not found");
+    }
 });

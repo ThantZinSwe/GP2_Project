@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Contracts\Services\Admin\Course\CourseServiceInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ReviewRequest;
 use App\Http\Requests\UserEnrollRequest;
 use App\Models\Course;
 
@@ -73,6 +74,16 @@ class CourseDetailsController extends Controller
         }
 
         return back()->with(['success' => 'Thank you ! Please wait to confirm admin team']);
+    }
+
+    /**
+     * to store user review
+     * @param $slug
+     * @return Api json
+     */
+    public function reviewApi(ReviewRequest $request, $slug)
+    {
+        return $this->courseDetailsInterface->reviewApi($request, $slug);
     }
 
 }

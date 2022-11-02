@@ -102,7 +102,6 @@ class CourseService implements CourseServiceInterface
         return $this->courseDao->searchByApi($request);
     }
 
-
     /**
      * To show course & courseVideo
      * @param $slug
@@ -141,13 +140,25 @@ class CourseService implements CourseServiceInterface
     {
         return $this->courseDao->enrollStore($request, $slug);
     }
+
+    /**
+     * to store user review
+     * @param $slug
+     * @return Api json
+     */
+    public function reviewApi($request, $slug)
+    {
+        return $this->courseDao->reviewApi($request, $slug);
+    }
+
     /**
      * Get User Courses
      *
      * @param String User Id $id
      * @return Object Course object $courses;
      */
-    public function getUserCourse($id){
+    public function getUserCourse($id)
+    {
         return $this->courseDao->getUserCourse($id);
     }
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>CoderCamp</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -107,6 +108,7 @@
     <script src="{{asset('js/user/common.js')}}"></script>
     <script src="{{asset('js/user/blog.js')}}"></script>
     <script src="{{ asset('js/user/course.js') }}"></script>
+    <script src="{{ asset('js/user/review.js') }}"></script>
     <script src="{{ asset('js/user/user-dashboard.js') }}"></script>
 </body>
 <script>
@@ -117,8 +119,7 @@
 
         $('.alert-error .close-btn').on('click',function(){
             $('.alert-error').addClass('hide');
-        })
+        });
     });
 </script>
-@yield('script')
 </html>

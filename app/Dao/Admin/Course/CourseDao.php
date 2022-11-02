@@ -3,10 +3,12 @@
 namespace App\Dao\Admin\Course;
 
 use App\Contracts\Dao\Admin\Course\CourseDaoInterface;
+use App\Models\Comment;
 use App\Models\Course;
 use App\Models\CourseVideo;
 use App\Models\Language;
 use App\Models\Payment;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -167,7 +169,8 @@ class CourseDao implements CourseDaoInterface
         $courses = $courses->orderBy('id', 'desc')->get();
         return compact('courses', 'languages');
     }
-    //User
+
+//User
 
     /**
      * To search course
@@ -180,15 +183,17 @@ class CourseDao implements CourseDaoInterface
         $tag = $request->tag;
         $type = $request->type;
         $courses = Course::with('languages');
-        if($tag == 'all'){
-           return $courses->get();
+        if ($tag == 'all') {
+            return $courses->get();
         }
-        if($type == 'all' && $tag ) {
+
+        if ($type == 'all' && $tag) {
             $courses->whereHas('languages', function ($q) use ($tag) {
                 $q->where('course_languages.language_id', $tag);
             });
         }
-        if (($type == 'paid' && $tag) || ($type == 'free' && $tag )) {
+
+        if (($type == 'paid' && $tag) || ($type == 'free' && $tag)) {
             $courses->where(function ($q) use ($type) {
                 $q->where('type', 'like', '%' . $type . '%');
             })->whereHas('languages', function ($q) use ($tag) {
@@ -197,12 +202,13 @@ class CourseDao implements CourseDaoInterface
         }
 
         if ($type == 'all' && $course) {
-            $courses->where(function($q) use($course){
+            $courses->where(function ($q) use ($course) {
                 $q->orWhere('courses.name', 'like', '%' . $course . '%')
                     ->orWhere('courses.price', 'like', '%' . $course . '%');
             });
-            
+
         }
+
         if (($type == 'paid' && $course) || ($type == 'free' && $course)) {
             $courses->where(function ($q) use ($type) {
                 $q->where('type', 'like', '%' . $type . '%');
@@ -211,16 +217,19 @@ class CourseDao implements CourseDaoInterface
                     ->orWhere('courses.price', 'like', '%' . $course . '%');
             });
         }
+
         if ($type == 'all' && !$course && !$tag) {
             $courses;
         }
+
         if (($type == 'paid' && !$course && !$tag) || ($type == 'free' && !$course && !$tag)) {
             $courses->orWhere('courses.type', 'like', '%' . $type . '%');
         }
 
         $courses = $courses->get();
-        return  $courses;
+        return $courses;
     }
+
     /**
      * To get all courses With languages
      * @return Object $courses to get course
@@ -236,9 +245,10 @@ class CourseDao implements CourseDaoInterface
      * @param String User Id $id
      * @return Object Course object $courses;
      */
-    public function getUserCourse($id){
+    public function getUserCourse($id)
+    {
         $courses = Course::with('languages');
-        
+
         $courses->whereHas('users', function ($q) use ($id) {
             $q->where('payments.user_id', $id);
         });
@@ -246,6 +256,7 @@ class CourseDao implements CourseDaoInterface
         return $courses;
 
     }
+
     /**
      * To show course & courseVideo
      * @param $slug
@@ -256,6 +267,7 @@ class CourseDao implements CourseDaoInterface
         $course = Course::with('courseVideos')->where('slug', $slug)->first();
         $latestCourses = Course::with('languages')->orderBy('id', 'desc')->limit(3)->get();
         $enroll = "";
+        $comments = Comment::where('course_id', $course->id)->orderBy('id', 'desc')->get();
         if (Auth::check()) {
             $enroll = Payment::where('user_id', auth()->user()->id)
                 ->where('course_id', $course->id)
@@ -267,7 +279,7 @@ class CourseDao implements CourseDaoInterface
             abort('404');
         }
 
-        return compact('course', 'latestCourses', 'enroll');
+        return compact('course', 'latestCourses', 'enroll', 'comments');
     }
 
     /**
@@ -281,9 +293,10 @@ class CourseDao implements CourseDaoInterface
         $course = Course::with('courseVideos')->where('slug', $slug)->first();
         $courseVideo = CourseVideo::where('slug', $courseVideo)->where('course_id', $course->id)->first();
         $latestCourses = Course::with('languages')->orderBy('id', 'desc')->limit(3)->get();
+        $comments = Comment::where('course_id', $course->id)->orderBy('id', 'desc')->get();
 
         if ($course->type == "free") {
-            return compact('course', 'courseVideo', 'latestCourses');
+            return compact('course', 'courseVideo', 'latestCourses', 'comments');
         }
 
         if (Auth::check() && $course->type == "paid") {
@@ -293,7 +306,7 @@ class CourseDao implements CourseDaoInterface
                 ->first();
 
             if (isset($enroll)) {
-                return compact('course', 'courseVideo', 'latestCourses', 'enroll');
+                return compact('course', 'courseVideo', 'latestCourses', 'enroll', 'comments');
             } else {
                 return ['enrollError' => 'You need to enroll first this course'];
             }
@@ -335,6 +348,28 @@ class CourseDao implements CourseDaoInterface
             return ['authError' => 'Please Login first!'];
         }
 
+    }
+
+    /**
+     * to store user review
+     * @param $slug
+     * @return Api json
+     */
+    public function reviewApi($request, $slug)
+    {
+        $course = Course::where('slug', $slug)->first();
+        $review = new Comment();
+        $review->user_id = $request->user_id;
+        $review->course_id = $course->id;
+        $review->review = $request->comment;
+        $review->save();
+
+        $user = User::findOrFail($request->user_id);
+
+        return response()->json([
+            'review' => $review,
+            'user'   => $user,
+        ]);
     }
 
 }

@@ -1,13 +1,13 @@
 @font-face {
-    font-family: 'Roboto-Regular';
+    font-family: "Roboto-Regular";
     font-weight: 400;
-    src: url('../../library/font/Roboto-Regular.ttf');
+    src: url("../../library/font/Roboto-Regular.ttf");
 }
 
 @font-face {
-    font-family: 'Roboto-Bold';
+    font-family: "Roboto-Bold";
     font-weight: 700;
-    src: url('../../library/font/Roboto-Bold.ttf');
+    src: url("../../library/font/Roboto-Bold.ttf");
 }
 .clear-fix {
     display: table;
@@ -40,7 +40,7 @@ img {
 }
 
 .course-header {
-    font-family: 'Roboto-Bold';
+    font-family: "Roboto-Bold";
     font-size: 40px;
     font-weight: 700;
 }
@@ -56,7 +56,6 @@ img {
 }
 
 .search-group {
-   
 }
 
 .search-select {
@@ -80,7 +79,7 @@ img {
     font-weight: 500;
     width: 63%;
 }
-.language-list li:nth-child(8n){
+.language-list li:nth-child(8n) {
     text-align: center;
 }
 .language-list li {
@@ -92,7 +91,7 @@ img {
     margin: 8px 5px 0 5px;
     transition: 0.1s;
 }
- .language-list li:active {
+.language-list li:active {
     opacity: 0.5;
 }
 .language-list li.active {
@@ -101,7 +100,8 @@ img {
 .language-list li.active a {
     color: #fff;
 }
-.course-card-container, .search-card-container {
+.course-card-container,
+.search-card-container {
     padding: 22px 20px;
     width: 100%;
 }
@@ -126,7 +126,7 @@ img {
 }
 .course-card-img {
     transition: 0.7s;
-    height: 250px;
+    height: 200px;
 }
 .course-txt-blk {
     padding-left: 11px;
@@ -162,15 +162,15 @@ img {
     border-radius: 10px;
     margin-left: 24px;
 }
-.course-card-fee.paid span{
+.course-card-fee.paid span {
     background-color: #60a5fa;
     color: #fff;
 }
-.course-card-type.paid span{
+.course-card-type.paid span {
     background-color: #60a5fa;
     color: #fff;
 }
-.course-card-language li{
+.course-card-language li {
     display: inline-block;
     background-color: #60a5fa;
     color: #fff;
@@ -179,38 +179,36 @@ img {
     margin: 0 5px 0 0;
 }
 
-
 /* Ipad */
 @media screen and (min-width: 768px) and (max-width: 1180px) {
-
     body {
-      font-size: 2.083vw;
+        font-size: 2.083vw;
     }
-  
+
     .l-container,
     .l-inner {
-      width: 100%;
-      max-width: 100%;
+        width: 100%;
+        max-width: 100%;
     }
     .sec-course {
         padding: 7.161vw 0 0;
     }
-    
+
     .course-mv-blk {
         text-align: center;
         margin-bottom: 3.516vw;
     }
-    
+
     .course-header {
-        font-family: 'Roboto-Bold';
+        font-family: "Roboto-Bold";
         font-size: 4.557vw;
         font-weight: 700;
     }
-    
+
     .course-header span {
         color: #60a5fa;
     }
-    
+
     .course-pargh {
         margin: 3.776vw 0 2.604vw;
         color: #23232399;
@@ -218,18 +216,14 @@ img {
         padding: 0 3.906vw;
         line-height: 1.3;
     }
-    
-    .search-group {
-       
-    }
-    
+
     .search-select {
         padding: 1.302vw 2.083vw;
         font-size: 2.344vw;
         border-radius: 0%;
         border: 0.13vw solid #ddd;
     }
-    
+
     .search-input {
         width: 62.5vw;
         border: 0.13vw solid #ddd;
@@ -256,7 +250,8 @@ img {
         background-color: #60a5fa;
         color: #fff;
     }
-    .course-card-container, .search-card-container{
+    .course-card-container,
+    .search-card-container {
         padding: 2.865vw 1.953vw;
         width: 100%;
     }
@@ -268,7 +263,10 @@ img {
         box-shadow: rgba(0, 0, 0, 0.1) 0vw 0.521vw 1.563vw;
         padding-bottom: 1.563vw;
         border-radius: 0.651vw;
-
+    }
+    .course-card-img {
+        transition: 0.7s;
+        height: 26.042vw;
     }
     .course-card:hover {
         box-shadow: rgba(0, 0, 0, 0.35) 0vw 0.651vw 1.953vw;
@@ -314,11 +312,11 @@ img {
         border-radius: 1.302vw;
         margin-left: 3.125vw;
     }
-    .course-card-type.paid span{
+    .course-card-type.paid span {
         background-color: #60a5fa;
         color: #fff;
     }
-    .course-card-language li{
+    .course-card-language li {
         display: inline-block;
         background-color: #60a5fa;
         color: #fff;
@@ -326,72 +324,62 @@ img {
         border-radius: 1.302vw;
         margin: 0 0.651vw 0 0;
     }
-    
-    
-   
-  
-  
 }
-  
-  /*  SP  */
-@media screen and (max-width:767.9px) {
-  
+
+/*  SP  */
+@media screen and (max-width: 767.9px) {
     body {
-      font-size: 2.813vw;
+        font-size: 2.813vw;
     }
-  
+
     .pc {
-      display: none;
+        display: none;
     }
-  
+
     .sp {
-      display: block;
+        display: block;
     }
-  
+
     .l-container,
     .l-inner {
-      width: 100%;
-      padding: 0 4.688vw;
-      max-width: 100%;
+        width: 100%;
+        padding: 0 4.688vw;
+        max-width: 100%;
     }
 
     .sec-course {
         padding: 8.594vw 0 0;
     }
-    
+
     .course-mv-blk {
         text-align: center;
         margin-bottom: 4.219vw;
     }
-    
+
     .course-header {
-        font-family: 'Roboto-Bold';
+        font-family: "Roboto-Bold";
         font-size: 4.375vw;
         font-weight: 700;
     }
-    
+
     .course-header span {
         color: #60a5fa;
     }
-    
+
     .course-pargh {
         margin: 4.531vw 0 3.125vw;
         color: #23232399;
         font-size: 2.5vw;
         padding: 0 2.344vw;
     }
-    
-    .search-group {
-       
-    }
-    
+
     .search-select {
         padding: 1.563vw 2.5vw;
         font-size: 2.813vw;
         border-radius: 0%;
         border: 0.156vw solid #ddd;
     }
-    
+
     .search-input {
         width: 65.625vw;
         border: 0.156vw solid #ddd;
@@ -419,7 +407,8 @@ img {
         background-color: #60a5fa;
         color: #fff;
     }
-    .course-card-container, .search-card-container {
+    .course-card-container,
+    .search-card-container {
         padding: 1.875vw 3.125vw 3.438vw;
         width: 100%;
     }
@@ -431,7 +420,10 @@ img {
         box-shadow: rgba(0, 0, 0, 0.1) 0vw 0.625vw 1.875vw;
         padding-bottom: 1.875vw;
         border-radius: 0.781vw;
-
+    }
+    .course-card-img {
+        transition: 0.7s;
+        height: 31.25vw;
     }
     .course-card:hover {
         box-shadow: rgba(0, 0, 0, 0.35) 0vw 0.781vw 2.344vw;
@@ -467,7 +459,7 @@ img {
         font-size: 2.344vw;
     }
 
-    .course-card-type.paid span{
+    .course-card-type.paid span {
         background-color: #60a5fa;
         color: #fff;
     }
@@ -488,7 +480,7 @@ img {
         font-size: 2.344vw;
     }
 
-    .course-card-language li{
+    .course-card-language li {
         display: inline-block;
         background-color: #60a5fa;
         color: #fff;

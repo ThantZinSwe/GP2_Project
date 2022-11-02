@@ -7,6 +7,8 @@ use App\Contracts\Services\Admin\Enroll\EnrollServiceInterface;
 use App\Exports\PaymentExport;
 use App\Http\Requests\ImportRequest;
 use App\Imports\PaymentImport;
+use App\Mail\EnrollMail;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 
 class EnrollService implements EnrollServiceInterface
@@ -35,10 +37,23 @@ class EnrollService implements EnrollServiceInterface
 
     /**
      * to change status accpeted
+     * send mail to user
+     * @param $id
      */
     public function accepted($id)
     {
-        return $this->enrollDao->accepted($id);
+        $enroll = $this->enrollDao->accepted($id);
+        Mail::to($enroll->user->email)->send(new EnrollMail($enroll));
+        return $enroll;
+    }
+
+    /**
+     * To delete enroll
+     * @param $id
+     */
+    public function delete($id)
+    {
+        return $this->enrollDao->delete($id);
     }
 
     /**

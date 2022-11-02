@@ -13,7 +13,6 @@ use App\Http\Controllers\User\CourseController as UserCourseController;
 use App\Http\Controllers\User\CourseDetailsController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\UserBlogController;
-use App\Http\Controllers\User\UserDashboard;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Middleware\AdminAuthMiddleWare;
 use App\Http\Middleware\UserCheckMiddleware;
@@ -88,9 +87,10 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
     // Enroll
     Route::get('/enroll', [EnrollController::class, 'index'])->name('admin.enroll.index');
     Route::get('/enroll/{id}', [EnrollController::class, 'accepted'])->name('admin.enroll.accepted');
-    Route::get('/excel',[EnrollController::class, 'exportPayment'])->name("admin.enroll.export");
+    Route::delete('/enroll/{id}/delete', [EnrollController::class, 'delete'])->name('admin.enroll.delete');
+    Route::get('/excel', [EnrollController::class, 'exportPayment'])->name("admin.enroll.export");
     Route::get('/import', [EnrollController::class, 'import'])->name('admin.enroll.import');
-    Route::post('/import',[EnrollController::class, 'importPayment'])->name("admin.enroll.get");
+    Route::post('/import', [EnrollController::class, 'importPayment'])->name("admin.enroll.get");
 });
 
 // User
@@ -106,7 +106,7 @@ Route::get('/courses/{slug}/course-video/{course_video}', [CourseDetailsControll
 Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'enroll'])->name('user.enroll');
 Route::post('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
 
-Route::group(['prefix' => 'user-dashboard','middleware' => [UserCheckMiddleware::class]], function(){
+Route::group(['prefix' => 'user-dashboard', 'middleware' => [UserCheckMiddleware::class]], function () {
     Route::get('/', [UserDashboardController::class, 'index'])->name('user.dashboard');
     Route::post('/edit/{id}', [UserDashboardController::class, 'submitUserProfile'])->name('user.profile.post');
     Route::post('/password-change/{id}', [UserDashboardController::class, 'changeUserPassword'])->name('user.password.change');

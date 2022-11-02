@@ -29,10 +29,25 @@ class EnrollController extends Controller
         return view('admin.enroll.index', compact('enrolls'));
     }
 
+    /**
+     * status chage pending to accepted
+     * send mail
+     * @param $id
+     */
     public function accepted($id)
     {
         $this->enrollInterface->accepted($id);
         return back()->with(['success' => 'Status Accepted and mail send successfully']);
+    }
+
+    /**
+     * To delete enroll
+     * @param $id
+     */
+    public function delete($id)
+    {
+        $this->enrollInterface->delete($id);
+        return back()->with(['success' => 'Enroll deleted successfully']);
     }
 
     /**

@@ -360,6 +360,10 @@
         width: 100%;
     }
 
+    .course-details-sec .latest-course-blk img {
+        height: 26.042vw;
+    }
+
     .course-details-blk .vd-img-blk .description {
         margin-top: 3.255vw;
     }
@@ -564,6 +568,10 @@
 
     .course-details-sec img {
         width: 100%;
+    }
+
+    .course-details-sec .latest-course-blk img {
+        height: 31.25vw;
     }
 
     .course-details-blk .vd-img-blk .description {
