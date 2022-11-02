@@ -85,6 +85,9 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
     // Enroll
     Route::get('/enroll', [EnrollController::class, 'index'])->name('admin.enroll.index');
     Route::get('/enroll/{id}', [EnrollController::class, 'accepted'])->name('admin.enroll.accepted');
+    Route::get('/excel',[EnrollController::class, 'exportPayment'])->name("admin.enroll.export");
+    Route::get('/import', [EnrollController::class, 'import'])->name('admin.enroll.import');
+    Route::post('/import',[EnrollController::class, 'importPayment'])->name("admin.enroll.get");
 });
 
 // User
@@ -99,3 +102,4 @@ Route::get('/courses/{slug}', [CourseDetailsController::class, 'courseDetailsInd
 Route::get('/courses/{slug}/course-video/{course_video}', [CourseDetailsController::class, 'courseVideo'])->name('user.courseVideo');
 Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'enroll'])->name('user.enroll');
 Route::post('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
+

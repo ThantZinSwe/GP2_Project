@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Contracts\Services\Admin\Enroll\EnrollServiceInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ImportRequest;
 
 class EnrollController extends Controller
 {
@@ -33,4 +34,33 @@ class EnrollController extends Controller
         $this->enrollInterface->accepted($id);
         return back()->with(['success' => 'Status Accepted and mail send successfully']);
     }
+
+    /**
+     * @return View admin/enroll/import
+     */
+    public function import()
+    {
+        return view('admin.enroll.importpayment');
+    }
+
+    /**
+     * @return View admin/enroll
+     * @return Object $export
+     */
+    public function exportPayment()
+    {
+        $export = $this->enrollInterface->exportPayment();
+        return $export;
+    }
+
+    /**
+     * @param ImportRequest $request
+     * @return View admin/enroll
+     */
+    public function importPayment(ImportRequest $request)
+    {
+        $export = $this->enrollInterface->importPayment($request);
+        return redirect('/admin/enroll')->with(['success' => 'Import Payment successfully']);
+    }
+
 }
