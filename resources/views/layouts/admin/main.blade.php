@@ -237,6 +237,7 @@
 <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('admin/dist/js/demo.js')}}"></script>
+
 </body>
 <script>
     $(function($){

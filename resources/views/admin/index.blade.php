@@ -87,13 +87,12 @@
           <!-- ./col -->
         </div>
         <div class="row">
-          <div class="col-12">
-            <h2 class="my-3">Enroll Graph For Last Month</h2>
-            <div class="card">
+            <h2 class="my-4">Enroll Graph For Last Month</h2>
+          <div class="col-10 offset-1">
+
               <div class="card">
                 <canvas id="myChart"></canvas>
               </div>
-            </div>
           </div>
         </div>
         <!-- /.row -->
@@ -104,5 +103,43 @@
   <!-- /.content-wrapper -->
 @endsection
 @section('script')
-<script src="{{ asset('js/script.js') }}"></script>
+<script>
+    const labels = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+    ];
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                barThickness: 20,
+                label: "Student Enroll",
+                borderColor: 'rgb(75, 192, 192)',
+                data: {{json_encode($chart_data)}},
+            },
+        ],
+    };
+    const config = {
+        type: "line",
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                },
+            },
+        },
+    };
+    const myChart = new Chart(document.getElementById("myChart"), config);
+</script>
 @endsection
