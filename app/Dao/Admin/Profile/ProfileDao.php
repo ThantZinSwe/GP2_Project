@@ -4,11 +4,50 @@ namespace App\Dao\Admin\Profile;
 
 use App\Contracts\Dao\Admin\Profile\ProfileDaoInterface;
 use App\Models\User;
+use App\Models\Course;
+use App\Models\Blog;
+use App\Models\Payment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class ProfileDao implements ProfileDaoInterface
 {
+    public function index(){
+        $courses = Course::get();
+        $blog = Blog::get();
+        $user = User::where('role_id', 2)->get();
+        $enroll = Payment::get();
+
+    //    $record = Order::select(DB::raw('COUNT(*) as count'),DB::raw("date_part('month',created_at) as month"))
+    //    ->whereYear('created_at', date('Y'))
+    //    ->groupBy(DB::raw("date_part('month', created_at) "))
+    //    ->get();
+    //
+    //     $data =[];
+    //
+    //    // dd($record);
+    //   
+    //   foreach($record as $row)
+    //   {
+    //       $data['label'][] = (int) $row->month;
+    //       $data['data'][] = (int) $row->count;
+    //   }
+    //
+    //   //dd($data);
+    //   $data['chart_data'] = json_encode($data);
+    //   return view('chart.line', $data);
+    //}
+    $data = array();
+
+    for ( $i = 1; $i <= 12; $i++ ) {
+        $data[] = Payment::whereMonth( 'created_at', $i )
+            ->whereYear( 'created_at', now()->format( 'Y' ) )
+            ->count();
+    }
+        $data = json_encode($data);
+        return compact('courses','blog','user','enroll','data');
+    }
     /**
      * Change Admin Profile
      * @param string $id user id

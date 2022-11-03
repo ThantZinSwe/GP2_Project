@@ -5,6 +5,7 @@ namespace App\Contracts\Dao\Admin\Profile;
  */
 interface ProfileDaoInterface 
 {
+    public function index();
     /**
      * Change Admin Profile
      * @param string $id user id
