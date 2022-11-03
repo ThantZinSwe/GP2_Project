@@ -23,10 +23,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $courses = Course::get();
-        $blog = Blog::get();
-        $user = User::where('role_id', 2)->get();
-        return view('admin.index', ['course' => count($courses), 'blog' => count($blog), 'user' => count($user)]);
+        $data = $this->profileInterface->index();
+        //return $data;
+        return view('admin.index',$data);
     }
 
     /**

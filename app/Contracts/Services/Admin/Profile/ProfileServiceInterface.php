@@ -7,6 +7,7 @@ namespace App\Contracts\Services\Admin\Profile;
  */
 interface ProfileServiceInterface
 {
+    public function index();
     /**
      * Change Admin Profile
      * @param string $id user id

@@ -218,7 +218,7 @@
 <!-- Select2 -->
 <script src="{{asset('admin/plugins/select2/js/select2.full.min.js')}}"></script>
 <!-- ChartJS -->
-<script src="{{asset('admin/plugins/chart.js/Chart.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Sparkline -->
 <script src="{{asset('admin/plugins/sparklines/sparkline.js')}}"></script>
 <!-- JQVMap -->
