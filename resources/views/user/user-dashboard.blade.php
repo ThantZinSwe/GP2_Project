@@ -21,6 +21,9 @@
                         <i class="fa-solid fa-xmark"></i>
                     </span>
                 </div>
+                <script>
+                    
+                </script>
             @enderror
             @if (Session::has('message'))
                 <div class="alert">

@@ -1,47 +1,55 @@
 .dashboard-ttl {
-    text-align: center;
-    font-size: 32px;
     margin: 30px 0;
     color: #60a5fa;
+    font-size: 32px;
+    text-align: center;
 }
-.sec-user-dashboard {
 
-}
+.sec-user-dashboard {}
+
 .sec-user-dashboard .alert {
-    background: #0092ef;
-    padding: 20px 40px;
-    min-width: 420px;
     position: absolute;
-    right: 0px;
     top: 10%;
+    right: 0px;
+    padding: 20px 40px;
+    background: #0092ef;
+    min-width: 420px;
     border-radius: 4px;
     border-left: 8px solid #0092ef;
     animation: show_slide 1s ease forwards;
 }
 
+.profile-toggle-name {
+    display: none;
+}
+
+.profile-nav {
+    display: none;
+}
+
 .sec-user-dashboard .alert .fa-circle-check {
     position: absolute;
-    left: 20px;
     top: 50%;
-    transform: translateY(-50%);
+    left: 20px;
     color: #fff;
     font-size: 30px;
+    transform: translateY(-50%);
 }
 
 .sec-user-dashboard .alert .msg {
     padding: 0 20px;
-    font-size: 18px;
     color: #fff;
+    font-size: 18px;
 }
 
 .sec-user-dashboard .alert .close-btn {
     position: absolute;
-    right: 0;
     top: 50%;
-    transform: translateY(-50%);
-    background: #0092ef;
+    right: 0;
     padding: 8px 18px;
+    background: #0092ef;
     cursor: pointer;
+    transform: translateY(-50%);
 }
 
 .sec-user-dashboard .alert .close-btn:hover {
@@ -49,115 +57,679 @@
 }
 
 .sec-user-dashboard .alert .close-btn .fa-xmark {
+    line-height: 40px;
     color: #86b6e4;
     font-size: 22px;
-    line-height: 40px;
 }
 
 .sec-user-dashboard .alert.hide {
     animation: hide_slide 1s ease forwards;
 }
+
 .error {
     padding-top: 4px;
     color: rgb(255 68 68);
 }
-.dashboard-mv-blk {
 
-}
+.dashboard-mv-blk {}
+
 .dashboard-card {
     margin-right: 33px;
     margin-bottom: 35px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
     padding-bottom: 12px;
-    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: 0.7s;
+    border-radius: 5px;
 }
+
 .dashboard-aside {
-    width: 20%;
     float: left;
+    width: 20%;
 }
+
 .dashboard-content {
-    width: 80%;
     float: right;
+    width: 80%;
     padding: 15px;
 }
 
 .dashboard-aside li {
+    width: 60%;
     margin: 30px 0px 34px 20px;
     padding: 15px 10px;
-    width: 60%;
 }
+
 .dashboard-aside li.active a {
     color: rgb(0 146 239);
 }
+
 .dashboard-aside li:last-child {
     margin-top: 10px;
 }
-.dashboard-aside li:last-child a{
-   
+
+.dashboard-aside li:last-child a {
+
     color: rgb(255 68 68);
 }
-.dashboard-aside li a{
+
+.dashboard-aside li a {
     color: rgb(136 136 136);
+    font-family: 'Roboto-Regular';
     font-size: 18px;
     font-weight: 500;
-    font-family: 'Roboto-Regular';
 }
+
 .dashboard-aside li:hover a {
     color: rgb(75 85 99);
-   
+
 }
+
 .divider {
-    border: 0.2px solid rgba(136 ,136, 136,0.5 );
     margin: 0 12px;
+    border: 0.2px solid rgba(136, 136, 136, 0.5);
 }
+
 /* --------------- Profile Edit ------------------ */
 .profile-input-group {
     margin: 10px auto 15px;
 }
+
 .profile-input-group label {
     font-weight: 500;
 }
-.profile-input-group input, .profile-input-group textarea {
+
+.profile-input-group input,
+.profile-input-group textarea {
     display: block;
     width: 100%;
-    border:1px solid rgb(229 231 235);
     margin-top: 12px;
     padding: 10px;
+    border: 1px solid rgb(229 231 235);
     outline: none;
 }
 
-#user-edit-profile button, #user-password button {
-    background-color: rgb(0 146 239);
-    color: #fff;
+#user-edit-profile button,
+#user-password button {
+    float: right;
     padding: 10px 12px;
     border: 1px solid transparent;
-    border-radius: 4px;
-    float: right;
+    background-color: rgb(0 146 239);
+    color: #fff;
     transition: 0.7s;
+    border-radius: 4px;
 }
-#user-edit-profile button:hover, #user-password button:hover {
+
+#user-edit-profile button:hover,
+#user-password button:hover {
     border: 1px solid rgb(0 146 239);
     background-color: #fff;
     color: rgb(0 146 239);
-} 
+}
+
 /* --------------- User Courses ---------------------- */
-#user-course h2{
+#user-course h2 {
+    margin: 10px 0 11px 5px;
     font-family: 'Roboto-Regular';
     font-size: 24px;
     font-weight: 500;
-    margin: 10px 0 11px 5px;
 }
+
 #user-course .course-card {
     margin-right: 18px;
 }
+
 #user-course .course-txt-blk {
     padding-top: 11px;
 }
+
 #user-course .course-card-type {
-	margin: 15px 0 20px 0;
+    margin: 15px 0 20px 0;
 }
+
 #user-course .course-card-fee {
-	margin: 15px 0 20px 0;
+    margin: 15px 0 20px 0;
+}
+
+/*Ipad*/
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+    body {
+        font-size: 2.083vw;
+    }
+
+    .l-container,
+    .l-inner {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .g-nav ul li .nav-active {
+        color: #0092ef;
+    }
+
+    .g-nav ul li .nav-active::after {
+        position: absolute;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        content: "";
+    }
+
+    .g-nav ul li {
+        margin-right: 2.906vw;
+    }
+
+    .profile-name {
+        padding: 1.1102vw 1.153vw;
+        background-color: #0092ef;
+        color: #ffffff;
+        font-weight: 500;
+        text-transform: capitalize;
+        border-radius: 0.651vw;
+    }
+
+    .dashboard-ttl {
+        margin: 30px 0;
+        color: #60a5fa;
+        font-size: 29px;
+        text-align: center;
+    }
+
+    .sec-user-dashboard {}
+
+    .sec-user-dashboard .alert {
+        position: absolute;
+        top: 10%;
+        right: 0px;
+        padding: 20px 40px;
+        background: #0092ef;
+        min-width: 420px;
+        border-radius: 4px;
+        border-left: 8px solid #0092ef;
+        animation: show_slide 1s ease forwards;
+    }
+
+    .sec-user-dashboard .alert .fa-circle-check {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        color: #fff;
+        font-size: 30px;
+        transform: translateY(-50%);
+    }
+
+    .sec-user-dashboard .alert .msg {
+        padding: 0 20px;
+        color: #fff;
+        font-size: 18px;
+    }
+
+    .sec-user-dashboard .alert .close-btn {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        padding: 8px 18px;
+        background: #0092ef;
+        cursor: pointer;
+        transform: translateY(-50%);
+    }
+
+    .sec-user-dashboard .alert .close-btn:hover {
+        background: #0092ef;
+    }
+
+    .sec-user-dashboard .alert .close-btn .fa-xmark {
+        line-height: 40px;
+        color: #86b6e4;
+        font-size: 22px;
+    }
+
+    .sec-user-dashboard .alert.hide {
+        animation: hide_slide 1s ease forwards;
+    }
+
+    .error {
+        padding-top: 4px;
+        color: rgb(255 68 68);
+    }
+
+    .dashboard-mv-blk {}
+
+    .dashboard-card {
+        width: 726px;
+        margin: 0 auto 16px;
+        /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
+        padding-bottom: 12px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        transition: 0.7s;
+        border-radius: 5px;
+    }
+
+    .dashboard-aside {
+        float: left;
+        width: 20%;
+    }
+
+    .dashboard-content {
+        float: right;
+        width: 80%;
+        padding: 15px;
+    }
+
+    .dashboard-aside li {
+        width: 92%;
+        margin: 30px 0px 34px 20px;
+        padding: 15px 10px;
+    }
+
+    .dashboard-aside li.active a {
+        color: rgb(0 146 239);
+    }
+
+    .dashboard-aside li:last-child {
+        margin-top: 10px;
+    }
+
+    .dashboard-aside li:last-child a {
+
+        color: rgb(255 68 68);
+    }
+
+    .dashboard-aside li a {
+        color: rgb(136 136 136);
+        font-family: 'Roboto-Regular';
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    .dashboard-aside li:hover a {
+        color: rgb(75 85 99);
+
+    }
+
+    .divider {
+        margin: 0 12px;
+        border: 0.2px solid rgba(136, 136, 136, 0.5);
+    }
+
+    /* --------------- Profile Edit ------------------ */
+    .profile-input-group {
+        margin: 10px auto 15px;
+    }
+
+    .profile-input-group label {
+        font-weight: 500;
+    }
+
+    .profile-input-group input,
+    .profile-input-group textarea {
+        display: block;
+        width: 100%;
+        margin-top: 12px;
+        padding: 10px;
+        border: 1px solid rgb(229 231 235);
+        outline: none;
+    }
+
+    #user-edit-profile button,
+    #user-password button {
+        float: right;
+        padding: 10px 12px;
+        border: 1px solid transparent;
+        background-color: rgb(0 146 239);
+        color: #fff;
+        transition: 0.7s;
+        border-radius: 4px;
+    }
+
+    #user-edit-profile button:hover,
+    #user-password button:hover {
+        border: 1px solid rgb(0 146 239);
+        background-color: #fff;
+        color: rgb(0 146 239);
+    }
+
+    /* --------------- User Courses ---------------------- */
+    #user-course h2 {
+        margin: 10px 0 11px 5px;
+        font-family: 'Roboto-Regular';
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    #user-course .course-card-container {
+        width: 100%;
+        padding: 2.865vw 0px 2.865vw 1.053vw;
+    }
+
+    #user-course .course-card {
+        margin-right: 18px;
+    }
+
+    #user-course .course-card:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    #user-course .course-txt-blk {
+        padding-top: 11px;
+    }
+
+    #user-course .course-card-type {
+        margin: 15px 0 20px 0;
+    }
+
+    #user-course .course-card-fee {
+        margin: 15px 0 20px 0;
+    }
+
+}
+
+/*  SP  */
+@media screen and (max-width: 767.9px) {
+    body {
+        font-size: 2.813vw;
+    }
+
+    .pc {
+        display: none;
+    }
+
+    .sp {
+        display: block;
+    }
+
+    .l-container,
+    .l-inner {
+        width: 100%;
+        padding: 0 4.688vw;
+        max-width: 100%;
+    }
+
+    .profile-toggle-name {
+        display: block;
+        position: absolute;
+        top: 22px;
+        right: 65px;
+        padding: 1.0102vw 1.053vw;
+        background-color: #0092ef;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 500;
+        text-transform: capitalize;
+        border-radius: 0.651vw;
+    }
+
+    .g-nav ul li {
+        margin-right: 2.906vw;
+    }
+
+    .sec-mv .header .g-nav ul li:last-child {
+        display: none;
+    }
+
+    .sec-mv .header .profile-nav.is-show {
+        left: 0;
+        transition: 0.8s;
+    }
+
+    .sec-mv .header .profile-nav .profile-close-toggle {
+        display: none;
+    }
+
+    .sec-mv .header .profile-nav.is-show .profile-close-toggle {
+        display: block;
+        position: absolute;
+        top: 29px;
+        right: 32px;
+    }
+
+
+    .sec-mv .header .profile-nav {
+        display: block;
+        position: fixed;
+        top: 0%;
+        left: -100%;
+        z-index: 99999;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0;
+        background-color: #f6f8f9;
+        transition: all 1s ease !important;
+    }
+
+    .sec-mv .header .profile-nav li {
+        display: block;
+        position: relative;
+        left: 10%;
+        float: none;
+        margin-top: 54px;
+        margin-bottom: 0.781vw;
+    }
+
+    .sec-mv .header .profile-nav li a {
+        font-weight: 600;
+    }
+
+    .sec-mv .header .profile-nav .down {
+        margin-left: 11px;
+    }
+
+    .sec-mv .header .profile-nav .profile-sublist li {
+        display: none;
+        transition: 0.8s;
+    }
+
+    .sec-mv .header .profile-nav .profile-sublist li.show {
+        display: block;
+    }
+
+    .sec-mv .header .profile-nav .profile-sublist li {
+        left: 8%;
+        margin-top: 39px;
+    }
+
+    .profile-name {
+        padding: 1.1102vw 1.153vw;
+        background-color: #0092ef;
+        color: #ffffff;
+        font-weight: 500;
+        text-transform: capitalize;
+        border-radius: 0.651vw;
+    }
+
+    .dashboard-ttl {
+        margin: 30px 0;
+        color: #60a5fa;
+        font-size: 29px;
+        text-align: center;
+    }
+
+    .sec-user-dashboard {}
+
+    .sec-user-dashboard .alert {
+        position: absolute;
+        top: 10%;
+        right: 0px;
+        padding: 20px 40px;
+        background: #0092ef;
+        min-width: 420px;
+        border-radius: 4px;
+        border-left: 8px solid #0092ef;
+        animation: show_slide 1s ease forwards;
+    }
+
+    .sec-user-dashboard .alert .fa-circle-check {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        color: #fff;
+        font-size: 30px;
+        transform: translateY(-50%);
+    }
+
+    .sec-user-dashboard .alert .msg {
+        padding: 0 20px;
+        color: #fff;
+        font-size: 18px;
+    }
+
+    .sec-user-dashboard .alert .close-btn {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        padding: 8px 18px;
+        background: #0092ef;
+        cursor: pointer;
+        transform: translateY(-50%);
+    }
+
+    .sec-user-dashboard .alert .close-btn:hover {
+        background: #0092ef;
+    }
+
+    .sec-user-dashboard .alert .close-btn .fa-xmark {
+        line-height: 40px;
+        color: #86b6e4;
+        font-size: 22px;
+    }
+
+    .sec-user-dashboard .alert.hide {
+        animation: hide_slide 1s ease forwards;
+    }
+
+    .error {
+        padding-top: 4px;
+        color: rgb(255 68 68);
+    }
+
+    .dashboard-mv-blk {}
+
+    .dashboard-card {
+        width: 542px;
+        margin: 0 auto 16px;
+        /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
+        padding-bottom: 12px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        transition: 0.7s;
+        border-radius: 5px;
+    }
+
+    .dashboard-aside {
+        display: none;
+        float: left;
+        width: 20%;
+    }
+
+    .dashboard-content {
+        float: none;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .dashboard-aside li {
+        width: 92%;
+        margin: 30px 0px 34px 20px;
+        padding: 15px 10px;
+    }
+
+    .dashboard-aside li.active a {
+        color: rgb(0 146 239);
+    }
+
+    .dashboard-aside li:last-child {
+        margin-top: 10px;
+    }
+
+    .dashboard-aside li:last-child a {
+
+        color: rgb(255 68 68);
+    }
+
+    .dashboard-aside li a {
+        color: rgb(136 136 136);
+        font-family: 'Roboto-Regular';
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    .dashboard-aside li:hover a {
+        color: rgb(75 85 99);
+
+    }
+
+    .divider {
+        margin: 0 12px;
+        border: 0.2px solid rgba(136, 136, 136, 0.5);
+    }
+
+    /* --------------- Profile Edit ------------------ */
+    .profile-input-group {
+        margin: 10px auto 15px;
+    }
+
+    .profile-input-group label {
+        font-weight: 500;
+    }
+
+    .profile-input-group input,
+    .profile-input-group textarea {
+        display: block;
+        width: 100%;
+        margin-top: 12px;
+        padding: 10px;
+        border: 1px solid rgb(229 231 235);
+        outline: none;
+    }
+
+    #user-edit-profile button,
+    #user-password button {
+        float: right;
+        padding: 10px 12px;
+        border: 1px solid transparent;
+        background-color: rgb(0 146 239);
+        color: #fff;
+        transition: 0.7s;
+        border-radius: 4px;
+    }
+
+    #user-edit-profile button:hover,
+    #user-password button:hover {
+        border: 1px solid rgb(0 146 239);
+        background-color: #fff;
+        color: rgb(0 146 239);
+    }
+
+    /* --------------- User Courses ---------------------- */
+    #user-course h2 {
+        margin: 10px 0 11px 5px;
+        font-family: 'Roboto-Regular';
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    #user-course .course-card-container {
+        width: 100%;
+        padding: 2.865vw 0px 2.865vw 1.053vw;
+    }
+
+    #user-course .course-card {
+        margin-right: 0;
+    }
+
+    #user-course .course-card:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    #user-course .course-txt-blk {
+        padding-top: 11px;
+    }
+
+    #user-course .course-card-type {
+        margin: 15px 0 20px 0;
+    }
+
+    #user-course .course-card-fee {
+        margin: 15px 0 20px 0;
+    }
 }

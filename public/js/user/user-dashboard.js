@@ -1,15 +1,48 @@
 $(function () {
+
+  if (document.querySelector('.alert-error')) {
+    $('.dashboard-content .dashboard-blk').hide();
+    $('.dashboard-aside li:nth-child(2n)').addClass('active');
+    $('#user-password').fadeIn(500);
+  } else {
     $('.dashboard-aside li:first-child').addClass('active');
-      $('.dashboard-content .dashboard-blk').hide();
-  $('.dashboard-content .dashboard-blk:first').show();
-  
-    $('.dashboard-aside li').click(function () {
+    $('.dashboard-content .dashboard-blk').hide();
+    $('.dashboard-content .dashboard-blk:first').show();
+  }
+  $('.profile-list .user-dashboard').click(function () {
+    $('.sec-mv .header .profile-nav .profile-sublist li').toggleClass('show');
+    if ($('.profile-list .user-dashboard .down').hasClass('fa-solid fa-angle-up')) {
+        $('.profile-list .user-dashboard .down').removeClass('fa-solid fa-angle-up');
+        $('.profile-list .user-dashboard .down').addClass('fa-solid fa-angle-down');
+    } else {
+        $('.profile-list .user-dashboard .down').removeClass('fa-solid fa-angle-down');
+        $('.profile-list .user-dashboard .down').addClass('fa-solid fa-angle-up');
+    }
+  })
+  $('.dashboard-aside li').click(function () {
       $('.dashboard-aside li').removeClass('active');
       $(this).addClass('active');
       $('.dashboard-content .dashboard-blk').hide();
       let activeTab = $(this).find('a').attr('href');
       $(activeTab).fadeIn(500);
       return false;
-    });
   });
-  
+  $('.sec-mv .header .profile-nav .profile-sublist li').click(function (e) {
+    //e.preventDefault();
+    console.log('click')
+    $('.dashboard-content .dashboard-blk').hide();
+    let activeTab = $(this).find('a').attr('href');
+    //window.location.replace('http://127.0.0.1:8000/user-dashboard')
+    console.log(activeTab)
+    $(".sec-mv .header .profile-nav").removeClass("is-show");
+    $(activeTab).fadeIn(500);
+    return false;
+  });
+  $(".profile-toggle-name").on("click", function () {
+    $(this).toggleClass("active");
+    $(".sec-mv .header .profile-nav").toggleClass("is-show");
+  });
+  $('.profile-close-toggle').on("click", function () {
+    $(".sec-mv .header .profile-nav").removeClass("is-show");
+  });
+});
