@@ -29,7 +29,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{ $course }}</h3>
+                <h3>{{ $courses->count() }}</h3>
 
                 <p>Courses</p>
               </div>
@@ -44,7 +44,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>{{$enroll->count()}}</h3>
 
                 <p>Enroll User</p>
               </div>
@@ -59,7 +59,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>{{ $user }}</h3>
+                <h3>{{ $user->count() }}</h3>
 
                 <p>User Registrations</p>
               </div>
@@ -74,7 +74,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{ $blog }}</h3>
+                <h3>{{ $blog->count() }}</h3>
 
                 <p>Blogs</p>
               </div>

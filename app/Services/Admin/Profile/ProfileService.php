@@ -7,6 +7,7 @@ use App\Contracts\Services\Admin\Profile\ProfileServiceInterface;
 
 class ProfileService implements ProfileServiceInterface
 {
+   
     /**
      * ProfileDaoInterface
      *
@@ -21,6 +22,10 @@ class ProfileService implements ProfileServiceInterface
     public function __construct(ProfileDaoInterface $profileDao)
     {
         $this->profileDao = $profileDao;
+    }
+
+    public function index(){
+        return $this->profileDao->index();
     }
     /**
      * Change Admin Profile
