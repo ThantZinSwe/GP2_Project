@@ -23,7 +23,7 @@ $(document).ready(function () {
                         if (course.type === 'free') {
                             $('.search-card-container').append(
                                 `<li class="course-card">
-                                    <a href="#">
+                                    <a href="">
                                         <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
                                         <div class="course-txt-blk">
                                             <h3 class="course-card-ttl">${course.name}</h3>
@@ -183,7 +183,12 @@ $(document).ready(function () {
 
                     });
                 }
-            }
+            },
+            
         });
+    })
+    $('.language-list li').on('click', function () {
+        $('.language-list li').removeClass('active')
+        $(this).addClass('active')
     })
 });

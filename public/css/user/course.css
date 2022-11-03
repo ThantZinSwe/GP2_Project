@@ -65,7 +65,10 @@ img {
     border: 1px solid #ddd;
     outline: none;
 }
-
+/*.search-select:focus {
+    background-color: #60a5fa;
+    color: #fff;
+}*/
 .search-input {
     width: 600px;
     border: 1px solid #ddd;
@@ -78,6 +81,9 @@ img {
     margin: 20px auto;
     font-weight: 500;
     width: 63%;
+}
+.language-list li:hover {
+    opacity: 0.7;
 }
 .language-list li:nth-child(8n) {
     text-align: center;

@@ -60,11 +60,50 @@
                 </ul>
 
               </nav>
-              <p class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-              </p>
+                <p class="profile-toggle">
+                    <span class="profile-toggle-name">{{ Auth::user()->name ?? '' }}</span>
+                    <div class="dropdown profile-nav">
+                        <i class="fa-solid fa-xmark fa-xl profile-close-toggle"></i>
+                        <li class="profile-list">
+                            <a href="#" class="user-dashboard">
+                                <i class="fa-solid fa-house-user"></i>
+                                User Dashboard
+                                <i class="fa-solid fa-angle-down down"></i>
+                            </a>
+                            <ul class="profile-sublist">
+                                <li>
+                                  <a href="#user-edit-profile" >
+                                    <i class="fa-solid fa-user-pen"></i>
+                                    <span>Edit Profile</span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#user-password">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <span>Password</span>
+                                  </a>
+                                </li> 
+                                <li>
+                                    <a href="#user-course">
+                                    <i class="fa-solid fa-code"></i>
+                                      <span>My Course</span>
+                                    </a>
+                                </li> 
+                              </ul>
+                        </li>
+                        <li class="profile-list">
+                            <a href="{{ route('logout') }}">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                Sign Out
+                            </a>
+                        </li>
+                    </div>
+                </p>
+                <p class="menu-toggle profile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </p>
             </div>
         </header>
     </section>
@@ -121,5 +160,6 @@
             $('.alert-error').addClass('hide');
         });
     });
+
 </script>
 </html>

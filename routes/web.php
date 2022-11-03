@@ -14,8 +14,6 @@ use App\Http\Controllers\User\CourseDetailsController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\UserBlogController;
 use App\Http\Controllers\User\UserDashboardController;
-use App\Http\Middleware\AdminAuthMiddleWare;
-use App\Http\Middleware\UserCheckMiddleware;
 use Illuminate\Support\Facades\Route;
 
 //Auth
@@ -30,7 +28,7 @@ Route::post('/change-password', [AuthController::class, 'submitChangePasswordFor
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin Dashboard
-Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-history']], function () {
     Route::get('/dashboard', [ProfileController::class, 'index'])->name('admin.dashboard');
 
     //User
@@ -92,21 +90,22 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminAuthMiddleWare::class]]
     Route::get('/import', [EnrollController::class, 'import'])->name('admin.enroll.import');
     Route::post('/import', [EnrollController::class, 'importPayment'])->name("admin.enroll.get");
 });
+Route::group(['middleware' => ['prevent-history']], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('user.home');
 
+    Route::get('/blog', [UserBlogController::class, 'indexBlog'])->name('user.blog');
+    Route::get('/blog/{slug}', [UserBlogController::class, 'blogDetail'])->name('user.blog.detail');
+    Route::get('/courses', [UserCourseController::class, 'index'])->name('user.course');
+    Route::get('/courses/{slug}', [CourseDetailsController::class, 'courseDetailsIndex'])->name('user.courseDetails');
+    Route::get('/courses/{slug}/course-video/{course_video}', [CourseDetailsController::class, 'courseVideo'])->name('user.courseVideo');
+    Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'enroll'])->name('user.enroll');
+    Route::post('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
+});
 // User
-Route::get('/', [HomeController::class, 'index'])->name('user.home');
 
-Route::get('/blog', [UserBlogController::class, 'indexBlog'])->name('user.blog');
-Route::get('/blog/{slug}', [UserBlogController::class, 'blogDetail'])->name('user.blog.detail');
 
-Route::get('/courses', [UserCourseController::class, 'index'])->name('user.course');
 
-Route::get('/courses/{slug}', [CourseDetailsController::class, 'courseDetailsIndex'])->name('user.courseDetails');
-Route::get('/courses/{slug}/course-video/{course_video}', [CourseDetailsController::class, 'courseVideo'])->name('user.courseVideo');
-Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'enroll'])->name('user.enroll');
-Route::post('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
-
-Route::group(['prefix' => 'user-dashboard', 'middleware' => [UserCheckMiddleware::class]], function () {
+Route::group(['prefix' => 'user-dashboard', 'middleware' =>  ['user', 'prevent-history']], function () {
     Route::get('/', [UserDashboardController::class, 'index'])->name('user.dashboard');
     Route::post('/edit/{id}', [UserDashboardController::class, 'submitUserProfile'])->name('user.profile.post');
     Route::post('/password-change/{id}', [UserDashboardController::class, 'changeUserPassword'])->name('user.password.change');

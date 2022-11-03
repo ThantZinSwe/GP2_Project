@@ -5,7 +5,7 @@
         <div class="course-mv-blk">
             <h2 class="course-header"><span>Coder Camp's</span> Courses</h2>
             <p class="course-pargh">
-                Above Thousands of students are learning at Creative Coder. Why are you waiting for ?
+                Above Thousands of students are learning at Coder Camp. Why are you waiting for ?
             </p>
             <div class="search-group">
                 <select name="" id="" class="search-select">
