@@ -6,9 +6,6 @@ use App\Contracts\Services\Admin\Profile\ProfileServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminProfileRequest;
 use App\Http\Requests\UserPassWordRequest;
-use App\Models\Blog;
-use App\Models\Course;
-use App\Models\Payment;
 use App\Models\User;
 
 class ProfileController extends Controller
@@ -24,17 +21,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        $courses = Course::get();
-        $blog = Blog::get();
-        $user = User::where('role_id', 2)->get();
-        $enroll = Payment::get();
-        return view('admin.index', ['course' => count($courses), 'blog' => count($blog), 'user' => count($user), 'enroll' => count($enroll)]);
-=======
         $data = $this->profileInterface->index();
         //return $data;
-        return view('admin.index',$data);
->>>>>>> 8ecf466003a90c7c5e9af30f271ca3518babba1a
+        return view('admin.index', $data);
     }
 
     /**
