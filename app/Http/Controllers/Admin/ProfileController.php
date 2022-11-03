@@ -22,7 +22,7 @@ class ProfileController extends Controller
     public function index()
     {
         $data = $this->profileInterface->index();
-        //return $data;
+        // return $data;
         return view('admin.index', $data);
     }
 

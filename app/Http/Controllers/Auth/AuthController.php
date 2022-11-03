@@ -6,12 +6,10 @@ use App\Contracts\Services\Auth\AuthServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginFormRequest;
 use App\Http\Requests\PasswordResetRequest;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\RegisterMail;
-use App\Http\Requests\RegisterRequest;
-use App\Http\Requests\UserPassWordRequest;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
@@ -19,7 +17,7 @@ class AuthController extends Controller
     /**
      * AuthServiceInterface Property
      *
-     * @var AuthInterface 
+     * @var AuthInterface
      */
     private $authInterface;
     /**
@@ -31,6 +29,7 @@ class AuthController extends Controller
     {
         $this->authInterface = $authInterface;
     }
+
     /**
      * Show Login Form
      *
@@ -40,6 +39,7 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+
     /**
      * Login
      * @param LoginFormRequest $request request including inputs
@@ -48,19 +48,25 @@ class AuthController extends Controller
     public function submitLoginForm(LoginFormRequest $request)
     {
         $flag = $this->authInterface->login($request);
+
         if ($flag) {
+
             if (Auth::user()->role_id == '1') {
                 return redirect()->route('admin.dashboard');
             } else {
                 return redirect()->route('user.home');
             }
+
         }
+
         return back()->with('error', 'Email & Password does not match');
     }
+
     public function register()
     {
         return view('auth.register');
     }
+
     /**
      * Register
      *
@@ -70,20 +76,24 @@ class AuthController extends Controller
     public function registerSave(RegisterRequest $request)
     {
         $register = $this->authInterface->registerSave($request);
-        if($register){
+
+        if ($register) {
             return view('auth.registersucess')->with('message', 'Register Successfully');
         }
+
         return back()->with('error', 'Cannot Register');
     }
+
     /**
      * Show Reset Form
-     * 
+     *
      * @return View resetMail Blade
      */
     public function showResetForm()
     {
         return view('auth.resetMail');
     }
+
     /**
      * Send Reset Mail
      * @param LoginFormRequest $request request including inputs
@@ -95,23 +105,27 @@ class AuthController extends Controller
             'email' => 'required|email|exists:users',
         ]);
         $status = $this->authInterface->sendResetMail($request);
-        if($status){
+
+        if ($status) {
             return back()->with('message', 'We have e-mailed your password reset link!');
         }
+
         return back()->with('error', 'Cannot Send Mail');
     }
+
     /**
      * Show Reset Form
-     * @param String $token 
+     * @param String $token
      * @return View change password Blade with token
      */
     public function showChangePasswordForm($token)
     {
         return view('auth.changePassword', ['token' => $token]);
     }
+
     /**
      * Submit Reset Form
-     * 
+     *
      * @return View resetMail Blade
      */
     public function submitChangePasswordForm(PasswordResetRequest $request)
@@ -124,18 +138,20 @@ class AuthController extends Controller
 
         return redirect()->route('login.get')->with('message', 'Your password has been changed!');
     }
+
     /**
      * Logout
      *
      * @return void
      */
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
- 
+
         $request->session()->invalidate();
-     
+
         $request->session()->regenerateToken();
         return redirect()->route('login.get');
     }
-}
 
+}
