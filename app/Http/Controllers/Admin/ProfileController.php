@@ -6,8 +6,6 @@ use App\Contracts\Services\Admin\Profile\ProfileServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminProfileRequest;
 use App\Http\Requests\UserPassWordRequest;
-use App\Models\Blog;
-use App\Models\Course;
 use App\Models\User;
 
 class ProfileController extends Controller
@@ -25,7 +23,7 @@ class ProfileController extends Controller
     {
         $data = $this->profileInterface->index();
         //return $data;
-        return view('admin.index',$data);
+        return view('admin.index', $data);
     }
 
     /**

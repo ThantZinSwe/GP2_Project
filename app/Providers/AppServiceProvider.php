@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Payment;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -48,5 +50,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+
+        View::share('pendingEnrollCount', Payment::where('status', 'pending')->count());
+        View::share('latestEnrollTime', Payment::where('status', 'pending')->orderBy('id', 'desc')->first());
     }
 }
