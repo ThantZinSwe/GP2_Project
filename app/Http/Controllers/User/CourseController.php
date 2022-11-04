@@ -24,4 +24,5 @@ class CourseController extends Controller
     public function searchByApi(Request $request){
         return $this->courseInterface->searchByApi($request);
     }
+ 
 }

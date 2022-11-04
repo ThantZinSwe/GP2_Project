@@ -184,7 +184,7 @@ class CourseDao implements CourseDaoInterface
         $type = $request->type;
         $courses = Course::with('languages');
         if ($tag == 'all') {
-            return $courses->get();
+            return $courses->paginate(6);
         }
 
         if ($type == 'all' && $tag) {
@@ -226,7 +226,7 @@ class CourseDao implements CourseDaoInterface
             $courses->orWhere('courses.type', 'like', '%' . $type . '%');
         }
 
-        $courses = $courses->get();
+        $courses = $courses->paginate(6);
         return $courses;
     }
 

@@ -43,6 +43,7 @@ img {
     font-family: "Roboto-Bold";
     font-size: 40px;
     font-weight: 700;
+    margin-bottom: 44px;
 }
 
 .course-header span {
@@ -59,11 +60,14 @@ img {
 }
 
 .search-select {
-    padding: 10px 16px;
+    padding: 10px 50px 10px 6px;
     font-size: 18px;
     border-radius: 0%;
-    border: 1px solid #ddd;
+    border: 1px solid transparent;
+    border-right: 1px solid #ddd;
     outline: none;
+    /*border-right: none;*/
+   background-color: rgb(243 244 246 );
 }
 /*.search-select:focus {
     background-color: #60a5fa;
@@ -71,14 +75,39 @@ img {
 }*/
 .search-input {
     width: 600px;
-    border: 1px solid #ddd;
-    padding: 11px 12px 12px 26px;
+    padding: 11px 12px 12px 49px;
     font-size: 16px;
+    border: 1px solid transparent;
+    border-left: 1px solid #23232368;
     outline: none;
+    /*border-right: none;*/
+   background-color: rgb(243 244 246 );
+}
+.search-input-group {
+   display: inline-block;
+   position: relative;
+   margin-left: -5px;
+}
+.search-icon {
+    position: absolute;
+    top: -7px;
+    height: 60px;
+    width: 86px;
+    line-height: 61px;
+    text-align: center;
+    left: -13px;
+    color: #232323;
+
+}
+input[type='file'] {
+    margin: 0;
+    padding: 2rem 1.5rem;
+    font: 1rem/1.5 "PT Sans", Arial, sans-serif;
+    color: #5a5a5a;
 }
 .language-list {
     text-align: left;
-    margin: 20px auto;
+    margin: 2px auto 54px;
     font-weight: 500;
     width: 63%;
 }
@@ -90,10 +119,10 @@ img {
 }
 .language-list li {
     display: inline-block;
-    background-color: #dee1ec;
+   background-color: rgb(244 244 244 );
     color: #232323;
     padding: 11px 17px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 8px 5px 0 5px;
     transition: 0.1s;
 }
@@ -209,6 +238,7 @@ img {
         font-family: "Roboto-Bold";
         font-size: 4.557vw;
         font-weight: 700;
+        margin-bottom: 44px;
     }
 
     .course-header span {
@@ -224,7 +254,7 @@ img {
     }
 
     .search-select {
-        padding: 1.302vw 2.083vw;
+        padding: 10px 50px 10px 6px;
         font-size: 2.344vw;
         border-radius: 0%;
         border: 0.13vw solid #ddd;
@@ -232,7 +262,7 @@ img {
 
     .search-input {
         width: 62.5vw;
-        border: 0.13vw solid #ddd;
+        border-left: 1px solid #23232368;
         padding: 1.432vw 1.563vw 1.563vw 3.385vw;
         font-size: 2.083vw;
         outline: none;
@@ -240,7 +270,7 @@ img {
     .language-list {
         text-align: left;
         padding: 0 0.651vw;
-        margin: 2.604vw auto;
+        margin: 2px auto 54px;
         font-weight: 500;
         width: 87%;
     }
@@ -249,7 +279,7 @@ img {
         background-color: #dee1ec;
         color: #232323;
         padding: 1.432vw 2.214vw;
-        border-radius: 1.302vw;
+        border-radius: 0.602vw;
         margin: 1.042vw 0.651vw 0 0.651vw;
     }
     .language-list li.active {
@@ -366,6 +396,7 @@ img {
         font-family: "Roboto-Bold";
         font-size: 4.375vw;
         font-weight: 700;
+        margin-bottom: 44px;
     }
 
     .course-header span {
@@ -380,7 +411,7 @@ img {
     }
 
     .search-select {
-        padding: 1.563vw 2.5vw;
+        padding: 10px 50px 10px 6px;
         font-size: 2.813vw;
         border-radius: 0%;
         border: 0.156vw solid #ddd;
@@ -388,7 +419,7 @@ img {
 
     .search-input {
         width: 65.625vw;
-        border: 0.156vw solid #ddd;
+        border-left: 1px solid #23232368;
         padding: 1.719vw 1.875vw 1.875vw 4.063vw;
         font-size: 2.344vw;
         outline: none;
@@ -396,7 +427,7 @@ img {
     .language-list {
         text-align: left;
         padding: 0 0.781vw;
-        margin: 3.125vw auto;
+        margin: 2px auto 54px;
         font-weight: 500;
         width: 87%;
     }
@@ -405,7 +436,7 @@ img {
         background-color: #dee1ec;
         color: #232323;
         padding: 1.719vw 2.656vw;
-        border-radius: 1.563vw;
+        border-radius: 0.463vw;
         margin: 1.25vw 0.781vw 0 0.781vw;
         font-size: 2.188vw;
     }

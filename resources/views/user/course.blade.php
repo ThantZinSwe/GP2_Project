@@ -12,9 +12,11 @@
                     <option value="all">All</option>
                     <option value="paid">Paid</option>
                     <option value="free">Free</option>
-                    <input type="text" class="search-input" placeholder="Search For Courses" id='search-course'>
                 </select>
-
+                <div class="search-input-group">
+                    <input type="text" class="search-input" placeholder="Search Courses" id='search-course'>
+                    <div class="search-icon"><i class="fa-solid fa-magnifying-glass serch-icon"></i></div>
+                </div>
             </div>
             @if(count($languages) > 0)
                 <ul class="language-list" >
@@ -54,7 +56,9 @@
             {{ $courses->links()}}
         </ul>
 
-        <ul class="search-card-container clear-fix"></ul>
+        <ul class="search-card-container clear-fix">
+        
+        </ul>
     </div>
 </section>
 @endsection

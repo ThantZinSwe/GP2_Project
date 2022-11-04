@@ -44,7 +44,7 @@
                 </ul>
                 <div class="dashboard-content">
                     <div id="user-edit-profile" class="dashboard-blk">
-                        <form action="{{ route('user.profile.post', Auth::id()) }}" method="POST" class="clearfix">
+                        <form action="{{ route('user.profile.post', Auth::id()) }}" method="POST" class="clearfix" enctype="multipart/form-data">
                             @csrf
                             <div class="profile-input-group">
                                 <label for="">Name</label>
@@ -64,6 +64,17 @@
                                 <label for="">Phone</label>
                                 <input type="text" value="{{ Auth::user()->phone }}" name="phone">
                                 @error('phone')
+                                <span class="error">{{ $message }}</span>
+                                @enderror
+                           </div>
+                           <div class="profile-input-group">
+                                <label for="">Profile Photo</label>
+                                <label class="file">
+                                    <input type="file" value="{{ Auth::user()->phone }}" name="profile_img">
+                                    <span class="file-custom"></span>
+                                </label>                               
+                                
+                                @error('profile_img')
                                 <span class="error">{{ $message }}</span>
                                 @enderror
                            </div>

@@ -74,13 +74,13 @@
 .dashboard-mv-blk {}
 
 .dashboard-card {
-    margin-right: 33px;
-    margin-bottom: 35px;
+    width: 79%;
+    margin: 0 auto 35px;
+    border-radius: 20px;
     /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
     padding-bottom: 12px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: 0.7s;
-    border-radius: 5px;
 }
 
 .dashboard-aside {
@@ -91,9 +91,11 @@
 .dashboard-content {
     float: right;
     width: 80%;
-    padding: 15px;
+    padding: 15px 0 15px 0px;
 }
-
+.dashboard-content form {
+    padding-right: 22px;
+}
 .dashboard-aside li {
     width: 60%;
     margin: 30px 0px 34px 20px;
@@ -168,17 +170,24 @@
 }
 
 /* --------------- User Courses ---------------------- */
+#user-course .course-card-container {
+	padding: 22px 0 22px 9px;
+	width: 100%;
+}
 #user-course h2 {
-    margin: 10px 0 11px 5px;
+    margin: 10px 0 11px -3px;
     font-family: 'Roboto-Regular';
     font-size: 24px;
     font-weight: 500;
 }
 
 #user-course .course-card {
-    margin-right: 18px;
+    margin-right: 12px;
+    width: 31.8%;
 }
-
+#user-course .course-card:nth-child(3n) {
+    margin-right: 0;
+}
 #user-course .course-txt-blk {
     padding-top: 11px;
 }
@@ -297,13 +306,13 @@
     .dashboard-mv-blk {}
 
     .dashboard-card {
-        width: 726px;
-        margin: 0 auto 16px;
+        width: 70%;
+        margin: 0 auto 25px;
+        border-radius: 20px;
         /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
         padding-bottom: 12px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         transition: 0.7s;
-        border-radius: 5px;
     }
 
     .dashboard-aside {
@@ -392,7 +401,7 @@
 
     /* --------------- User Courses ---------------------- */
     #user-course h2 {
-        margin: 10px 0 11px 5px;
+        margin: 10px 0 11px -3px;
         font-family: 'Roboto-Regular';
         font-size: 24px;
         font-weight: 500;
@@ -404,7 +413,8 @@
     }
 
     #user-course .course-card {
-        margin-right: 18px;
+        margin-right: 12px;
+        width: 31.8%;
     }
 
     #user-course .course-card:nth-child(2n) {
@@ -606,13 +616,14 @@
     .dashboard-mv-blk {}
 
     .dashboard-card {
-        width: 542px;
-        margin: 0 auto 16px;
+        width: 70%;
+        margin: 0 auto 25px;
+        border-radius: 20px;
         /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
         padding-bottom: 12px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         transition: 0.7s;
-        border-radius: 5px;
+
     }
 
     .dashboard-aside {
@@ -702,7 +713,7 @@
 
     /* --------------- User Courses ---------------------- */
     #user-course h2 {
-        margin: 10px 0 11px 5px;
+        margin: 10px 0 11px -3px;
         font-family: 'Roboto-Regular';
         font-size: 24px;
         font-weight: 500;
