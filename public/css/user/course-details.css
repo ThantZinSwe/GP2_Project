@@ -1,13 +1,19 @@
 .course-details-sec {
     padding: 80px 0 50px;
+    /* background-image: linear-gradient(
+        to right bottom,
+        rgb(219, 229, 239, 0.5),
+        rgb(255, 255, 255, 0.5)
+    ); */
+    background-color: #f8f8f8;
 }
 
 .course-details-ttl {
     font-size: 35px;
     font-weight: 600;
-    color: #232323;
-    text-align: center;
+    color: #00154a;
     margin-bottom: 50px;
+    margin-left: 20px;
 }
 
 .alert-error {
@@ -94,16 +100,28 @@
 .course-details-blk .outline-blk {
     float: right;
     width: 30%;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.1) 0px 4px 6px -2px;
     padding: 20px;
     border-radius: 10px;
+    border: 2px solid #ddd;
+    background-color: #ffffff;
 }
 
 .course-details-blk .outline-blk .outline-ttl {
     text-align: center;
     font-size: 25px;
     font-weight: 600;
-    color: #232323;
+}
+
+.course-details-blk .outline-blk .outline-ttl a {
+    color: #00154a;
+}
+
+.course-details-blk .outline-blk .fa-clapperboard {
+    color: #00154a;
+    font-size: 18px;
+    margin-right: 10px;
 }
 
 .course-details-blk .outline-blk .outline-lists {
@@ -143,12 +161,30 @@
     width: 100%;
 }
 
+.course-details-blk .vd-img-blk .main-img {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+        rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    background-color: #ffffff;
+}
+
 .course-details-sec .latest-course-blk img {
     height: 200px;
 }
 
 .course-details-blk .vd-img-blk .description {
-    margin-top: 25px;
+    margin-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.1) 0px 4px 6px -2px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    background-color: #ffffff;
+}
+
+.course-details-blk .vd-img-blk .description .price-type-blk {
+    margin-bottom: 20px;
 }
 
 .course-details-blk .vd-img-blk .description .description-ttl {
@@ -175,7 +211,7 @@
     padding: 8px;
     border: 1px solid transparent;
     border-radius: 10px;
-    background-color: #60a5fa;
+    background-color: #474a8a;
     font-size: 12px;
     color: #fff;
 }
@@ -191,7 +227,7 @@
 }
 
 .course-details-blk .vd-img-blk .review {
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .course-details-blk .vd-img-blk .review textarea {
@@ -272,38 +308,163 @@
     font-weight: 500;
 }
 
-.latest-course-blk .course-details-card-blk .course-details-card {
-    float: left;
-    width: 31%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    margin-right: 40px;
+/* Course Card */
+.card .card-img {
+    position: relative;
 }
 
-.latest-course-blk .course-details-card-blk .course-details-card:nth-child(4) {
+.card .card-img img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background-position: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: #2e2e22;
+    background-blend-mode: color-burn;
+    filter: blur(0.5px) brightness(95%);
+}
+
+.card .card-img .type {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    padding: 10px 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+        rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card .card-list {
+    float: left;
+    width: 30.33%;
+    margin-right: 53px;
+    box-shadow: rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em,
+        rgb(0 0 0 / 25%) 0px 0.125em 0.5em,
+        rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
+    border-radius: 10px;
+    border: 3px solid #ddd;
+    transition: all 0.5s;
+}
+
+.card .card-list:hover {
+    border-bottom: 3px solid #60a5fa;
+    transform: translateY(-10px);
+    border-radius: 10px;
+}
+
+.card .card-list:hover .card-img img {
+    filter: blur(0px) brightness(110%);
+}
+
+.card .card-list:nth-child(3n) {
     margin-right: 0;
 }
 
-.course-details-sec .latest-course-blk .course-details-card .course-info {
-    padding: 30px;
+.card .card-body {
+    padding: 30px 20px;
+    font-size: 14px;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.card .card-body .name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.card .card-body .create-time,
+.card .card-body .course-video {
+    font-size: 12px;
     font-weight: 500;
+    color: #777;
 }
 
-.course-details-sec .latest-course-blk .course-details-card .course-info .price,
-.course-details-sec
-    .latest-course-blk
-    .course-details-card
-    .course-info
-    .language {
-    margin-top: 20px;
+.card .card-body .fa-calendar-day {
+    margin-right: 5px;
+    color: #0092ef;
 }
 
-.course-details-sec
-    .latest-course-blk
-    .course-details-card
-    .course-info
-    .badge {
-    padding: 2px 5px;
+.card .card-body .fa-video {
+    color: #0092ef;
+    margin-right: 5px;
 }
+
+.card .card-body .course-video {
+    margin-top: 13px;
+}
+
+.card .card-body .course-video span {
+    padding: 5px 9px;
+    background-color: rgb(0, 146, 239);
+    border-radius: 50%;
+    color: #ffffff;
+}
+
+.card .card-body .about-course {
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+    line-height: 1.4;
+    width: 300px;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.card .card-body .language {
+    margin-top: 15px;
+}
+
+.card .card-body .language .badge {
+    padding: 8px;
+    font-size: 12px;
+    margin-right: 5px;
+    background-color: rgb(134, 182, 228);
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.card .card-body .price {
+    position: absolute;
+    right: 3%;
+    bottom: 83%;
+    padding: 37px 15px;
+    background-image: linear-gradient(
+        to right bottom,
+        rgb(223, 249, 251, 0.8),
+        rgb(134, 182, 228)
+    );
+    border-radius: 50%;
+    color: #fdfdfd;
+    font-weight: 700;
+    filter: blur(0px) brightness(95%);
+}
+
+.card .card-body .price-zero {
+    position: absolute;
+    right: 3%;
+    bottom: 83%;
+    padding: 37px 30px;
+    background-image: linear-gradient(
+        to right bottom,
+        rgb(223, 249, 251, 0.9),
+        rgb(134, 182, 228)
+    );
+    border-radius: 50%;
+    color: #fdfdfd;
+    font-weight: 700;
+    filter: blur(0px) brightness(95%);
+}
+/* Course Card End */
 
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1180px) {
@@ -365,11 +526,15 @@
     }
 
     .course-details-blk .vd-img-blk .description {
-        margin-top: 3.255vw;
+        margin-top: 6.51vw;
     }
 
     .course-details-blk .vd-img-blk .description .description-ttl {
         font-size: 3.255vw;
+    }
+
+    .course-details-blk .vd-img-blk .description .price-type-blk {
+        margin-bottom: 2.604vw;
     }
 
     .course-details-blk .vd-img-blk .description p {
@@ -416,7 +581,7 @@
     }
 
     .course-details-blk .vd-img-blk .review-box {
-        margin-top: 2.604vw;
+        margin-top: 6.51vw;
     }
 
     .course-details-blk .vd-img-blk .review-box .review-lists {
@@ -477,43 +642,84 @@
         letter-spacing: 0.13vw;
     }
 
-    .course-details-sec .latest-course-blk .course-details-card {
-        float: left;
-        width: 45%;
-        margin-right: 3.906vw;
-        margin-bottom: 2.604vw;
-        box-shadow: rgba(100, 100, 111, 0.2) 0vw 0.911vw 3.776vw 0vw;
+    /* Course Card */
+    .card .card-img .type {
+        top: 10%;
+        left: 0;
+        padding: 1.302vw 3.255vw;
+        font-size: 1.823vw;
     }
 
-    .course-details-sec .latest-course-blk .course-details-card:nth-child(3) {
+    .card .card-list {
+        float: left;
+        width: 46%;
+        margin-right: 6.901vw;
+        margin-bottom: 6.51vw;
+    }
+
+    .card .card-list:nth-child(2n) {
         margin-right: 0;
     }
 
-    .course-details-sec .latest-course-blk .course-details-card .course-info {
-        padding: 3.906vw;
-        font-size: 2.083vw;
+    .card .card-body {
+        padding: 3.906vw 2.604vw;
+        font-size: 1.823vw;
     }
 
-    .course-details-sec
-        .latest-course-blk
-        .course-details-card
-        .course-info
-        .price,
-    .course-details-sec
-        .latest-course-blk
-        .course-details-card
-        .course-info
-        .language {
-        margin-top: 2.604vw;
+    .card .card-body .name {
+        font-size: 2.344vw;
+        margin-bottom: 2.604vw;
     }
 
-    .course-details-sec
-        .latest-course-blk
-        .course-details-card
-        .course-info
-        .badge {
-        padding: 0.26vw 0.651vw;
+    .card .card-body .create-time,
+    .card .card-body .course-video {
+        font-size: 1.563vw;
     }
+
+    .card .card-body .fa-calendar-day {
+        margin-right: 0.651vw;
+    }
+
+    .card .card-body .fa-video {
+        margin-right: 0.651vw;
+    }
+
+    .card .card-body .course-video {
+        margin-top: 1.693vw;
+    }
+
+    .card .card-body .course-video span {
+        padding: 0.26vw 0.781vw;
+    }
+
+    .card .card-body .about-course {
+        font-size: 1.823vw;
+        width: 33.854vw;
+    }
+
+    .card .card-body .language {
+        margin-top: 1.953vw;
+    }
+
+    .card .card-body .language .badge {
+        padding: 1.042vw;
+        font-size: 1.563vw;
+        margin-right: 0.651vw;
+    }
+
+    .card .card-body .price {
+        right: 3%;
+        bottom: 83%;
+        padding: 4.818vw 1.953vw;
+        font-weight: 700;
+    }
+
+    .card .card-body .price-zero {
+        right: 3%;
+        bottom: 83%;
+        padding: 4.818vw 3.906vw;
+    }
+    /* Course Card End */
 }
 
 @media screen and (max-width: 767.9px) {
@@ -571,11 +777,16 @@
     }
 
     .course-details-sec .latest-course-blk img {
-        height: 31.25vw;
+        width: 100%;
+        height: 39.063vw;
     }
 
     .course-details-blk .vd-img-blk .description {
-        margin-top: 3.906vw;
+        margin-top: 7.813vw;
+    }
+
+    .course-details-blk .vd-img-blk .description .price-type-blk {
+        margin-bottom: 7.813vw;
     }
 
     .course-details-blk .vd-img-blk .description .description-ttl {
@@ -606,7 +817,7 @@
     }
 
     .course-details-blk .vd-img-blk .review {
-        margin-top: 4.688vw;
+        margin-top: 7.813vw;
     }
 
     .course-details-blk .vd-img-blk .review textarea {
@@ -687,41 +898,82 @@
         letter-spacing: 0.156vw;
     }
 
-    .course-details-sec .latest-course-blk .course-details-card {
+    /* Course Card */
+    .card .card-img .type {
+        top: 10%;
+        left: 0;
+        padding: 1.563vw 3.906vw;
+        font-size: 2.188vw;
+    }
+
+    .card .card-list {
         float: none;
         width: 100%;
+        margin-right: 8.281vw;
+        margin-bottom: 7.813vw;
+    }
+
+    .card .card-list:nth-child(2n) {
         margin-right: 0;
+    }
+
+    .card .card-body {
+        padding: 4.688vw 3.125vw;
+        font-size: 2.188vw;
+    }
+
+    .card .card-body .name {
+        font-size: 3.125vw;
         margin-bottom: 3.125vw;
-        box-shadow: rgba(100, 100, 111, 0.2) 0vw 1.094vw 4.531vw 0vw;
     }
 
-    .course-details-sec .latest-course-blk .course-details-card:nth-child(4) {
-        margin-right: 0;
+    .card .card-body .create-time,
+    .card .card-body .course-video {
+        font-size: 1.875vw;
     }
 
-    .course-details-sec .latest-course-blk .course-details-card .course-info {
-        padding: 4.688vw;
-        font-size: 2.344vw;
+    .card .card-body .fa-calendar-day {
+        margin-right: 0.781vw;
     }
 
-    .course-details-sec
-        .latest-course-blk
-        .course-details-card
-        .course-info
-        .price,
-    .course-details-sec
-        .latest-course-blk
-        .course-details-card
-        .course-info
-        .language {
-        margin-top: 3.125vw;
+    .card .card-body .fa-video {
+        margin-right: 0.781vw;
     }
 
-    .course-details-sec
-        .latest-course-blk
-        .course-details-card
-        .course-info
-        .badge {
-        padding: 0.313vw 0.781vw;
+    .card .card-body .course-video {
+        margin-top: 2.031vw;
     }
+
+    .card .card-body .course-video span {
+        padding: 0.313vw 0.938vw;
+    }
+
+    .card .card-body .about-course {
+        font-size: 2.188vw;
+        width: 65.625vw;
+    }
+
+    .card .card-body .language {
+        margin-top: 2.344vw;
+    }
+
+    .card .card-body .language .badge {
+        padding: 1.25vw;
+        font-size: 1.875vw;
+        margin-right: 0.781vw;
+    }
+
+    .card .card-body .price {
+        right: 3%;
+        bottom: 83%;
+        padding: 5.781vw 2.344vw;
+        font-weight: 700;
+    }
+
+    .card .card-body .price-zero {
+        right: 3%;
+        bottom: 83%;
+        padding: 5.781vw 4.688vw;
+    }
+    /* Course Card End */
 }
