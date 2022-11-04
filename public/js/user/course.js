@@ -19,11 +19,11 @@ $(document).ready(function () {
                 if (data) {
                     $('.search-card-container').empty();
                     console.log(data)
-                    data.forEach(course => {
+                    data.data.forEach(course => {
                         if (course.type === 'free') {
                             $('.search-card-container').append(
                                 `<li class="course-card">
-                                    <a href="">
+                                    <a href="${DOMAIN}courses/${course.slug}">
                                         <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
                                         <div class="course-txt-blk">
                                             <h3 class="course-card-ttl">${course.name}</h3>
@@ -40,7 +40,7 @@ $(document).ready(function () {
                         } else {
                             $('.search-card-container').append(
                                 `<li class="course-card">
-                                    <a href="#">
+                                    <a href="${DOMAIN}courses/${course.slug}">
                                         <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
                                         <div class="course-txt-blk">
                                             <h3 class="course-card-ttl">${course.name}</h3>
@@ -79,11 +79,11 @@ $(document).ready(function () {
             success: function (data) {
                 if (data) {
                     $('.search-card-container').empty();
-                    data.forEach(course => {
+                    data.data.forEach(course => {
                         if (course.type === 'free') {
                             $('.search-card-container').append(
                                 `<li class="course-card">
-                                    <a href="#">
+                                    <a href="${DOMAIN}courses/${course.slug}">
                                         <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
                                         <div class="course-txt-blk">
                                             <h3 class="course-card-ttl">${course.name}</h3>
@@ -100,7 +100,7 @@ $(document).ready(function () {
                         } else {
                             $('.search-card-container').append(
                                 `<li class="course-card">
-                                    <a href="#">
+                                    <a href="${DOMAIN}courses/${course.slug}">
                                         <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
                                         <div class="course-txt-blk">
                                             <h3 class="course-card-ttl">${course.name}</h3>
@@ -123,9 +123,11 @@ $(document).ready(function () {
             }
         });
     })
-    $('.tag-link').on('click', function (e) {
+    $('.language-list li').on('click', function (e) {
         e.preventDefault();
-        let tag = $(this).data('tag')
+        let tag = $(this).find('a').data('tag')
+        $('.language-list li').removeClass('active')
+        $(this).addClass('active')
         var type = $('.search-select').val();
         if (tag) {
             $('.course-card-container').hide()
@@ -141,12 +143,13 @@ $(document).ready(function () {
                 //console.log('search_key')
                 //console.log(search_key)
                 if (data) {
+                    //console.log(data.links)
                     $('.search-card-container').empty();
-                    data.forEach(course => {
+                    data.data.forEach(course => {
                         if (course.type === 'free') {
                             $('.search-card-container').append(
                                 `<li class="course-card">
-                                    <a href="#">
+                                    <a href="${DOMAIN}courses/${course.slug}">
                                         <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
                                         <div class="course-txt-blk">
                                             <h3 class="course-card-ttl">${course.name}</h3>
@@ -163,7 +166,7 @@ $(document).ready(function () {
                         } else {
                             $('.search-card-container').append(
                                 `<li class="course-card">
-                                    <a href="#">
+                                    <a href="${DOMAIN}courses/${course.slug}">
                                         <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
                                         <div class="course-txt-blk">
                                             <h3 class="course-card-ttl">${course.name}</h3>
@@ -177,18 +180,14 @@ $(document).ready(function () {
                                     </a>
                             </li>`)
                         }
-
-                 
-                   
-
                     });
+               
                 }
             },
             
         });
     })
-    $('.language-list li').on('click', function () {
-        $('.language-list li').removeClass('active')
-        $(this).addClass('active')
+    $('.search-input').on('focus', function () {
+        $('.search-icon').css('display', 'none')
     })
 });
