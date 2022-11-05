@@ -149,6 +149,7 @@
     <script src="{{ asset('js/user/course.js') }}"></script>
     <script src="{{ asset('js/user/review.js') }}"></script>
     <script src="{{ asset('js/user/user-dashboard.js') }}"></script>
+    <script src="{{asset('js/user/home.js')}}"></script>
 </body>
 <script>
     $(document).ready(function(){
