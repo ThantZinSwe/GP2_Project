@@ -112,7 +112,6 @@ class BlogDao implements BlogDaoInterface
             $blog_search = request('blog-search');
             $q->where('title', 'LIKE', '%' . $blog_search . '%');
         })->paginate(6);
-        
         return view('user/blog')->with([
             'blogs' => $blog_search,
             'search' => request('blog-search'),
