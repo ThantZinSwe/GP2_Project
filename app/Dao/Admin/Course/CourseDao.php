@@ -182,7 +182,7 @@ class CourseDao implements CourseDaoInterface
         $course = $request->search;
         $tag = $request->tag;
         $type = $request->type;
-        $courses = Course::with('languages');
+        $courses = Course::with('languages','courseVideos');
         if ($tag == 'all') {
             return $courses->paginate(6);
         }

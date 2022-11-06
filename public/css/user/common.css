@@ -166,11 +166,11 @@ img {
     vertical-align: middle;
 }
 .profile-name {
-    text-transform: capitalize;
-    padding: 10px 15px;
-    background-color: #0092ef;
+    padding: 11px 9px;
+    background-color: rgb(255, 64, 129);
     color: #ffffff;
-    border-radius: 5px;
+    border-radius: 50%;
+    text-align: center;
     font-weight: 500;
 }
 .dd-menu {
@@ -378,11 +378,11 @@ img {
         vertical-align: middle;
     }
     .profile-name {
-        text-transform: capitalize;
-        padding: 1.302vw 1.953vw;
-        background-color: #0092ef;
+        padding: 1.432vw 1.172vw;
+        background-color: rgb(255, 64, 129);
         color: #ffffff;
-        border-radius: 0.651vw;
+        border-radius: 50%;
+        text-align: center;
         font-weight: 500;
     }
     .dd-menu {
@@ -617,13 +617,12 @@ img {
         vertical-align: middle;
     }
     .profile-name {
-        text-transform: capitalize;
-        padding: 1.563vw 2.344vw;
-        background-color: #0092ef;
+        padding: 1.719vw 1.406vw;
+        background-color: rgb(255, 64, 129);
         color: #ffffff;
-        border-radius: 0.781vw;
+        border-radius: 50%;
+        text-align: center;
         font-weight: 500;
-        font-size: 2.344vw;
     }
     .sec-mv .header .g-nav .dd-menu ul {
         margin: 0;

@@ -23,6 +23,12 @@ img {
 .black {
     color: #232323;
 }
+.pc {
+    display: none;
+}
+.sp {
+    display: block;
+}
 
 .black-light {
     color: #ddd;
@@ -137,7 +143,6 @@ input[type='file'] {
 }
 .course-card-container,
 .search-card-container {
-    padding: 22px 20px;
     width: 100%;
 }
 .course-card {
@@ -219,7 +224,12 @@ input[type='file'] {
     body {
         font-size: 2.083vw;
     }
-
+    .pc {
+        display: none;
+    }
+    .sp {
+        display: block;
+    }
     .l-container,
     .l-inner {
         width: 100%;
@@ -246,7 +256,7 @@ input[type='file'] {
     }
 
     .course-pargh {
-        margin: 3.776vw 0 2.604vw;
+        margin: 3.776vw 0 2.104vw;
         color: #23232399;
         font-size: 2.344vw;
         padding: 0 3.906vw;
@@ -263,13 +273,13 @@ input[type='file'] {
     .search-input {
         width: 62.5vw;
         border-left: 1px solid #23232368;
-        padding: 1.432vw 1.563vw 1.563vw 3.385vw;
+        padding: 1.432vw 1.563vw 1.563vw 6.385vw;
         font-size: 2.083vw;
         outline: none;
     }
     .language-list {
         text-align: left;
-        padding: 0 0.651vw;
+        padding: 0 3.651vw;
         margin: 2px auto 54px;
         font-weight: 500;
         width: 87%;
@@ -286,79 +296,21 @@ input[type='file'] {
         background-color: #60a5fa;
         color: #fff;
     }
-    .course-card-container,
     .search-card-container {
         padding: 2.865vw 1.953vw;
         width: 100%;
     }
-    .course-card {
-        width: 47%;
-        float: left;
-        margin-right: 3.906vw;
-        margin-bottom: 4.557vw;
-        box-shadow: rgba(0, 0, 0, 0.1) 0vw 0.521vw 1.563vw;
-        padding-bottom: 1.563vw;
-        border-radius: 0.651vw;
+    .card-container {
+        padding: 2.865vw 3.953vw;
     }
-    .course-card-img {
-        transition: 0.7s;
-        height: 26.042vw;
+    .card-container .card-list {
+        margin-right: 4.901vw;
     }
-    .course-card:hover {
-        box-shadow: rgba(0, 0, 0, 0.35) 0vw 0.651vw 1.953vw;
+    .card-container .card-list:nth-child(3n){
+        margin-right: 4.901vw;
     }
-    .course-card:hover img {
-        filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.35));
-    }
-    .course-card:nth-child(3n) {
-        margin-right: 3.906vw;
-    }
-    .course-card:nth-child(2n) {
+    .card-container .card-list:nth-child(2n){
         margin-right: 0;
-    }
-    .course-card-img {
-        transition: 0.7s;
-        height: 29.948vw;
-    }
-    .course-txt-blk {
-        padding-left: 1.432vw;
-        padding-top: 1.693vw;
-    }
-    .course-card-ttl {
-        font-weight: 500;
-        font-size: 2.344vw;
-    }
-    .course-card-type {
-        font-weight: 400;
-        margin: 1.953vw 0 3.385vw;
-    }
-    .course-card-type span {
-        color: #fff;
-    }
-    .course-card-fee {
-        font-weight: 400;
-        margin: 1.953vw 0 3.385vw 0;
-    }
-    .course-card-fee span {
-        color: #fff;
-        padding-left: 2.604vw;
-        font-weight: 500;
-        background-color: #60a5fa;
-        padding: 0.651vw;
-        border-radius: 1.302vw;
-        margin-left: 3.125vw;
-    }
-    .course-card-type.paid span {
-        background-color: #60a5fa;
-        color: #fff;
-    }
-    .course-card-language li {
-        display: inline-block;
-        background-color: #60a5fa;
-        color: #fff;
-        padding: 1.432vw 2.214vw;
-        border-radius: 1.302vw;
-        margin: 0 0.651vw 0 0;
     }
 }
 

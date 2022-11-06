@@ -368,11 +368,12 @@
     border-radius: 10px;
     border: 3px solid #ddd;
     transition: all 0.5s;
+    margin-bottom: 28px;
 }
 
 .card .card-list:hover {
-    border-bottom: 3px solid #60a5fa;
-    transform: translateY(-10px);
+    /*border-bottom: 3px solid #60a5fa;*/
+    /*transform: translateY(-10px);*/
     border-radius: 10px;
 }
 
@@ -487,6 +488,57 @@
 
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1180px) {
+    
+    .alert-error {
+        background: #ffdb9b;
+        padding: 1.563vw 5.208vw;
+        min-width: 54.688vw;
+        position: absolute;
+        right: -0.698vw;
+        top: 5.5%;
+        border-radius: 0.521vw;
+        border-left: 1.042vw solid #ffa502;
+        animation: show_slide 1s ease forwards;
+    }
+    .alert-error .fa-circle-exclamation {
+        position: absolute;
+        left: 2.604vw;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ce8500;
+        font-size: 3.906vw;
+    }
+
+    .alert-error .msg {
+        padding: 0 2.604vw;
+        font-size: 2.083vw;
+        color: #ce8500;
+    }
+
+    .alert-error .close-btn {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #ffd080;
+        padding: 0 1.693vw;
+        cursor: pointer;
+    }
+
+    .alert-error .close-btn:hover {
+        background: #ffc766;
+    }
+
+    .alert-error .close-btn .fa-xmark {
+        color: #ce8500;
+        font-size: 2.865vw;
+        line-height: 5.208vw;
+    }
+
+    .alert-error.hide {
+        animation: hide_slide 1s ease forwards;
+    }
+
     .course-details-sec {
         padding: 10.417vw 6.51vw 6.51vw;
     }
@@ -752,6 +804,56 @@
 }
 
 @media screen and (max-width: 767.9px) {
+    .alert-error {
+        background: #ffdb9b;
+        padding: 1.563vw 5.208vw;
+        min-width: 54.688vw;
+        position: absolute;
+        right: -0.698vw;
+        top: 5.5%;
+        border-radius: 0.521vw;
+        border-left: 1.042vw solid #ffa502;
+        animation: show_slide 1s ease forwards;
+    }
+    .alert-error .fa-circle-exclamation {
+        position: absolute;
+        left: 2.604vw;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ce8500;
+        font-size: 3.906vw;
+    }
+
+    .alert-error .msg {
+        padding: 0 2.604vw;
+        font-size: 15px;
+        color: #ce8500;
+    }
+
+    .alert-error .close-btn {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #ffd080;
+        padding: 0 1.693vw;
+        cursor: pointer;
+    }
+
+    .alert-error .close-btn:hover {
+        background: #ffc766;
+    }
+
+    .alert-error .close-btn .fa-xmark {
+        color: #ce8500;
+        font-size: 2.865vw;
+        line-height: 5.208vw;
+    }
+
+    .alert-error.hide {
+        animation: hide_slide 1s ease forwards;
+    }
+
     .course-details-sec {
         padding: 12.5vw 7.813vw 7.813vw;
     }

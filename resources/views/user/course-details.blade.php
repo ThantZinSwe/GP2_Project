@@ -15,7 +15,6 @@
                         </span>
                     </div>
                 @endif
-
                 {{-- Course Outline --}}
                 <div class="outline-blk">
                     <h3 class="outline-ttl">

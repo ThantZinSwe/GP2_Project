@@ -6,10 +6,10 @@ $(document).ready(function () {
         var search_key = $(this).val();
         var type = $('.search-select').val();
         if (search_key) {
-            $('.course-card-container').hide()
+            $('.card-container').hide()
             $('.search-card-container').show()
         } else {
-            $('.course-card-container').show()
+            $('.card-container').show()
             $('.search-card-container').hide()
         }
         $.ajax({
@@ -18,47 +18,69 @@ $(document).ready(function () {
             success: function (data) {
                 if (data) {
                     $('.search-card-container').empty();
-                    console.log(data)
                     data.data.forEach(course => {
-                        if (course.type === 'free') {
+                        console.log(course.course_videos.length)
+                        if (course.type == 'free') {
                             $('.search-card-container').append(
-                                `<li class="course-card">
+                                `<li class="card-list">
                                     <a href="${DOMAIN}courses/${course.slug}">
-                                        <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
-                                        <div class="course-txt-blk">
-                                            <h3 class="course-card-ttl">${course.name}</h3>
-                                            <p class="course-card-type">Type: <span> ${course.type} </span></p>
-                                            <p class="course-card-fee">Fee: <span>${course.price} Ks</span></p>
-                                            <ul class="course-card-language">`+
-                                course.languages.map(language => {
-                                    return (`<li>${language.name}</li>`)})
-                                            +`</ul>
+                                        <div class="card-img">
+                                            <img src="${DOMAIN}images/course/${course.image}" alt="card-img">
+                                            <div class="type">
+                                                <span> ${course.type} !</span>
+                                            </div>
                                         </div>
+                                        <div class="card-body">
+                                            <p class="name">${course.name}</h3>
+                                            <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At - `+new Date(course.created_at).toLocaleDateString()+`</p>
+                
+                                            <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>${course.course_videos.length}</span></p>
+                                            <br>
+                
+                                            <p class="about-course">
+                                                ${course.description}
+                                            </p><br>
+                                            <div class="language">`+
+                                course.languages.map(language => {
+                                    return (`<span class="badge">${language.name}</span>`)})
+                                + `</div>
+                                <div class=price-zero><span>${course.price} Ks</span></div>
+                                </div>
                                     </a>
                             </li>`
                             )
                         } else {
                             $('.search-card-container').append(
-                                `<li class="course-card">
+                                `<li class="card-list">
                                     <a href="${DOMAIN}courses/${course.slug}">
-                                        <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
-                                        <div class="course-txt-blk">
-                                            <h3 class="course-card-ttl">${course.name}</h3>
-                                            <p class="course-card-type paid">Type: <span> ${course.type} </span></p>
-                                            <p class="course-card-fee">Fee: <span>${course.price} Ks</span></p>
-                                            <ul class="course-card-language">`+
-                                                course.languages.map(language => {
-                                                    return (`<li>${language.name}</li>`)})
-                                            +`</ul>
+                                        <div class="card-img">
+                                            <img src="${DOMAIN}images/course/${course.image}" alt="card-img">
+                                            <div class="type">
+                                                <span> ${course.type} !</span>
+                                            </div>
                                         </div>
+                                        <div class="card-body">
+                                            <p class="name">${course.name}</h3>
+                                            <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At -`+new Date(course.created_at).toLocaleDateString()+`</p>
+                
+                                            <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>${course.course_videos.length}</span></p>
+                                            <br>
+                
+                                            <p class="about-course">
+                                                ${course.description}
+                                            </p><br>
+                                            <div class="language">`+
+                                course.languages.map(language => {
+                                    return (`<span class="badge">${language.name}</span>`)})
+                                + `</div>
+                                <div class=price><span>${course.price} Ks</span></div>
+                                </div>
                                     </a>
-                            </li>`)
+                            </li>`
+                            )
                         }
-
-                 
-                   
-
-                    });
+                    }
+                    );
                 }
             }
         });
@@ -67,10 +89,10 @@ $(document).ready(function () {
         $('#search-course').val('')
         var type = $('.search-select').val();
         if (type) {
-            $('.course-card-container').hide()
+            $('.card-container').hide()
             $('.search-card-container').show()
         } else {
-            $('.course-card-container').show()
+            $('.card-container').show()
             $('.search-card-container').hide()
         }
         $.ajax({
@@ -80,45 +102,68 @@ $(document).ready(function () {
                 if (data) {
                     $('.search-card-container').empty();
                     data.data.forEach(course => {
-                        if (course.type === 'free') {
+                        console.log(course.course_videos.length)
+                        if (course.type == 'free') {
                             $('.search-card-container').append(
-                                `<li class="course-card">
+                                `<li class="card-list">
                                     <a href="${DOMAIN}courses/${course.slug}">
-                                        <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
-                                        <div class="course-txt-blk">
-                                            <h3 class="course-card-ttl">${course.name}</h3>
-                                            <p class="course-card-type">Type: <span> ${course.type} </span></p>
-                                            <p class="course-card-fee">Fee: <span>${course.price} Ks</span></p>
-                                            <ul class="course-card-language">`+
-                                course.languages.map(language => {
-                                    return (`<li>${language.name}</li>`)})
-                                            +`</ul>
+                                        <div class="card-img">
+                                            <img src="${DOMAIN}images/course/${course.image}" alt="card-img">
+                                            <div class="type">
+                                                <span> ${course.type} !</span>
+                                            </div>
                                         </div>
+                                        <div class="card-body">
+                                            <p class="name">${course.name}</h3>
+                                            <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At - `+new Date(course.created_at).toLocaleDateString()+`</p>
+                
+                                            <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>${course.course_videos.length}</span></p>
+                                            <br>
+                
+                                            <p class="about-course">
+                                                ${course.description}
+                                            </p><br>
+                                            <div class="language">`+
+                                course.languages.map(language => {
+                                    return (`<span class="badge">${language.name}</span>`)})
+                                + `</div>
+                                <div class=price-zero><span>${course.price} Ks</span></div>
+                                </div>
                                     </a>
                             </li>`
                             )
                         } else {
                             $('.search-card-container').append(
-                                `<li class="course-card">
+                                `<li class="card-list">
                                     <a href="${DOMAIN}courses/${course.slug}">
-                                        <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
-                                        <div class="course-txt-blk">
-                                            <h3 class="course-card-ttl">${course.name}</h3>
-                                            <p class="course-card-type paid">Type: <span> ${course.type} </span></p>
-                                            <p class="course-card-fee">Fee: <span>${course.price} Ks</span></p>
-                                            <ul class="course-card-language">`+
-                                            course.languages.map(language => {
-                                                return (`<li>${language.name}</li>`)})
-                                                        +`</ul>
+                                        <div class="card-img">
+                                            <img src="${DOMAIN}images/course/${course.image}" alt="card-img">
+                                            <div class="type">
+                                                <span> ${course.type} !</span>
+                                            </div>
                                         </div>
+                                        <div class="card-body">
+                                            <p class="name">${course.name}</h3>
+                                            <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At -`+new Date(course.created_at).toLocaleDateString()+`</p>
+                
+                                            <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>${course.course_videos.length}</span></p>
+                                            <br>
+                
+                                            <p class="about-course">
+                                                ${course.description}
+                                            </p><br>
+                                            <div class="language">`+
+                                course.languages.map(language => {
+                                    return (`<span class="badge">${language.name}</span>`)})
+                                + `</div>
+                                <div class=price><span>${course.price} Ks</span></div>
+                                </div>
                                     </a>
-                            </li>`)
+                            </li>`
+                            )
                         }
-
-                 
-                   
-
-                    });
+                    }
+                    );
                 }
             }
         });
@@ -130,10 +175,10 @@ $(document).ready(function () {
         $(this).addClass('active')
         var type = $('.search-select').val();
         if (tag) {
-            $('.course-card-container').hide()
+            $('.card-container').hide()
             $('.search-card-container').show()
         } else {
-            $('.course-card-container').show()
+            $('.card-container').show()
             $('.search-card-container').hide()
         }
         $.ajax({
@@ -146,41 +191,68 @@ $(document).ready(function () {
                     //console.log(data.links)
                     $('.search-card-container').empty();
                     data.data.forEach(course => {
-                        if (course.type === 'free') {
+                        console.log(course.course_videos.length)
+                        if (course.type == 'free') {
                             $('.search-card-container').append(
-                                `<li class="course-card">
+                                `<li class="card-list">
                                     <a href="${DOMAIN}courses/${course.slug}">
-                                        <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
-                                        <div class="course-txt-blk">
-                                            <h3 class="course-card-ttl">${course.name}</h3>
-                                            <p class="course-card-type">Type: <span> ${course.type} </span></p>
-                                            <p class="course-card-fee">Fee: <span>${course.price} Ks</span></p>
-                                            <ul class="course-card-language">`+
-                                course.languages.map(language => {
-                                    return (`<li>${language.name}</li>`)})
-                                            +`</ul>
+                                        <div class="card-img">
+                                            <img src="${DOMAIN}images/course/${course.image}" alt="card-img">
+                                            <div class="type">
+                                                <span> ${course.type} !</span>
+                                            </div>
                                         </div>
+                                        <div class="card-body">
+                                            <p class="name">${course.name}</h3>
+                                            <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At - `+new Date(course.created_at).toLocaleDateString()+`</p>
+                
+                                            <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>${course.course_videos.length}</span></p>
+                                            <br>
+                
+                                            <p class="about-course">
+                                                ${course.description}
+                                            </p><br>
+                                            <div class="language">`+
+                                course.languages.map(language => {
+                                    return (`<span class="badge">${language.name}</span>`)})
+                                + `</div>
+                                <div class=price-zero><span>${course.price} Ks</span></div>
+                                </div>
                                     </a>
                             </li>`
                             )
                         } else {
                             $('.search-card-container').append(
-                                `<li class="course-card">
+                                `<li class="card-list">
                                     <a href="${DOMAIN}courses/${course.slug}">
-                                        <img src="${DOMAIN}images/course/${course.image}" alt="" class="course-card-img">
-                                        <div class="course-txt-blk">
-                                            <h3 class="course-card-ttl">${course.name}</h3>
-                                            <p class="course-card-type paid">Type: <span> ${course.type} </span></p>
-                                            <p class="course-card-fee">Fee: <span>${course.price} Ks</span></p>
-                                            <ul class="course-card-language">`+
-                                            course.languages.map(language => {
-                                                return (`<li>${language.name}</li>`)})
-                                                        +`</ul>
+                                        <div class="card-img">
+                                            <img src="${DOMAIN}images/course/${course.image}" alt="card-img">
+                                            <div class="type">
+                                                <span> ${course.type} !</span>
+                                            </div>
                                         </div>
+                                        <div class="card-body">
+                                            <p class="name">${course.name}</h3>
+                                            <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At -`+new Date(course.created_at).toLocaleDateString()+`</p>
+                
+                                            <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>${course.course_videos.length}</span></p>
+                                            <br>
+                
+                                            <p class="about-course">
+                                                ${course.description}
+                                            </p><br>
+                                            <div class="language">`+
+                                course.languages.map(language => {
+                                    return (`<span class="badge">${language.name}</span>`)})
+                                + `</div>
+                                <div class=price><span>${course.price} Ks</span></div>
+                                </div>
                                     </a>
-                            </li>`)
+                            </li>`
+                            )
                         }
-                    });
+                    }
+                    );
                
                 }
             },
@@ -188,6 +260,14 @@ $(document).ready(function () {
         });
     })
     $('.search-input').on('focus', function () {
-        $('.search-icon').css('display', 'none')
+        $('.search-icon').hide()
+        $(this).css('padding-left', '30px')
+    })
+    $('.search-input').on('blur', function () {
+        $('.search-icon').show()
+        $(this).css('padding-left', '49px')
+    })
+    $('.search-icon').on('click', function () {
+        $('.search-input').focus()
     })
 });
