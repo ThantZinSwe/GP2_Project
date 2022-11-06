@@ -1,7 +1,18 @@
 /*sec-mv*/
-.home-sec .left-blk{
-  padding-top: 30px;
-  margin-top: 80px;
+.home-sec{
+  background-image: url(../../images/user/home/home-blog.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+.home-tran{
+  width: 100%;
+  padding: 21%;
+  position: absolute;
+  background-color: rgb(255, 255 ,255,0.1);
+  z-index: 1;
 }
 .home-sec .cmn-title{
   color: #232323 ;
@@ -10,74 +21,97 @@
   padding: 15px 0;
   line-height: 1.2;
 }
+.home-sfirst{
+  padding: 50px 0px;
+  position: inherit;
+  z-index: 2;
+}
 .home-sec .title{
   color: #60a5fa;
 }
-.home-sec .col-50{
+.left-blk{
+  margin: 0 auto;
+  width: 47%;
+  padding: 80px 0px;
+}
+.right-blk{
+  float: right;
+}
+.home-ssecond{
+  padding: 50px 0px;
+}
+/*.home-sec .col-50{
   width: 47%;
   margin-right: 40px;
   float:left;
 }
 .home-sec .col-50:nth-of-type(2n){
   margin-right: 0px;
-}
+}*/
 .home-sec .cmn-paragraph{
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6;
 }
-.home-sec .blog-paragraph{
+/*.home-sec .blog-paragraph{
   padding-bottom: 62px;
-}
+}*/
 /*End sec-mv*/
 /*info-list*/
-.home-sec .info{
-  padding: 40px 110px;
+.info{
+  background-color: #ffffff;
 }
-.home-sec .info-card{
+.info-list{
+  width: 80%;
+  margin: 0 auto;
+}
+.info-card i{
+  font-size: 30px;
+  color: #4f4a4a;
+}
+.info-list .info-card{
   width: 24%;
-  background: #fff;
+  background: #ffffff;
   float: left;
   margin-right: 132px;
   border-radius: 6px;
-  padding: 15px 10px;
+  padding: 20px;
   text-align: center;
-  position: relative;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.home-sec .info-card:nth-child(3n){
+.info-card:nth-child(3n){
   margin-right: 0;
 }
-.home-sec .info-card img{
-  width: 40%;
-  float: left;
-  height: fit-content;
-  margin-right: 10%;
+
+.info-card .info-text{
+  padding-top: 20px;
 }
-.home-sec .info-card .info-text{
- width: 40%;
- float: left;
- font-weight: 700;
- font-size: 16px;
- line-height: 1.5;
- position: absolute;
- top: 50%;
- transform: translate(100%,-50%);
+.info-text hr{
+  display: block;
+  width: 70px;
+  margin-left: 55px;
+  /* text-align: center; */
+  /* color: red; */
+  background-color: #4f4a4a;
+  height: 3px;
+  border-radius: 5px;
 }
-.home-sec .info-card .info-text .info-title{
-  color: #ddd;
+.info-card .info-text h4{
+  font-size: 30px;
+  color: #4f4a4a;
 }
-.home-sec .course{
+.info-card .info-text .info-title{
+  color: #4f4a4a;
+}
+/*.home-sec .course{
   margin-top: -111px;
     padding: 140px 99px 92px;
     background-color: rgba(182, 193, 198, 0.3);
     border-radius: 30px;
-    /* border-top-left-radius: 125px;
-    border-top-right-radius: 125px; */
-}
+}*/
 
-.home-sec .course-list{
+/*.home-sec .course-list{
   padding: 0px 0px;
   margin-bottom: 30px;
 }
@@ -89,7 +123,7 @@
 }
 .course-card:hover img {
   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.35));
-}
+}*/
 /* .home-sec .course-card{
   width: 31%;
   background: #fff;
@@ -133,19 +167,78 @@
 .home-sec .course-card .course-info .php-color{
   background-color: rgb(85, 152, 253);
 } */
-.home-sec .course-btn{
+/*.home-sec .course-btn{
   text-align: center;
-}
+}*/
 
 /*End course*/
 /*blog*/
-.home-sec .blg-title {
+.home-bsec{
+  padding: 90px 0px;
+}
+.home-bimage{
+  width: 570px;
+  float: left;
+}
+.home-bimage img{
+  height: 400px;
+}
+.blg-title {
   color: #60a5fa;
   padding-bottom: 30px;
   font-size: 32px;
 }
-.home-sec .blog{
-  padding: 30px 0;
+.sblog-left{
+  float: left;
+  width: 400px;
+}
+.sblog-right{
+  float: right;
+  width: 500px;
+}
+.blog-paragraph{
+  padding: 20px 0px;
+}
+.home-bbtn{
+  display: inline-block;
+  
+  padding: 10px 20px;
+  border: 1px solid #30e3ca;
+  border-radius: 5px;
+ 
+}
+.home-bbtn:hover{
+  transition: 0.3;
+  background-color: #30e3ca;
+}
+.home-btext{
+  width: 500px;
+  margin: 0 auto;
+  float: right;
+  padding-top: 60px;
+}
+.home-btext h4{
+ 
+  font-size: 30px;
+ 
+}
+.home-btext p{
+  text-align: justify;
+  color: #000000;
+  line-height: 1.6;
+  font-size: 18px;
+  padding: 30px 0px;
+}
+.scroll-icon{
+  display: inline-block;
+  padding: 15px;
+  background-color: #2f89fc;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #ffffff;
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
 }
 /*Ipad*/
 @media screen and (min-width: 768px) and (max-width:1180px) {
