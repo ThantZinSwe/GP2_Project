@@ -40,7 +40,23 @@
                     @auth
                     <li class="dropdown">
                         {{--<img src="{{asset('images/default_profile.jpg')}}" alt="User" class="user-pic">--}}
-                        <span class="profile-name">{{ Auth::user()->name }}</span>
+                        @php
+                            $words = explode(" ", Auth::user()->name );
+                            $acronym = "";
+                            if(count($words) == 1){
+                               $acronym = strtoupper(mb_substr($words[0], 0, 2));
+                               Session::put('acronym', $acronym);
+                            }else {
+                                foreach ($words as $i => $w) {
+                                    if($i < 2){
+                                        $acronym .= strtoupper(mb_substr($w, 0, 1));
+                                    }
+                                }
+                                Session::put('acronym', $acronym);
+                            }
+                    
+                        @endphp
+                        <span class="profile-name">{{ $acronym ?? ''}}</span>
                         <div class="dd-menu">
                             <div class="dd-left">
                                 <ul>
@@ -61,7 +77,7 @@
 
               </nav>
                 <p class="profile-toggle">
-                    <span class="profile-toggle-name">{{ Auth::user()->name ?? '' }}</span>
+                    <span class="profile-toggle-name">{{ $acronym ?? '' }}</span>
                     <div class="dropdown profile-nav">
                         <i class="fa-solid fa-xmark fa-xl profile-close-toggle"></i>
                         <li class="profile-list">

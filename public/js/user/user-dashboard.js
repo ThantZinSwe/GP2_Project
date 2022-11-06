@@ -45,4 +45,29 @@ $(function () {
   $('.profile-close-toggle').on("click", function () {
     $(".sec-mv .header .profile-nav").removeClass("is-show");
   });
+  $('input[type="file"]').each(function(){
+
+    var $file = $(this),
+      target = $(' #user-edit-profile .profile-name')
+  
+    $file.on('change', function(event){
+      var fileName = $file.val().split( '\\' ).pop(),
+          tmppath = URL.createObjectURL(event.target.files[0]);
+      if( fileName ){
+        target
+          .addClass('file-ok')
+          .css('background-image', 'url(' + tmppath + ')');
+        target.find('i').show()
+      }else{
+        target.removeClass('file-ok');
+  
+      }
+      target.find('i').on('click', function () {
+        target.removeClass('file-ok').css('background-image', 'none')
+        target.find('i').hide()
+        $file.val('')
+      })
+    });
+  
+  });
 });

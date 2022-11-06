@@ -18,7 +18,68 @@
     border-left: 8px solid #0092ef;
     animation: show_slide 1s ease forwards;
 }
+.main-visual {
+    padding: 10px 0 148px;
+    border-bottom-left-radius: 94px;
+    border-bottom-right-radius: 94px;
+    background: linear-gradient(90deg, rgba(14,44,83,1) 11%, rgba(45,152,226,1) 82%);
+}
+.dashboard-l-inner {
+    margin-top: -93px;
+}
+.main-visual h2 {
+    color: rgb(255 255 255);
+}
+.dashboard-content .profile-name {
+    padding: 20px 25px;
+    line-height: 2.4;
+    position: relative;
+    transition: 0.9s;
+}
+.dashboard-content .profile-name i {
+    position: absolute;
+    top: 1px;   
+    right: 6px;
+    color: rgb(0 0 0);
+    background-color: #fff6;;
+    display: none;
+    transition: 0.9s;
+}
+.dashboard-content .profile-img-container {
+    margin: 29px 0 42px -1px;
+}
+/*Temp*/
+.wrap-custom-file {
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    margin: 0 0.5rem 1rem;
+    text-align: center;
+  }
+  
+  .wrap-custom-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    overflow: hidden;
+    opacity: 0;
+  }
+  .wrap-custom-file label #custom-file {
+    padding: 10px 15px;
+    background-color: #0092ef;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  #user-edit-profile .profile-name.file-ok {
+    background-size: cover;
+    background-position: center;
+  }
 
+  
+/*end template*/
 .profile-toggle-name {
     display: none;
 }
@@ -71,8 +132,6 @@
     color: rgb(255 68 68);
 }
 
-.dashboard-mv-blk {}
-
 .dashboard-card {
     width: 79%;
     margin: 0 auto 35px;
@@ -81,6 +140,7 @@
     padding-bottom: 12px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: 0.7s;
+    background-color: rgb(255 255 255);
 }
 
 .dashboard-aside {
@@ -170,9 +230,8 @@
 }
 
 /* --------------- User Courses ---------------------- */
-#user-course .course-card-container {
-	padding: 22px 0 22px 9px;
-	width: 100%;
+#user-course .card {
+	padding: 16px 0 0 15px;
 }
 #user-course h2 {
     margin: 10px 0 11px -3px;
@@ -181,23 +240,19 @@
     font-weight: 500;
 }
 
-#user-course .course-card {
-    margin-right: 12px;
-    width: 31.8%;
+#user-course .card .card-list {
+	float: left;
+	width: 46.33%;
+	margin-right: 19px;
+	box-shadow: rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em, rgb(0 0 0 / 25%) 0px 0.125em 0.5em, rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
+	border-radius: 10px;
+	border: 3px solid #ddd;
+	transition: all 0.5s;
+	margin-bottom: 28px;
 }
-#user-course .course-card:nth-child(3n) {
+
+#user-course .card .card-list:nth-child(2n) {
     margin-right: 0;
-}
-#user-course .course-txt-blk {
-    padding-top: 11px;
-}
-
-#user-course .course-card-type {
-    margin: 15px 0 20px 0;
-}
-
-#user-course .course-card-fee {
-    margin: 15px 0 20px 0;
 }
 
 /*Ipad*/
@@ -228,14 +283,16 @@
     .g-nav ul li {
         margin-right: 2.906vw;
     }
-
     .profile-name {
-        padding: 1.1102vw 1.153vw;
-        background-color: #0092ef;
+        padding: 1.432vw 1.172vw;
+        background-color: rgb(255, 64, 129);
         color: #ffffff;
+        border-radius: 50%;
+        text-align: center;
         font-weight: 500;
-        text-transform: capitalize;
-        border-radius: 0.651vw;
+    }
+    .dashboard-content .profile-name {
+        padding: 20px 25px;
     }
 
     .dashboard-ttl {
@@ -400,37 +457,29 @@
     }
 
     /* --------------- User Courses ---------------------- */
+    #user-course .card {
+        padding: 16px 0 0 15px;
+    }
     #user-course h2 {
         margin: 10px 0 11px -3px;
         font-family: 'Roboto-Regular';
         font-size: 24px;
         font-weight: 500;
     }
-
-    #user-course .course-card-container {
-        width: 100%;
-        padding: 2.865vw 0px 2.865vw 1.053vw;
+    
+    #user-course .card .card-list {
+        float: left;
+        width: 46.33%;
+        margin-right: 19px;
+        box-shadow: rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em, rgb(0 0 0 / 25%) 0px 0.125em 0.5em, rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
+        border-radius: 10px;
+        border: 3px solid #ddd;
+        transition: all 0.5s;
+        margin-bottom: 28px;
     }
-
-    #user-course .course-card {
-        margin-right: 12px;
-        width: 31.8%;
-    }
-
-    #user-course .course-card:nth-child(2n) {
+    
+    #user-course .card .card-list:nth-child(2n) {
         margin-right: 0;
-    }
-
-    #user-course .course-txt-blk {
-        padding-top: 11px;
-    }
-
-    #user-course .course-card-type {
-        margin: 15px 0 20px 0;
-    }
-
-    #user-course .course-card-fee {
-        margin: 15px 0 20px 0;
     }
 
 }
@@ -462,14 +511,16 @@
         top: 22px;
         right: 65px;
         padding: 1.0102vw 1.053vw;
-        background-color: #0092ef;
+        background-color: rgb(255, 64, 129);
+        border-radius: 50%;
+        text-align: center;
         color: #ffffff;
         font-size: 15px;
         font-weight: 500;
-        text-transform: capitalize;
-        border-radius: 0.651vw;
     }
-
+    .dashboard-content .profile-name {
+        padding: 20px;
+    }
     .g-nav ul li {
         margin-right: 2.906vw;
     }
@@ -540,14 +591,17 @@
     }
 
     .profile-name {
-        padding: 1.1102vw 1.153vw;
-        background-color: #0092ef;
+        padding: 1.432vw 1.172vw;
+        background-color: rgb(255, 64, 129);
         color: #ffffff;
+        border-radius: 50%;
+        text-align: center;
         font-weight: 500;
-        text-transform: capitalize;
-        border-radius: 0.651vw;
     }
-
+    .dashboard-content .profile-name {
+        padding: 20px;
+    }
+    
     .dashboard-ttl {
         margin: 30px 0;
         color: #60a5fa;
@@ -712,35 +766,28 @@
     }
 
     /* --------------- User Courses ---------------------- */
+    #user-course .card {
+        padding: 16px 0 0 15px;
+    }
     #user-course h2 {
         margin: 10px 0 11px -3px;
         font-family: 'Roboto-Regular';
         font-size: 24px;
         font-weight: 500;
     }
-
-    #user-course .course-card-container {
-        width: 100%;
-        padding: 2.865vw 0px 2.865vw 1.053vw;
+    
+    #user-course .card .card-list {
+        float: left;
+        width: 46.33%;
+        margin-right: 19px;
+        box-shadow: rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em, rgb(0 0 0 / 25%) 0px 0.125em 0.5em, rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
+        border-radius: 10px;
+        border: 3px solid #ddd;
+        transition: all 0.5s;
+        margin-bottom: 28px;
     }
-
-    #user-course .course-card {
+    
+    #user-course .card .card-list:nth-child(2n) {
         margin-right: 0;
-    }
-
-    #user-course .course-card:nth-child(2n) {
-        margin-right: 0;
-    }
-
-    #user-course .course-txt-blk {
-        padding-top: 11px;
-    }
-
-    #user-course .course-card-type {
-        margin: 15px 0 20px 0;
-    }
-
-    #user-course .course-card-fee {
-        margin: 15px 0 20px 0;
     }
 }

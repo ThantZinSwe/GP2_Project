@@ -1,9 +1,12 @@
 @extends('layouts.user.main')
 @section('content')
 <section class="sec-user-dashboard">
-    <div class="l-inner">
+    <div class="main-visual">
+        <h2 class="dashboard-ttl">User Dashboard</h2>
+    </div>
+    <div class="l-inner dashboard-l-inner">
         <div class="dashboard-mv-blk">
-            <h2 class="dashboard-ttl">User Dashboard</h2>
+            
             @if (Session::has('error'))
                 <div class="alert-error">
                     <i class="fa-solid fa-circle-exclamation"></i>
@@ -46,6 +49,19 @@
                     <div id="user-edit-profile" class="dashboard-blk">
                         <form action="{{ route('user.profile.post', Auth::id()) }}" method="POST" class="clearfix" enctype="multipart/form-data">
                             @csrf
+                            <div class="profile-img-container">
+                                <span class="profile-name"><i class="fa-solid fa-circle-xmark"></i>{{Session::get('acronym')}}</span>
+                                <div class="wrap-custom-file">
+                                    <input type="file" name="profile_img" id="image1" accept=".gif, .jpg, .png" />
+                                    <label  for="image1">
+                                        <span id="custom-file">Upload Profile Photo</a>
+                                    </label>
+                                    @error('profile_img')
+                                    <span class="error">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                   
                             <div class="profile-input-group">
                                 <label for="">Name</label>
                                 <input type="text" value="{{ Auth::user()->name }}" name="name">
@@ -64,17 +80,6 @@
                                 <label for="">Phone</label>
                                 <input type="text" value="{{ Auth::user()->phone }}" name="phone">
                                 @error('phone')
-                                <span class="error">{{ $message }}</span>
-                                @enderror
-                           </div>
-                           <div class="profile-input-group">
-                                <label for="">Profile Photo</label>
-                                <label class="file">
-                                    <input type="file" value="{{ Auth::user()->phone }}" name="profile_img">
-                                    <span class="file-custom"></span>
-                                </label>                               
-                                
-                                @error('profile_img')
                                 <span class="error">{{ $message }}</span>
                                 @enderror
                            </div>
@@ -117,34 +122,47 @@
                     </div>
                     <div id="user-course" class="dashboard-blk">
                         <h2>My Courses</h2>
-                        <ul class="course-card-container clear-fix">
+                        <ul class="card clearfix">
                             @if(count($courses) > 0)
                                 @foreach ($courses as $item  )
-                                    <li class="course-card">
-                                        <a href="#">
-                                            <img src="{{ asset("images/course/$item->image") }}" alt="" class="course-card-img">
-                                            <div class="course-txt-blk">
-                                                <h3 class="course-card-ttl">{{ $item->name }}</h3>
-                                                @if($item->type == 'free')
-                                                <p class="course-card-type">Type: <span>{{ $item->type }}</span></p>
-                                                @else
-                                                <p class="course-card-type paid">Type: <span>{{ $item->type }}</span></p>
-                                                @endif
-                                                <p class="course-card-fee">Fee: <span>{{ $item->price }} Ks</span></p>
-                                                <ul class="course-card-language">
-                                                    @foreach ($item->languages as $language )
-                                                        <li> {{ $language->name }}</li>
-                                                    @endforeach
-                                                </ul>
+                
+                                <li class="card-list">
+                                    <a href="{{route('user.courseDetails',$item->slug)}}">
+                                        <div class="card-img">
+                                            <img src="{{asset('images/course/'.$item->image)}}" alt="">
+                                            <div class="type">
+                                                <span>{{$item->type}} !</span>
                                             </div>
-                                        </a>
-                                    </li>
+                                        </div>
+                
+                                        <div class="card-body">
+                                            <p class="name">{{$item->name}}</p>
+                                            <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At - {{Carbon\Carbon::parse($item->created_at)->format('Y-m-d')}}</p>
+                
+                                            <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>{{$item->courseVideos->count()}}</span></p>
+                                            <br>
+                
+                                            <p class=" about-course">
+                                                {{$item->description}}
+                                            </p><br>
+                
+                                            <div class="language">
+                                                @foreach ($item->languages as $language)
+                                                    <span class="badge">{{$language->name}}</span>
+                                                @endforeach
+                                            </div>
+                
+                                            <div class="price{{$item->price == 0 ? '-zero' : ''}}">
+                                                <span>{{$item->price}} Ks</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
                                 @endforeach
-                                {{ $courses->links()}}
                             @else
                                 <span style="text-align: center; font-size: 20px;">There is no Courses Availible!</span>
                             @endif
-                           
+                            {{ $courses->links()}}
                         </ul>
                        
                     </div>
