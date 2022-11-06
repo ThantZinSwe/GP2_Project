@@ -236,7 +236,7 @@ class CourseDao implements CourseDaoInterface
      */
     public function getCourseWithLanguage()
     {
-        return Course::with('languages')->paginate(5);
+        return Course::with('languages')->paginate(2);
     }
 
     /**

@@ -87,7 +87,11 @@
                             @foreach ($comments as $comment)
                             <div class="review-lists clearfix">
                                 <div class="review-profile">
-                                    <img src="{{asset('images/default_profile.jpg')}}" alt="">
+                                    @if (isset($comment->user->image))
+                                        <img src="{{asset($comment->user->image)}}" alt="">
+                                    @else
+                                        <img src="{{asset('images/default_profile.png')}}" alt="">
+                                    @endif
                                 </div>
                                 <div class="review-info">
                                     <p class="name">
