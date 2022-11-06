@@ -5,6 +5,7 @@ $(document).ready(function () {
         var comment = $(".comment").val();
         var slug = $(this).data("slug");
         var user_id = $(this).data("user_id");
+        var photo = "";
 
         $.ajax({
             url: `/api/courses/${slug}/review`,
@@ -12,11 +13,15 @@ $(document).ready(function () {
             data: { comment: comment, user_id: user_id },
             dataType: "json",
             success: function (res) {
-                console.log(res);
+                if (res.user["image"] != null) {
+                    photo = res.user["image"];
+                } else {
+                    photo = "images/default_profile.png";
+                }
                 $(".box").prepend(
                     `<div class="review-lists clearfix">
                         <div class="review-profile">
-                            <img src="http://127.0.0.1:8000/images/default_profile.jpg" alt="">
+                            <img src="http://127.0.0.1:8000/${photo}" alt="">
                         </div>
                         <div class="review-info">
                             <p class="name">${res.user["name"]} <small class="minutes">0 second ago</small></p><br>
@@ -26,6 +31,7 @@ $(document).ready(function () {
                         </div>
                     </div>`
                 );
+                $(".comment").val("");
             },
             error: function (reject) {
                 var res = $.parseJSON(reject.responseText);
