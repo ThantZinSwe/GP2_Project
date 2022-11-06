@@ -649,7 +649,13 @@
         padding: 1.302vw 3.255vw;
         font-size: 1.823vw;
     }
-
+    .card .card-img img {
+       
+        height: 34.375vw;
+        
+        border-top-left-radius: 1.563vw;
+        border-top-right-radius: 1.563vw;
+    }
     .card .card-list {
         float: left;
         width: 46%;
@@ -905,7 +911,17 @@
         padding: 1.563vw 3.906vw;
         font-size: 2.188vw;
     }
-
+    .card .card-img img {
+       
+        height: 34.375vw;
+       object-fit: unset;
+        border-top-left-radius: 1.563vw;
+        border-top-right-radius: 1.563vw;
+    }
+    .card{
+        width: 320px;
+        margin: 0 auto;
+    }
     .card .card-list {
         float: none;
         width: 100%;
