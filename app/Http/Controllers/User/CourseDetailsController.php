@@ -58,6 +58,11 @@ class CourseDetailsController extends Controller
     public function enroll($slug)
     {
         $course = $this->courseDetailsInterface->enroll($slug);
+
+        if (isset($course['enrollError'])) {
+            return back()->with(['error' => $course['enrollError']]);
+        }
+
         return view('user.enroll', compact('course'));
     }
 
