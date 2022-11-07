@@ -60,26 +60,20 @@
                         <div class="form-group">
                             <label for="courseName">Price</label>
                             <input type="number" name="price" class="form-control" value="{{old('price')}}"  id="price" placeholder="Enter price">
-                            @error('price')
-                              <span class="text-danger">{{$message}}</span>
-                            @enderror
                         </div>
 
                         <div class="form-group">
-                        <label for="courseName">Type</label>
-                        <div class="form-group d-flex">
-                            <div class="form-check mr-3">
-                              <input class="form-check-input" type="radio" name="type" value="free" {{ old('type')=='free' ? 'checked':''}}>
-                              <label class="form-check-label">Free</label>
+                            <label for="courseName">Type</label>
+                            <div class="form-group d-flex">
+                                <div class="form-check mr-3">
+                                    <input class="form-check-input" type="radio" name="type" value="free" {{ old('type')=='free' ? 'checked':''}}>
+                                    <label class="form-check-label">Free</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="type" value="paid"  {{ old('type')=='paid' ? 'checked':''}}>
+                                    <label class="form-check-label">Paid</label>
+                                </div>
                             </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="type" value="paid"  {{ old('type')=='paid' ? 'checked':''}}>
-                              <label class="form-check-label">Paid</label>
-                            </div>
-                        </div>
-                          @error('type')
-                              <span class="text-danger">{{$message}}</span>
-                          @enderror
                         </div>
 
                         <div class="form-group">

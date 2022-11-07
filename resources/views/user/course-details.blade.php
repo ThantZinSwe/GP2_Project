@@ -54,12 +54,12 @@
                         <div class="price-type-blk">
                             <span class="type">Type : <span class="badge">{{$course->type}}</span></span>
                             <span class="price">Price : <span class="badge">{{$course->price}} Ks</span></span>
-                        </div>
 
-                        @if ($course->type == "free" || isset($enroll))
-                        @else
-                        <a href="{{route('user.enroll',$course->slug)}}" class="btn enroll-btn btn-primary">Enroll Now !</a>
-                        @endif
+                            @if ($course->type == "free" || isset($enroll))
+                            @else
+                                <a href="{{route('user.enroll',$course->slug)}}" class="btn enroll-btn btn-primary">Enroll Now !</a>
+                            @endif
+                        </div>
                     </div>
 
                     {{-- Course Review --}}
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="review-info">
                                     <p class="name">
-                                        {{$comment->user->name}} <small class="minutes">{{$comment->created_at->diffForHumans()}}</small>
+                                        {{$comment->user->name}} <small class="minutes">( {{$comment->created_at->diffForHumans()}} )</small>
                                     </p><br>
                                     <p class="review-content">
                                         {{$comment->review}}
