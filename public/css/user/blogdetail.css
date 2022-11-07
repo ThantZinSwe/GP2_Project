@@ -1,147 +1,148 @@
 .b-detail {
-  padding-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 .img-bdetail {
-  width: 80%;
-  margin: 0 auto;
+    width: 80%;
+    margin: 60px auto 0;
 }
 
 .img-bdetail img {
-  width: 100%;
-  height: 520px;
-  border: 1px solid #ffffff;
-  border-radius: 5px;
+    width: 100%;
+    height: 520px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
 }
 
 .text-bdetail {
-  width: 80%;
-  margin: 20px auto;
+    width: 80%;
+    margin: 20px auto;
 }
 
 .title-bdetail {
-  margin-bottom: 20px;
-  font-size: 30px;
-  font-weight: 700;
-  text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
 }
 
 .conte-bdetail {
-  display: inline-block;
-  line-height: 1.6;
-  margin-left: 20px;
-  font-size: 16px;
-  font-weight: 400;
+    display: inline-block;
+    line-height: 1.8;
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(107, 114, 128);
 }
 
 .title-ldetail {
-  padding-bottom: 50px;
-  font-size: 30px;
-  text-align: center;
+    padding-bottom: 50px;
+    font-size: 30px;
+    margin-left: 45px;
 }
 
 .b-ldetail {
-  padding-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 /*Tablet*/
 @media screen and (min-width: 768px) and (max-width: 1180px) {
-  .l-inner {
-    width: 100%;
-    max-width: 100%;
-  }
+    .l-inner {
+        width: 100%;
+        max-width: 100%;
+    }
 
-  .b-detail {
-    padding-bottom: 7.813vw;
-  }
+    .b-detail {
+        padding-bottom: 7.813vw;
+    }
 
-  .img-bdetail {
-    width: 80%;
-    margin: 0 auto;
-  }
+    .img-bdetail {
+        width: 80%;
+        margin: 7.813vw auto 0;
+    }
 
-  .img-bdetail img {
-    width: 100%;
-    height: 81.25vw;
-    border: 0.156vw solid #ffffff;
-    border-radius: 0.781vw;
-  }
+    .img-bdetail img {
+        width: 100%;
+        height: 39.25vw;
+        border: 0.156vw solid #ffffff;
+        border-radius: 0.781vw;
+    }
 
-  .text-bdetail {
-    width: 80%;
-    margin: 3.125vw auto;
-  }
+    .text-bdetail {
+        width: 80%;
+        margin: 3.125vw auto;
+    }
 
-  .title-bdetail {
-    margin-bottom: 3.125vw;
-    font-size: 4.688vw;
-    font-weight: 700;
-  }
+    .title-bdetail {
+        margin-bottom: 3.125vw;
+        font-size: 4.688vw;
+        font-weight: 700;
+    }
 
-  .conte-bdetail {
-    line-height: 1.6;
-    margin-left: 3.125vw;
-    font-size: 2.5vw;
-    font-weight: 400;
-  }
+    .conte-bdetail {
+        margin-left: 3.125vw;
+        font-size: 2.5vw;
+        font-weight: 400;
+    }
 
-  .title-ldetail {
-    padding-bottom: 7.813vw;
-    font-size: 4.688vw;
-  }
+    .title-ldetail {
+        padding-bottom: 7.813vw;
+        font-size: 4.688vw;
+        margin-left: 7.813vw;
+    }
 
-  .b-ldetail {
-    padding-bottom: 7.813vw;
-  }
+    .b-ldetail {
+        padding-bottom: 7.813vw;
+    }
 }
 
 /*Mobile*/
 @media screen and (max-width: 767.9px) {
-  .l-inner {
-    width: 100%;
-    max-width: 100%;
-  }
+    .l-inner {
+        width: 100%;
+        max-width: 100%;
+    }
 
-  .b-detail {
-    padding-bottom: 7.813vw;
-  }
+    .b-detail {
+        padding-bottom: 7.813vw;
+    }
 
-  .img-bdetail {
-    width: 80%;
-    margin: 0 auto;
-  }
+    .img-bdetail {
+        width: 80%;
+        margin: 9.375vw auto 0;
+    }
 
-  .img-bdetail img {
-    width: 100%;
-    height: 81.25vw;
-    border: 0.156vw solid #ffffff;
-    border-radius: 0.781vw;
-  }
+    .img-bdetail img {
+        width: 100%;
+        height: 47.25vw;
+        border: 0.156vw solid #ffffff;
+        border-radius: 0.781vw;
+    }
 
-  .text-bdetail {
-    width: 80%;
-    margin: 3.125vw auto;
-  }
+    .text-bdetail {
+        width: 80%;
+        margin: 6.125vw auto;
+    }
 
-  .title-bdetail {
-    margin-bottom: 3.125vw;
-    font-size: 4.688vw;
-    font-weight: 700;
-  }
+    .title-bdetail {
+        margin-bottom: 3.125vw;
+        font-size: 4.688vw;
+        font-weight: 700;
+    }
 
-  .conte-bdetail {
-    line-height: 1.6;
-    margin-left: 3.125vw;
-    font-size: 2.5vw;
-    font-weight: 400;
-  }
+    .conte-bdetail {
+        margin-left: 3.125vw;
+        font-size: 2.5vw;
+        font-weight: 400;
+    }
 
-  .title-ldetail {
-    padding-bottom: 7.813vw;
-    font-size: 4.688vw;
-  }
+    .title-ldetail {
+        padding-bottom: 7.813vw;
+        font-size: 4.688vw;
+        margin-left: 9.375vw;
+    }
 
-  .b-ldetail {
-    padding-bottom: 7.813vw;
-  }
+    .b-ldetail {
+        padding-bottom: 7.813vw;
+    }
 }

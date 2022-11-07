@@ -1,10 +1,5 @@
 .course-details-sec {
     padding: 80px 0 50px;
-    /* background-image: linear-gradient(
-        to right bottom,
-        rgb(219, 229, 239, 0.5),
-        rgb(255, 255, 255, 0.5)
-    ); */
     background-color: #f8f8f8;
 }
 
@@ -195,10 +190,11 @@
 
 .course-details-blk .vd-img-blk .description p {
     font-size: 16px;
-    color: #00154a;
+    color: rgb(107, 114, 128);
     line-height: 1.8;
-    margin-bottom: 15px;
-    margin-top: 5px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    text-align: justify;
 }
 
 .course-details-blk .vd-img-blk .description .type,
@@ -219,13 +215,13 @@
 }
 
 .course-details-blk .vd-img-blk .description .enroll-btn.btn-primary {
-    background-color: #60a5fa;
+    background-color: #474a8a;
 }
 
 .course-details-blk .vd-img-blk .description .enroll-btn.btn-primary:hover {
     background-color: transparent;
-    color: #60a5fa;
-    border: 1px solid #60a5fa;
+    color: #474a8a;
+    border: 1px solid #474a8a;
 }
 
 .course-details-blk .vd-img-blk .review {
@@ -257,17 +253,22 @@
 }
 
 .course-details-blk .vd-img-blk .review-box .box {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .course-details-blk .vd-img-blk .review-box .review-lists {
     margin-top: 20px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-        rgba(0, 0, 0, 0.1) 0px 4px 6px -2px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 10px;
     background-color: #ffffff;
+    float: left;
+    width: 49%;
+    margin-right: 10px;
+}
+
+.course-details-blk .vd-img-blk .review-box .review-lists:nth-child(2n) {
+    margin-right: 0;
 }
 
 .course-details-blk .vd-img-blk .review-box h3 {
@@ -278,7 +279,7 @@
 .course-details-blk .vd-img-blk .review-box .review-lists .review-profile {
     float: left;
     width: 20%;
-    padding-left: 25px;
+    margin-top: 8px;
 }
 
 .course-details-blk .vd-img-blk .review-box .review-lists .review-profile img {
@@ -294,11 +295,11 @@
 .course-details-blk .vd-img-blk .review-box .review-lists .review-info {
     float: right;
     width: 72%;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .course-details-blk .vd-img-blk .review-box .review-lists .review-info .name {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
     color: #232323;
 }
@@ -311,7 +312,7 @@
     .review-content {
     font-size: 14px;
     font-weight: 500;
-    color: #232323;
+    color: rgb(107, 114, 128);
     line-height: 1.8;
     letter-spacing: 1px;
 }
@@ -488,49 +489,34 @@
 
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1180px) {
-    
     .alert-error {
-        background: #ffdb9b;
         padding: 1.563vw 5.208vw;
         min-width: 54.688vw;
-        position: absolute;
         right: -0.698vw;
-        top: 5.5%;
+        top: 11.5%;
         border-radius: 0.521vw;
         border-left: 1.042vw solid #ffa502;
-        animation: show_slide 1s ease forwards;
     }
     .alert-error .fa-circle-exclamation {
-        position: absolute;
         left: 2.604vw;
         top: 50%;
         transform: translateY(-50%);
-        color: #ce8500;
         font-size: 3.906vw;
     }
 
     .alert-error .msg {
         padding: 0 2.604vw;
         font-size: 2.083vw;
-        color: #ce8500;
     }
 
     .alert-error .close-btn {
-        position: absolute;
         right: 0;
         top: 50%;
         transform: translateY(-50%);
-        background: #ffd080;
         padding: 0 1.693vw;
-        cursor: pointer;
-    }
-
-    .alert-error .close-btn:hover {
-        background: #ffc766;
     }
 
     .alert-error .close-btn .fa-xmark {
-        color: #ce8500;
         font-size: 2.865vw;
         line-height: 5.208vw;
     }
@@ -544,7 +530,7 @@
     }
 
     .course-details-ttl {
-        font-size: 4.557vw;
+        font-size: 3.906vw;
         margin-bottom: 6.51vw;
     }
 
@@ -610,8 +596,8 @@
 
     .course-details-blk .vd-img-blk .description p {
         font-size: 2.083vw;
-        line-height: 1.4;
-        margin-bottom: 1.302vw;
+        line-height: 1.8;
+        margin-bottom: 2.302vw;
     }
 
     .course-details-blk .vd-img-blk .description .type,
@@ -656,11 +642,18 @@
     }
 
     .course-details-blk .vd-img-blk .review-box .box {
-        margin-top: 5.208vw;
+        margin-top: 3.208vw;
     }
 
     .course-details-blk .vd-img-blk .review-box .review-lists {
         margin-top: 2.604vw;
+        float: left;
+        width: 49%;
+        margin-right: 10px;
+    }
+
+    .course-details-blk .vd-img-blk .review-box .review-lists:nth-child(2n) {
+        margin-right: 0;
     }
 
     .course-details-blk .vd-img-blk .review-box h3 {
@@ -671,7 +664,6 @@
     .course-details-blk .vd-img-blk .review-box .review-lists .review-profile {
         float: left;
         width: 20%;
-        padding-left: 3.255vw;
     }
 
     .course-details-blk
@@ -686,7 +678,7 @@
     .course-details-blk .vd-img-blk .review-box .review-lists .review-info {
         float: right;
         width: 72%;
-        margin-top: 2.734vw;
+        margin-top: 1.734vw;
     }
 
     .course-details-blk
@@ -695,7 +687,7 @@
         .review-lists
         .review-info
         .name {
-        font-size: 2.214vw;
+        font-size: 2.083vw;
     }
 
     .course-details-blk
@@ -728,9 +720,7 @@
         font-size: 1.823vw;
     }
     .card .card-img img {
-       
         height: 34.375vw;
-        
         border-top-left-radius: 1.563vw;
         border-top-right-radius: 1.563vw;
     }
@@ -862,7 +852,7 @@
     }
 
     .course-details-ttl {
-        font-size: 4.688vw;
+        font-size: 3.75vw;
         margin-bottom: 7.813vw;
     }
 
@@ -920,7 +910,7 @@
     }
 
     .course-details-blk .vd-img-blk .description .price-type-blk {
-        margin-bottom: 7.813vw;
+        margin-bottom: 4.813vw;
     }
 
     .course-details-blk .vd-img-blk .description .description-ttl {
@@ -929,8 +919,8 @@
 
     .course-details-blk .vd-img-blk .description p {
         font-size: 2.344vw;
-        line-height: 1.4;
-        margin-bottom: 1.563vw;
+        line-height: 1.8;
+        margin-bottom: 2.563vw;
     }
 
     .course-details-blk .vd-img-blk .description .type,
@@ -976,6 +966,8 @@
 
     .course-details-blk .vd-img-blk .review-box .review-lists {
         margin-top: 3.125vw;
+        float: none;
+        width: 100%;
     }
 
     .course-details-blk .vd-img-blk .review-box h3 {
@@ -985,12 +977,12 @@
 
     .course-details-blk .vd-img-blk .review-box .box {
         margin-top: 6.25vw;
+        padding: 0 3.906vw;
     }
 
     .course-details-blk .vd-img-blk .review-box .review-lists .review-profile {
         float: left;
         width: 20%;
-        padding-left: 3.906vw;
     }
 
     .course-details-blk
@@ -1005,7 +997,7 @@
     .course-details-blk .vd-img-blk .review-box .review-lists .review-info {
         float: right;
         width: 72%;
-        margin-top: 1.563vw;
+        margin-top: 2.563vw;
     }
 
     .course-details-blk
@@ -1032,7 +1024,7 @@
 
     .course-details-sec .latest-course-ttl {
         font-size: 3.438vw;
-        margin-bottom: 3.125vw;
+        margin-bottom: 5.125vw;
         letter-spacing: 0.156vw;
     }
 
@@ -1047,13 +1039,15 @@
         font-size: 2.188vw;
     }
     .card .card-img img {
-       
         height: 34.375vw;
-       object-fit: unset;
+        object-fit: unset;
         border-top-left-radius: 1.563vw;
         border-top-right-radius: 1.563vw;
     }
-
+    .card {
+        width: 62.5vw;
+        margin: 0 auto;
+    }
     .card .card-list {
         float: none;
         width: 100%;
@@ -1098,7 +1092,7 @@
 
     .card .card-body .about-course {
         font-size: 2.188vw;
-        width: 65.625vw;
+        width: 56.313vw;
     }
 
     .card .card-body .language {

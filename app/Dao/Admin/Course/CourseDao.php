@@ -45,12 +45,22 @@ class CourseDao implements CourseDaoInterface
      */
     public function store($request)
     {
+        $type = $request->type;
+        $price = $request->price;
+
         $course = new Course();
         $course->name = $request->name;
         $course->slug = Str::slug($request->name);
-        $course->type = $request->type;
+
+        if (isset($type)) {
+            $course->type = $type;
+        }
+
+        if (isset($price)) {
+            $course->price = $price;
+        }
+
         $course->description = $request->description;
-        $course->price = $request->price;
 
         $file = $request->file('image');
         $fileName = uniqid() . '-' . $file->getClientOriginalName();
@@ -182,7 +192,7 @@ class CourseDao implements CourseDaoInterface
         $course = $request->search;
         $tag = $request->tag;
         $type = $request->type;
-        $courses = Course::with('languages','courseVideos');
+        $courses = Course::with('languages', 'courseVideos');
         if ($tag == 'all') {
             return $courses->paginate(6);
         }
@@ -324,6 +334,14 @@ class CourseDao implements CourseDaoInterface
     public function enroll($slug)
     {
         $course = Course::where('slug', $slug)->first();
+        $enroll = Payment::where('course_id', $course->id)
+            ->where('user_id', auth()->user()->id)
+            ->first();
+
+        if (isset($enroll)) {
+            return ['enrollError' => 'You already enroll.Please wait confirm from admin team'];
+        }
+
         return $course;
     }
 

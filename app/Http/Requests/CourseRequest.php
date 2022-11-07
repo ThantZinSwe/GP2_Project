@@ -27,8 +27,6 @@ class CourseRequest extends FormRequest
             'name'        => 'required',
             'language'    => 'required',
             'image'       => 'required',
-            'price'       => 'required',
-            'type'        => 'required',
             'description' => 'required',
         ];
     }
