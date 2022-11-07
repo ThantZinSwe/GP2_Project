@@ -24,10 +24,10 @@ img {
     color: #232323;
 }
 .pc {
-    display: none;
+    display: block;
 }
 .sp {
-    display: block;
+    display: none;
 }
 
 .black-light {
@@ -267,7 +267,7 @@ input[type='file'] {
         padding: 10px 50px 10px 6px;
         font-size: 2.344vw;
         border-radius: 0%;
-        border: 0.13vw solid #ddd;
+        border: 1px solid transparent;
     }
 
     .search-input {
@@ -277,10 +277,20 @@ input[type='file'] {
         font-size: 2.083vw;
         outline: none;
     }
+    .search-icon {
+        position: absolute;
+        top: -7px;
+        height: 60px;
+        width: 86px;
+        line-height: 61px;
+        text-align: center;
+        left: -13px;
+        color: #232323;
+    }
     .language-list {
         text-align: left;
         padding: 0 3.651vw;
-        margin: 2px auto 54px;
+        margin: 2px auto 40px;
         font-weight: 500;
         width: 87%;
     }
@@ -297,17 +307,18 @@ input[type='file'] {
         color: #fff;
     }
     .search-card-container {
-        padding: 2.865vw 1.953vw;
+        padding: 0 3.153vw 0 4.953vw;
         width: 100%;
     }
     .card-container {
-        padding: 2.865vw 3.953vw;
+        padding: 2.865vw 3.153vw 0 4.953vw;
     }
     .card-container .card-list {
         margin-right: 4.901vw;
+        margin-bottom: 4.21vw;
     }
     .card-container .card-list:nth-child(3n){
-        margin-right: 4.901vw;
+        margin-right: 4.901vw !important;
     }
     .card-container .card-list:nth-child(2n){
         margin-right: 0;
@@ -348,7 +359,7 @@ input[type='file'] {
         font-family: "Roboto-Bold";
         font-size: 4.375vw;
         font-weight: 700;
-        margin-bottom: 44px;
+        margin-bottom: 6.875vw;
     }
 
     .course-header span {
@@ -363,23 +374,37 @@ input[type='file'] {
     }
 
     .search-select {
-        padding: 10px 50px 10px 6px;
+        padding: 1.563vw 7.813vw 1.563vw 0.938vw;
         font-size: 2.813vw;
         border-radius: 0%;
-        border: 0.156vw solid #ddd;
+        border: 0.156vw solid transparent;
     }
 
     .search-input {
-        width: 65.625vw;
-        border-left: 1px solid #23232368;
-        padding: 1.719vw 1.875vw 1.875vw 4.063vw;
+        width: 57.625vw;
+        border-left: 0.156vw solid #23232368;
+        padding: 1.719vw 1.875vw 1.875vw 5.363vw;
         font-size: 2.344vw;
         outline: none;
+    }
+    .search-icon {
+        position: absolute;
+        top: -1.094vw;
+        height: 9.375vw;
+        width: 10.781vw;
+        line-height: 9.531vw;
+        text-align: center;
+        left: -2.031vw;
+        color: #232323;
+    
+    }
+    .search-icon i {
+        font-size: 2.5vw;
     }
     .language-list {
         text-align: left;
         padding: 0 0.781vw;
-        margin: 2px auto 54px;
+        margin: 0.313vw auto 8.438vw;
         font-weight: 500;
         width: 87%;
     }
@@ -389,93 +414,21 @@ input[type='file'] {
         color: #232323;
         padding: 1.719vw 2.656vw;
         border-radius: 0.463vw;
-        margin: 1.25vw 0.781vw 0 0.781vw;
+        margin: 1.05vw 0.781vw 0 0.781vw;
         font-size: 2.188vw;
     }
     .language-list li.active {
         background-color: #60a5fa;
         color: #fff;
     }
-    .course-card-container,
     .search-card-container {
-        padding: 1.875vw 3.125vw 3.438vw;
+        padding: 0 3.153vw 0 4.953vw;
         width: 100%;
     }
-    .course-card {
-        width: 100%;
+    .card-container .card-list {
         float: none;
-        margin-right: 0;
-        margin-bottom: 4.375vw;
-        box-shadow: rgba(0, 0, 0, 0.1) 0vw 0.625vw 1.875vw;
-        padding-bottom: 1.875vw;
-        border-radius: 0.781vw;
-    }
-    .course-card-img {
-        transition: 0.7s;
-        height: 31.25vw;
-    }
-    .course-card:hover {
-        box-shadow: rgba(0, 0, 0, 0.35) 0vw 0.781vw 2.344vw;
-    }
-    .course-card:hover img {
-        filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.35));
-    }
-    .course-card:nth-child(3n) {
-        margin-right: 4.688vw;
-    }
-    .course-card:nth-child(2n) {
-        margin-right: 0;
-    }
-    .course-card-img {
         width: 100%;
-        transition: 0.7s;
-    }
-    .course-txt-blk {
-        padding-left: 1.719vw;
-        padding-top: 2.031vw;
-    }
-    .course-card-ttl {
-        font-weight: 500;
-        font-size: 2.5vw;
-    }
-    .course-card-type {
-        font-weight: 400;
-        margin: 2.813vw 0 4.063vw;
-        font-size: 2.344vw;
-    }
-    .course-card-type span {
-        color: #fff;
-        font-size: 2.344vw;
-    }
-
-    .course-card-type.paid span {
-        background-color: #60a5fa;
-        color: #fff;
-    }
-
-    .course-card-fee {
-        font-weight: 400;
-        margin: 2.344vw 0 4.063vw 0;
-        font-size: 2.344vw;
-    }
-    .course-card-fee span {
-        color: #fff;
-        padding-left: 3.125vw;
-        font-weight: 500;
-        background-color: #60a5fa;
-        padding: 0.781vw;
-        border-radius: 1.563vw;
-        margin-left: 3.75vw;
-        font-size: 2.344vw;
-    }
-
-    .course-card-language li {
-        display: inline-block;
-        background-color: #60a5fa;
-        color: #fff;
-        padding: 1.719vw 2.656vw;
-        border-radius: 1.563vw;
-        margin: 0 0.781vw 0 0;
-        font-size: 2.188vw;
+        margin-right: 8.281vw;
+        margin-bottom: 5.813vw;
     }
 }

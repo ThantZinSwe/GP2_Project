@@ -181,6 +181,7 @@ img {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     display: none;
+    z-index: 99999;
 }
 
 .dd-menu .dd-left {
@@ -277,12 +278,10 @@ img {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    margin-bottom: 9px;
 }
 
 .pagination li {
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
     text-align: center;
     color: #333;
     font-size: 16px;
@@ -302,7 +301,9 @@ img {
 
 .pagination li a,
 .pagination li span {
+    display: block;
     color: #2e2e2e;
+    padding: 15px 20px;
 }
 
 .pagination li:hover {
@@ -393,6 +394,7 @@ img {
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
         border-radius: 15px;
         display: none;
+        z-index: 99999;
     }
 
     .dd-menu .dd-left {
@@ -478,13 +480,47 @@ img {
         font-size: 1.823vw;
     }
 
+    .pagination {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        margin-bottom: 9px;
+    }
+    
     .pagination li {
-        width: 7.813vw;
-        height: 7.813vw;
-        line-height: 7.813vw;
+        text-align: center;
         color: #333;
-        font-size: 2.083vw;
-        margin-left: 2.604vw;
+        font-size: 16px;
+        font-weight: 700;
+        transition: 0.3s linear;
+        border-radius: 50%;
+        margin-left: 20px;
+    }
+    
+    .pagination li.active {
+        background-color: #86b6e4;
+    }
+    
+    .pagination li.active span {
+        color: #ffffff;
+    }
+    
+    .pagination li a,
+    .pagination li span {
+        display: block;
+        color: #2e2e2e;
+        padding: 15px 20px;
+    }
+    
+    .pagination li:hover {
+        background-color: #86b6e4;
+    }
+    
+    .pagination li:hover a,
+    .pagination li:hover span {
+        color: #ffffff;
     }
 }
 
@@ -636,6 +672,7 @@ img {
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
         border-radius: 15px;
         display: none;
+        z-index: 99999;
     }
 
     .dd-menu .dd-left {
@@ -722,12 +759,46 @@ img {
         font-size: 2.188vw;
     }
 
+    .pagination {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        margin-bottom: 1.406vw;
+    }
+    
     .pagination li {
-        width: 9.375vw;
-        height: 9.375vw;
-        line-height: 9.375vw;
+        text-align: center;
         color: #333;
         font-size: 2.5vw;
+        font-weight: 700;
+        transition: 0.3s linear;
+        border-radius: 50%;
         margin-left: 3.125vw;
+    }
+    
+    .pagination li.active {
+        background-color: #86b6e4;
+    }
+    
+    .pagination li.active span {
+        color: #ffffff;
+    }
+    
+    .pagination li a,
+    .pagination li span {
+        display: block;
+        color: #2e2e2e;
+        padding: 2.344vw 3.125vw;
+    }
+    
+    .pagination li:hover {
+        background-color: #86b6e4;
+    }
+    
+    .pagination li:hover a,
+    .pagination li:hover span {
+        color: #ffffff;
     }
 }

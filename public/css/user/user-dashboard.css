@@ -258,7 +258,7 @@
 /*Ipad*/
 @media screen and (min-width: 768px) and (max-width: 1180px) {
     body {
-        font-size: 2.083vw;
+        font-size: 15.997px;
     }
 
     .l-container,
@@ -276,66 +276,107 @@
         right: 0;
         left: 0;
         width: 100%;
-        height: 3px;
+        height: 3.003px;
         content: "";
     }
 
     .g-nav ul li {
-        margin-right: 2.906vw;
+        margin-right: 22.318px;
     }
     .profile-name {
-        padding: 1.432vw 1.172vw;
+        padding: 10.998px 9.001px;
         background-color: rgb(255, 64, 129);
         color: #ffffff;
         border-radius: 50%;
         text-align: center;
         font-weight: 500;
+        font-size: 1.953vw;
     }
     .dashboard-content .profile-name {
-        padding: 20px 25px;
+        padding: 2.604vw 3.255vw;
     }
 
     .dashboard-ttl {
-        margin: 30px 0;
+        margin: 3.906vw 0;
         color: #60a5fa;
-        font-size: 29px;
+        font-size: 3.776vw;
         text-align: center;
     }
-
-    .sec-user-dashboard {}
-
+    .main-visual {
+        padding: 1.302vw 0 19.271vw;
+        border-bottom-left-radius: 12.24vw;
+        border-bottom-right-radius: 12.24vw;
+        background: linear-gradient(90deg, rgba(14,44,83,1) 11%, rgba(45,152,226,1) 82%);
+    }
+    .dashboard-l-inner {
+        margin-top: -12.109vw;
+    }
+    .main-visual h2 {
+        color: rgb(255 255 255);
+    }
+    .wrap-custom-file {
+        position: relative;
+        display: inline-block;
+        width: 28.552vw;
+        margin: 0 0.5rem 1rem;
+        text-align: center;
+      }
+      
+      .wrap-custom-file input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0.26vw;
+        height: 0.26vw;
+        overflow: hidden;
+        opacity: 0;
+      }
+      .wrap-custom-file label #custom-file {
+        padding: 1.302vw 1.953vw;
+        background-color: #0092ef;
+        color: #fff;
+        border-radius: 0.651vw;
+      }
+      
+      #user-edit-profile .profile-name.file-ok {
+        background-size: cover;
+        background-position: center;
+      }
+    
+      
+    /*end template*/
     .sec-user-dashboard .alert {
         position: absolute;
         top: 10%;
-        right: 0px;
-        padding: 20px 40px;
+        right: 0vw;
+        padding: 2.604vw 5.208vw;
         background: #0092ef;
-        min-width: 420px;
-        border-radius: 4px;
-        border-left: 8px solid #0092ef;
+        min-width: 54.688vw;
+        border-radius: 0.521vw;
+        border-left: 1.042vw solid #0092ef;
         animation: show_slide 1s ease forwards;
     }
 
     .sec-user-dashboard .alert .fa-circle-check {
         position: absolute;
         top: 50%;
-        left: 20px;
+        left: 2.604vw;
         color: #fff;
-        font-size: 30px;
+        font-size: 3.906vw;
         transform: translateY(-50%);
     }
 
     .sec-user-dashboard .alert .msg {
-        padding: 0 20px;
+        padding: 0 2.604vw;
         color: #fff;
-        font-size: 18px;
+        font-size: 2.344vw;
     }
 
     .sec-user-dashboard .alert .close-btn {
         position: absolute;
         top: 50%;
         right: 0;
-        padding: 8px 18px;
+        padding: 1.042vw 2.344vw;
         background: #0092ef;
         cursor: pointer;
         transform: translateY(-50%);
@@ -346,9 +387,9 @@
     }
 
     .sec-user-dashboard .alert .close-btn .fa-xmark {
-        line-height: 40px;
+        line-height: 5.208vw;
         color: #86b6e4;
-        font-size: 22px;
+        font-size: 2.865vw;
     }
 
     .sec-user-dashboard .alert.hide {
@@ -356,19 +397,19 @@
     }
 
     .error {
-        padding-top: 4px;
+        padding-top: 0.521vw;
         color: rgb(255 68 68);
     }
 
     .dashboard-mv-blk {}
 
     .dashboard-card {
-        width: 70%;
-        margin: 0 auto 25px;
-        border-radius: 20px;
-        /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
-        padding-bottom: 12px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 80%;
+        margin: 0 auto 3.255vw;
+        border-radius: 2.604vw;
+        /*box-shadow: rgba(0, 0, 0, 0.1) 0vw 0.521vw 1.563vw;*/
+        padding-bottom: 1.563vw;
+        box-shadow: rgba(0, 0, 0, 0.35) 0vw 0.651vw 1.953vw;
         transition: 0.7s;
     }
 
@@ -380,13 +421,13 @@
     .dashboard-content {
         float: right;
         width: 80%;
-        padding: 15px;
+        padding: 1.953vw;
     }
 
     .dashboard-aside li {
         width: 92%;
-        margin: 30px 0px 34px 20px;
-        padding: 15px 10px;
+        margin: 3.906vw 0vw 4.427vw 2.604vw;
+        padding: 1.953vw 0.302vw;
     }
 
     .dashboard-aside li.active a {
@@ -394,7 +435,7 @@
     }
 
     .dashboard-aside li:last-child {
-        margin-top: 10px;
+        margin-top: 1.302vw;
     }
 
     .dashboard-aside li:last-child a {
@@ -405,7 +446,7 @@
     .dashboard-aside li a {
         color: rgb(136 136 136);
         font-family: 'Roboto-Regular';
-        font-size: 17px;
+        font-size: 2.214vw;
         font-weight: 500;
     }
 
@@ -415,13 +456,13 @@
     }
 
     .divider {
-        margin: 0 12px;
-        border: 0.2px solid rgba(136, 136, 136, 0.5);
+        margin: 0 1.563vw;
+        border: 0.026vw solid rgba(136, 136, 136, 0.5);
     }
 
     /* --------------- Profile Edit ------------------ */
     .profile-input-group {
-        margin: 10px auto 15px;
+        margin: 1.302vw auto 1.953vw;
     }
 
     .profile-input-group label {
@@ -432,54 +473,56 @@
     .profile-input-group textarea {
         display: block;
         width: 100%;
-        margin-top: 12px;
-        padding: 10px;
-        border: 1px solid rgb(229 231 235);
+        margin-top: 1.563vw;
+        padding: 1.302vw;
+        border: 0.13vw solid rgb(229 231 235);
         outline: none;
     }
 
     #user-edit-profile button,
     #user-password button {
         float: right;
-        padding: 10px 12px;
-        border: 1px solid transparent;
+        padding: 1.302vw 1.563vw;
+        border: 0.13vw solid transparent;
         background-color: rgb(0 146 239);
         color: #fff;
         transition: 0.7s;
-        border-radius: 4px;
+        border-radius: 0.521vw;
     }
 
     #user-edit-profile button:hover,
     #user-password button:hover {
-        border: 1px solid rgb(0 146 239);
+        border: 0.13vw solid rgb(0 146 239);
         background-color: #fff;
         color: rgb(0 146 239);
     }
 
     /* --------------- User Courses ---------------------- */
     #user-course .card {
-        padding: 16px 0 0 15px;
+        padding: 3.083vw 0 0 1.953vw;
     }
     #user-course h2 {
-        margin: 10px 0 11px -3px;
+        margin: 1.302vw 0 1.432vw -0.391vw;
         font-family: 'Roboto-Regular';
-        font-size: 24px;
+        font-size: 3.125vw;
         font-weight: 500;
     }
     
     #user-course .card .card-list {
-        float: left;
-        width: 46.33%;
-        margin-right: 19px;
-        box-shadow: rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em, rgb(0 0 0 / 25%) 0px 0.125em 0.5em, rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
-        border-radius: 10px;
-        border: 3px solid #ddd;
+        float: none;
+        width: 70.33%;
+        margin: 0 auto 3.646vw;
+        box-shadow: rgb(0 0 0 / 25%) 0vw 0.0625em 0.0625em, rgb(0 0 0 / 25%) 0vw 0.125em 0.5em, rgb(255 255 255 / 10%) 0vw 0vw 0vw 0.13vw inset;
+        border-radius: 1.302vw;
+        border: 0.391vw solid #ddd;
         transition: all 0.5s;
-        margin-bottom: 28px;
     }
     
     #user-course .card .card-list:nth-child(2n) {
-        margin-right: 0;
+        margin: 0 auto 3.646vw;
+    }
+    .dashboard-content form {
+        padding-right: 0;
     }
 
 }
@@ -508,18 +551,18 @@
     .profile-toggle-name {
         display: block;
         position: absolute;
-        top: 22px;
-        right: 65px;
+        top: 3.438vw;
+        right: 10.156vw;
         padding: 1.0102vw 1.053vw;
         background-color: rgb(255, 64, 129);
         border-radius: 50%;
         text-align: center;
         color: #ffffff;
-        font-size: 15px;
+        font-size: 2.344vw;
         font-weight: 500;
     }
     .dashboard-content .profile-name {
-        padding: 20px;
+        padding: 3.125vw;
     }
     .g-nav ul li {
         margin-right: 2.906vw;
@@ -541,8 +584,8 @@
     .sec-mv .header .profile-nav.is-show .profile-close-toggle {
         display: block;
         position: absolute;
-        top: 29px;
-        right: 32px;
+        top: 4.531vw;
+        right: 5vw;
     }
 
 
@@ -564,16 +607,22 @@
         position: relative;
         left: 10%;
         float: none;
-        margin-top: 54px;
+        margin-top: 8.438vw;
         margin-bottom: 0.781vw;
     }
 
     .sec-mv .header .profile-nav li a {
         font-weight: 600;
     }
-
+    
+    .sec-mv .header .profile-nav li i{
+        padding-right: 1.406vw;
+    }
+    .sec-mv .header .profile-nav li a:hover {
+        opacity: 0.5;
+    }
     .sec-mv .header .profile-nav .down {
-        margin-left: 11px;
+        margin-left: 1.719vw;
     }
 
     .sec-mv .header .profile-nav .profile-sublist li {
@@ -587,9 +636,20 @@
 
     .sec-mv .header .profile-nav .profile-sublist li {
         left: 8%;
-        margin-top: 39px;
+        margin-top: 6.094vw;
     }
-
+    .main-visual {
+        padding: 1.563vw 0 23.125vw;
+        border-bottom-left-radius: 14.688vw;
+        border-bottom-right-radius: 14.688vw;
+        background: linear-gradient(90deg, rgba(14,44,83,1) 11%, rgba(45,152,226,1) 82%);
+    }
+    .dashboard-l-inner {
+        margin-top: -17.531vw;
+    }
+    .main-visual h2 {
+        color: rgb(255 255 255);
+    }
     .profile-name {
         padding: 1.432vw 1.172vw;
         background-color: rgb(255, 64, 129);
@@ -597,52 +657,84 @@
         border-radius: 50%;
         text-align: center;
         font-weight: 500;
+        font-size: 2.344vw;
     }
     .dashboard-content .profile-name {
         padding: 20px;
     }
     
     .dashboard-ttl {
-        margin: 30px 0;
+        margin: 4.688vw 0;
         color: #60a5fa;
-        font-size: 29px;
+        font-size: 4.531vw;
         text-align: center;
     }
 
-    .sec-user-dashboard {}
+    .wrap-custom-file {
+        position: relative;
+        display: inline-block;
+        width: 28.552vw;
+        margin: 0 0.5rem 1rem;
+        text-align: center;
+      }
+      
+      .wrap-custom-file input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0.26vw;
+        height: 0.26vw;
+        overflow: hidden;
+        opacity: 0;
+      }
+      .wrap-custom-file label #custom-file {
+        padding: 1.302vw 1.953vw;
+        background-color: #0092ef;
+        color: #fff;
+        border-radius: 0.651vw;
+        font-size: 2.344vw;
+      }
+      
+      #user-edit-profile .profile-name.file-ok {
+        background-size: cover;
+        background-position: center;
+      }
+    
+      
+    /*end template*/
 
     .sec-user-dashboard .alert {
         position: absolute;
         top: 10%;
-        right: 0px;
-        padding: 20px 40px;
+        right: 0vw;
+        padding: 3.125vw 6.25vw;
         background: #0092ef;
-        min-width: 420px;
-        border-radius: 4px;
-        border-left: 8px solid #0092ef;
+        min-width: 65.625vw;
+        border-radius: 0.625vw;
+        border-left: 1.25vw solid #0092ef;
         animation: show_slide 1s ease forwards;
     }
 
     .sec-user-dashboard .alert .fa-circle-check {
         position: absolute;
         top: 50%;
-        left: 20px;
+        left: 3.125vw;
         color: #fff;
-        font-size: 30px;
+        font-size: 4.688vw;
         transform: translateY(-50%);
     }
 
     .sec-user-dashboard .alert .msg {
-        padding: 0 20px;
+        padding: 0 3.125vw;
         color: #fff;
-        font-size: 18px;
+        font-size: 2.813vw;
     }
 
     .sec-user-dashboard .alert .close-btn {
         position: absolute;
         top: 50%;
         right: 0;
-        padding: 8px 18px;
+        padding: 1.25vw 2.813vw;
         background: #0092ef;
         cursor: pointer;
         transform: translateY(-50%);
@@ -653,9 +745,9 @@
     }
 
     .sec-user-dashboard .alert .close-btn .fa-xmark {
-        line-height: 40px;
+        line-height: 6.25vw;
         color: #86b6e4;
-        font-size: 22px;
+        font-size: 3.438vw;
     }
 
     .sec-user-dashboard .alert.hide {
@@ -663,19 +755,19 @@
     }
 
     .error {
-        padding-top: 4px;
+        padding-top: 0.625vw;
         color: rgb(255 68 68);
     }
 
     .dashboard-mv-blk {}
 
     .dashboard-card {
-        width: 70%;
-        margin: 0 auto 25px;
-        border-radius: 20px;
+        width: 86%;
+        margin: 0 auto 3.906vw;
+        border-radius: 3.125vw;
         /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
-        padding-bottom: 12px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding-bottom: 1.875vw;
+        box-shadow: rgba(0, 0, 0, 0.35) 0vw 0.781vw 2.344vw;
         transition: 0.7s;
 
     }
@@ -689,13 +781,13 @@
     .dashboard-content {
         float: none;
         width: 100%;
-        padding: 15px;
+        padding: 2.344vw;
     }
 
     .dashboard-aside li {
         width: 92%;
-        margin: 30px 0px 34px 20px;
-        padding: 15px 10px;
+        margin: 4.688vw 0vw 5.313vw 3.125vw;
+        padding: 2.344vw 1.563vw;
     }
 
     .dashboard-aside li.active a {
@@ -703,7 +795,7 @@
     }
 
     .dashboard-aside li:last-child {
-        margin-top: 10px;
+        margin-top: 1.563vw;
     }
 
     .dashboard-aside li:last-child a {
@@ -714,7 +806,7 @@
     .dashboard-aside li a {
         color: rgb(136 136 136);
         font-family: 'Roboto-Regular';
-        font-size: 17px;
+        font-size: 2.656vw;
         font-weight: 500;
     }
 
@@ -724,70 +816,73 @@
     }
 
     .divider {
-        margin: 0 12px;
+        margin: 0 1.875vw;
         border: 0.2px solid rgba(136, 136, 136, 0.5);
     }
 
     /* --------------- Profile Edit ------------------ */
     .profile-input-group {
-        margin: 10px auto 15px;
+        margin: 1.563vw auto 2.344vw;
     }
 
     .profile-input-group label {
         font-weight: 500;
+        font-size: 2.344vw;
     }
 
     .profile-input-group input,
     .profile-input-group textarea {
         display: block;
         width: 100%;
-        margin-top: 12px;
-        padding: 10px;
-        border: 1px solid rgb(229 231 235);
+        margin-top: 1.875vw;
+        padding: 1.563vw;
+        border: 0.156vw solid rgb(229 231 235);
         outline: none;
+        font-size: 2.344vw;
     }
 
     #user-edit-profile button,
     #user-password button {
         float: right;
-        padding: 10px 12px;
-        border: 1px solid transparent;
+        padding: 1.563vw 1.875vw;
+        border: 0.156vw solid transparent;
         background-color: rgb(0 146 239);
         color: #fff;
         transition: 0.7s;
-        border-radius: 4px;
+        border-radius: 0.625vw;
+        font-size: 2.344vw;
     }
 
     #user-edit-profile button:hover,
     #user-password button:hover {
-        border: 1px solid rgb(0 146 239);
+        border: 0.156vw solid rgb(0 146 239);
         background-color: #fff;
         color: rgb(0 146 239);
     }
 
     /* --------------- User Courses ---------------------- */
     #user-course .card {
-        padding: 16px 0 0 15px;
+        padding: 2.5vw 0 0 2.344vw;
     }
     #user-course h2 {
-        margin: 10px 0 11px -3px;
+        margin: 1.563vw 0 1.719vw -0.469vw;
         font-family: 'Roboto-Regular';
-        font-size: 24px;
+        font-size: 3.75vw;
         font-weight: 500;
     }
     
     #user-course .card .card-list {
-        float: left;
-        width: 46.33%;
-        margin-right: 19px;
-        box-shadow: rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em, rgb(0 0 0 / 25%) 0px 0.125em 0.5em, rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
-        border-radius: 10px;
-        border: 3px solid #ddd;
+        float: none;
+        width: 70.33%;
+        margin: 0 auto 4.375vw;
+        box-shadow: rgb(0 0 0 / 25%) 0vw 0.0625em 0.0625em, rgb(0 0 0 / 25%) 0vw 0.125em 0.5em, rgb(255 255 255 / 10%) 0vw 0vw 0vw 0.156vw inset;
+        border-radius: 1.563vw;
+        border: 0.469vw solid #ddd;
         transition: all 0.5s;
-        margin-bottom: 28px;
+        margin-bottom: 4.375vw;
     }
     
     #user-course .card .card-list:nth-child(2n) {
-        margin-right: 0;
+        margin: 0 auto 4.375vw !important;
     }
 }

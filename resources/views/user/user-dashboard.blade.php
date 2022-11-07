@@ -50,7 +50,23 @@
                         <form action="{{ route('user.profile.post', Auth::id()) }}" method="POST" class="clearfix" enctype="multipart/form-data">
                             @csrf
                             <div class="profile-img-container">
-                                <span class="profile-name"><i class="fa-solid fa-circle-xmark"></i>{{Session::get('acronym')}}</span>
+                                @php
+                                $words = explode(" ", Auth::user()->name );
+                                $acronym = "";
+                                if(count($words) == 1){
+                                   $acronym = strtoupper(mb_substr($words[0], 0, 2));
+                                   Session::put('acronym', $acronym);
+                                }else {
+                                    foreach ($words as $i => $w) {
+                                        if($i < 2){
+                                            $acronym .= strtoupper(mb_substr($w, 0, 1));
+                                        }
+                                    }
+                                    Session::put('acronym', $acronym);
+                                }
+                        
+                                @endphp
+                                <span class="profile-name"><i class="fa-solid fa-circle-xmark"></i>{{Session::get('acronym')?? Auth::user()->name}}</span>
                                 <div class="wrap-custom-file">
                                     <input type="file" name="profile_img" id="image1" accept=".gif, .jpg, .png" />
                                     <label  for="image1">

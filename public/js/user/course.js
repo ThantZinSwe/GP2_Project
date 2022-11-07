@@ -267,6 +267,17 @@ $(document).ready(function () {
         $('.search-icon').show()
         $(this).css('padding-left', '49px')
     })
+    if ($(window).width() <= 640) {
+        $('.search-input').on('blur', function () {
+            $('.search-icon').show()
+            $(this).css('padding-left', '6.363vw')
+        })
+        $('.search-input').on('focus', function () {
+            $('.search-icon').hide()
+            $(this).css('padding-left', '6.363vw')
+        })
+    }
+
     $('.search-icon').on('click', function () {
         $('.search-input').focus()
     })

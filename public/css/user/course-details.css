@@ -718,6 +718,9 @@
     }
 
     /* Course Card */
+    .card{
+        margin: 0 auto;
+    }
     .card .card-img .type {
         top: 10%;
         left: 0;
@@ -826,7 +829,7 @@
 
     .alert-error .msg {
         padding: 0 2.604vw;
-        font-size: 15px;
+        font-size: 2.344vw;
         color: #ce8500;
     }
 
@@ -1034,6 +1037,9 @@
     }
 
     /* Course Card */
+    .card{
+        margin: 0 auto;
+    }
     .card .card-img .type {
         top: 10%;
         left: 0;
@@ -1047,10 +1053,7 @@
         border-top-left-radius: 1.563vw;
         border-top-right-radius: 1.563vw;
     }
-    .card{
-        width: 320px;
-        margin: 0 auto;
-    }
+
     .card .card-list {
         float: none;
         width: 100%;

@@ -77,7 +77,12 @@
 
               </nav>
                 <p class="profile-toggle">
-                    <span class="profile-toggle-name">{{ $acronym ?? '' }}</span>
+                    @php
+                        if(isset($acronym)){
+                            echo "<span class='profile-toggle-name'>$acronym</span>";
+                        }
+                    @endphp
+                   
                     <div class="dropdown profile-nav">
                         <i class="fa-solid fa-xmark fa-xl profile-close-toggle"></i>
                         <li class="profile-list">
