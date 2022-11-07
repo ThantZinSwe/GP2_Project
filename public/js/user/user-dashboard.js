@@ -8,6 +8,8 @@ $(function () {
     $('.dashboard-aside li:first-child').addClass('active');
     $('.dashboard-content .dashboard-blk').hide();
     $('.dashboard-content .dashboard-blk:first').show();
+       //$( location.href.split('#')[1]).fadeIn(500)
+    
   }
   $('.profile-list .user-dashboard').click(function () {
     $('.sec-mv .header .profile-nav .profile-sublist li').toggleClass('show');
@@ -32,9 +34,10 @@ $(function () {
     console.log('click')
     $('.dashboard-content .dashboard-blk').hide();
     let activeTab = $(this).find('a').attr('href');
-    //window.location.replace('http://127.0.0.1:8000/user-dashboard')
-    console.log(activeTab)
+    window.location.replace(`http://127.0.0.1:8000/user-dashboard${activeTab}`)
+    //console.log(activeTab)
     $(".sec-mv .header .profile-nav").removeClass("is-show");
+ 
     $(activeTab).fadeIn(500);
     return false;
   });
