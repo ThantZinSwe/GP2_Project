@@ -10,6 +10,7 @@ use App\Mail\RegisterMail;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -33,6 +34,7 @@ class AuthDao implements AuthDaoInterface
             'role_id' => 2
         ]);
         Mail::to($user->email)->send(new RegisterMail($user));
+        Auth::attempt(['email' => $request->email, 'password' => $request->password]);
         return redirect('/register');
     }
      /**
