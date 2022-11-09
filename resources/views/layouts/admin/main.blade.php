@@ -25,6 +25,9 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">
   <link rel="stylesheet" href="{{asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+
+  {{-- Viewer js --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.1/viewer.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -49,19 +52,22 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-bell"></i>
-            @if ($pendingEnrollCount != 0)
+            @if (isset($pendingEnrollCount) != 0)
             <span class="badge badge-warning navbar-badge">
                 {{$pendingEnrollCount}}
             </span>
             @endif
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-item dropdown-header">{{$pendingEnrollCount}} Notifications</span>
-            @if ($pendingEnrollCount != 0)
+            <span class="dropdown-item dropdown-header">{{$pendingEnrollCount ?? "0"}} Notifications</span>
+            @if (isset($pendingEnrollCount) != 0)
             <div class="dropdown-divider"></div>
             <a href="{{route('admin.enroll.index')}}" class="dropdown-item">
                 <i class="fas fa-envelope mr-2"></i> {{$pendingEnrollCount}} new enrolls
+
+                @if (isset($latestEnrollTime))
                 <span class="float-right text-muted text-sm">{{$latestEnrollTime->created_at->diffForHumans()}}</span>
+                @endif
             </a>
             @else
             <div class="dropdown-divider"></div>
@@ -237,6 +243,8 @@
 <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('admin/dist/js/demo.js')}}"></script>
+{{-- Viewer js --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.1/viewer.min.js"></script>
 
 </body>
 <script>

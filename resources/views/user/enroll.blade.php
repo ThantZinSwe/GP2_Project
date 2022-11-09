@@ -3,8 +3,7 @@
     <section class="enroll-sec">
         <div class="l-inner">
             <h1 class="enroll-ttl">{{$course->name}} Course Enroll</h1>
-
-
+            <p class="enroll-price">Cost : {{$course->price}} Ks</p>
             @if (Session::has('error'))
                 <div class="alert-error">
                     <i class="fa-solid fa-circle-exclamation"></i>
@@ -23,27 +22,24 @@
                     </span>
                 </div>
             @endif
-        
+
             <div class="form">
-                <form action="{{route('user.store.enroll',$course->slug)}}" method="POST">
+                <form action="{{route('user.store.enroll',$course->slug)}}" method="POST" enctype="multipart/form-data">
                     @csrf
+
                     <div class="text-field">
-                        <span>Amount</span>
-                        <input type="number" name="amount" value="{{old('amount')}}">
-                        @error('amount')
+                        <span>Payment Image</span>
+                        <input type="file" name="image" class="payment-image">
+                        @error('image')
                             <span style="color: red;margin-top:10px;">{{$message}}</span>
                         @enderror
                     </div>
 
+
                     <div class="text-field">
-                        <span>Payment Method</span>
-                        <select name="payment" id="">
-                            <option value="">Choose Payment Method...</option>
-                            <option value="card" {{old('payment') == "card" ? 'selected' : ''}}>Card</option>
-                            <option value="cash" {{old('payment') == "cash" ? 'selected' : ''}}>Cash</option>
-                            <option value="kpay" {{old('payment') == "kpay" ? 'selected' : ''}}>Kpay</option>
-                        </select>
-                        @error('payment')
+                        <span>Phone</span>
+                        <input type="text" name="phone" value="{{old('phone')}}">
+                        @error('phone')
                             <span style="color: red;margin-top:10px;">{{$message}}</span>
                         @enderror
                     </div>

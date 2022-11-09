@@ -50,8 +50,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+        $status = Payment::count();
 
-        View::share('pendingEnrollCount', Payment::where('status', 'pending')->count());
-        View::share('latestEnrollTime', Payment::where('status', 'pending')->orderBy('id', 'desc')->first());
+        if ($status > 0) {
+            View::share('pendingEnrollCount', Payment::where('status', 'pending')->count());
+            View::share('latestEnrollTime', Payment::where('status', 'pending')->orderBy('id', 'desc')->first());
+        }
+
     }
+
 }

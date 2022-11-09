@@ -30,7 +30,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{ route('admin.language.edit',"$language->slug") }}" method="post">
+                    <form action="{{ route('admin.language.update',"$language->slug") }}" method="post">
                       @csrf
                       <div class="card-body">
                         <div class="form-group">

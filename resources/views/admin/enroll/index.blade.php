@@ -49,8 +49,8 @@
                     <th>#</th>
                     <th>User Name</th>
                     <th>Course Name</th>
-                    <th>Amount</th>
-                    <th>Payment Method</th>
+                    <th>Phone</th>
+                    <th>Payment Image</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -61,8 +61,13 @@
                         <td>{{++$key}}</td>
                         <td>{{$enroll->user->name}}</td>
                         <td>{{$enroll->course->name}}</td>
-                        <td>{{$enroll->amount}} Ks</td>
-                        <td>{{$enroll->payment_method}} </td>
+                        <td>{{$enroll->phone}}</td>
+                        <td>
+                            @if (isset($enroll->image))
+                                <img src="{{asset('images/enroll/'.$enroll->image)}}" alt="" width="100" id="image" style="cursor: pointer">
+                            @else
+                            @endif
+                        </td>
                         <td class="text-center">
                             <span class="badge badge-pill badge-danger">{{$enroll->status}}</span>
                         </td>
@@ -88,4 +93,14 @@
       <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+@endsection
+@section('script')
+    <script>
+        const viewer = new Viewer(document.getElementById('image'), {
+
+            viewed() {
+                viewer.zoomTo(1);
+            },
+        });
+    </script>
 @endsection
