@@ -5,7 +5,15 @@
             <h3 class="course-details-ttl"><i class="fa-brands fa-codepen"></i> {{$course->name}} Course Details</h3>
             {{-- Course Details And Video --}}
             <div class="course-details-blk clearfix">
-
+                @if (Session::has('success'))
+                    <div class="alert">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span class="msg">Success : {{Session::get('success')}}</span>
+                        <span class="close-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </span>
+                    </div>
+                 @endif
                 @if (Session::has('error'))
                     <div class="alert-error">
                         <i class="fa-solid fa-circle-exclamation"></i>

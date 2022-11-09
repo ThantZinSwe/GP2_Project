@@ -13,15 +13,7 @@
                     </span>
                 </div>
             @endif
-            @if (Session::has('success'))
-                <div class="alert">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span class="msg">Success : {{Session::get('success')}}</span>
-                    <span class="close-btn">
-                        <i class="fa-solid fa-xmark"></i>
-                    </span>
-                </div>
-            @endif
+
 
             <div class="form">
                 <form action="{{route('user.store.enroll',$course->slug)}}" method="POST" enctype="multipart/form-data">

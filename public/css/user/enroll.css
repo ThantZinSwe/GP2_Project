@@ -17,7 +17,7 @@
     margin-top: 15px;
 }
 
-.enroll-sec .alert {
+.alert {
     background: #0092ef;
     padding: 20px 40px;
     min-width: 420px;
@@ -29,7 +29,7 @@
     animation: show_slide 1s ease forwards;
 }
 
-.enroll-sec .alert .fa-circle-check {
+.alert .fa-circle-check {
     position: absolute;
     left: 20px;
     top: 50%;
@@ -38,13 +38,13 @@
     font-size: 30px;
 }
 
-.enroll-sec .alert .msg {
+.alert .msg {
     padding: 0 20px;
     font-size: 18px;
     color: #fff;
 }
 
-.enroll-sec .alert .close-btn {
+.alert .close-btn {
     position: absolute;
     right: 0;
     top: 50%;
@@ -54,17 +54,17 @@
     cursor: pointer;
 }
 
-.enroll-sec .alert .close-btn:hover {
+.alert .close-btn:hover {
     background: #0092ef;
 }
 
-.enroll-sec .alert .close-btn .fa-xmark {
+.alert .close-btn .fa-xmark {
     color: #86b6e4;
     font-size: 22px;
     line-height: 40px;
 }
 
-.enroll-sec .alert.hide {
+.alert.hide {
     animation: hide_slide 1s ease forwards;
 }
 
@@ -144,19 +144,19 @@
         margin-top: 1.953vw;
     }
 
-    .enroll-sec .alert {
+    .alert {
         background: #0092ef;
         padding: 1.693vw 5.208vw;
         min-width: 54.688vw;
         position: absolute;
         right: -0.698vw;
-        top: 5.5%;
+        top: 2.5%;
         border-radius: 0.521vw;
         border-left: 1.042vw solid #0092ef;
         animation: show_slide 1s ease forwards;
     }
 
-    .enroll-sec .alert .fa-circle-check {
+    .alert .fa-circle-check {
         position: absolute;
         left: 2.604vw;
         top: 50%;
@@ -165,13 +165,13 @@
         font-size: 3.906vw;
     }
 
-    .enroll-sec .alert .msg {
+    .alert .msg {
         padding: 0 2.604vw;
         font-size: 2.344vw;
         color: #fff;
     }
 
-    .enroll-sec .alert .close-btn {
+    .alert .close-btn {
         position: absolute;
         right: 0;
         top: 50%;
@@ -181,17 +181,17 @@
         cursor: pointer;
     }
 
-    .enroll-sec .alert .close-btn:hover {
+    .alert .close-btn:hover {
         background: #0092ef;
     }
 
-    .enroll-sec .alert .close-btn .fa-xmark {
+    .alert .close-btn .fa-xmark {
         color: #86b6e4;
         font-size: 2.865vw;
         line-height: 5.208vw;
     }
 
-    .enroll-sec .alert.hide {
+    .alert.hide {
         animation: hide_slide 1s ease forwards;
     }
     .enroll-sec .form {
@@ -255,19 +255,19 @@
     }
 }
 @media screen and (max-width: 767.9px) {
-    .enroll-sec .alert {
+    .alert {
         background: #0092ef;
         padding: 1.875vw 5.313vw;
         min-width: 56.719vw;
         position: absolute;
         right: -0.698vw;
-        top: 5.5%;
+        top: 2.5%;
         border-radius: 0.625vw;
         border-left: 1.25vw solid #0092ef;
         animation: show_slide 1s ease forwards;
     }
 
-    .enroll-sec .alert .fa-circle-check {
+    .alert .fa-circle-check {
         position: absolute;
         left: 3.125vw;
         top: 50%;
@@ -276,13 +276,13 @@
         font-size: 4.688vw;
     }
 
-    .enroll-sec .alert .msg {
+    .alert .msg {
         padding: 0 3.125vw;
         font-size: 2.044vw;
         color: #fff;
     }
 
-    .enroll-sec .alert .close-btn {
+    .alert .close-btn {
         position: absolute;
         right: 0;
         top: 50%;
@@ -292,17 +292,17 @@
         cursor: pointer;
     }
 
-    .enroll-sec .alert .close-btn:hover {
+    .alert .close-btn:hover {
         background: #0092ef;
     }
 
-    .enroll-sec .alert .close-btn .fa-xmark {
+    .alert .close-btn .fa-xmark {
         color: #86b6e4;
         font-size: 3.438vw;
         line-height: 6.25vw;
     }
 
-    .enroll-sec .alert.hide {
+    .alert.hide {
         animation: hide_slide 1s ease forwards;
     }
     .enroll-sec {
