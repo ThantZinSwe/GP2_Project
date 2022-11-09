@@ -17,8 +17,8 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->foreignId('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('amount');
-            $table->enum('payment_method', ['cash', 'card', 'kpay']);
+            $table->text('image')->nullable();
+            $table->string('phone');
             $table->enum('status', ['pending', 'accepted']);
             $table->timestamps();
         });

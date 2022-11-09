@@ -279,10 +279,13 @@ class CourseDao implements CourseDaoInterface
         $enroll = "";
         $comments = Comment::where('course_id', $course->id)->orderBy('id', 'desc')->get();
         if (Auth::check()) {
-            $enroll = Payment::where('user_id', auth()->user()->id)
-                ->where('course_id', $course->id)
-                ->where('status', 'accepted')
-                ->first();
+            if (Payment::count() > 0) {
+                $enroll = Payment::where('user_id', auth()->user()->id)
+                    ->where('course_id', $course->id)
+                    ->where('status', 'accepted')
+                    ->first();
+            }
+
         }
 
         if (!$course) {
@@ -310,10 +313,12 @@ class CourseDao implements CourseDaoInterface
         }
 
         if (Auth::check() && $course->type == "paid") {
-            $enroll = Payment::where('user_id', auth()->user()->id)
-                ->where('course_id', $course->id)
-                ->where('status', 'accepted')
-                ->first();
+            if (Payment::count() > 0) {
+                $enroll = Payment::where('user_id', auth()->user()->id)
+                    ->where('course_id', $course->id)
+                    ->where('status', 'accepted')
+                    ->first();
+            }
 
             if (isset($enroll)) {
                 return compact('course', 'courseVideo', 'latestCourses', 'enroll', 'comments');
@@ -334,9 +339,11 @@ class CourseDao implements CourseDaoInterface
     public function enroll($slug)
     {
         $course = Course::where('slug', $slug)->first();
-        $enroll = Payment::where('course_id', $course->id)
-            ->where('user_id', auth()->user()->id)
-            ->first();
+        if (Payment::count() > 0) {
+            $enroll = Payment::where('course_id', $course->id)
+                ->where('user_id', auth()->user()->id)
+                ->first();
+        }
 
         if (isset($enroll)) {
             return ['enrollError' => 'You already enroll.Please wait confirm from admin team'];
@@ -357,11 +364,18 @@ class CourseDao implements CourseDaoInterface
             $enroll = new Payment();
             $enroll->course_id = $course->id;
             $enroll->user_id = auth()->user()->id;
-            $enroll->amount = $request->amount;
-            $enroll->payment_method = $request->payment;
+            $enroll->phone = $request->phone;
+
+            $file = $request->file('image');
+            $fileName = uniqid() . '-' . $file->getClientOriginalName();
+            $file->move(public_path() . '/images/enroll/', $fileName);
+            $enroll->image = $fileName;
+
             $enroll->status = "pending";
 
             $enroll->save();
+
+            return true;
         } else {
             return ['authError' => 'Please Login first!'];
         }

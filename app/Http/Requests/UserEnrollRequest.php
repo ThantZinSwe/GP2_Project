@@ -24,8 +24,8 @@ class UserEnrollRequest extends FormRequest
     public function rules()
     {
         return [
-            'amount'  => 'required',
-            'payment' => 'required',
+            'phone' => 'required|max:11|regex:/(0)[0-9]{9}/',
+            'image' => 'required',
         ];
     }
 }

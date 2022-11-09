@@ -30,7 +30,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{ Route('admin.language.create') }}" method="post">
+                    <form action="{{ Route('admin.language.store') }}" method="post">
                       @csrf
                       <div class="card-body">
                         <div class="form-group">

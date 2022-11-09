@@ -52,9 +52,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-history']]
     //languages
     Route::get('/languages', [CodeLanguageController::class, 'index'])->name('admin.language.list');
     Route::get('/languages/create', [CodeLanguageController::class, 'showCreateForm'])->name('admin.language.create');
-    Route::post('/languages/create', [CodeLanguageController::class, 'create'])->name('admin.language.create');
+    Route::post('/languages/create', [CodeLanguageController::class, 'create'])->name('admin.language.store');
     Route::get('/languages/update/{slug}', [CodeLanguageController::class, 'showUpdateForm'])->name('admin.language.edit');
-    Route::post('/languages/update/{slug}', [CodeLanguageController::class, 'update'])->name('admin.language.edit');
+    Route::post('/languages/update/{slug}', [CodeLanguageController::class, 'update'])->name('admin.language.update');
     Route::delete('/languages/delete/{slug}', [CodeLanguageController::class, 'delete'])->name('admin.language.delete');
 
     //Course
@@ -103,9 +103,7 @@ Route::group(['middleware' => ['prevent-history']], function () {
 });
 // User
 
-
-
-Route::group(['prefix' => 'user-dashboard', 'middleware' =>  ['user', 'prevent-history']], function () {
+Route::group(['prefix' => 'user-dashboard', 'middleware' => ['user', 'prevent-history']], function () {
     Route::get('/', [UserDashboardController::class, 'index'])->name('user.dashboard');
     Route::post('/edit/{id}', [UserDashboardController::class, 'submitUserProfile'])->name('user.profile.post');
     Route::post('/password-change/{id}', [UserDashboardController::class, 'changeUserPassword'])->name('user.password.change');

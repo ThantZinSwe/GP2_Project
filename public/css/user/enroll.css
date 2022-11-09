@@ -9,6 +9,14 @@
     font-weight: 700;
 }
 
+.enroll-price {
+    text-align: center;
+    color: #232323;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
 .enroll-sec .alert {
     background: #0092ef;
     padding: 20px 40px;
@@ -131,6 +139,11 @@
         font-size: 3.506vw;
         font-weight: 700;
     }
+    .enroll-price {
+        font-size: 2.344vw;
+        margin-top: 1.953vw;
+    }
+
     .enroll-sec .alert {
         background: #0092ef;
         padding: 1.693vw 5.208vw;
@@ -142,7 +155,7 @@
         border-left: 1.042vw solid #0092ef;
         animation: show_slide 1s ease forwards;
     }
-    
+
     .enroll-sec .alert .fa-circle-check {
         position: absolute;
         left: 2.604vw;
@@ -151,13 +164,13 @@
         color: #fff;
         font-size: 3.906vw;
     }
-    
+
     .enroll-sec .alert .msg {
         padding: 0 2.604vw;
         font-size: 2.344vw;
         color: #fff;
     }
-    
+
     .enroll-sec .alert .close-btn {
         position: absolute;
         right: 0;
@@ -167,17 +180,17 @@
         padding: 0.13vw 2.344vw;
         cursor: pointer;
     }
-    
+
     .enroll-sec .alert .close-btn:hover {
         background: #0092ef;
     }
-    
+
     .enroll-sec .alert .close-btn .fa-xmark {
         color: #86b6e4;
         font-size: 2.865vw;
         line-height: 5.208vw;
     }
-    
+
     .enroll-sec .alert.hide {
         animation: hide_slide 1s ease forwards;
     }
@@ -187,7 +200,7 @@
         align-items: center;
         justify-content: center;
     }
-    
+
     .enroll-sec .form form {
         background: #fff;
         border-radius: 5px;
@@ -195,17 +208,17 @@
         padding: 20px 40px;
         width: 600px;
     }
-    
+
     .enroll-sec .form form .text-field {
         margin-top: 20px;
     }
-    
+
     .enroll-sec .form form .text-field span {
         display: block;
         color: #232323;
         padding-bottom: 5px;
     }
-    
+
     .enroll-sec .form form input,
     .enroll-sec .form form select {
         width: 100%;
@@ -214,12 +227,12 @@
         border: 1px solid rgba(0, 0, 0, 0.1);
         color: #444;
     }
-    
+
     .enroll-sec .form form select option {
         font-family: "Montserrat", sans-serif;
         font-size: 14px;
     }
-    
+
     .enroll-sec .form form .enroll-btn {
         width: 100%;
         background-color: #60a5fa;
@@ -232,7 +245,7 @@
         transition: 0.2s linear;
         border-radius: 10px;
     }
-    
+
     .enroll-sec .form form .enroll-btn:hover {
         letter-spacing: 1px;
         opacity: 0.8s;
@@ -240,11 +253,8 @@
         color: #60a5fa;
         border: 1px solid #60a5fa;
     }
-    
-    
 }
 @media screen and (max-width: 767.9px) {
-    
     .enroll-sec .alert {
         background: #0092ef;
         padding: 1.875vw 5.313vw;
@@ -256,7 +266,7 @@
         border-left: 1.25vw solid #0092ef;
         animation: show_slide 1s ease forwards;
     }
-    
+
     .enroll-sec .alert .fa-circle-check {
         position: absolute;
         left: 3.125vw;
@@ -265,13 +275,13 @@
         color: #fff;
         font-size: 4.688vw;
     }
-    
+
     .enroll-sec .alert .msg {
         padding: 0 3.125vw;
         font-size: 2.044vw;
         color: #fff;
     }
-    
+
     .enroll-sec .alert .close-btn {
         position: absolute;
         right: 0;
@@ -281,37 +291,43 @@
         padding: 0 2.813vw;
         cursor: pointer;
     }
-    
+
     .enroll-sec .alert .close-btn:hover {
         background: #0092ef;
     }
-    
+
     .enroll-sec .alert .close-btn .fa-xmark {
         color: #86b6e4;
         font-size: 3.438vw;
         line-height: 6.25vw;
     }
-    
+
     .enroll-sec .alert.hide {
         animation: hide_slide 1s ease forwards;
     }
     .enroll-sec {
         padding: 10.417vw 0;
     }
-    
+
     .enroll-ttl {
         text-align: center;
         color: #232323;
         font-size: 3.506vw;
         font-weight: 700;
     }
+
+    .enroll-price {
+        font-size: 2.813vw;
+        margin-top: 2.344vw;
+    }
+
     .enroll-sec .form {
         margin-top: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    
+
     .enroll-sec .form form {
         background: #fff;
         border-radius: 5px;
@@ -319,31 +335,29 @@
         padding: 20px 40px;
         width: 600px;
     }
-    
+
     .enroll-sec .form form .text-field {
         margin-top: 20px;
     }
-    
+
     .enroll-sec .form form .text-field span {
         display: block;
         color: #232323;
         padding-bottom: 5px;
     }
-    
+
     .enroll-sec .form form input,
     .enroll-sec .form form select {
-        width: 100%;
-        padding: 10px;
-        border-radius: 10px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        color: #444;
+        padding: 1.563vw;
+        border-radius: 1.563vw;
+        font-size: 2.188vw;
     }
-    
+
     .enroll-sec .form form select option {
         font-family: "Montserrat", sans-serif;
         font-size: 14px;
     }
-    
+
     .enroll-sec .form form .enroll-btn {
         width: 100%;
         background-color: #60a5fa;
@@ -356,7 +370,7 @@
         transition: 0.2s linear;
         border-radius: 10px;
     }
-    
+
     .enroll-sec .form form .enroll-btn:hover {
         letter-spacing: 1px;
         opacity: 0.8s;
@@ -364,5 +378,4 @@
         color: #60a5fa;
         border: 1px solid #60a5fa;
     }
-    
 }
