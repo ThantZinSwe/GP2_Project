@@ -20,10 +20,10 @@ class PaymentImport implements ToModel, WithStartRow
     public function model(array $row)
     {
         return new Payment([
-            'amount' => $row[3],
-            'payment_method' => $row[4],
-            'user_id' => $row[5],
-            'course_id' => $row[6]     
+            'phone' => $row[3],
+            'user_id' => $row[4],
+            'course_id' => $row[5] ,
+            'status' => $row[6],   
         ]);
     }
 }
