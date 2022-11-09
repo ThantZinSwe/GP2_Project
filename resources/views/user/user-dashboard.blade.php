@@ -176,13 +176,12 @@
                                 </li>
                                 @endforeach
                             @else
-                                <span style="text-align: center; font-size: 20px;">There is no Courses Availible!</span>
+                                <span style="text-align: center; font-size: 20px;">You have no Course!</span>
                             @endif
                             {{ $courses->links()}}
                         </ul>
                        
                     </div>
-
                 </div>
             </div>
         </div>

@@ -17,9 +17,10 @@ $(document).ready(function () {
             method: 'GET',
             success: function (data) {
                 if (data) {
+                    console.log(data.links)
                     $('.search-card-container').empty();
                     data.data.forEach(course => {
-                        console.log(course.course_videos.length)
+                        //console.log(course.course_videos.length)
                         if (course.type == 'free') {
                             $('.search-card-container').append(
                                 `<li class="card-list">
