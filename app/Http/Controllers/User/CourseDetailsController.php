@@ -74,11 +74,11 @@ class CourseDetailsController extends Controller
     {
         $enroll = $this->courseDetailsInterface->enrollStore($request, $slug);
 
-        if (isset($enroll['authError'])) {
-            return back()->with(['error' => $enroll['authError']]);
+        if ($enroll) {
+            return redirect()->route('user.courseDetails', $slug)->with(['success' => 'Thank you ! Please wait to confirm admin team']);
         }
 
-        return back()->with(['success' => 'Thank you ! Please wait to confirm admin team']);
+        return redirect()->back()->with(['error' => $enroll['authError']]);
     }
 
     /**
@@ -90,5 +90,4 @@ class CourseDetailsController extends Controller
     {
         return $this->courseDetailsInterface->reviewApi($request, $slug);
     }
-
 }

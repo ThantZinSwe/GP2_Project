@@ -128,7 +128,6 @@
             </div>
         </header>
     </section>
-
     @yield('content')
 
     {{-- Footer --}}

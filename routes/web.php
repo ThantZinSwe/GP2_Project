@@ -101,6 +101,7 @@ Route::group(['middleware' => ['prevent-history']], function () {
     Route::get('/courses/{slug}/enroll', [CourseDetailsController::class, 'enroll'])->name('user.enroll');
     Route::post('/courses/{slug}/enroll', [CourseDetailsController::class, 'storeEnroll'])->name('user.store.enroll');
 });
+
 // User
 
 Route::group(['prefix' => 'user-dashboard', 'middleware' => ['user', 'prevent-history']], function () {
