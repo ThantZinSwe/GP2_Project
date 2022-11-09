@@ -13,10 +13,10 @@
         <th>Id</th>
         <th>User Name</th>
         <th>Course Name</th>
-        <th>Amount</th>
-        <th>Payment Method</th>
+        <th>Phone</th>
         <th>User Id</th>
         <th>Course Id</th>
+        <th>Status</th>
     </tr>
     </thead>
     <tbody>
@@ -25,10 +25,10 @@
             <td>{{++$no}}</td>
             <td>{{ $p->user->name }}</td>
             <td>{{$p->course->name}}</td>
-            <td>{{$p->amount}}</td>
-            <td>{{$p->payment_method}}</td>
+            <td>{{$p->phone}}</td>
             <td>{{$p->user_id}}</td>
             <td>{{$p->course_id}}</td>
+            <td>{{$p->status}}</td>
         </tr>
     @endforeach
     </tbody>
