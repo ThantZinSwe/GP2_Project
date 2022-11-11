@@ -5,7 +5,8 @@ namespace App\Dao\Admin\Coupon;
 use App\Contracts\Dao\Admin\Coupon\CouponDaoInterface;
 
 use App\Models\Coupon;
-
+use App\Models\Course;
+use App\Models\UserCoupon;
 
 class CouponDao implements CouponDaoInterface
 {
@@ -82,6 +83,25 @@ class CouponDao implements CouponDaoInterface
             return true;
        }
        return false;
+    }
+    /**
+     * To calculate coupon
+     * @param $slug
+     */
+    public function calculateCoupon($request){
+        $coupon_id = Coupon::where('code', $request->code)->first();
+        $course = Course::where('slug', $request->course_name)->first();
+        if(isset($coupon_id)){
+            $coupon_user = UserCoupon::where('user_id', $request->user_id)->where('coupon_id', $coupon_id->id)->first();
+            if(isset($coupon_user)){
+                $total_price = $coupon_user->coupon->discount/100 * $course->price;
+                return ['total-price' =>  $total_price];
+            }else {
+                return false;
+            }
+        }else {
+            return false;
+        }
     }
 
 }

@@ -15,7 +15,7 @@ class CreateUserCouponsTable extends Migration
     {
         Schema::create('user_coupons', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('payment_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('coupon_id')->references('id')->on('coupons')->onDelete('cascade');
             $table->enum('status', ['active', 'inactive']);
             $table->timestamp('expired_time');

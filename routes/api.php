@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\User\CourseController;
 use App\Http\Controllers\User\CourseDetailsController;
 use Illuminate\Http\Request;
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/courses/search', [CourseController::class, 'searchByApi'])->name('user.course.search');
 Route::post('/courses/{slug}/review', [CourseDetailsController::class, 'reviewApi']);
+Route::post('/coupon', [CouponController::class, 'calculateCoupon'])->name('coupon.store');

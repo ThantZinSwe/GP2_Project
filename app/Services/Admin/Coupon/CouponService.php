@@ -73,6 +73,12 @@ class CouponService implements CouponServiceInterface
     {
         return $this->couponDao->delete($id);
     }
-
+    /**
+     * To calculate coupon
+     * @param $slug
+     */
+    public function calculateCoupon($request){
+        return $this->couponDao->calculateCoupon($request);
+    }
   
 }

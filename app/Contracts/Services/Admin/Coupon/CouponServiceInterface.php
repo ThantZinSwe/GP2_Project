@@ -43,5 +43,10 @@ interface CouponServiceInterface
      * @param $slug
      */
     public function delete($id);
+    /**
+     * To calculate coupon
+     * @param $slug
+     */
+    public function calculateCoupon($request);
 
 }

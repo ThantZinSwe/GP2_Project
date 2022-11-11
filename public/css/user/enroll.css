@@ -20,6 +20,10 @@
     float: left;
     width: 70%;
 }
+.coupon-error {
+    margin-top: 10px;
+    color: hsl(355, 89%, 52%) !important;
+}
 .coupon-btn {
 	float: right;
 	/* width: 28%; */

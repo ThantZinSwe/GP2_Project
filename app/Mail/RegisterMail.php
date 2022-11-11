@@ -11,14 +11,16 @@ class RegisterMail extends Mailable
 {
     use Queueable, SerializesModels;
     private $user;
+    private $user_coupon;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($user, $user_coupon)
     {
         $this->user = $user;
+        $this->user_coupon = $user_coupon;
     }
 
     /**
@@ -28,6 +30,6 @@ class RegisterMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.register')->with('user',$this->user);
+        return $this->markdown('mail.register')->with(['user'=> $this->user, 'user_coupon' => $this->user_coupon]);
     }
 }
