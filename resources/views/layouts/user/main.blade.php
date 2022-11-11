@@ -54,7 +54,7 @@
                                 }
                                 Session::put('acronym', $acronym);
                             }
-                    
+
                         @endphp
                         <span class="profile-name">{{ $acronym ?? ''}}</span>
                         <div class="dd-menu">
@@ -82,7 +82,7 @@
                             echo "<span class='profile-toggle-name'>$acronym</span>";
                         }
                     @endphp
-                   
+
                     <div class="dropdown profile-nav">
                         <i class="fa-solid fa-xmark fa-xl profile-close-toggle"></i>
                         <li class="profile-list">
@@ -103,13 +103,13 @@
                                     <i class="fa-solid fa-lock"></i>
                                     <span>Password</span>
                                   </a>
-                                </li> 
+                                </li>
                                 <li>
                                     <a href="#user-course">
                                     <i class="fa-solid fa-code"></i>
                                       <span>My Course</span>
                                     </a>
-                                </li> 
+                                </li>
                               </ul>
                         </li>
                         <li class="profile-list">
@@ -173,6 +173,18 @@
 </body>
 <script>
     $(document).ready(function(){
+
+        let token = document.head.querySelector('meta[name="csrf-token"]');
+        if(token){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN':token.content
+                }
+            });
+        }else{
+            console.error('csrf token not found');
+        }
+
         $('.alert .close-btn').on('click',function(){
             $('.alert').addClass('hide');
         });
