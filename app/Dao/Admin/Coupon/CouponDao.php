@@ -3,7 +3,6 @@
 namespace App\Dao\Admin\Coupon;
 
 use App\Contracts\Dao\Admin\Coupon\CouponDaoInterface;
-
 use App\Models\Coupon;
 use App\Models\Course;
 use App\Models\UserCoupon;
@@ -35,11 +34,11 @@ class CouponDao implements CouponDaoInterface
      */
     public function store($request)
     {
-       $coupon = new Coupon();
-       $coupon->code = $request->couponCode;
-       $coupon->discount = $request->discount;
-       $coupon->save();
-       return $coupon;
+        $coupon = new Coupon();
+        $coupon->code = $request->couponCode;
+        $coupon->discount = $request->discount;
+        $coupon->save();
+        return $coupon;
     }
 
     /**
@@ -61,14 +60,16 @@ class CouponDao implements CouponDaoInterface
      */
     public function update($request, $id)
     {
-       $coupon = Coupon::find($id);
-       if($coupon){
+        $coupon = Coupon::find($id);
+
+        if ($coupon) {
             $coupon->code = $request->couponCode;
             $coupon->discount = $request->discount;
             $coupon->update();
             return true;
-       }
-       return false;
+        }
+
+        return false;
     }
 
     /**
@@ -77,31 +78,44 @@ class CouponDao implements CouponDaoInterface
      */
     public function delete($id)
     {
-       $coupon = Coupon::find($id);
-       if($coupon){
+        $coupon = Coupon::find($id);
+
+        if ($coupon) {
             $coupon->delete();
             return true;
-       }
-       return false;
+        }
+
+        return false;
     }
+
     /**
      * To calculate coupon
      * @param $slug
      */
-    public function calculateCoupon($request){
+    public function calculateCoupon($request)
+    {
         $coupon_id = Coupon::where('code', $request->code)->first();
         $course = Course::where('slug', $request->course_name)->first();
-        if(isset($coupon_id)){
-            $coupon_user = UserCoupon::where('user_id', $request->user_id)->where('coupon_id', $coupon_id->id)->first();
-            if(isset($coupon_user)){
-                $total_price = $coupon_user->coupon->discount/100 * $course->price;
-                return ['total-price' =>  $total_price];
-            }else {
+        $today = date('Y-m-d');
+
+        if (isset($coupon_id)) {
+            $coupon_user = UserCoupon::where('user_id', $request->user_id)
+                ->where('coupon_id', $coupon_id->id)
+                ->where('status', 'active')
+                ->whereDate('expired_time', '>', $today)
+                ->first();
+
+            if (isset($coupon_user)) {
+                $total_price = $coupon_user->coupon->discount / 100 * $course->price;
+                return ['total-price' => $total_price];
+            } else {
                 return false;
             }
-        }else {
+
+        } else {
             return false;
         }
+
     }
 
 }

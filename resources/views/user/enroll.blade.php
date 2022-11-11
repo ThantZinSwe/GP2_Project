@@ -14,7 +14,6 @@
                 </div>
             @endif
 
-
             <div class="form">
                 <form action="{{route('user.store.enroll',$course->slug)}}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -38,7 +37,7 @@
                     <div class="text-field clearfix">
                         <div class="coupon-input">
                             <span>Coupon Code</span>
-                            <input type="text" name="coupon_code" value="{{old('coupon_code')}}" class="couponCode">   
+                            <input type="text" name="coupon_code" value="{{old('coupon_code')}}" class="couponCode">
                             <span class="coupon-error"></span>
                             <input type="hidden" class="user_id" value="{{ Auth::user()->id }}">
                         </div>
@@ -55,26 +54,24 @@
     <script>
         $(function(){
             $('.coupon-btn').on("click", function(){
-                var code = $('.couponCode').val()
-                var user_id = $('.user_id').val()
+                var code = $('.couponCode').val();
+                var user_id = $('.user_id').val();
                 var course_name = location.href.split('/')[4]
-                console.log(course_name)
                 $.ajax({
                     url: `http://127.0.0.1:8000/api/coupon`,
-                    data: {'code': code, 'user_id': user_id, 'course_name': course_name},
+                    data: {'code': code,'user_id' : user_id, 'course_name': course_name},
                     type: 'POST',
                     success: function(data){
                         if(data.status == 'success'){
-                            $('.coupon-error').text('')
-                            $('.total-price').css('text-decoration', 'line-through')
-                            $('.discount-price').css('display', 'inline-block').text(data.price)
-                            
+                            $('.coupon-error').text('');
+                            $('.total-price').css('text-decoration', 'line-through');
+                            $('.discount-price').css('display', 'inline-block').text(data.price);
                         }else {
-                            $('.coupon-error').text(data.message)
-                            $('.total-price').css('text-decoration', 'none')
-                            $('.discount-price').css('display', 'none')
+                            $('.coupon-error').text(data.message);
+                            $('.total-price').css('text-decoration', 'none');
+                            $('.discount-price').css('display', 'none');
                         }
-                        
+
                     }
                 })
             })
