@@ -17,6 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->foreignId('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('coupon_id')->nullable()->references('id')->on('coupons')->onDelete('cascade');
             $table->text('image')->nullable();
             $table->string('phone');
             $table->enum('status', ['pending', 'accepted']);

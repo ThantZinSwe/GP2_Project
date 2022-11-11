@@ -7,7 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CouponRequest;
 use App\Http\Requests\CouponUpdateRequest;
 use App\Models\coupon;
+use App\Models\Course;
+use App\Models\UserCoupon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CouponController extends Controller
 {
@@ -52,16 +55,6 @@ class CouponController extends Controller
         return redirect()->route('admin.coupon.index')->with('error', 'Coupon Created Fail');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\coupon  $coupon
-     * @return \Illuminate\Http\Response
-     */
-    public function show(coupon $coupon)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -104,5 +97,13 @@ class CouponController extends Controller
             return redirect()->route('admin.coupon.index')->with('success', 'Coupon Deleted Successfully');
         }
         return redirect()->route('admin.coupon.index')->with('error', 'Coupon Deleted Fail');
+    }
+    public function calculateCoupon(Request $request){
+        $coupon = $this->couponInterface->calculateCoupon($request);
+        if($coupon){
+            return response()->json(['status'=>'success', 'price'=>$coupon['total-price']]);
+        }else {
+            return response()->json(['status'=>'error', 'message'=>'not available coupon!']);
+        }
     }
 }
