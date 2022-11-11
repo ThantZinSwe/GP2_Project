@@ -7,10 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CouponRequest;
 use App\Http\Requests\CouponUpdateRequest;
 use App\Models\coupon;
-use App\Models\Course;
-use App\Models\UserCoupon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CouponController extends Controller
 {
@@ -19,6 +17,7 @@ class CouponController extends Controller
     {
         $this->couponInterface = $couponServiceInterface;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -49,12 +48,13 @@ class CouponController extends Controller
     public function store(CouponRequest $request)
     {
         $coupon = $this->couponInterface->store($request);
-        if($coupon){
+
+        if ($coupon) {
             return redirect()->route('admin.coupon.index')->with('success', 'Coupon Created Successfully');
         }
+
         return redirect()->route('admin.coupon.index')->with('error', 'Coupon Created Fail');
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -78,9 +78,11 @@ class CouponController extends Controller
     public function update(CouponUpdateRequest $request, $id)
     {
         $coupon = $this->couponInterface->update($request, $id);
-        if($coupon){
+
+        if ($coupon) {
             return redirect()->route('admin.coupon.index')->with('success', 'Coupon Updated Successfully');
         }
+
         return redirect()->route('admin.coupon.index')->with('error', 'Coupon Updated Fail');
     }
 
@@ -93,17 +95,30 @@ class CouponController extends Controller
     public function delete($id)
     {
         $coupon = $this->couponInterface->delete($id);
-        if($coupon){
+
+        if ($coupon) {
             return redirect()->route('admin.coupon.index')->with('success', 'Coupon Deleted Successfully');
         }
+
         return redirect()->route('admin.coupon.index')->with('error', 'Coupon Deleted Fail');
     }
-    public function calculateCoupon(Request $request){
+
+    public function calculateCoupon(Request $request)
+    {
         $coupon = $this->couponInterface->calculateCoupon($request);
-        if($coupon){
-            return response()->json(['status'=>'success', 'price'=>$coupon['total-price']]);
-        }else {
-            return response()->json(['status'=>'error', 'message'=>'not available coupon!']);
+
+        if ($coupon) {
+
+            Session::put('coupon', [
+                'totalPrice' => $coupon['total_price'],
+                'coupon_id'  => $coupon['coupon_id'],
+            ]);
+
+            return response()->json(['status' => 'success', 'price' => $coupon['total_price']]);
+        } else {
+            return response()->json(['status' => 'error', 'message' => 'Not available coupon!']);
         }
+
     }
+
 }

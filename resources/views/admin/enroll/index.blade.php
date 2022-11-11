@@ -50,22 +50,25 @@
                     <th>User Name</th>
                     <th>Course Name</th>
                     <th>Phone</th>
+                    <th>Total Price</th>
                     <th>Payment Image</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="images">
                     @foreach ($enrolls as $key=>$enroll)
                     <tr>
                         <td>{{++$key}}</td>
                         <td>{{$enroll->user->name}}</td>
                         <td>{{$enroll->course->name}}</td>
                         <td>{{$enroll->phone}}</td>
-                        <td>
+                        <td>{{$enroll->total_price}} Ks</td>
+                        <td >
                             @if (isset($enroll->image))
-                                <img src="{{asset('images/enroll/'.$enroll->image)}}" alt="" width="100" id="image" style="cursor: pointer">
+                                <img src="{{asset('images/enroll/'.$enroll->image)}}" alt="" width="100"  style="cursor: pointer">
                             @else
+
                             @endif
                         </td>
                         <td class="text-center">
@@ -96,11 +99,6 @@
 @endsection
 @section('script')
     <script>
-        const viewer = new Viewer(document.getElementById('image'), {
-
-            viewed() {
-                viewer.zoomTo(1);
-            },
-        });
+        const gallery = new Viewer(document.getElementById('images'));
     </script>
 @endsection

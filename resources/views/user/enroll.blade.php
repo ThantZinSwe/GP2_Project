@@ -62,6 +62,7 @@
                     data: {'code': code,'user_id' : user_id, 'course_name': course_name},
                     type: 'POST',
                     success: function(data){
+                        console.log(data);
                         if(data.status == 'success'){
                             $('.coupon-error').text('');
                             $('.total-price').css('text-decoration', 'line-through');

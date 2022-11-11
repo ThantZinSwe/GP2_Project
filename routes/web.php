@@ -87,10 +87,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-history']]
     Route::get('/enroll', [EnrollController::class, 'index'])->name('admin.enroll.index');
     Route::get('/enroll/{id}', [EnrollController::class, 'accepted'])->name('admin.enroll.accepted');
     Route::delete('/enroll/{id}/delete', [EnrollController::class, 'delete'])->name('admin.enroll.delete');
-    
+
     Route::get('/import', [EnrollController::class, 'import'])->name('admin.enroll.import');
     Route::post('/import', [EnrollController::class, 'importPayment'])->name("admin.enroll.get");
-    
+
     //Coupon
     Route::get('/coupon', [CouponController::class, 'index'])->name('admin.coupon.index');
     Route::get('/coupon/create', [CouponController::class, 'create'])->name('admin.coupon.create');

@@ -5,6 +5,7 @@ use App\Http\Controllers\User\CourseController;
 use App\Http\Controllers\User\CourseDetailsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/courses/search', [CourseController::class, 'searchByApi'])->name('user.course.search');
 Route::post('/courses/{slug}/review', [CourseDetailsController::class, 'reviewApi']);
-Route::post('/coupon', [CouponController::class, 'calculateCoupon'])->name('coupon.store');
+Route::post('/coupon', [CouponController::class, 'calculateCoupon']);
+
+Route::get('test', function () {
+    // Session::put('test', 'Yayeee works');
+    // return Session::get('test');
+    Session::forget('test');
+});

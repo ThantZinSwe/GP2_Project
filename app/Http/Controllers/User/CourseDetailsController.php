@@ -90,4 +90,5 @@ class CourseDetailsController extends Controller
     {
         return $this->courseDetailsInterface->reviewApi($request, $slug);
     }
+
 }
