@@ -6,8 +6,8 @@ $(document).ready(function () {
     });
 
     //dropdown menu
-    $(".profile-name").on("click", function () {
-        $(".dropdown").toggleClass("dropdown-menu-active");
+    $(".clickme").on("click", function () {
+        $(this).toggleClass("dropdown-menu-active");
     });
 
     // csrf token

@@ -53,7 +53,7 @@ $(function () {
   $('input[type="file"]').each(function(){
 
     var $file = $(this),
-      target = $(' #user-edit-profile .profile-name')
+      target = $('#user-edit-profile .profile-img-container .image-cancle')
   
     $file.on('change', function(event){
       var fileName = $file.val().split( '\\' ).pop(),

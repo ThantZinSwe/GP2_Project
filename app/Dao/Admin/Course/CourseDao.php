@@ -340,9 +340,15 @@ class CourseDao implements CourseDaoInterface
     {
         $course = Course::where('slug', $slug)->first();
         if (Payment::count() > 0) {
-            $enroll = Payment::where('course_id', $course->id)
+            if(Auth::check()){
+                $enroll = Payment::where('course_id', $course->id)
                 ->where('user_id', auth()->user()->id)
                 ->first();
+            }else {
+                return ['enrollError' => 'Please Login First!'];   
+            }
+            
+         
         }
 
         if (isset($enroll)) {

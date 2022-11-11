@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Coupon;
 use App\Models\Language;
 use App\Models\Role;
 use App\Models\User;
@@ -56,6 +57,10 @@ class AdminSeeder extends Seeder
         Language::create([
             'name' => 'Java',
             'slug' => Str::slug('Java'),
+        ]);
+        Coupon::create([
+            'code' => '#ft000',
+            'discount' => 20,
         ]);
     }
 }

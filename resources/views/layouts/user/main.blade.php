@@ -38,7 +38,7 @@
                         <li><a href="{{ route('auth.register') }}" class="btn btn-primary">Register</a></li>
                     @endguest
                     @auth
-                    <li class="dropdown">
+                    <li class="dropdown clickme">
                         {{--<img src="{{asset('images/default_profile.jpg')}}" alt="User" class="user-pic">--}}
                         @php
                             $words = explode(" ", Auth::user()->name );

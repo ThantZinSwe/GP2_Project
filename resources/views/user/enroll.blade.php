@@ -35,6 +35,13 @@
                             <span style="color: red;margin-top:10px;">{{$message}}</span>
                         @enderror
                     </div>
+                    <div class="text-field clearfix">
+                        <div class="coupon-input">
+                            <span>Coupon Code</span>
+                            <input type="text" name="coupon_code" value="{{old('coupon_code')}}">   
+                        </div>
+                        <a href="#" class="coupon-btn">Apply Coupon</a>
+                    </div>
 
                     <button type="submit" class="enroll-btn">Enroll</button>
                 </form>
