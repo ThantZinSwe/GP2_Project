@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Dao\Admin\User\UserDaoInterface', 'App\Dao\Admin\User\UserDao');
         $this->app->bind('App\Contracts\Dao\Admin\Enroll\EnrollDaoInterface', 'App\Dao\Admin\Enroll\EnrollDao');
         $this->app->bind('App\Contracts\Dao\Admin\Home\HomeDaoInterface', 'App\Dao\Admin\Home\HomeDao');
+        $this->app->bind('App\Contracts\Dao\Admin\Coupon\CouponDaoInterface', 'App\Dao\Admin\Coupon\CouponDao');
 
         // Business logic registration
         $this->app->bind('App\Contracts\Services\Admin\Profile\ProfileServiceInterface', 'App\Services\Admin\Profile\ProfileService');
@@ -40,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Services\Admin\User\UserServiceInterface', 'App\Services\Admin\User\UserService');
         $this->app->bind('App\Contracts\Services\Admin\Enroll\EnrollServiceInterface', 'App\Services\Admin\Enroll\EnrollService');
         $this->app->bind('App\Contracts\Services\Admin\Home\HomeServiceInterface', 'App\Services\Admin\Home\HomeService');
+        $this->app->bind('App\Contracts\Services\Admin\Coupon\CouponServiceInterface', 'App\Services\Admin\Coupon\CouponService');
     }
 
     /**

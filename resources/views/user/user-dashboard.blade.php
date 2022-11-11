@@ -66,7 +66,7 @@
                                 }
                         
                                 @endphp
-                                <span class="profile-name"><i class="fa-solid fa-circle-xmark"></i>{{Session::get('acronym')?? Auth::user()->name}}</span>
+                                <span class="profile-name image-cancle"><i class="fa-solid fa-circle-xmark"></i>{{Session::get('acronym')?? Auth::user()->name}}</span>
                                 <div class="wrap-custom-file">
                                     <input type="file" name="profile_img" id="image1" accept=".gif, .jpg, .png" />
                                     <label  for="image1">

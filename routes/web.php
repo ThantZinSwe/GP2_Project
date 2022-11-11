@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CodeLanguageController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CourseVideoController;
 use App\Http\Controllers\Admin\EnrollController;
@@ -89,6 +90,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-history']]
     
     Route::get('/import', [EnrollController::class, 'import'])->name('admin.enroll.import');
     Route::post('/import', [EnrollController::class, 'importPayment'])->name("admin.enroll.get");
+    
+    //Coupon
+    Route::get('/coupon', [CouponController::class, 'index'])->name('admin.coupon.index');
+    Route::get('/coupon/create', [CouponController::class, 'create'])->name('admin.coupon.create');
+    Route::post('/coupon/create', [CouponController::class, 'store'])->name('admin.coupon.store');
+    Route::get('/coupon/edit/{id}', [CouponController::class, 'edit'])->name('admin.coupon.edit');
+    Route::put('/coupon/edit/{id}', [CouponController::class, 'update'])->name('admin.coupon.update');
+    Route::delete('/coupon/{id}', [CouponController::class, 'delete'])->name('admin.coupon.delete');
 });
 Route::group(['middleware' => ['prevent-history']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('user.home');

@@ -16,7 +16,29 @@
     font-weight: 500;
     margin-top: 15px;
 }
-
+.coupon-input {
+    float: left;
+    width: 70%;
+}
+.coupon-btn {
+	float: right;
+	/* width: 28%; */
+	background-color: #60a5fa;
+	padding: 10px;
+	font-size: 15px;
+	margin-top: 22px;
+	color: #fff;
+	cursor: pointer;
+	border: 1px solid transparent;
+	transition: 0.2s linear;
+	border-radius: 4px;
+}
+.coupon-btn:hover{
+    opacity: 0.8s;
+    background-color: transparent;
+    color: #60a5fa;
+    border: 1px solid #60a5fa;
+}
 .alert {
     background: #0092ef;
     padding: 20px 40px;
@@ -117,7 +139,7 @@
     cursor: pointer;
     border: 1px solid transparent;
     transition: 0.2s linear;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 .enroll-sec .form form .enroll-btn:hover {
@@ -243,7 +265,7 @@
         cursor: pointer;
         border: 1px solid transparent;
         transition: 0.2s linear;
-        border-radius: 10px;
+        border-radius: 3px;
     }
 
     .enroll-sec .form form .enroll-btn:hover {
@@ -368,7 +390,7 @@
         cursor: pointer;
         border: 1px solid transparent;
         transition: 0.2s linear;
-        border-radius: 10px;
+        border-radius: 3px;
     }
 
     .enroll-sec .form form .enroll-btn:hover {
