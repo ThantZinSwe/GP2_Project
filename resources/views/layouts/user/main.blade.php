@@ -24,7 +24,7 @@
         <header class="header">
             <div class="l-inner clearfix">
               <h1 class="header-logo">
-                <a href="#">
+                <a href="{{route('user.home')}}">
                   <span class="title-1">C</span><span>oder<span class="title-1">C</span><span>amp</span></span>
                 </a>
               </h1>
@@ -135,7 +135,7 @@
         <div class="l-inner clearfix">
             <div class="logo-blk">
                 <h4 class="footer-logo">
-                    <a href="#">
+                    <a href="{{route('user.home')}}">
                         <span class="title-1">C</span><span>oder<span class="title-1">C</span><span>amp</span></span>
                       </a>
                 </h4>
@@ -145,8 +145,8 @@
             <div class="footer-nav">
                 <h5>Navigation</h5><br>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Blogs</a></li>
+                    <li><a href="{{route('user.home')}}">Home</a></li>
+                    <li><a href="{{route('user.blog')}}">Blogs</a></li>
                     <li><a href="{{ route('user.course') }}">Courses</a></li>
                 </ul>
             </div>

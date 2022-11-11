@@ -87,7 +87,7 @@
           <!-- ./col -->
         </div>
         <div class="row">
-            <h2 class="my-4">Enroll Graph For Last Month</h2>
+            <h2 class="my-4">Enroll Graph For A Year</h2>
           <div class="col-10 offset-1">
 
               <div class="card">

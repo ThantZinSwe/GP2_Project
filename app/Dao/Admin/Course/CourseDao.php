@@ -9,8 +9,10 @@ use App\Models\CourseVideo;
 use App\Models\Language;
 use App\Models\Payment;
 use App\Models\User;
+use App\Models\UserCoupon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class CourseDao implements CourseDaoInterface
@@ -340,15 +342,14 @@ class CourseDao implements CourseDaoInterface
     {
         $course = Course::where('slug', $slug)->first();
         if (Payment::count() > 0) {
-            if(Auth::check()){
+            if (Auth::check()) {
                 $enroll = Payment::where('course_id', $course->id)
-                ->where('user_id', auth()->user()->id)
-                ->first();
-            }else {
-                return ['enrollError' => 'Please Login First!'];   
+                    ->where('user_id', auth()->user()->id)
+                    ->first();
+            } else {
+                return ['enrollError' => 'Please Login First!'];
             }
-            
-         
+
         }
 
         if (isset($enroll)) {
@@ -371,6 +372,20 @@ class CourseDao implements CourseDaoInterface
             $enroll->course_id = $course->id;
             $enroll->user_id = auth()->user()->id;
             $enroll->phone = $request->phone;
+
+            if (Session::has('coupon')) {
+                $enroll->total_price = Session::get("coupon")['totalPrice'];
+                UserCoupon::where('user_id', auth()->user()->id)
+                    ->where('coupon_id', Session::get('coupon')['coupon_id'])
+                    ->update([
+                        'status' => 'inactive',
+                    ]);
+
+                Session::forget('coupon');
+
+            } else {
+                $enroll->total_price = $course->price;
+            }
 
             $file = $request->file('image');
             $fileName = uniqid() . '-' . $file->getClientOriginalName();

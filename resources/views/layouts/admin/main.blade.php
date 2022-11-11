@@ -249,8 +249,8 @@
 <script src="{{asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('admin/dist/js/demo.js')}}"></script>
+{{-- <!-- AdminLTE for demo purposes -->
+<script src="{{asset('admin/dist/js/demo.js')}}"></script> --}}
 {{-- Viewer js --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.1/viewer.min.js"></script>
 
