@@ -10,7 +10,7 @@ class Payment extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id','course_id','user_id','phone','status'
+        'id','course_id','user_id','phone','status','total_price'
     ];
 
     public function user()

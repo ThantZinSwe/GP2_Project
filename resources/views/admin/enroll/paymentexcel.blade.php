@@ -16,6 +16,7 @@
         <th>Phone</th>
         <th>User Id</th>
         <th>Course Id</th>
+        <th>Total Price</th>
         <th>Status</th>
     </tr>
     </thead>
@@ -28,6 +29,7 @@
             <td>{{$p->phone}}</td>
             <td>{{$p->user_id}}</td>
             <td>{{$p->course_id}}</td>
+            <td>{{$p->total_price}}</td>
             <td>{{$p->status}}</td>
         </tr>
     @endforeach
