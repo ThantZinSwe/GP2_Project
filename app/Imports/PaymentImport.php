@@ -23,7 +23,8 @@ class PaymentImport implements ToModel, WithStartRow
             'phone' => $row[3],
             'user_id' => $row[4],
             'course_id' => $row[5] ,
-            'status' => $row[6],   
+            'total_price' => $row[6],
+            'status' => $row[7],   
         ]);
     }
 }
