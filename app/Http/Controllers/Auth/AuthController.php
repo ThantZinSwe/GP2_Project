@@ -106,11 +106,11 @@ class AuthController extends Controller
         ]);
         $status = $this->authInterface->sendResetMail($request);
 
-        if ($status) {
-            return back()->with('message', 'We have e-mailed your password reset link!');
+        if (!$status) {
+            return back()->with('error', 'Cannot Send Mail');
         }
-
-        return back()->with('error', 'Cannot Send Mail');
+        return back()->with(['message' => 'We have e-mailed your password reset link!', 'user' => $status]);
+        
     }
 
     /**
@@ -118,9 +118,9 @@ class AuthController extends Controller
      * @param String $token
      * @return View change password Blade with token
      */
-    public function showChangePasswordForm($token)
+    public function showChangePasswordForm($token, $mail)
     {
-        return view('auth.changePassword', ['token' => $token]);
+        return view('auth.changePassword', ['token' => $token, 'mail' => $mail]);
     }
 
     /**
@@ -133,7 +133,7 @@ class AuthController extends Controller
         $resetPassword = $this->authInterface->resetPassword($request);
 
         if (!$resetPassword) {
-            return back()->withInput()->with('error', 'Invalid token!');
+            return back()->with('error', 'Invalid token!');
         }
 
         return redirect()->route('login.get')->with('message', 'Your password has been changed!');
