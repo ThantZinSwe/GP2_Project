@@ -106,7 +106,7 @@ class CouponDao implements CouponDaoInterface
                 ->first();
 
             if (isset($coupon_user)) {
-                $total_price = $coupon_user->coupon->discount / 100 * $course->price;
+                $total_price = $course->price - ($coupon_user->coupon->discount / 100 * $course->price);
                 return ['total_price' => $total_price, 'coupon_id' => $coupon_user->coupon_id];
             } else {
                 return false;
