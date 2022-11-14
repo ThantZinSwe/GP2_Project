@@ -61,7 +61,7 @@ class AuthService implements AuthServiceInterface
         $user = $this->authDao->findMail($request);
         if($user){
             Mail::to($request->email)->send(new ResetPasswordMail($user, $token));
-            return true;
+            return $user;
         }
         return false;
     }
