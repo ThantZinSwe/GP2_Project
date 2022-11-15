@@ -6,7 +6,7 @@ use App\Contracts\Services\Admin\Course\CourseServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReviewRequest;
 use App\Http\Requests\UserEnrollRequest;
-use App\Models\Course;
+
 
 class CourseDetailsController extends Controller
 {
@@ -22,6 +22,7 @@ class CourseDetailsController extends Controller
     }
 
     /**
+     * Show Course Detail
      * @param $slug
      * @return Object $data
      * @return View user/course-details
@@ -34,6 +35,9 @@ class CourseDetailsController extends Controller
     }
 
     /**
+     * Show Course Video
+     * 
+     * @param $slug, $courseVideo
      * @return View user/course-video
      */
     public function courseVideo($slug, $courseVideo)
@@ -52,6 +56,7 @@ class CourseDetailsController extends Controller
     }
 
     /**
+     * Show Enroll Form
      * @param $slug
      * @return View user/enroll
      */
@@ -68,7 +73,8 @@ class CourseDetailsController extends Controller
 
     /**
      * To store payment
-     * @param UserEnrollRequest $request request with inputs
+     * @param UserEnrollRequest $request request with inputs, $slug
+     * @return view Course Detail
      */
     public function storeEnroll(UserEnrollRequest $request, $slug)
     {
@@ -83,12 +89,11 @@ class CourseDetailsController extends Controller
 
     /**
      * to store user review
-     * @param $slug
+     * @param $slug, $request
      * @return Api json
      */
     public function reviewApi(ReviewRequest $request, $slug)
     {
         return $this->courseDetailsInterface->reviewApi($request, $slug);
     }
-
 }

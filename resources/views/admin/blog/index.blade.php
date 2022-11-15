@@ -60,7 +60,9 @@
                     <td>
                             <img src="{{asset('images/blog/'.$blog_list->image)}}" alt="{{$blog_list->image}}" width="50">
                         </td>
-                    <td>{{$blog_list->content}}</td>
+                    <td>
+                      <span class="d-inline-block text-truncate" style="max-width: 150px;">{{$blog_list->content}}</span>
+                    </td>
                     <td class="d-flex border-bottom-0">
                         <a href="{{route('admin.blog.edit',$blog_list->slug)}}" class="btn 
                         btn-warning btn-sm mr-3">Edit</a>

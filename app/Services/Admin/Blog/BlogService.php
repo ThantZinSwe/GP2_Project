@@ -23,6 +23,15 @@ class BlogService implements BlogServiceInterface
         $this->blogDao = $blogDao;
     }
 
+        /**
+     * To show blog view
+     *
+     * @return View blog
+     */
+    public function index()
+    {
+        return $this->blogDao->index();
+    }
     /**
      * To save blog
      * @param int $request

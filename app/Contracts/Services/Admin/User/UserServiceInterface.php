@@ -8,8 +8,8 @@ namespace App\Contracts\Services\Admin\User;
 interface UserServiceInterface
 {
     /**
-     * To block user
+     * To delete user
      * @param int $id
      */
-    public function blockUser($id);
+    public function deleteUser($id);
 }

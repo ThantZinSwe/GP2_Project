@@ -22,11 +22,11 @@ class UserService implements UserServiceInterface
     }
 
     /**
-     * To block user
+     * To delete user
      * @param int $id
      */
-    public function blockUser($id)
+    public function deleteUser($id)
     {
-        return $this->userDao->blockUser($id);
+        return $this->userDao->deleteUser($id);
     }
 }

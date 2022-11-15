@@ -20,6 +20,7 @@ class EnrollController extends Controller
     }
 
     /**
+     * Show Enroll List
      * @return View admin/enroll
      * @return Object $enrolls
      */

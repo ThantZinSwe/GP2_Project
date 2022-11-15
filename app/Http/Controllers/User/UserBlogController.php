@@ -4,16 +4,12 @@ namespace App\Http\Controllers\User;
 
 use App\Contracts\Services\Admin\Blog\BlogServiceInterface;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Blog;
-use Illuminate\Support\Facades\DB;
-
 class UserBlogController extends Controller
 {
     /**
      * blog interface
      */
-    private $blognterface;
+    private $blogInterface;
 
     public function __construct(BlogServiceInterface $blogServiceInterface)
     {
@@ -27,7 +23,10 @@ class UserBlogController extends Controller
     public function indexBlog()
     {
         $blog_search = $this->blogInterface->indexBlog();
-        return $blog_search;
+        return view('user/blog')->with([
+            'blogs' => $blog_search,
+            'search' => request('blog-search'),
+        ]);
     }
 
      /**
@@ -38,7 +37,10 @@ class UserBlogController extends Controller
     public function blogDetail($slug)
     {
         $blog_detail = $this->blogInterface->blogDetail($slug);
-        return $blog_detail;
+        return view('user/blogdetail')->with([
+            'details' => $blog_detail['blog'],
+            'blog_late' => $blog_detail['blog_late'],
+        ]);
     }
 
 }

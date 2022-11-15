@@ -8,8 +8,8 @@ namespace App\Contracts\Dao\Admin\User;
 interface UserDaoInterface
 {
     /**
-     * To block user
+     * To delete user
      * @param int $id
      */
-    public function blockUser($id);
+    public function deleteUser($id);
 }

@@ -23,6 +23,16 @@ class RoleService implements RoleServiceInterface
     }
 
     /**
+     * To show role view
+     *
+     * @return View Role
+     */
+    public function index()
+    {
+        return $this->roleDao->index();
+    }
+
+    /**
      * To save role
      * @param int $request
      * @return Object Role

@@ -10,6 +10,13 @@ use App\Http\Requests\BlogUpdateRequest;
  */
 interface BlogDaoInterface
 {
+        /**
+     * To show blog view
+     *
+     * @return View blog
+     */
+    public function index();
+
     /**
      * To save blog
      * @param int $request

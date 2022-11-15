@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-history']]
 
     //User
     Route::get('/users', [UserController::class, 'index'])->name('user.get');
-    Route::delete('/users/{id}', [UserController::class, 'blockUser'])->name('user.block');
+    Route::delete('/users/{id}', [UserController::class, 'deleteUser'])->name('user.block');
 
     //Profile
     Route::get('/profile', [ProfileController::class, 'showProfileForm'])->name('admin.profile.get');

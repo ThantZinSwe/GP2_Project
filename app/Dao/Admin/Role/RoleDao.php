@@ -11,6 +11,16 @@ use App\Models\Role;
  */
 class RoleDao implements RoleDaoInterface
 {
+        /**
+     * To show role view
+     *
+     * @return View Role
+     */
+    public function index()
+    {
+       return Role::get();
+    }
+
     /**
      * To save role
      * @param int $request
@@ -31,10 +41,7 @@ class RoleDao implements RoleDaoInterface
     public function editRole($id)
     {
         $edit_role = Role::find($id);
-        return view('admin.role.edit', [
-            'edit_name' => $edit_role->name,
-            'edit_id' => $edit_role->id,
-        ]);
+        return $edit_role;
     }
 
     /**
@@ -47,6 +54,7 @@ class RoleDao implements RoleDaoInterface
         $role = Role::find($id);
         $role->name = $request->roleName;
         $role->save();
+        return true;
     }
 
     /**
@@ -58,5 +66,6 @@ class RoleDao implements RoleDaoInterface
     {
         $delete_role = Role::find($id);
         $delete_role->delete();
+        return true;
     }
 }

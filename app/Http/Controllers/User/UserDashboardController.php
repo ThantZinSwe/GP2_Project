@@ -20,9 +20,8 @@ class UserDashboardController extends Controller
      *
      * @param ProfileServiceInterface $profileService
      */
-    public function __construct(ProfileServiceInterface $profileService,CourseServiceInterface $courseInterface)
+    public function __construct(ProfileServiceInterface $profileService, CourseServiceInterface $courseInterface)
     {
-        //$this->middleware('auth');
         $this->profileInterface = $profileService;
         $this->courseInterface = $courseInterface;
     }
@@ -35,7 +34,6 @@ class UserDashboardController extends Controller
     {
         $user_id = Auth::id();
         $courses =  $this->courseInterface->getUserCourse($user_id);
-        //return $courses->links();
         return view('user.user-dashboard', ['courses' => $courses]);
     }
 
@@ -66,56 +64,10 @@ class UserDashboardController extends Controller
     {
         $user = $this->profileInterface->changePassword($id, $request);
 
-        //dd($user);
         if ($user) {
             return redirect()->route('login.get')->with('message', 'Password successfully Changed');
         }
 
         return back()->with('error', 'Old Password did not match!');
-    }
-
-    /**
-     * Get User Courses
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    //public function getUserCourse()
-    //{
-    //    
-    //}
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
     }
 }

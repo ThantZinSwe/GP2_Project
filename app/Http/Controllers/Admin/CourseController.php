@@ -25,6 +25,7 @@ class CourseController extends Controller
     }
 
     /**
+     * Show Course list
      * @return View Admin/course/index
      */
     public function index()
@@ -34,6 +35,7 @@ class CourseController extends Controller
     }
 
     /**
+     * Show Create Form
      * @return View Admin/course/create
      */
     public function create()
@@ -53,6 +55,7 @@ class CourseController extends Controller
     }
 
     /**
+     * Show Edit Form
      * @param $slug
      * @return View course edit page
      */

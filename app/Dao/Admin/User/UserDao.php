@@ -11,10 +11,10 @@ use App\Models\User;
 class UserDao implements UserDaoInterface
 {
     /**
-     * To block user
+     * To delete user
      * @param int $id
      */
-    public function blockUser($id)
+    public function deleteUser($id)
     {
         $block_user = User::find($id);
         $block_user->delete();
