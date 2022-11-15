@@ -24,6 +24,12 @@ class HomeController extends Controller
     public function index()
     {
         $home = $this->homeInterface->index();
-        return $home;
+        return view('user.home')->with([
+            'courses' => $home['courses'],
+            'languages' => $home['languages'],
+            'user' => $home['user'],
+            'video' => $home['video'],
+            'blog' => $home['blog'],
+        ]);
     }
 }

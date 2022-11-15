@@ -10,6 +10,12 @@ use App\Http\Requests\RoleRequest;
 interface RoleDaoInterface
 {
     /**
+     * To show role view
+     *
+     * @return View Role
+     */
+    public function index();
+    /**
      * To save role
      * @param int $request
      * @return Object Role

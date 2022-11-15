@@ -53,7 +53,6 @@ class CodeLanguageController extends Controller
     public function create(LanguageStoreRequest $request)
     {
         $this->languageInterface->saveLanguage($request);
-        $languages = $this->languageInterface->getLanguageList();
         return redirect()->route('admin.language.list')->with(['success' => 'Language created successfully']);
 
     }
@@ -79,8 +78,7 @@ class CodeLanguageController extends Controller
      */
     public function update($slug, LanguageStoreRequest $languageStoreRequest)
     {
-        $language = $this->languageInterface->updateLanguageBySlug($slug, $languageStoreRequest);
-        $languages = $this->languageInterface->getLanguageList();
+        $this->languageInterface->updateLanguageBySlug($slug, $languageStoreRequest);
         return redirect()->route('admin.language.list')->with(['success' => 'Language updated successfully']);
     }
 
@@ -93,7 +91,6 @@ class CodeLanguageController extends Controller
     public function delete($slug)
     {
         $this->languageInterface->deleteLanguageBySlug($slug);
-        $languages = $this->languageInterface->getLanguageList();
         return redirect()->route('admin.language.list')->with(['success' => 'Course deleted successfully']);
     }
 }

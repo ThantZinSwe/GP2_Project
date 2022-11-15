@@ -34,6 +34,7 @@ class CourseVideoController extends Controller
     }
 
     /**
+     * Show Create Form
      * @param $slug to get course
      * @return View Admin/courseVideo/create
      */
@@ -55,6 +56,7 @@ class CourseVideoController extends Controller
     }
 
     /**
+     * Show Edit Form
      * @param $slug
      * @param $courseVideo
      * @return View courseVideo edit page

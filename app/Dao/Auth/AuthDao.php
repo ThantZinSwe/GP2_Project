@@ -46,6 +46,7 @@ class AuthDao implements AuthDaoInterface
         Auth::attempt(['email' => $request->email, 'password' => $request->password]);
         return redirect('/register');
     }
+    
      /**
      * Save Token
      * @param Request $request request including inputs

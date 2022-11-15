@@ -11,6 +11,13 @@ use App\Http\Requests\BlogUpdateRequest;
 interface BlogServiceInterface
 {
     /**
+     * To show blog view
+     *
+     * @return View blog
+     */
+    public function index();
+
+    /**
      * To save blog
      * @param int $request
      * @return Object Blog
@@ -38,7 +45,7 @@ interface BlogServiceInterface
      */
     public function blogDelete($slug);
 
-     //User
+    //User
     /**
      * To show blog
      * @return Object Blog
@@ -51,5 +58,4 @@ interface BlogServiceInterface
      * @return Object Blog
      */
     public function blogDetail($slug);
-
 }

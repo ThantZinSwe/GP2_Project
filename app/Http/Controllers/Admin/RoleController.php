@@ -26,7 +26,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::get();
+        $roles = $this->roleInterface->index();
         return view('admin.role.index')->with([
             "roles" => $roles,
         ]);
@@ -62,8 +62,11 @@ class RoleController extends Controller
      */
     public function editRole($id)
     {
-        $role_edit = $this->roleInterface->editRole($id);
-        return $role_edit;
+        $edit_role = $this->roleInterface->editRole($id);
+        return view('admin.role.edit', [
+            'edit_name' => $edit_role->name,
+            'edit_id' => $edit_role->id,
+        ]);
     }
 
     /**
@@ -73,8 +76,12 @@ class RoleController extends Controller
      */
     public function updateRole(RoleRequest $request, $id)
     {
-        $this->roleInterface->updateRole($request, $id);
-        return redirect('/admin/role')->with(['success' => 'Role update successfully']);
+        $status = $this->roleInterface->updateRole($request, $id);
+        if($status){
+            return redirect('/admin/role')->with(['success' => 'Role update successfully']);
+        }
+        return redirect('/admin/role')->with(['error' => 'Role update Fail']);
+        
     }
 
     /**
@@ -84,7 +91,11 @@ class RoleController extends Controller
      */
     public function deleteRole($id)
     {
-        $this->roleInterface->deleteRole($id);
-        return redirect('/admin/role')->with(['success' => 'Role delete successfully']);
+        $status = $this->roleInterface->deleteRole($id);
+        if($status){
+            return redirect('/admin/role')->with(['success' => 'Role delete successfully']);
+        }
+        return redirect('/admin/role')->with(['error' => 'Role delete fail']);
+       
     }
 }

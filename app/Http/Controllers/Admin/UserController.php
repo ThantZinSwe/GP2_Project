@@ -32,13 +32,13 @@ class UserController extends Controller
     }
 
     /**
-     * To block user
+     * To delete user
      *@param $id
      * @return View user
      */
-    public function blockUser($id)
+    public function deleteUser($id)
     {
-        $this->userInterface->blockUser($id);
-        return redirect('/admin/users')->with(['success' => 'User block successfully']);
+        $this->userInterface->deleteUser($id);
+        return redirect('/admin/users')->with(['success' => 'User delete successfully']);
     }
 }

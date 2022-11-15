@@ -26,6 +26,7 @@ class HomeDao implements HomeDaoInterface
         $user = User::where('role_id','2')->count();
         $video = CourseVideo::count();
         $blog = Blog::count();
-        return view('user.home',compact('courses', 'languages','user','video','blog'));
+        return ['courses' => $courses, 'languages' => $languages, 'user' => $user, 'video' => $video, 'blog' => $blog];
+        
     }
 }

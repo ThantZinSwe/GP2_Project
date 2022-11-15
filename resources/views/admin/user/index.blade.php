@@ -61,7 +61,7 @@
                         <form method="post" action="{{route('user.block',$user->id)}}" >
                         {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to want to block {{$user->name}}?')" name="delete">Block</button>
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to want to block {{$user->name}}?')" name="delete">Delete</button>
                         </form>
                     </td>
                   </tr>

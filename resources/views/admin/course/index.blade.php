@@ -97,7 +97,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to want to delete this course?')">Delete</button>
                             </form>
-                            <a href="{{route('admin.courseVideo.index',$course->slug)}}" class="btn btn-primary btn-sm mr-3">Course Video</a>
+                            <a href="{{route('admin.courseVideo.index',$course->slug)}}" class="btn btn-primary btn-sm mr-3">Video</a>
                         </td>
                     </tr>
                     @endforeach

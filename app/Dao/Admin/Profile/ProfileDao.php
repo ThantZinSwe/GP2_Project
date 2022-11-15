@@ -29,7 +29,6 @@ class ProfileDao implements ProfileDaoInterface
                 ->whereYear('created_at', now()->format('Y'))
                 ->count();
         }
-
         return compact('courses', 'blog', 'user', 'enroll', 'chart_data');
     }
 
@@ -56,23 +55,15 @@ class ProfileDao implements ProfileDaoInterface
         }
 
         if ($user) {
-
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+            $user->phone = $request['phone'];
+            $user->address = $request['address'];
             if ($request->profile_img) {
-                $user->name = $request['name'];
-                $user->email = $request['email'];
-                $user->phone = $request['phone'];
-                $user->address = $request['address'];
                 $user->image = $path ?? $user->image;
-                $user->update();
-                return $user;
-            } else {
-                $user->name = $request['name'];
-                $user->email = $request['email'];
-                $user->phone = $request['phone'];
-                $user->address = $request['address'];
-                $user->update();
-                return $user;
-            }
+            }   
+            $user->update();
+            return $user;
 
         }
 
