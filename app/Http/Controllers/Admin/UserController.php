@@ -38,7 +38,7 @@ class UserController extends Controller
      */
     public function blockUser($id)
     {
-        $block_user = $this->userInterface->blockUser($id);
+        $this->userInterface->blockUser($id);
         return redirect('/admin/users')->with(['success' => 'User block successfully']);
     }
 }

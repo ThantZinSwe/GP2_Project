@@ -6,7 +6,6 @@ use App\Contracts\Services\Admin\Coupon\CouponServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CouponRequest;
 use App\Http\Requests\CouponUpdateRequest;
-use App\Models\coupon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 

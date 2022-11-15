@@ -10,10 +10,10 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\User\CourseController as UserCourseController;
 use App\Http\Controllers\User\CourseDetailsController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\UserBlogController;
+use App\Http\Controllers\User\UserCourseController;
 use App\Http\Controllers\User\UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -99,6 +99,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-history']]
     Route::put('/coupon/edit/{id}', [CouponController::class, 'update'])->name('admin.coupon.update');
     Route::delete('/coupon/{id}', [CouponController::class, 'delete'])->name('admin.coupon.delete');
 });
+
 Route::group(['middleware' => ['prevent-history']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('user.home');
 
@@ -114,7 +115,6 @@ Route::group(['middleware' => ['prevent-history']], function () {
 Route::get('/excel', [EnrollController::class, 'exportPayment'])->name("admin.enroll.export");
 
 // User
-
 Route::group(['prefix' => 'user-dashboard', 'middleware' => ['user', 'prevent-history']], function () {
     Route::get('/', [UserDashboardController::class, 'index'])->name('user.dashboard');
     Route::post('/edit/{id}', [UserDashboardController::class, 'submitUserProfile'])->name('user.profile.post');
