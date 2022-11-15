@@ -350,12 +350,12 @@
     top: 10%;
     left: 0;
     padding: 10px 25px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 1);
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
         rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
     text-transform: uppercase;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 1px;
 }
 
@@ -370,6 +370,7 @@
     border: 3px solid #ddd;
     transition: all 0.5s;
     margin-bottom: 28px;
+    background-color: #ffffff;
 }
 
 .card .card-list:hover {
@@ -458,10 +459,10 @@
     position: absolute;
     right: 3%;
     bottom: 83%;
-    padding: 37px 15px;
+    padding: 40px 15px;
     background-image: linear-gradient(
         to right bottom,
-        rgb(223, 249, 251, 0.8),
+        rgb(223, 249, 251, 1),
         rgb(134, 182, 228)
     );
     border-radius: 50%;
@@ -784,7 +785,7 @@
     .card .card-body .price {
         right: 3%;
         bottom: 83%;
-        padding: 4.818vw 1.953vw;
+        padding: 5.306vw 1.953vw;
         font-weight: 700;
     }
 
@@ -1108,7 +1109,7 @@
     .card .card-body .price {
         right: 3%;
         bottom: 83%;
-        padding: 5.781vw 2.344vw;
+        padding: 6.306vw 2.344vw;
         font-weight: 700;
     }
 
