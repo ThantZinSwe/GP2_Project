@@ -5,46 +5,40 @@ namespace App\Contracts\Dao\Admin\Coupon;
 interface CouponDaoInterface
 {
     /**
-     * To get all languages
-     * @return Object $courses to get course
+     * To get all coupons
+     * @return Object $coupon to get coupon
      */
     public function index();
 
     /**
-     * To get all languages
-     * @return Object $languages
-     */
-    public function create();
-
-    /**
-     * To store course
-     * @param CourseRequest $request request with inputs
+     * To store Coupon
+     * @param CouponRequest $request request with inputs
      */
     public function store($request);
 
     /**
-     * To edit course
+     * To edit Coupon
      * @param $slug
-     * @return Course $course
-     * @return language $languages
+     * @return Coupon $Coupon
      */
     public function edit($id);
 
     /**
-     * To update course
-     * @param CourseUpdateRequest $request request with inputs
-     * @param $slug
+     * To update Coupon
+     * @param CouponUpdateRequest $request request with inputs
+     * @param $id
      */
     public function update($request, $id);
 
     /**
-     * To delete course
-     * @param $slug
+     * To delete Coupon
+     * @param $id
      */
     public function delete($id);
+
     /**
      * To calculate coupon
-     * @param $slug
+     * @param Request api request
      */
     public function calculateCoupon($request);
 

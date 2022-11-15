@@ -49,7 +49,7 @@ class RoleController extends Controller
      */
     public function saveRole(RoleRequest $request)
     {
-        $role_store = $this->roleInterface->saveRole($request);
+        $this->roleInterface->saveRole($request);
         return redirect('/admin/role')->with([
             'success' => 'Role create successfully',
         ]);
@@ -73,7 +73,7 @@ class RoleController extends Controller
      */
     public function updateRole(RoleRequest $request, $id)
     {
-        $role_update = $this->roleInterface->updateRole($request, $id);
+        $this->roleInterface->updateRole($request, $id);
         return redirect('/admin/role')->with(['success' => 'Role update successfully']);
     }
 
@@ -84,7 +84,7 @@ class RoleController extends Controller
      */
     public function deleteRole($id)
     {
-        $role_delete = $this->roleInterface->deleteRole($id);
+        $this->roleInterface->deleteRole($id);
         return redirect('/admin/role')->with(['success' => 'Role delete successfully']);
     }
 }

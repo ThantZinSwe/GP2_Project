@@ -20,15 +20,6 @@ class CouponDao implements CouponDaoInterface
     }
 
     /**
-     * To get all languages
-     * @return Object $languages
-     */
-    public function create()
-    {
-
-    }
-
-    /**
      * To store Coupon
      * @param CouponRequest $request request with inputs
      */
@@ -45,7 +36,6 @@ class CouponDao implements CouponDaoInterface
      * To edit Coupon
      * @param $slug
      * @return Coupon $Coupon
-     * @return language $languages
      */
     public function edit($id)
     {
@@ -56,7 +46,7 @@ class CouponDao implements CouponDaoInterface
     /**
      * To update Coupon
      * @param CouponUpdateRequest $request request with inputs
-     * @param $slug
+     * @param $id
      */
     public function update($request, $id)
     {
@@ -74,7 +64,7 @@ class CouponDao implements CouponDaoInterface
 
     /**
      * To delete Coupon
-     * @param $slug
+     * @param $id
      */
     public function delete($id)
     {
@@ -90,7 +80,7 @@ class CouponDao implements CouponDaoInterface
 
     /**
      * To calculate coupon
-     * @param $slug
+     * @param Request api request
      */
     public function calculateCoupon($request)
     {

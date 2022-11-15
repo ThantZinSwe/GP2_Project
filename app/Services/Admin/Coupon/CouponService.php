@@ -18,21 +18,12 @@ class CouponService implements CouponServiceInterface
     }
 
     /**
-     * To get all languages
-     * @return Object $Coupons to get Coupon
+     * To get all coupons
+     * @return Object $coupon to get coupon
      */
     public function index()
     {
         return $this->couponDao->index();
-    }
-
-    /**
-     * To get all languages
-     * @return Object $languages
-     */
-    public function create()
-    {
-        return $this->couponDao->create();
     }
 
     /**
@@ -48,7 +39,6 @@ class CouponService implements CouponServiceInterface
      * To edit Coupon
      * @param $slug
      * @return Coupon $Coupon
-     * @return language $languages
      */
     public function edit($id)
     {
@@ -58,7 +48,7 @@ class CouponService implements CouponServiceInterface
     /**
      * To update Coupon
      * @param CouponUpdateRequest $request request with inputs
-     * @param $slug
+     * @param $id
      */
     public function update($request, $id)
     {
@@ -67,18 +57,20 @@ class CouponService implements CouponServiceInterface
 
     /**
      * To delete Coupon
-     * @param $slug
+     * @param $id
      */
     public function delete($id)
     {
         return $this->couponDao->delete($id);
     }
+
     /**
      * To calculate coupon
-     * @param $slug
+     * @param Request api request
      */
-    public function calculateCoupon($request){
+    public function calculateCoupon($request)
+    {
         return $this->couponDao->calculateCoupon($request);
     }
-  
+
 }

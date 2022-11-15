@@ -24,7 +24,7 @@ body {
 
 .minutes {
     font-size: 10px;
-    margin-left: 10px;
+    margin-left: 5px;
     color: #616161;
 }
 
@@ -34,6 +34,10 @@ a {
 }
 img {
     width: 100%;
+}
+
+textarea {
+    resize: none;
 }
 
 .l-inner {
@@ -488,7 +492,7 @@ img {
         cursor: pointer;
         margin-bottom: 9px;
     }
-    
+
     .pagination li {
         text-align: center;
         color: #333;
@@ -498,26 +502,26 @@ img {
         border-radius: 50%;
         margin-left: 20px;
     }
-    
+
     .pagination li.active {
         background-color: #86b6e4;
     }
-    
+
     .pagination li.active span {
         color: #ffffff;
     }
-    
+
     .pagination li a,
     .pagination li span {
         display: block;
         color: #2e2e2e;
         padding: 15px 20px;
     }
-    
+
     .pagination li:hover {
         background-color: #86b6e4;
     }
-    
+
     .pagination li:hover a,
     .pagination li:hover span {
         color: #ffffff;
@@ -767,7 +771,7 @@ img {
         cursor: pointer;
         margin-bottom: 1.406vw;
     }
-    
+
     .pagination li {
         text-align: center;
         color: #333;
@@ -777,26 +781,26 @@ img {
         border-radius: 50%;
         margin-left: 3.125vw;
     }
-    
+
     .pagination li.active {
         background-color: #86b6e4;
     }
-    
+
     .pagination li.active span {
         color: #ffffff;
     }
-    
+
     .pagination li a,
     .pagination li span {
         display: block;
         color: #2e2e2e;
         padding: 2.344vw 3.125vw;
     }
-    
+
     .pagination li:hover {
         background-color: #86b6e4;
     }
-    
+
     .pagination li:hover a,
     .pagination li:hover span {
         color: #ffffff;

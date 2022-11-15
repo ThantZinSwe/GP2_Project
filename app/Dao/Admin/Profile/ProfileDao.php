@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileDao implements ProfileDaoInterface
 {
+    /**
+     * to show profile info
+     * @return $course,$blog,$user,$enroll,$chart_data
+     */
     public function index()
     {
         $courses = Course::get();
@@ -26,7 +30,6 @@ class ProfileDao implements ProfileDaoInterface
                 ->count();
         }
 
-        //
         return compact('courses', 'blog', 'user', 'enroll', 'chart_data');
     }
 

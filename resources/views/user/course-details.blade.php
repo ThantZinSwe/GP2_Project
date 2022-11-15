@@ -73,7 +73,7 @@
                     {{-- Course Review --}}
                     @if (Auth::check())
                         <div class="review">
-                            <textarea name="" id="" cols="30" class="comment" rows="10" placeholder="Enter review"></textarea>
+                            <textarea name="" id="" cols="30" class="comment" rows="8" placeholder="Enter review"></textarea>
                             <span style="color: red" class="d-none commentError">Comment Field is required.</span>
                             <div class="review-btn">
                                 <a href="#" data-slug="{{$course->slug}}" data-user_id="{{auth()->user()->id}}" class="btn btn-primary review-submit">Submit</a>

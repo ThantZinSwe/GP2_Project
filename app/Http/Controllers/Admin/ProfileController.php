@@ -6,7 +6,6 @@ use App\Contracts\Services\Admin\Profile\ProfileServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminProfileRequest;
 use App\Http\Requests\UserPassWordRequest;
-use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -73,7 +72,6 @@ class ProfileController extends Controller
 
         $user = $this->profileInterface->changePassword($id, $request);
 
-//dd($user);
         if ($user) {
             return redirect()->route('login.get')->with('message', 'Password successfully Changed');
         }

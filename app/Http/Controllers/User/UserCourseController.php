@@ -7,7 +7,7 @@ use App\Contracts\Services\Admin\Lan\LanServiceInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CourseController extends Controller
+class UserCourseController extends Controller
 {
     private $courseInterface;
     private $lanInterface;
@@ -16,13 +16,15 @@ class CourseController extends Controller
         $this->courseInterface = $courseInterface;
         $this->lanInterface = $lanServiceInterface;
     }
-    public function index(){
+    public function index()
+    {
         $languages = $this->lanInterface->getLanguageList();
         $courses = $this->courseInterface->getCourseWithLanguage();
-        return view('user.course', ['languages' => $languages, 'courses' => $courses ]);
+        return view('user.course', ['languages' => $languages, 'courses' => $courses]);
     }
-    public function searchByApi(Request $request){
+    public function searchByApi(Request $request)
+    {
         return $this->courseInterface->searchByApi($request);
     }
- 
+
 }
