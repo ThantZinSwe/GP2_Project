@@ -239,6 +239,7 @@ class CourseDao implements CourseDaoInterface
         }
 
         $courses = $courses->paginate(6);
+        $courses->appends($request->all());
         return $courses;
     }
 
@@ -248,7 +249,7 @@ class CourseDao implements CourseDaoInterface
      */
     public function getCourseWithLanguage()
     {
-        return Course::with('languages')->paginate(5);
+        return Course::with('languages')->paginate(6);
     }
 
     /**
