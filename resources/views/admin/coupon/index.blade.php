@@ -35,9 +35,9 @@
             <h3 class="card-title">Coupon
 
             </h3>
-            
+
             <div class="d-flex justify-content-end">
-                <a href="{{route('admin.coupon.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Coupon Create</a>
+                <a href="{{route('admin.coupon.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Create Coupon </a>
             </div>
           </div>
           <!-- /.card-header -->
@@ -58,14 +58,14 @@
                     <td>{{$coupon->code}}</td>
                     <td>{{$coupon->discount}}%</td>
                     <td class="d-flex border-bottom-0">
-                        <a href="{{route('admin.coupon.edit',$coupon->id)}}" class="btn 
+                        <a href="{{route('admin.coupon.edit',$coupon->id)}}" class="btn
                         btn-warning btn-sm mr-3">Edit</a>
-                       
+
                         <form method="post" action="{{route('admin.coupon.delete',
                           $coupon->id)}}" >
                         @csrf
                         {{ method_field('DELETE') }}
-                            <button type="submit" class="btn btn-danger btn-sm" 
+                            <button type="submit" class="btn btn-danger btn-sm"
                             onclick="return confirm('Are you sure to want to delete this Coupon?')" name="delete">Delete</button>
                         </form>
                     </td>

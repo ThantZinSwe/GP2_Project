@@ -311,17 +311,16 @@ class CourseDao implements CourseDaoInterface
         $latestCourses = Course::with('languages')->orderBy('id', 'desc')->limit(3)->get();
         $comments = Comment::where('course_id', $course->id)->orderBy('id', 'desc')->get();
 
-        if ($course->type == "free") {
+        if ($course->type == "free" && Auth::check()) {
             return compact('course', 'courseVideo', 'latestCourses', 'comments');
         }
 
         if (Auth::check() && $course->type == "paid") {
-            if (Payment::count() > 0) {
-                $enroll = Payment::where('user_id', auth()->user()->id)
-                    ->where('course_id', $course->id)
-                    ->where('status', 'accepted')
-                    ->first();
-            }
+
+            $enroll = Payment::where('user_id', auth()->user()->id)
+                ->where('course_id', $course->id)
+                ->where('status', 'accepted')
+                ->first();
 
             if (isset($enroll)) {
                 return compact('course', 'courseVideo', 'latestCourses', 'enroll', 'comments');

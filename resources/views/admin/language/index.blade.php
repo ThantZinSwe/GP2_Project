@@ -36,7 +36,7 @@
 
             </h3>
             <div class="d-flex justify-content-end">
-                <a href="{{route('admin.language.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i> Language Create</a>
+                <a href="{{route('admin.language.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Create Language </a>
             </div>
           </div>
           <!-- /.card-header -->

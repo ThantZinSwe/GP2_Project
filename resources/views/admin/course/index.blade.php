@@ -50,7 +50,7 @@
                         </span>
                     </div>
                 </form>
-                <a href="{{route('admin.course.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i> Course Create</a>
+                <a href="{{route('admin.course.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Create Course</a>
             </div>
           </div>
           <!-- /.card-header -->
