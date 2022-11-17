@@ -302,7 +302,9 @@ textarea {
 .pagination li.active span {
     color: #ffffff;
 }
-
+.pagination li.active a {
+    color: #ffffff;
+}
 .pagination li a,
 .pagination li span {
     display: block;
