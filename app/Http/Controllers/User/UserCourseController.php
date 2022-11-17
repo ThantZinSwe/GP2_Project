@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 
 class UserCourseController extends Controller
 {
-     /**
+    /**
      * UserCourse interface
      */
     private $courseInterface;
     private $lanInterface;
-      /**
+    /**
      * UserCourse Constructor
      */
     public function __construct(CourseServiceInterface $courseInterface, LanServiceInterface $lanServiceInterface)
@@ -35,7 +35,7 @@ class UserCourseController extends Controller
     }
 
     /**
-     * Search Course By Api 
+     * Search Course By Api
      *
      * @param Request $request
      * @return search object

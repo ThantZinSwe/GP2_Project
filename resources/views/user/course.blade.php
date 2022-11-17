@@ -70,7 +70,7 @@
             {{ $courses->links()}}
         </ul>
         <ul class="search-card-container card clear-fix">
-        
+
         </ul>
     </div>
 </section>
