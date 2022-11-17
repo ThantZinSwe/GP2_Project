@@ -23,7 +23,7 @@
                         <a href="{{route('user.courseDetails',$course->slug)}}"><i class="fa-solid fa-clapperboard"></i> Course Outline</a>
                     </h3><br>
                     <ul class="outline-lists">
-                        @if ($course->type == 'free' || isset($enroll))
+                        @if (($course->type == 'free' || isset($enroll))  && auth()->check())
                             @foreach ($course->courseVideos as $video)
                             <li>
                                 <a href="{{route('user.courseVideo',[$course->slug,$video->slug])}}">

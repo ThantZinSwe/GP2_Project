@@ -35,9 +35,9 @@
             <h3 class="card-title">Role
 
             </h3>
-            
+
             <div class="d-flex justify-content-end">
-                <a href="{{route('admin.role.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i> Role Create</a>
+                <a href="{{route('admin.role.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Create Role </a>
             </div>
           </div>
           <!-- /.card-header -->
@@ -57,7 +57,7 @@
                     <td>{{$r->name}}</td>
                     <td class="d-flex border-bottom-0">
                         <a href="{{route('admin.role.edit',$r->id)}}" class="btn btn-warning btn-sm mr-3">Edit</a>
-                       
+
                         <form method="post" action="{{route('admin.role.delete',$r->id)}}" >
                         {{ csrf_field() }}
                                 {{ method_field('DELETE') }}

@@ -35,9 +35,9 @@
             <h3 class="card-title">Blog
 
             </h3>
-            
+
             <div class="d-flex justify-content-end">
-                <a href="{{route('admin.blog.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Blog Create</a>
+                <a href="{{route('admin.blog.create')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Create Blog</a>
             </div>
           </div>
           <!-- /.card-header -->
@@ -64,14 +64,14 @@
                       <span class="d-inline-block text-truncate" style="max-width: 150px;">{{$blog_list->content}}</span>
                     </td>
                     <td class="d-flex border-bottom-0">
-                        <a href="{{route('admin.blog.edit',$blog_list->slug)}}" class="btn 
+                        <a href="{{route('admin.blog.edit',$blog_list->slug)}}" class="btn
                         btn-warning btn-sm mr-3">Edit</a>
-                       
+
                         <form method="post" action="{{route('admin.blog.delete',
                           $blog_list->slug)}}" >
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                            <button type="submit" class="btn btn-danger btn-sm" 
+                            <button type="submit" class="btn btn-danger btn-sm"
                             onclick="return confirm('Are you sure to want to delete this blog?')" name="delete">Delete</button>
                         </form>
                     </td>

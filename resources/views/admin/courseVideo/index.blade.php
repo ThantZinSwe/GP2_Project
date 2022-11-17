@@ -37,7 +37,7 @@
 
             </h3>
             <div class="d-flex justify-content-end">
-                <a href="{{route('admin.courseVideo.create',$course->slug)}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i> Course Video Create</a>
+                <a href="{{route('admin.courseVideo.create',$course->slug)}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Create Course Video </a>
             </div>
           </div>
           <!-- /.card-header -->

@@ -30,7 +30,7 @@
                     </h3><br>
 
                     <ul class="outline-lists">
-                        @if ($course->type == 'free' || $enroll != '')
+                        @if (($course->type == 'free' || isset($enroll))  && auth()->check())
                             @foreach ($course->courseVideos as $video)
                             <li>
                                 <a href="{{route('user.courseVideo',[$course->slug,$video->slug])}}">
@@ -63,7 +63,7 @@
                             <span class="type">Type : <span class="badge">{{$course->type}}</span></span>
                             <span class="price">Price : <span class="badge">{{$course->price}} Ks</span></span>
 
-                            @if ($course->type == "free")
+                            @if ($course->type == "free" || isset($enroll))
                             @else
                                 <a href="{{route('user.enroll',$course->slug)}}" class="btn enroll-btn btn-primary">Enroll Now !</a>
                             @endif
