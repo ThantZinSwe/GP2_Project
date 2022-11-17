@@ -21,84 +21,7 @@ $(document).ready(function () {
                 `&type=${type}`,
             method: "GET",
             success: function (data) {
-                if (data) {
-                    $(".search-card-container").empty();
-                    data.data.forEach((course) => {
-                        var price_str = "price";
-                        if (course.price == 0) {
-                            price_str = "price-zero";
-                        }
-                        if (course.type == "free") {
-                            $(".search-card-container").append(
-                                `<li class="card-list">
-                                    <a href="${DOMAIN}courses/${course.slug}">
-                                        <div class="card-img">
-                                            <img src="${DOMAIN}images/course/${course.image}" alt="card-img">
-                                            <div class="type">
-                                                <span> ${course.type} !</span>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="name">${course.name}</h3>
-                                            <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At - ` +
-                                    new Date(
-                                        course.created_at
-                                    ).toLocaleDateString() +
-                                    `</p>
-
-                                            <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>${course.course_videos.length}</span></p>
-                                            <br>
-
-                                            <p class="about-course">
-                                                ${course.description}
-                                            </p><br>
-                                            <div class="language">` +
-                                    course.languages.map((language) => {
-                                        return `<span class="badge">${language.name}</span>`;
-                                    }) +
-                                    `</div>
-                                <div class=${price_str}><span>${course.price} Ks</span></div>
-                                </div>
-                                    </a>
-                            </li>`
-                            );
-                        } else {
-                            $(".search-card-container").append(
-                                `<li class="card-list">
-                                    <a href="${DOMAIN}courses/${course.slug}">
-                                        <div class="card-img">
-                                            <img src="${DOMAIN}images/course/${course.image}" alt="card-img">
-                                            <div class="type">
-                                                <span> ${course.type} !</span>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="name">${course.name}</h3>
-                                            <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At -` +
-                                    new Date(
-                                        course.created_at
-                                    ).toLocaleDateString() +
-                                    `</p>
-
-                                            <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>${course.course_videos.length}</span></p>
-                                            <br>
-
-                                            <p class="about-course">
-                                                ${course.description}
-                                            </p><br>
-                                            <div class="language">` +
-                                    course.languages.map((language) => {
-                                        return `<span class="badge">${language.name}</span>`;
-                                    }) +
-                                    `</div>
-                                <div class=${price_str}><span>${course.price} Ks</span></div>
-                                </div>
-                                    </a>
-                            </li>`
-                            );
-                        }
-                    });
-                }
+                showCard(data);
             },
         });
     });
@@ -118,22 +41,27 @@ $(document).ready(function () {
             url: DOMAIN + "api/courses/search?type=" + type,
             method: "GET",
             success: function (data) {
-                console.log(data.links);
                 showCard(data);
             },
         });
     });
 
-    $(document).on("click", ".search-pagination a", function (e) {
+    $(document).on("click", ".search-card-container .search-pagination a", function (e) {
         e.preventDefault();
-        let page = $(this).attr("href").split("page=")[1];
-        pagination(page);
+        let href = $(this).attr("href")
+        let page = $(this).attr("href").split("page=")[1]
+        pagination(href);
+        $('.search-card-container .search-pagination .page-item').removeClass('active')
+        $(this).parent('.search-card-container .page-item').addClass('active')
+        $(this).parent('.search-card-container .page-item').attr('aria-current', 'page')
+        console.log(page)
     });
 
-    function pagination(page) {
+    function pagination(href) {
         $.ajax({
-            url: `/api/courses/search?page=${page}`,
+            url: href,
             success: function (data) {
+            
                 showCard(data);
             },
         });
@@ -161,6 +89,7 @@ $(document).ready(function () {
             url: DOMAIN + "api/courses/search?tag=" + tag + `&type=${type}`,
             method: "GET",
             success: function (data) {
+               
                 showCard(data);
             },
         });
@@ -168,93 +97,76 @@ $(document).ready(function () {
 
     function showCard(data) {
         if (data) {
+            console.log(data)
             $(".search-card-container").empty();
             data.data.forEach((course) => {
                 var price_str = "price";
                 if (course.price == 0) {
                     price_str = "price-zero";
                 }
-                if (course.type == "free") {
-                    $(".search-card-container").append(
-                        `<li class="card-list">
-                            <a href="${DOMAIN}courses/${course.slug}">
-                                <div class="card-img">
-                                    <img src="${DOMAIN}images/course/${course.image}" alt="card-img">
-                                    <div class="type">
-                                        <span> ${course.type} !</span>
-                                    </div>
+                $(".search-card-container").append(
+                    `<li class="card-list">
+                        <a href="${DOMAIN}courses/${course.slug}">
+                            <div class="card-img">
+                                <img src="${DOMAIN}images/course/${course.image}" alt="card-img">
+                                <div class="type">
+                                    <span> ${course.type} !</span>
                                 </div>
-                                <div class="card-body">
-                                    <p class="name">${course.name}</h3>
-                                    <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At - ` +
-                            new Date(course.created_at).toLocaleDateString() +
-                            `</p>
+                            </div>
+                            <div class="card-body">
+                                <p class="name">${course.name}</h3>
+                                <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At -` +
+                        new Date(course.created_at).toLocaleDateString() +
+                        `</p>
 
-                                    <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>${course.course_videos.length}</span></p>
-                                    <br>
+                                <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>${course.course_videos.length}</span></p>
+                                <br>
 
-                                    <p class="about-course">
-                                        ${course.description}
-                                    </p><br>
-                                    <div class="language">` +
-                            course.languages.map((language) => {
-                                return `<span class="badge">${language.name}</span>`;
-                            }) +
-                            `</div>
-                        <div class=${price_str}><span>${course.price} Ks</span></div>
-                        </div>
-                            </a>
-                    </li>`
-                    );
-                } else {
-                    $(".search-card-container").append(
-                        `<li class="card-list">
-                            <a href="${DOMAIN}courses/${course.slug}">
-                                <div class="card-img">
-                                    <img src="${DOMAIN}images/course/${course.image}" alt="card-img">
-                                    <div class="type">
-                                        <span> ${course.type} !</span>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p class="name">${course.name}</h3>
-                                    <p class="create-time"><i class="fa-solid fa-calendar-day"></i> Created At -` +
-                            new Date(course.created_at).toLocaleDateString() +
-                            `</p>
-
-                                    <p class="course-video"><i class="fa-solid fa-video"></i> Videos - <span>${course.course_videos.length}</span></p>
-                                    <br>
-
-                                    <p class="about-course">
-                                        ${course.description}
-                                    </p><br>
-                                    <div class="language">` +
-                            course.languages.map((language) => {
-                                return `<span class="badge">${language.name}</span>`;
-                            }) +
-                            `</div>
-                        <div class=${price_str}><span>${course.price} Ks</span></div>
-                        </div>
-                            </a>
-                    </li>`
-                    );
-                }
+                                <p class="about-course">
+                                    ${course.description}
+                                </p><br>
+                                <div class="language">` +
+                        course.languages.map((language) => {
+                            return `<span class="badge">${language.name}</span>`;
+                        }) +
+                        `</div>
+                    <div class=${price_str}><span>${course.price} Ks</span></div>
+                    </div>
+                        </a>
+                </li>`
+                );
+      
             });
-
+            
+            
             if (data.links.length > 3) {
+                
+                let rowLen = data.links.length
                 $(".search-card-container").append(`
                 <nav>
                     <ul class="pagination search-pagination">
-                        <li class="page-item disabled" aria-disabled="true" aria-label="« Previous">
-                            <span class="page-link" aria-hidden="true">‹</span>
-                        </li>
-                        <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="http://127.0.0.1:8000/api/courses/search?page=1">1</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="http://127.0.0.1:8000/api/courses/search?page=2">2</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="http://127.0.0.1:8000/api/courses/search?page=2" rel="next" aria-label="Next »">›</a>
-                        </li>
+                       `+
+                   
+                    data.links.map((data, i) => {
+                   
+                        if (rowLen === i + 1) {
+                            return (`<li class="page-item ${data.active ? 'active': ''}">
+                            <a class="page-link" href="${data.url}">›</a>
+                        </li>`)
+                        }
+                        if (i === 0) {
+                            return (`<li class="page-item ${data.active ? 'active': ''}" >
+                            <a class="page-link" href="${data.url}">‹</a>
+                            </li>`)
+                        }
+                        
+                        return (`<li class="page-item ${data.active ? 'active': ''}" >
+                            <a class="page-link" href="${data.url}">${data.label}</a>
+                        </li>`)
+                        
+               
+                    }).join(' ')
+                    +`
                     </ul>
                 </nav>
                 `);

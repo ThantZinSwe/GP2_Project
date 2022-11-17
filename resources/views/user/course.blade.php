@@ -60,12 +60,11 @@
                             <div class="price{{$item->price == 0 ? '-zero' : ''}}">
                                 <span>{{$item->price}} Ks</span>
                             </div>
-                        </div>
                     </a>
                 </li>
                 @endforeach
             @else
-                <span style="text-align: center; font-size: 20px;">There is no Courses Availible!</span>
+                <span style="text-align: center;font-size: 28px;display: block;margin: 10px 0 20px;">There is no Courses Availible!</span>
             @endif
             {{ $courses->links()}}
         </ul>
