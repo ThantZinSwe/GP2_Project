@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Courses</h1>
+            <h1 class="m-0">Enroll</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -36,7 +36,7 @@
 
             </h3>
             <div class="d-flex justify-content-end">
-                <a href="{{route('admin.enroll.export')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Export</a>
+                <a href="{{route('admin.enroll.export')}}" class="btn btn-secondary "> <i class="fas fa-download mr-2"></i>Export</a>
                 &nbsp
                 <a href="{{route('admin.enroll.import')}}" class="btn btn-secondary "> <i class="fas fa-plus-circle mr-2"></i>Import</a>
             </div>
