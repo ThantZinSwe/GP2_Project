@@ -282,13 +282,10 @@ class CourseDao implements CourseDaoInterface
         $enroll = "";
         $comments = Comment::where('course_id', $course->id)->orderBy('id', 'desc')->get();
         if (Auth::check()) {
-            if (Payment::count() > 0) {
-                $enroll = Payment::where('user_id', auth()->user()->id)
-                    ->where('course_id', $course->id)
-                    ->where('status', 'accepted')
-                    ->first();
-            }
-
+            $enroll = Payment::where('user_id', auth()->user()->id)
+                ->where('course_id', $course->id)
+                ->where('status', 'accepted')
+                ->first();
         }
 
         if (!$course) {
