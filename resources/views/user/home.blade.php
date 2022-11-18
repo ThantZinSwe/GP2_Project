@@ -104,8 +104,8 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ea aspernatur hic illo voluptate tempora possimus dolorem </p>
         </li>
         <li class="home-belist">
-        <i class="fa-solid fa-certificate"></i>
-        <h5>Certification</h5>
+        <i class="fa-solid fa-ticket"></i>
+        <h5>Discount Coupon</h5>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ea aspernatur hic illo voluptate tempora possimus dolorem </p>
         </li>
       </ul>
