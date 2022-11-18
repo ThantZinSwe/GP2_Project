@@ -28,7 +28,7 @@
           echo $created_at = $created_at[0];
         ?></span>
         <div class="blog-clength">
-          {{$blog->content}}}
+          {{$blog->content}}
         </div>
         <a href="{{route('user.blog.detail',$blog->slug)}}" class="blog-detail">To Read</a>
     </li>
