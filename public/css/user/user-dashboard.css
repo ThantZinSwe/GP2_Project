@@ -613,13 +613,15 @@
 
     .sec-mv .header .profile-nav li a {
         font-weight: 600;
+        outline: none;
     }
     
     .sec-mv .header .profile-nav li i{
         padding-right: 1.406vw;
     }
+    
     .sec-mv .header .profile-nav li a:hover {
-        opacity: 0.5;
+        opacity: 1;
     }
     .sec-mv .header .profile-nav .down {
         margin-left: 1.719vw;
@@ -873,7 +875,7 @@
     
     #user-course .card .card-list {
         float: none;
-        width: 70.33%;
+        width: 100%;
         margin: 0 auto 4.375vw;
         box-shadow: rgb(0 0 0 / 25%) 0vw 0.0625em 0.0625em, rgb(0 0 0 / 25%) 0vw 0.125em 0.5em, rgb(255 255 255 / 10%) 0vw 0vw 0vw 0.156vw inset;
         border-radius: 1.563vw;

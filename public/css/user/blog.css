@@ -250,7 +250,7 @@
     }
 
     .blog-list li:nth-child(3n) {
-        margin-right: 10%;
+        margin-right: 9%;
     }
     .blog-card a {
         display: inline-block;

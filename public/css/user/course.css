@@ -318,10 +318,13 @@ input[type='file'] {
         margin-bottom: 4.21vw;
     }
     .card-container .card-list:nth-child(3n){
-        margin-right: 4.901vw !important;
+        margin-right: 4.901vw ;
     }
     .card-container .card-list:nth-child(2n){
         margin-right: 0;
+    }
+    .card-container .card-list:last-child{
+        margin-right: 0 !important;
     }
 }
 
